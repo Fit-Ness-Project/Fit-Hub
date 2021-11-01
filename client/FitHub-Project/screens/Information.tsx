@@ -34,7 +34,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
        style = {styles.submitButton}
           
        >
-       <Text style = {styles.submitButtonText}> Calculate </Text>
+       <Text style = {styles.submitButtonText}> Submit </Text>
     </TouchableOpacity>
     <Text style = {styles.resultText}></Text>
     < Text style = {styles.resultText}></Text>

@@ -32,7 +32,7 @@ const INfoPage = ({ navigation } : RootTabScreenProps<'UserInfo'>) =>{
          style = {styles.submitButton}
             
          >
-         <Text style = {styles.submitButtonText}> Calculate </Text>
+         <Text style = {styles.submitButtonText}> Submet </Text>
       </TouchableOpacity>
       <Text style = {styles.resultText}></Text>
       < Text style = {styles.resultText}></Text>
