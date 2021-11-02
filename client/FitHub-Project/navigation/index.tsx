@@ -11,7 +11,7 @@ import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
 
 
-import FoodScren from '../screens/HomePage/getData/Profile/MyProfile';
+import CommunityScren from '../screens/HomePage/getData/community/communuty';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
@@ -20,6 +20,11 @@ import TabOneScreen from '../screens/Information';
 import Calendar from '../screens/Calendar';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import ChangeView from '../screens/HomePage/getData/HomeVue/HomeVue';
+import FoodScren from '../screens/HomePage/getData/Profile/MyProfile';
+import Coash from '../components/coash/Index';
+import Blogs from '../screens/Blogs/Blogs';
+import GymScrean from '../screens/Gym/Gym';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -37,7 +42,7 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
  */
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-function RootNavigator() {
+ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
@@ -45,6 +50,10 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
+      <Stack.Screen name="Food" component={FoodScren} />
+        <Stack.Screen name="coach" component={Coash} />
+        <Stack.Screen name="Blogs" component={Blogs} />
+        <Stack.Screen name="Gym" component={GymScrean} />
     </Stack.Navigator>
   );
 }
@@ -60,14 +69,14 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-    //should be Log in after I puul
+    //should be Log in af ter I puul
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        component={ChangeView}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
@@ -95,12 +104,20 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="calendar-o" color={color} />,
         }}
       />
-      <BottomTab.Screen
+       <BottomTab.Screen
+        name="Community"
+        component={CommunityScren}
+        options={{
+          title: 'Community',
+          tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
+        }}
+      />
+       <BottomTab.Screen
         name="Food"
-        component={FoodScren}
+        component={TabOneScreen}
         options={{
           title: 'My Profile',
-          tabBarIcon: ({ color }) => <TabBarIcon name="calendar-o" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
     </BottomTab.Navigator>

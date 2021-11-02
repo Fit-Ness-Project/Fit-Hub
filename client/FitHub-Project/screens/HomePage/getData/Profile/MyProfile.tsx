@@ -5,7 +5,7 @@ import EditScreenInfo from '../../../../components/EditScreenInfo';
 import { Text, View,  TouchableOpacity, TextInput } from '../../../../components/Themed';
 import { RootTabScreenProps } from '../../../../types';
 
-export default function FoodScren({ navigation }: RootTabScreenProps<'Food'>) {
+export default function MyProfile({ navigation }: RootTabScreenProps<'Food'>) {
   return (
   <View >
      <Text >

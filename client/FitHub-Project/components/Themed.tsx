@@ -30,8 +30,8 @@ type ThemeProps = {
 
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
-export type TouchableProps = ThemeProps & TouchableOpacityView['props']
-export type TextInputProps = ThemeProps & TextInputView['props']
+export type TouchableProps = ThemeProps & TouchableOpacityView['props'];
+export type TextInputProps = ThemeProps & TextInputView['props'];
 
 export function Text(props: TextProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
