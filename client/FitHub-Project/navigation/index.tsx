@@ -28,7 +28,7 @@ import {
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import ChangeView from "../screens/HomePage/getData/HomeVue/HomeVue";
-import Coash from "../components/coash/Index";
+import Coach from "../components/coachs/allCoachs";
 import Blogs from "../screens/Blogs/Blogs";
 import GymScrean from "../screens/Gym/Gym";
 import Event from "../screens/Events/Events";
@@ -71,7 +71,7 @@ function RootNavigator() {
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
       <Stack.Screen name="Food" component={FoodScren} />
-      <Stack.Screen name="coach" component={Coash} />
+      <Stack.Screen name="coach" component={Coach} />
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Gym" component={GymScrean} />
       <Stack.Screen name="Events" component={Event} />
