@@ -34,7 +34,6 @@ const [searchData, setSearchData] = useState<Coach[]>([]);
 //     }
 // });   
 
-
 useEffect(() => {
     axios 
     .get('http://192.168.11.19:5000/coachs')
@@ -63,7 +62,7 @@ const renderItems: React.FC<{item:Coach}> = ({item})=> {
     <Image source={{uri: item.imageUrl}} style={styles.image}  />
     <View style={styles.footer} >
         <Text  style={styles.footerText}  >{item.coachName} </Text>
-        <Text  style={styles.footerText}  >{item.rating} TND</Text>
+        <Text  style={styles.footerText}  >{item.price} TND</Text>
     </View>
  </TouchableOpacity>
 }
@@ -85,7 +84,7 @@ const ItemSeparatorView = () => {
 return (
  
     <View  style={styles.container}>
-        <View>
+        {/* <View>
             <TextInput
             // value={search}
             />
@@ -94,7 +93,7 @@ return (
     ItemSeparatorComponent={ItemSeparatorView}
     renderItem={ItemView}
    />
-   </View>
+   </View> */}
        <StatusBar   />
        <Text  style={styles.title} >Available Coachs  </Text>
          
