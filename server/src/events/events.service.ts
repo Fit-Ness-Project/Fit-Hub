@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
@@ -7,7 +8,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class EventsService {
-  constructor(@InjectRepository(Event) private eventsRepository: Repository<Event>) { }
+  constructor(
+    @InjectRepository(Event) private eventsRepository: Repository<Event>,
+  ) {}
   create(createEventDto: CreateEventDto) {
     return this.eventsRepository.save(createEventDto);
   }
@@ -21,10 +24,10 @@ export class EventsService {
   }
 
   update(id: number, updateEventDto: UpdateEventDto) {
-    return this.eventsRepository.update(id,updateEventDto);
+    return this.eventsRepository.update(id, updateEventDto);
   }
 
   async remove(id: number): Promise<void> {
-    await this.eventsRepository.delete(id) ;
-    }
+    await this.eventsRepository.delete(id);
+  }
 }
