@@ -9,6 +9,7 @@ export class UpdateCoachDto extends PartialType(CreateCoachDto) {
     description: string;
     adress: string; 
     user_id : Number; 
-    latitude :  string;
-    logitude :  string;
+    phoneNumber : Number; 
+    email : string; 
+    imageUrl : string;
 }
