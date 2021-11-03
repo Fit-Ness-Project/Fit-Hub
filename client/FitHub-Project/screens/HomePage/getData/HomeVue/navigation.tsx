@@ -3,7 +3,7 @@ import ChangeView from "./HomeVue";
 import BlogScreen from "../../../Blogs/Blogs";
 import FoodScreen from "../../../Food/Food";
 import GymScreen from "../../../Gym/Gym";
-import CoachScreen from "../../../../components/coash/Index";
+import CoachScreen from "../../../../components/coachs/allCoachs";
 import EventScreen from "../../../Events/Events";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -16,6 +16,7 @@ export enum AppScreens {
   CoachScreen = "CoachScreen",
   EventScreen = "EventScreen",
 }
+
 export type AuthStackParamList = {
   ChangeView: undefined;
   BlogScreen: undefined;

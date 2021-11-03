@@ -12,7 +12,6 @@ export class Coach {
     @Column()
     rating: Number; 
 
-
     @Column()
     price: Number;
 
@@ -26,10 +25,11 @@ export class Coach {
     user_id : Number; 
 
     @Column()
-    latitude :  string;
+    phoneNumber : Number; 
 
     @Column()
-    longitude :  string;
+    email : string; 
 
-
+    @Column()
+    imageUrl : string;
 }
