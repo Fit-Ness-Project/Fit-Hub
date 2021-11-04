@@ -7,16 +7,14 @@ import * as Location from 'expo-location';
 import MapView, { Callout, Circle, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { ActivityIndicator } from 'react-native';
-const initialState = {
-  latitude : 37.78825, 
-  longitude : -122.4324,
-  latitudeDelta :0.0922, 
-  longitudeDelta : 0.0421
-}
+
+
 export default function TabOneScreen() {
   const [location, setLocation] = useState({
-    latitude : null, 
-    longitude : null,
+    latitude : 36.880384, 
+    longitude : 36.880384,
+    latitudeDelta: 0,
+longitudeDelta: 0
   });
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -28,12 +26,12 @@ export default function TabOneScreen() {
         return;
       }
 
-      let location = await Location.getCurrentPositionAsync({});
-      const {longitude , latitude} = location.coords
+      let position = await Location.getCurrentPositionAsync({});
+      const {longitude , latitude} = position.coords
       setLocation({ 
         longitude,
         latitude,
-        latitudeDelta :0.0922, 
+         latitudeDelta :0.0922, 
         longitudeDelta : 0.0421
       });
     })();
@@ -51,8 +49,7 @@ export default function TabOneScreen() {
       <MapView style={styles.map} initialRegion = {location} 
           provider = "google" showsUserLocation>
     
-    <Marker coordinate = {location}
-      pinColor = "black">
+    <Marker coordinate = {location}>
       
         <Callout>
           <Text>I'm Here.</Text>

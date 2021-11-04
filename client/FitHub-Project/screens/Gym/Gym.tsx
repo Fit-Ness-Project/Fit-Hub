@@ -1,16 +1,24 @@
 import * as React from 'react';
-import { StyleSheet , Dimensions } from 'react-native';
+import  { StyleSheet , Dimensions } from 'react-native';
 import Map from "../../components/Gyms/Map"
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
-
+import Gyms from "../../components/Gyms/Gyms"
 import { RootTabScreenProps } from '../../types';
 
 export default function GymScrean({ navigation }: RootTabScreenProps<'Food'>) {
   return (
+    
    <View style={{width:'100%', height:'100%'}}>
-   <Map style={{width:'100%', height:'35%'}}></Map>
-   <View style={{width:'100%', height:'65%'}}></View>
+   <Map ></Map>
+   <View style={{width:'100%', height:'65%'}}>
+     {/* <View style = {{width : '100%' , height : "100%"}}> */}
+       <Gyms/>
+
+     {/* </View> */}
+     
+   </View>
+   
 </View>
 )
   }
@@ -43,4 +51,6 @@ export default function GymScrean({ navigation }: RootTabScreenProps<'Food'>) {
      width: '80%',
      backgroundColor:'yellow',
    },
+   test : {width:'100%',
+    height:'30%'}
  });
