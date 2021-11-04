@@ -34,6 +34,7 @@ import Blogs from "../screens/Blogs/Blogs";
 import GymScrean from "../screens/Gym/Gym";
 import Event from "../screens/Events/Events";
 import FoodScren from "../screens/Food/Food";
+
 export default function Navigation({
   colorScheme,
 }: {
@@ -102,7 +103,7 @@ function BottomTabNavigator() {
         name="TabOne"
         component={ChangeView}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Home",
+          title: "",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
@@ -125,7 +126,7 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={Calendar}
         options={{
-          title: "Calendar",
+          title: "",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="calendar-o" color={color} />
           ),
@@ -135,7 +136,7 @@ function BottomTabNavigator() {
         name="Community"
         component={CommunityScren}
         options={{
-          title: "Community",
+          title: "",
           tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
         }}
       />
@@ -143,7 +144,7 @@ function BottomTabNavigator() {
         name="myProfile"
         component={MyProfile}
         options={{
-          title: "My Profile",
+          title: "",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />

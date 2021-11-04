@@ -18,15 +18,12 @@ export default function Event() {
 
   const [eventhData, setEventData] = useState<Events[]>([]);
 
-  const [searchData, setSearchData] = useState<Events[]>([]);
-
   useEffect(() => {
     axios
       .get("http://192.168.11.134:5000/events")
 
       .then((response) => {
         setEventData(response.data);
-        setSearchData(response.data);
       })
       .catch((Error) => {
         console.log(Error);
@@ -52,7 +49,6 @@ export default function Event() {
   };
   return (
     <View>
-      <Text> Events</Text>
       <FlatList
         data={eventhData}
         renderItem={renderItems}
