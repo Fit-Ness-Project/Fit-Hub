@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Picker } from 'react-native';
-import { Text, View,  TouchableOpacity, TextInput } from '../components/Themed';
+import { Text, View,  TouchableOpacity , TextInput } from '../components/Themed';
 
 
 export default function TabOneScreen() {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   submitButtonText:{
      textAlign: "center",
      color: 'white',
-    // fontWeight:"bold",
+   //  fontWeight:"bold",
      fontSize: 18,
   },
   output:{

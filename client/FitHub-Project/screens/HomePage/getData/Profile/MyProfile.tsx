@@ -3,7 +3,7 @@ import { Text , View} from '../../../../components/Themed';
 import { Card, Title, Paragraph } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import tw from 'tailwind-react-native-classnames'
-import { width } from '@mui/system';
+
 
 export default function MyProfile() {
   return (
