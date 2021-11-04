@@ -6,7 +6,7 @@ import { Text, View } from '../../components/Themed';
 
 import { RootTabScreenProps } from '../../types';
 
-export default function GymScrean({ navigation }: RootTabScreenProps<'Food'>) {
+export default function GymScrean() {
   return (
   <View >
      <Text >

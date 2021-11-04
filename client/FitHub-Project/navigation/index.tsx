@@ -21,6 +21,7 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/Information";
 import Calendar from "../screens/Calendar";
+import MyProfile from "../screens/HomePage/getData/Profile/MyProfile";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -75,6 +76,7 @@ function RootNavigator() {
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Gym" component={GymScrean} />
       <Stack.Screen name="Events" component={Event} />
+      <Stack.Screen name="bmi" component={TabOneScreen} />
     </Stack.Navigator>
   );
 }
@@ -138,8 +140,8 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="bmi"
-        component={TabOneScreen}
+        name="myProfile"
+        component={MyProfile}
         options={{
           title: "My Profile",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,

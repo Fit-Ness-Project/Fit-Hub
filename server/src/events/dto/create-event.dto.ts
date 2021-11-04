@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export class CreateEventDto {
   id: number;
   eventName: string;
