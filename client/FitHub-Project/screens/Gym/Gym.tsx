@@ -13,7 +13,7 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 
 import { RootTabScreenProps } from '../../types';
 
-export default function GymScrean({ navigation }: RootTabScreenProps<'Food'>) {
+export default function GymScrean() {
   return (
 
     

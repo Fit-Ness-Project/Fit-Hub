@@ -21,6 +21,8 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/Information";
 import Calendar from "../screens/Calendar";
+import MyProfile from "../screens/HomePage/getData/Profile/MyProfile";
+import Gyms  from "../components/Gyms/Gyms";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -30,7 +32,6 @@ import LinkingConfiguration from "./LinkingConfiguration";
 import ChangeView from "../screens/HomePage/getData/HomeVue/HomeVue";
 import Coach from "../components/coachs/allCoachs";
 import Blogs from "../screens/Blogs/Blogs";
-import GymScrean from "../screens/Gym/Gym";
 import Event from "../screens/Events/Events";
 
 import FoodScren from "../components/Food/Food";
@@ -75,8 +76,9 @@ function RootNavigator() {
       <Stack.Screen name="Food" component={FoodScren} />
       <Stack.Screen name="coach" component={Coach} />
       <Stack.Screen name="Blogs" component={Blogs} />
-      <Stack.Screen name="Gym" component={GymScrean} />
+      <Stack.Screen name="Gym" component={Gyms} />
       <Stack.Screen name="Events" component={Event} />
+      <Stack.Screen name="bmi" component={TabOneScreen} />
     </Stack.Navigator>
   );
 }
@@ -102,7 +104,7 @@ function BottomTabNavigator() {
         name="TabOne"
         component={ChangeView}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Home",
+          title: "",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
@@ -125,7 +127,7 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={Calendar}
         options={{
-          title: "Calendar",
+          title: "",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="calendar-o" color={color} />
           ),
@@ -135,15 +137,15 @@ function BottomTabNavigator() {
         name="Community"
         component={CommunityScren}
         options={{
-          title: "Community",
+          title: "",
           tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="bmi"
-        component={TabOneScreen}
+        name="myProfile"
+        component={MyProfile}
         options={{
-          title: "My Profile",
+          title: "",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />

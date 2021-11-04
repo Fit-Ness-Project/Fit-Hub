@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -21,9 +22,7 @@ import { GoogleStrategy } from './google.strategy';
     "host": "localhost",
     "port": 3306,
     "username": "root",
-
-    "password": "password",
-
+    "password": "dima3idhowa",
 
     "database": "fithub-database",
     "entities": ["dist/**/*.entity{.ts,.js}"],
