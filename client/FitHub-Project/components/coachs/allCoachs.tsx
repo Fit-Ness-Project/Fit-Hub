@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { Rating, AirbnbRating } from 'react-native-elements';
 import { Text, View } from '../Themed';
 import * as React from 'react';
 import { Coach } from "./interface";
@@ -61,7 +62,7 @@ export default function AllCoachs() {
 
 
 
-
+ 
 
   const searchFilter = (text: string) => {
     if (text) {
@@ -74,7 +75,11 @@ export default function AllCoachs() {
       setSearch(text)
     }
   }
+  
 
+  const ratingCompleted = (rating:number) => {
+    console.log("Rating is: " + rating)
+  }
 
 
   const scrollToIndex = (index: number) => {
@@ -105,19 +110,10 @@ export default function AllCoachs() {
 
       activeOpacity={1} >
       <Image source={{ uri: item.imageUrl }} style={styles.image} />
+      <Rating imageSize={25} readonly startingValue={item.rating/2} style={styles.rating} />
       <View style={styles.footer} >
         <Text style={styles.footerText}>{item.coachName} </Text>
-
-        {/* <Typography component="legend">Controlled</Typography>
-<Rating
-  name="simple-controlled"
-  value={value}
-  onChange={(event, newValue) => {
-    setValue(newValue);
-  }}
-/> */}
-
-        <Text style={styles.footerText}>{item.price} TND</Text>
+         <Text style={styles.footerText}>{item.price} TND</Text>
 
       </View>
     </TouchableOpacity>
@@ -125,16 +121,18 @@ export default function AllCoachs() {
 
 
   return (
+   
 
+   
     <View style={styles.container} >
-
-      <TextInput
+ <TextInput
         style={styles.input}
         value={search}
-        placeholder="search here..."
+        placeholder=" search your coach here..."
         underlineColorAndroid="transparent"
         onChangeText={(text) => searchFilter(text)}
       />
+     
       {/* <Text  style={styles.title} >Available Coachs  </Text>  */}
       <FlatList data={coachData}
         renderItem={renderItems}
@@ -158,7 +156,7 @@ export default function AllCoachs() {
       </View>
       <StatusBar />
     </View>
-
+    
   )
 }
 
@@ -169,16 +167,17 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
+    flexDirection: "column"
   },
   image: {
+    // flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
     width: 350,
     height: 230,
     resizeMode: 'cover',
     marginVertical: 10,
-    borderRadius: 20,
+    borderRadius: 16,
   },
   footer: {
     flexDirection: 'row',
@@ -187,7 +186,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     alignItems: 'center',
     backgroundColor: '#000',
-    borderRadius: 17,
+    borderRadius: 13,
 
 
   },
@@ -221,13 +220,16 @@ const styles = StyleSheet.create({
     padding: 10
   },
   input: {
-    height: 65,
+    width:350,
+    height: 55,
     borderWidth: 1,
     // paddingLeft: 20,
     margin: 2,
     borderColor: 'black',
     backgroundColor: "white",
     borderRadius: 6,
+  },
+  rating:{
   }
 
 })

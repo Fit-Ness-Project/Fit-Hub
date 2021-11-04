@@ -17,9 +17,6 @@ import {
     Alert
 } from "react-native";
 
-
-
-
 const Coach: React.FC<{
     route: RouteProp<{
         params: {
@@ -57,9 +54,7 @@ const Coach: React.FC<{
     return (
         <View style={styles.container}>
 
-            
-    
-  
+ 
             <Image style={styles.image} source={{ uri: params.imageUrl }} />
             <Text style={styles.title}>
 
@@ -70,8 +65,9 @@ const Coach: React.FC<{
             <Text>
                 {params.description}
             </Text>
-            <Text>{params.email}</Text>
+            <Text>{params.price} TND</Text>
             <Text>{params.adress}</Text>
+            <Text>{params.email}</Text>
             <Button onPress={createThreeButtonAlert} title="book" />
         
         </View>
@@ -84,16 +80,16 @@ export default Coach
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        flex: 4,
+        // alignItems: 'center',
+        // justifyContent: 'center',
 
     },
     image: {
         alignItems: 'center',
         justifyContent: 'center',
         width: 350,
-        height: 230,
+        height: 430,
         resizeMode: 'cover',
         marginVertical: 10,
         borderRadius: 6,
