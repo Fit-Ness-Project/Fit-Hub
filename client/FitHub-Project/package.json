@@ -24,13 +24,23 @@
     "expo-constants": "~12.1.2",
     "expo-font": "~10.0.3",
     "expo-linking": "~2.4.2",
+    "expo-location": "~13.0.4",
     "expo-splash-screen": "~0.13.3",
     "expo-status-bar": "~1.1.0",
     "expo-web-browser": "~10.0.3",
+<<<<<<< HEAD
+    "react": "^17.0.2",
+    "react-dom": "17.0.1",
+    "react-native": "0.64.2",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-maps": "^0.29.3",
+    "react-native-paper": "^4.10.0",
+=======
     "react": "^17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.2",
     "react-native-gesture-handler": "~1.10.2",
+>>>>>>> a6f3b1065cab4a026ce00f36b4b976817e727b13
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
