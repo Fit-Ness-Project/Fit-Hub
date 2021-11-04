@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+    "react-native-paper": "^4.10.0",
+=======
+>>>>>>> a6f3b1065cab4a026ce00f36b4b976817e727b13
     "react-navigation": "^4.4.4",
     "react-navigation-stack": "^2.10.4",
     "react-navigation-tabs": "^2.11.1"
