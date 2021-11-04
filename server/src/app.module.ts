@@ -20,8 +20,11 @@ import { GoogleStrategy } from './google.strategy';
     "type": "mysql",
     "host": "localhost",
     "port": 3306,
-    "username": "slim",
-    "password": "Whenimgoneeminem12345",
+    "username": "root",
+
+    "password": "password",
+
+
     "database": "fithub-database",
     "entities": ["dist/**/*.entity{.ts,.js}"],
     "synchronize": true
