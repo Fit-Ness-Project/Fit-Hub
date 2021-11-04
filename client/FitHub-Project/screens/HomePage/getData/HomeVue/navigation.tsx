@@ -5,6 +5,7 @@ import FoodScreen from "../../../Food/Food";
 import GymScreen from "../../../Gym/Gym";
 import CoachScreen from "../../../../components/coachs/allCoachs";
 import EventScreen from "../../../Events/Events";
+
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -15,6 +16,7 @@ export enum AppScreens {
   GymScreen = "GymScreen",
   CoachScreen = "CoachScreen",
   EventScreen = "EventScreen",
+  
 }
 
 export type AuthStackParamList = {
@@ -24,6 +26,7 @@ export type AuthStackParamList = {
   GymScreen: undefined;
   CoachScreen: undefined;
   EventScreen: undefined;
+
 };
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
@@ -38,6 +41,7 @@ const AuthFlowNavigator: React.FunctionComponent = () => {
         <AuthStack.Screen name={AppScreens.GymScreen} component={GymScreen} />
         <AuthStack.Screen name={AppScreens.CoachScreen} component={CoachScreen} />
         <AuthStack.Screen name={AppScreens.EventScreen} component={EventScreen} />
+       
       </AuthStack.Navigator>
     </SafeAreaProvider>
   );

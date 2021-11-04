@@ -23,7 +23,18 @@ export type RootStackParamList = {
   Food: undefined;
   Blogs: undefined;
   Gym: undefined;
-  coach: undefined;
+  coachs: undefined;
+  coach: {
+    coachId : number ,
+    coachName : string,
+    rating: number, 
+    price: number,
+    description: string,
+    adress: string,   
+    phoneNumber : number, 
+    email : string,
+    imageUrl : string
+  };
   changeViewProps: undefined;
   Events: undefined;
   bmi : undefined;
@@ -40,10 +51,11 @@ export type RootTabParamList = {
   Food: undefined;
   Blogs: undefined;
   Gym: undefined;
-  coach: undefined;
+  coachs: undefined;
   changeViewProps: undefined;
   Events: undefined;
   bmi : undefined;
+  coach : undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
