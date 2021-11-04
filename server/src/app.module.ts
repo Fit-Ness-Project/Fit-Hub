@@ -21,7 +21,10 @@ import { GoogleStrategy } from './google.strategy';
     "host": "localhost",
     "port": 3306,
     "username": "root",
-    "password": "root",
+
+    "password": "password",
+
+
     "database": "fithub-database",
     "entities": ["dist/**/*.entity{.ts,.js}"],
     "synchronize": true

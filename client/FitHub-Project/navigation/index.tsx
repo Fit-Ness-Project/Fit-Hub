@@ -32,7 +32,9 @@ import Coach from "../components/coachs/allCoachs";
 import Blogs from "../screens/Blogs/Blogs";
 import GymScrean from "../screens/Gym/Gym";
 import Event from "../screens/Events/Events";
-import FoodScren from "../screens/Food/Food";
+
+import FoodScren from "../components/Food/Food";
+
 export default function Navigation({
   colorScheme,
 }: {
