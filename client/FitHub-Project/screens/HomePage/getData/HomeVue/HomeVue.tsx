@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "../../../../components/Themed";
 import { Image } from "react-native";
 import { RootTabScreenProps } from "../../../../types";
+
 export default function ChangeView({
   navigation,
 }: RootTabScreenProps<"changeViewProps">) {
