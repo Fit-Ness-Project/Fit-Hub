@@ -1,16 +1,17 @@
 import * as React from 'react';
 import  { StyleSheet , Dimensions } from 'react-native';
-import TabOneScreen from "../../components/Gyms/Map"
+import Map from "../../components/Gyms/Map"
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import Gyms from "../../components/Gyms/Gyms"
 import { RootTabScreenProps } from '../../types';
+
+
 export default function GymScrean() {
   return (
-
     
    <View style={{width:'100%', height:'100%'}}>
-   <TabOneScreen ></TabOneScreen>
+   <Map ></Map>
    <View style={{width:'100%', height:'65%'}}>
        <Gyms/>
    </View>
