@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import ChangeView from "./HomeVue";
 import BlogScreen from "../../../Blogs/Blogs";
 import FoodScreen from "../../../Food/Food";
@@ -12,7 +12,7 @@ import TabOneScreen from "../../../Information";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
+import Gymdescription from "../../../../components/Gyms/Gym"
 export enum AppScreens {
   ChangeView = "ChangeView",
   BlogScreen = "BlogScreen",
@@ -51,11 +51,11 @@ const AuthFlowNavigator: React.FunctionComponent = () => {
         <AuthStack.Screen name={AppScreens.BlogScreen} component={BlogScreen} />
         <AuthStack.Screen name={AppScreens.GymScreen} component={GymScreen} />
         <AuthStack.Screen name={AppScreens.CoachScreen} component={CoachScreen} />
+
         <AuthStack.Screen name={AppScreens.EventScreen} component={EventScreen} />
 
 
         <AuthStack.Screen name={AppScreens.TabOneScreen} component={TabOneScreen} />
-
       </AuthStack.Navigator>
     </SafeAreaProvider>
   );

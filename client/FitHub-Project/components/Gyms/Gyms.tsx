@@ -1,12 +1,6 @@
 import * as React from 'react';
-import { ScrollView ,StyleSheet ,  FlatList,
-  Image,
-  StatusBar,
-  Dimensions,
-  Animated,
-  TouchableOpacity,
-  Platform,
-  TextInput } from 'react-native';
+import { ScrollView ,StyleSheet ,  FlatList } from 'react-native';
+  import tw from "tailwind-react-native-classnames"
 import Map from "./Map"
 import { Avatar, Button, Card, Title, Paragraph,Colors } from 'react-native-paper';
 import EditScreenInfo from '../EditScreenInfo';
@@ -15,6 +9,9 @@ import { RootTabScreenProps } from '../../types';
 import {Gym} from "./Gyminterface"
 import axios from 'axios';
 import  { useEffect, useState , useRef } from 'react'
+import { useNavigation } from '@react-navigation/core';
+
+
 const viewConfigRef = {viewAreaCoveragePercentTreshold:95}
 export default function Gyms() {
 
@@ -24,14 +21,14 @@ let flatListRef = useRef<FlatList<Gym> | null >();
 
 const [GymData, setGymData] = useState<Gym[]>([]);
 
-
+const navigation = useNavigation()
 
 useEffect(() => {
   axios 
   .get('http://192.168.11.161:5000/gyms')
    
   .then((response)=> {
-     console.log(response.data)
+    //  console.log(response.data)
       setGymData(response.data)
   })
   .catch(( Error) => {
@@ -41,18 +38,26 @@ useEffect(() => {
 }, [])
 
   return (
-    <ScrollView>
+    <ScrollView style = {tw  `bg-white`}>
       {GymData.map((e,k)=>(
 
-      <Card key = {k} >
-    <Card.Cover source={{ uri: e.imgUrl }} />
+      <Card style = {tw`bg-gray-500 w-96 ml-4 rounded mt-1`}  key = {k} >
+    <Card.Cover  source={{ uri: e.imgUrl }} />
     <Card.Content>
-      <Title>{e.gymName}</Title>
-      <Paragraph>{e.description}</Paragraph>
+      <Title style = {tw`text-white`}>  {e.gymName}</Title>
+      <Paragraph style = {tw`text-white`}>{e.description}</Paragraph>
     </Card.Content>
     <Card.Actions>
-      <Button color = "blue">See More</Button>
-      <Button color = "blue">Remove</Button>
+      <Button  onPress={() => navigation.navigate('Gymdescription' , {
+         GymId: e.id,
+         gymName: e.gymName,
+         imgUrl: e.imgUrl,
+         rating: e.rating,
+         description: e.description,
+         fields: e.fields,
+         price: e.price 
+      })} color = "#e7ff19">See More</Button>
+      <Button onPress = {()=>console.log(e)} color = "#e7ff19">Show in Maps</Button>
     </Card.Actions>
   </Card>
       ))}

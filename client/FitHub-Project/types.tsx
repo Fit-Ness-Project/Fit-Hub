@@ -14,7 +14,7 @@ declare global {
   namespace ReactNavigation {
     interface RootParamList extends RootStackParamList {}
   }
-}
+} 
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
@@ -39,6 +39,13 @@ export type RootStackParamList = {
   Events: undefined;
   bmi : undefined;
   myProfile:undefined;
+  Gymdescription:{GymId:Number,
+     gymName: string;
+    imgUrl: string;
+    rating: Number;
+    description: string;
+    fields: string;
+    price: Number;   };
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -57,7 +64,11 @@ export type RootTabParamList = {
   Events: undefined;
   bmi : undefined;
 
+
   coach : undefined;
+
+
+  Gymdescription:{GymId:number};
 
   myProfile:undefined;
 
