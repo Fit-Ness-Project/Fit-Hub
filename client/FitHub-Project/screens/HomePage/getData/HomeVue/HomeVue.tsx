@@ -49,7 +49,11 @@ export default function ChangeView({
             source={require("../../../../assets/Icons/couach.jpg")}
             style={{ width: 70, height: 70 }}
           />
-          <TouchableOpacity onPress={() => navigation.navigate("coach")}>
+
+          <TouchableOpacity onPress={() => navigation.navigate("coachs")}>
+           
+
+
             <Text>Coach</Text>
           </TouchableOpacity>
         </View>
