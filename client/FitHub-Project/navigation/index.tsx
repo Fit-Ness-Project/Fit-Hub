@@ -34,14 +34,15 @@ import Blogs from "../screens/Blogs/Blogs";
 import GymScrean from "../screens/Gym/Gym";
 import Event from "../screens/Events/Events";
 import FoodScren from "../screens/Food/Food";
-// import FoodScren from "../components/Food/Food";
-
+import { useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function Navigation({
   colorScheme,
 }: {
   colorScheme: ColorSchemeName;
 }) {
+
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
@@ -55,10 +56,23 @@ export default function Navigation({
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
- */
+ */ 
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-function RootNavigator() {
+function RootNavigator({}) {
+//   useEffect(() => {
+//     AsyncStorage.getItem('auth')
+//         .then((data) => {
+//             if (data !== null) {
+//                 navigation.navigate("bmi")
+//             }
+//             else {
+//                 navigation.navigate('signin')
+//             }
+//         })
+// })
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -74,6 +88,8 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: "modal" }}>
       <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
+
+
       <Stack.Screen name="Food" component={FoodScren} />
       <Stack.Screen name="Coachs" component={Coachs} />
       <Stack.Screen name="Blogs" component={Blogs} />
@@ -104,8 +120,7 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}
-    >
+      }}>
       <BottomTab.Screen
         name="TabOne"
         component={ChangeView}
