@@ -28,11 +28,15 @@ import {
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import ChangeView from "../screens/HomePage/getData/HomeVue/HomeVue";
-import Coach from "../components/coachs/allCoachs";
+import Coachs from "../components/coachs/allCoachs";
+import Coach from "../components/coachs/coach"
 import Blogs from "../screens/Blogs/Blogs";
 import GymScrean from "../screens/Gym/Gym";
 import Event from "../screens/Events/Events";
 import FoodScren from "../screens/Food/Food";
+// import FoodScren from "../components/Food/Food";
+
+
 export default function Navigation({
   colorScheme,
 }: {
@@ -68,19 +72,22 @@ function RootNavigator() {
         options={{ title: "Oops!" }}
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+      <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
       <Stack.Screen name="Food" component={FoodScren} />
-      <Stack.Screen name="coach" component={Coach} />
+      <Stack.Screen name="Coachs" component={Coachs} />
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Gym" component={GymScrean} />
       <Stack.Screen name="Events" component={Event} />
+     <Stack.Screen name="coach" component={Coach}  /> 
       <Stack.Screen name="Gymdescription" component={Gym} />
 
 
     </Stack.Navigator>
   );
 }
+
+
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
