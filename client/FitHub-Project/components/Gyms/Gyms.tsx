@@ -3,7 +3,7 @@ import { ScrollView ,StyleSheet ,  FlatList } from 'react-native';
   import tw from "tailwind-react-native-classnames"
 import Map from "./Map"
 import { Avatar, Button, Card, Title, Paragraph,Colors } from 'react-native-paper';
-import EditScreenInfo from '../../components/EditScreenInfo';
+import EditScreenInfo from '../EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
 import {Gym} from "./Gyminterface"
