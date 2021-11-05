@@ -3,10 +3,12 @@ import { View, Text, TouchableOpacity } from "../../../../components/Themed";
 import { Image } from "react-native";
 import { RootTabScreenProps } from "../../../../types";
 import tw from "tailwind-react-native-classnames";
+import { useNavigation } from '@react-navigation/native';
 
 export default function ChangeView({
-  navigation,
+ 
 }: RootTabScreenProps<"changeViewProps">) {
+  const navigation = useNavigation()
   return (
     <View style={tw`pt-24 flex flex-col h-full  items-center `}>
       <View style={tw`w-3/12`}></View>
@@ -50,10 +52,7 @@ export default function ChangeView({
             style={{ width: 70, height: 70 }}
           />
 
-          <TouchableOpacity onPress={() => navigation.navigate("coachs")}>
-           
-
-
+          <TouchableOpacity onPress={()=>{navigation.navigate("Coachs")}}>
             <Text>Coach</Text>
           </TouchableOpacity>
         </View>

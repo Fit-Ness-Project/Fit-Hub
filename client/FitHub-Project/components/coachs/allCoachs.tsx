@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import  {Rating } from 'react-native-elements';
 import { Text, View } from '../Themed';
 import * as React from 'react';
 import { Coach } from "./interface";
@@ -14,18 +15,17 @@ import {
   Platform,
   TextInput
 } from "react-native";
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { RootTabScreenProps } from '../../types';
-import { NavigatorScreenParams } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+// import { RootTabScreenProps } from '../../types';
+// import { NavigatorScreenParams } from '@react-navigation/native';
+// export type RootStackParamList = {
+//   HomeScreen: undefined;
+//   DetailsScreen: {
+//     itemId: number;
+//     otherParam: string;
+//   };
+// };
 
-
-export type RootStackParamList = {
-  HomeScreen: undefined;
-  DetailsScreen: {
-    itemId: number;
-    otherParam: string;
-  };
-};
 
 const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 }
 
@@ -35,15 +35,13 @@ export default function AllCoachs() {
 
   let flatListRef = useRef<FlatList<Coach> | null>();
 
-
   const [coachData, setCoachData] = useState<Coach[]>([]);
   const [search, setSearch] = useState('');
 
 
-
   useEffect(() => {
     axios
-      .get('http://192.168.43.226:5000/coachs')
+      .get('http://192.168.11.65:5000/coachs')
 
       .then((response) => {
 
@@ -61,7 +59,7 @@ export default function AllCoachs() {
 
 
 
-
+ 
 
   const searchFilter = (text: string) => {
     if (text) {
@@ -74,7 +72,11 @@ export default function AllCoachs() {
       setSearch(text)
     }
   }
+  
 
+  // const ratingCompleted = (rating:number) => {
+  //   console.log("Rating is: " + rating)
+  // }
 
 
   const scrollToIndex = (index: number) => {
@@ -85,10 +87,10 @@ export default function AllCoachs() {
 
   const renderItems: React.FC<{ item: Coach }> = ({ item }) => {
 
-    type TabParamList = {
-      Home: NavigatorScreenParams<any>;
-      Profile: { userId: string };
-    };
+    // type TabParamList = {
+    //   Home: NavigatorScreenParams<any>;
+    //   Profile: { userId: string };
+    // };
 
 
     return <TouchableOpacity onPress={() => navigation.navigate("coach", {
@@ -105,19 +107,10 @@ export default function AllCoachs() {
 
       activeOpacity={1} >
       <Image source={{ uri: item.imageUrl }} style={styles.image} />
+      <Rating imageSize={25} readonly startingValue={item.rating/2} style={styles.rating} />
       <View style={styles.footer} >
         <Text style={styles.footerText}>{item.coachName} </Text>
-
-        {/* <Typography component="legend">Controlled</Typography>
-<Rating
-  name="simple-controlled"
-  value={value}
-  onChange={(event, newValue) => {
-    setValue(newValue);
-  }}
-/> */}
-
-        <Text style={styles.footerText}>{item.price} TND</Text>
+         <Text style={styles.footerText}>{item.price} TND</Text>
 
       </View>
     </TouchableOpacity>
@@ -125,17 +118,19 @@ export default function AllCoachs() {
 
 
   return (
+   
 
+   
     <View style={styles.container} >
-
-      <TextInput
+ <TextInput
         style={styles.input}
         value={search}
-        placeholder="search here..."
+        placeholder=" search your coach here..."
         underlineColorAndroid="transparent"
         onChangeText={(text) => searchFilter(text)}
       />
-      {/* <Text  style={styles.title} >Available Coachs  </Text>  */}
+     
+    
       <FlatList data={coachData}
         renderItem={renderItems}
         keyExtractor={(item, i) => i.toString()}
@@ -158,7 +153,7 @@ export default function AllCoachs() {
       </View>
       <StatusBar />
     </View>
-
+    
   )
 }
 
@@ -169,16 +164,17 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
+    flexDirection: "column"
   },
   image: {
+    // flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
     width: 350,
     height: 230,
     resizeMode: 'cover',
     marginVertical: 10,
-    borderRadius: 20,
+    borderRadius: 16,
   },
   footer: {
     flexDirection: 'row',
@@ -187,7 +183,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     alignItems: 'center',
     backgroundColor: '#000',
-    borderRadius: 17,
+    borderRadius: 13,
 
 
   },
@@ -221,13 +217,16 @@ const styles = StyleSheet.create({
     padding: 10
   },
   input: {
-    height: 65,
+    width:350,
+    height: 55,
     borderWidth: 1,
     // paddingLeft: 20,
     margin: 2,
     borderColor: 'black',
     backgroundColor: "white",
     borderRadius: 6,
+  },
+  rating:{
   }
 
 })

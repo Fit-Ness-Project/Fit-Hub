@@ -30,14 +30,12 @@ import {
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import ChangeView from "../screens/HomePage/getData/HomeVue/HomeVue";
-
 import Coachs from "../components/coachs/allCoachs";
 import Coach from "../components/coachs/coach"
-
 import Blogs from "../screens/Blogs/Blogs";
 import Event from "../screens/Events/Events";
-
 import FoodScren from "../components/Food/Food";
+
 
 export default function Navigation({
   colorScheme,
@@ -77,20 +75,13 @@ function RootNavigator() {
       <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
       <Stack.Screen name="Food" component={FoodScren} />
-      <Stack.Screen name="coachs" component={Coachs} />
+      <Stack.Screen name="Coachs" component={Coachs} />
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Gym" component={Gyms} />
       <Stack.Screen name="Events" component={Event} />
-
-
      <Stack.Screen name="coach" component={Coach}  /> 
-     {/* options={{ headerShown: false }} */}
-
-
       <Stack.Screen name="Gymdescription" component={Gym} />
-
       <Stack.Screen name="bmi" component={TabOneScreen} />
-
     </Stack.Navigator>
   );
 }
