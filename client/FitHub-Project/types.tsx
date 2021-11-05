@@ -39,7 +39,6 @@ export type RootStackParamList = {
   changeViewProps: undefined;
   Events: undefined;
   bmi : undefined;
-  myProfile:undefined;
   Gymdescription:{GymId:Number,
      gymName: string;
     imgUrl: string;
