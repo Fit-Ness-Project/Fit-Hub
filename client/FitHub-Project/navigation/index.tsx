@@ -13,7 +13,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
-
+import Gym from "../components/Gyms/Gym"
 import CommunityScren from "../screens/HomePage/getData/community/communuty";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -78,6 +78,7 @@ function RootNavigator() {
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Gym" component={Gyms} />
       <Stack.Screen name="Events" component={Event} />
+      <Stack.Screen name="Gymdescription" component={Gym} />
       <Stack.Screen name="bmi" component={TabOneScreen} />
     </Stack.Navigator>
   );
