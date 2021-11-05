@@ -9,7 +9,7 @@ import { ScrollView ,StyleSheet ,Text,Image,  FlatList, View } from 'react-nativ
  import tw from "tailwind-react-native-classnames"
 // import  { useEffect, useState , useRef } from 'react'
 
-
+ 
 
 const viewConfigRef = {viewAreaCoveragePercentTreshold:95}
 
