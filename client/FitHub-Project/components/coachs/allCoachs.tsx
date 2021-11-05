@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { Rating, AirbnbRating } from 'react-native-elements';
+import  {Rating } from 'react-native-elements';
 import { Text, View } from '../Themed';
 import * as React from 'react';
 import { Coach } from "./interface";
@@ -15,18 +15,17 @@ import {
   Platform,
   TextInput
 } from "react-native";
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { RootTabScreenProps } from '../../types';
-import { NavigatorScreenParams } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+// import { RootTabScreenProps } from '../../types';
+// import { NavigatorScreenParams } from '@react-navigation/native';
+// export type RootStackParamList = {
+//   HomeScreen: undefined;
+//   DetailsScreen: {
+//     itemId: number;
+//     otherParam: string;
+//   };
+// };
 
-
-export type RootStackParamList = {
-  HomeScreen: undefined;
-  DetailsScreen: {
-    itemId: number;
-    otherParam: string;
-  };
-};
 
 const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 }
 
@@ -36,15 +35,13 @@ export default function AllCoachs() {
 
   let flatListRef = useRef<FlatList<Coach> | null>();
 
-
   const [coachData, setCoachData] = useState<Coach[]>([]);
   const [search, setSearch] = useState('');
 
 
-
   useEffect(() => {
     axios
-      .get('http://192.168.43.226:5000/coachs')
+      .get('http://192.168.11.65:5000/coachs')
 
       .then((response) => {
 
@@ -77,9 +74,9 @@ export default function AllCoachs() {
   }
   
 
-  const ratingCompleted = (rating:number) => {
-    console.log("Rating is: " + rating)
-  }
+  // const ratingCompleted = (rating:number) => {
+  //   console.log("Rating is: " + rating)
+  // }
 
 
   const scrollToIndex = (index: number) => {
@@ -90,10 +87,10 @@ export default function AllCoachs() {
 
   const renderItems: React.FC<{ item: Coach }> = ({ item }) => {
 
-    type TabParamList = {
-      Home: NavigatorScreenParams<any>;
-      Profile: { userId: string };
-    };
+    // type TabParamList = {
+    //   Home: NavigatorScreenParams<any>;
+    //   Profile: { userId: string };
+    // };
 
 
     return <TouchableOpacity onPress={() => navigation.navigate("coach", {
@@ -133,7 +130,7 @@ export default function AllCoachs() {
         onChangeText={(text) => searchFilter(text)}
       />
      
-      {/* <Text  style={styles.title} >Available Coachs  </Text>  */}
+    
       <FlatList data={coachData}
         renderItem={renderItems}
         keyExtractor={(item, i) => i.toString()}
