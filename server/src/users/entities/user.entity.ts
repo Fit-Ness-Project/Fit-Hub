@@ -1,4 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn} from "typeorm";
+import Recipe from '../../recipes/entities/recipe.entity';
+import Gym from '../../gyms/entities/gym.entity';
+import Event from '../../events/entities/event.entity';
+
+
 
 @Entity()
 export class User {
@@ -33,25 +38,25 @@ export class User {
     registred_at: Date 
 
     @Column()
-    events_joined: string 
-
-    @Column()
     healthy_food_posted: string 
     
     @Column()
     healthy_food_liked: string
 
-    @Column()
-    healthy_food: string 
+    @OneToOne(() => Recipe)
+    @JoinColumn()
+    recipe: Recipe
 
-    @Column()
-    gyms: string 
+    @OneToOne(() => Gym)
+    @JoinColumn()
+    gym: Gym
 
     @Column()
     event_created: string
 
-    @Column()
-    event_joined_id: number
+    @OneToOne(() => Event)
+    @JoinColumn()
+    event: Event
 
     @Column()
     bmi: number
