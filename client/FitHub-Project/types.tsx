@@ -27,7 +27,6 @@ export type RootStackParamList = {
   changeViewProps: undefined;
   Events: undefined;
   bmi : undefined;
-  myProfile:undefined;
   Gymdescription:{GymId:Number,
      gymName: string;
     imgUrl: string;
@@ -53,7 +52,6 @@ export type RootTabParamList = {
   Events: undefined;
   bmi : undefined;
   Gymdescription:{GymId:number};
-  myProfile:undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
