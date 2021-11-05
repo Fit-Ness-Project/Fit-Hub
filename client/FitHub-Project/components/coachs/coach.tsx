@@ -69,7 +69,7 @@ const Coach: React.FC<{
             <Text>{params.adress}</Text>
             <Text>{params.email}</Text>
             <Button onPress={createThreeButtonAlert} title="book" />
-        
+         
         </View>
     )
 
