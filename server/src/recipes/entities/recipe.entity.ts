@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
-export default class Recipe {
+export class Recipe {
     @PrimaryGeneratedColumn()
     id: Number;
 
@@ -22,7 +22,6 @@ export default class Recipe {
     @Column()
     comments: string 
 
-    @Column()
-    imageUrl: string 
+
 
 }

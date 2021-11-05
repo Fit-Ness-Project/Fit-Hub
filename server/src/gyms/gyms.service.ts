@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateGymDto } from './dto/create-gym.dto';
 import { UpdateGymDto } from './dto/update-gym.dto';
-import Gym  from './entities/gym.entity';
+import {Gym } from './entities/gym.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 

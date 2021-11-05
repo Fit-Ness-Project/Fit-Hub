@@ -9,6 +9,5 @@ export class UpdateRecipeDto extends PartialType(CreateRecipeDto) {
     user_id: Number 
     likes: Number
     comments: string 
-    imageUrl : string
 
 }
