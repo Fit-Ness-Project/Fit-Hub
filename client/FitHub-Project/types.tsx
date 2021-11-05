@@ -16,6 +16,7 @@ declare global {
   }
 } 
 
+
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
@@ -23,7 +24,7 @@ export type RootStackParamList = {
   Food: undefined;
   Blogs: undefined;
   Gym: undefined;
-  coachs: undefined;
+  Coachs: undefined;
   coach: {
     coachId : number ,
     coachName : string,
@@ -59,7 +60,7 @@ export type RootTabParamList = {
   Food: undefined;
   Blogs: undefined;
   Gym: undefined;
-  coachs: undefined;
+  Coachs: undefined;
   changeViewProps: undefined;
   Events: undefined;
   bmi : undefined;
