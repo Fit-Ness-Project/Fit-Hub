@@ -7,7 +7,7 @@ import { Text, View } from "../../../../components/Themed";
 export default function Community() {
   return (
     <View>
-      {/* <Text> Community </Text> */}
+      
     </View>
   );
 }
