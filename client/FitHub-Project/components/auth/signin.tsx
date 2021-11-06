@@ -17,7 +17,9 @@ import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 LogBox.ignoreLogs(['Remote debugger']);
 
+
 type MessageType = "SUCCESS" | "FAILED"
+
 
 // import icon from 'react-native-vector-icons';
 export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
@@ -91,8 +93,6 @@ export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
             onSubmit={values => console.log(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-                <View>
-                    <View style={tw`w-full bg-black h-full`}>
                         <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
 
                            
@@ -140,7 +140,7 @@ export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
                                         // onPress={handleSubmit}
                                         onPress={() => navigation.navigate("changeViewProps")}
                                         style={Styles.button}
-                                    ><Text style={Styles.text}>Sign In</Text></TouchableOpacity>
+                                    ><Text style={Styles.text}>Log In</Text></TouchableOpacity>
                                 </View>
                                 <View style={tw`items-center`}>
                                     <Text style={tw`text-white items-center mt-8 `}>Or-----</Text>
@@ -149,7 +149,7 @@ export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
                                 <View style={tw`border border-white items-center bg-white mt-8 rounded w-4/5 ml-8 h-8`}>
                                     <View style={tw`flex flex-row`} >
                                         <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../../assets/images/GOOGLE.png")} />
-                                        <Text onPress={handleSignin} style={tw`mt-1 pl-6 font-bold text-black`}>Connect with GOOGLE</Text>
+                                        <Text onPress={handleSignin} style={tw`mt-1 pl-6 font-bold text-black`}>Connect with Google</Text>
                                     </View>
 
                                 </View>
@@ -160,8 +160,6 @@ export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
                                 </View>
                             </View>
                         </ImageBackground>
-                    </View>
-                </View>
             )}
         </Formik>
     )
