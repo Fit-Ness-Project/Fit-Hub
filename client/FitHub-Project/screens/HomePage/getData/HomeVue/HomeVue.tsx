@@ -4,6 +4,7 @@ import { Image } from "react-native";
 import { RootTabScreenProps } from "../../../../types";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
+import BottomTabNavigator from'../../../../navigation/index'
 
 export default function ChangeView({
  
@@ -57,7 +58,6 @@ export default function ChangeView({
             style={{ width: 70, height: 70 }}
           />
           <TouchableOpacity onPress={() => navigation.navigate("Events")}>
-           
             <Text>Event</Text>
           </TouchableOpacity>
         </View>
