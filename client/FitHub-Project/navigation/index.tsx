@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from "@expo/vector-icons";
+// import { FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
@@ -14,11 +14,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
 import Gym from "../components/Gyms/Gym"
-import CommunityScren from "../screens/HomePage/getData/community/communuty";
-import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
+import CommunityScren from "../screens/HomePage/getData/community/communuty";
+import Colors from "../constants/Colors";
 import TabOneScreen from "../screens/Information";
 import Calendar from "../screens/Calendar";
 import {
@@ -41,6 +41,7 @@ import INfoPage from "../screens/HomePage/getData/INfoPage";
 import myprofile from "../components/myprofile/myprofile";
 import { useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { FontAwesome } from "@expo/vector-icons";
 
 export default function Navigation({
   colorScheme,
@@ -82,7 +83,7 @@ function RootNavigator({}) {
     <Stack.Navigator>
       <Stack.Screen
         name="Root"
-        component={BottomTabNavigator}
+        component={FirstVue}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -106,9 +107,6 @@ function RootNavigator({}) {
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="signUp" component={signUp} />
       <Stack.Screen name="changeViewProps" component={ChangeView} />
-
-   
-
     </Stack.Navigator>
   );
 }
@@ -121,7 +119,7 @@ function RootNavigator({}) {
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-function BottomTabNavigator() {
+export  function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
   return (
