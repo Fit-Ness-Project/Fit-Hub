@@ -12,15 +12,17 @@ import { useKeepAwake } from 'expo-keep-awake';
 import {
     RootTabScreenProps
 } from "../../types";
+import { useNavigation } from '@react-navigation/native';
+
 import AsyncStorage from '@react-native-async-storage/async-storage'
 LogBox.ignoreLogs(['Remote debugger']);
 
 type MessageType = "SUCCESS" | "FAILED"
 
 // import icon from 'react-native-vector-icons';
-export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
+export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
 
-    
+    const navigation = useNavigation()
 
 
     const [message, setMessage] = useState("");
@@ -93,7 +95,7 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
                     <View style={tw`w-full bg-black h-full`}>
                         <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
 
-                            <ImageBackground source={require('../../assets/images/back.jpg')} /> 
+                           
                              <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20`}>
                                 <View style={tw` h-16  w-4/5 ml-8`} >
                                     <Image style={tw` w-full h-full pl-2 `} source={require("../../assets/images/logo.png")} />
@@ -136,11 +138,12 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
                                 <View style={tw`  pt-4 w-4/5 ml-8`}>
                                     <TouchableOpacity
                                         // onPress={handleSubmit}
+                                        onPress={() => navigation.navigate("changeViewProps")}
                                         style={Styles.button}
                                     ><Text style={Styles.text}>Sign In</Text></TouchableOpacity>
                                 </View>
                                 <View style={tw`items-center`}>
-                                    <Text style={tw`text-white items-center mt-8 `}>Or</Text>
+                                    <Text style={tw`text-white items-center mt-8 `}>Or-----</Text>
                                 </View>
 
                                 <View style={tw`border border-white items-center bg-white mt-8 rounded w-4/5 ml-8 h-8`}>

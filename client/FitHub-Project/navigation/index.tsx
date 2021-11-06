@@ -38,6 +38,7 @@ import Login from "../components/auth/signin";
 import FirstVue from '../screens/FirstVue/FirstVue'
 import signUp from "../components/auth/register";
 import INfoPage from "../screens/HomePage/getData/INfoPage";
+import myprofile from "../components/myprofile/myprofile";
 import { useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -81,7 +82,7 @@ function RootNavigator({}) {
     <Stack.Navigator>
       <Stack.Screen
         name="Root"
-        component={FirstVue}
+        component={BottomTabNavigator}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -104,7 +105,9 @@ function RootNavigator({}) {
       <Stack.Screen name="bmi" component={INfoPage} />
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="signUp" component={signUp} />
+      <Stack.Screen name="changeViewProps" component={ChangeView} />
 
+   
 
     </Stack.Navigator>
   );
@@ -123,61 +126,62 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      //should be Log in af ter I puul
-      initialRouteName="TabOne"
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
-      <BottomTab.Screen
-        name="TabOne"
-        component={ChangeView}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Home",
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          headerRight: () => (
-            <Pressable
-              // onPress={() => navigation.navigate("Modal")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
-      />
-      <BottomTab.Screen
-        name="TabTwo"
-        component={Calendar}
-        options={{
-          title: "Calendar",
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="calendar-o" color={color} />
-          ),
-        }}
-      />
-      <BottomTab.Screen
-        name="Community"
-        component={CommunityScren}
-        options={{
-          title: "Community",
-          tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
-        }}
-      />
-      <BottomTab.Screen
-        name="bmi"
-        component={TabOneScreen}
-        options={{
-          title: "My Profile",
-          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
-        }}
-      />
-    </BottomTab.Navigator>
+    //should be Log in af ter I puul
+    initialRouteName="TabOne"
+    screenOptions={{
+      tabBarActiveTintColor: Colors[colorScheme].tint,
+    }}
+  >
+    <BottomTab.Screen
+      name="TabOne"
+      component={ChangeView}
+      options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
+        title: "",
+        tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+        headerRight: () => (
+          <Pressable
+            // onPress={() => navigation.navigate("Modal")}
+            style={({ pressed }) => ({
+              opacity: pressed ? 0.5 : 1,
+            })}
+          >
+            <FontAwesome
+              name="info-circle"
+              size={25}
+              color={Colors[colorScheme].text}
+              style={{ marginRight: 15 }}
+            />
+          </Pressable>
+        ),
+      })}
+    />
+    <BottomTab.Screen
+      name="TabTwo"
+      component={Calendar}
+      options={{
+        title: "",
+        tabBarIcon: ({ color }) => (
+          <TabBarIcon name="calendar-o" color={color} />
+        ),
+      }}
+    />
+    <BottomTab.Screen
+      name="Community"
+      component={CommunityScren}
+      options={{
+        title: "",
+        tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
+      }}
+    />
+    <BottomTab.Screen
+      name="myProfile"
+      component={myprofile}
+      options={{
+        title: "",
+        tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
+      }}
+    />
+  </BottomTab.Navigator>
   );
 }
 
