@@ -18,7 +18,7 @@ LogBox.ignoreLogs(['Remote debugger']);
 type MessageType = "SUCCESS" | "FAILED"
 
 // import icon from 'react-native-vector-icons';
-export default function Login({}: RootTabScreenProps<'bmi'>) {
+export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
 
     const navigation = useNavigation()
 
@@ -136,7 +136,7 @@ export default function Login({}: RootTabScreenProps<'bmi'>) {
                                 <View style={tw`  pt-4 w-4/5 ml-8`}>
                                     <TouchableOpacity
                                         // onPress={handleSubmit}
-                                        onPress={() => navigation.navigate("bmi")}
+                                        onPress={() => navigation.navigate("changeViewProps")}
                                         style={Styles.button}
                                     ><Text style={Styles.text}>Sign In</Text></TouchableOpacity>
                                 </View>
