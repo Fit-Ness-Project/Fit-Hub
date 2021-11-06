@@ -6,6 +6,8 @@ import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import FIrstVue from "./screens/FirstVue/FIrstVue";
 
+
+
 export default function App() {
 
   const isLoadingComplete = useCachedResources();
