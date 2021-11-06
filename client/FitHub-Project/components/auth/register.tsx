@@ -32,15 +32,15 @@ export default function Register() {
     });
     return (
         <Formik
-            initialValues={{ email: '', password: "", first: "", last: "", number: "" }}
+            initialValues={{ email: "", password: "", first: "", last: "", number: "" }}
             validationSchema={validationSchema}
             onSubmit={values => console.log(values)}
         >
 
-            {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+            {({ handleChange, handleBlur, values, errors, touched }) => (
                 <View style={tw`flex:1, w-full h-full `}>
                     <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
-                        {/* <ImageBackground source={require('../assets/back.jpg')} /> */}
+                     
                         <View style={tw`flex:1, bg-black bg-opacity-60 h-4/5 pt-20`}>
                             <View style={tw` h-16  w-4/5 ml-8`} >   <Image style={tw` w-full h-full pl-2 `} source={require("../../assets/images/logo.png")} /></View>
 
@@ -109,7 +109,7 @@ export default function Register() {
                             </View>
 
 
-                            {/* <View style={{ width: 167, marginTop: 70, marginLeft: 73 }}> */}
+                         
                             <View style={tw` text-black pt-6 w-4/5 ml-8`}>
                                 <TouchableOpacity
 
@@ -132,7 +132,6 @@ const Styles = StyleSheet.create({
 
     },
     text: {
-        fontFamily: "Cochin",
         color: "black",
         fontWeight: "bold",
         fontSize: 20,
