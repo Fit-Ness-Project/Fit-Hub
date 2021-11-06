@@ -91,10 +91,10 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                 <View>
                     <View style={tw`w-full bg-black h-full`}>
-                        <ImageBackground style={tw`w-full h-full`} source={require("../assets/back.jpg")}>
+                        <ImageBackground style={tw`w-full h-full`} source={require("../../assets/back.jpg")}>
 
-                            {/* <ImageBackground source={require('../assets/back.jpg')} /> */}
-                            <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20`}>
+                            <ImageBackground source={require('../assets/back.jpg')} /> 
+                             <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20`}>
                                 <View style={tw` h-16  w-4/5 ml-8`} >
                                     <Image style={tw` w-full h-full pl-2 `} source={require("../assets/logo.png")} />
                                 </View>
