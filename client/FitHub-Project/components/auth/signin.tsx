@@ -1,10 +1,11 @@
 
-import React, { useEffect, useState} from 'react';
+import * as  React from 'react';
+import { useEffect, useState} from 'react';
 import { View, Image, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import _ from "lodash";
+import * as _ from "lodash";
 import * as Google from 'expo-google-app-auth';
 import { LogBox } from 'react-native';
 import { useKeepAwake } from 'expo-keep-awake';
@@ -44,6 +45,7 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
         setMessage(message);
         setMessageType(type);
     }
+
     const handleSignin = () => {
         setGoogleSubmitting(true)
         const config = {
@@ -62,7 +64,7 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
 
                             console.log(result)
                             handleMessage('Google signin successful', "SUCCESS");
-                            setTimeout(() => navigation.navigate('bmi'), 1000)
+                            // setTimeout(() => navigation.navigate('bmi'), 1000)
                         })
 
                 }
@@ -89,12 +91,12 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                 <View>
                     <View style={tw`w-full bg-black h-full`}>
-                        <ImageBackground style={tw`w-full h-full`} source={require("../assets/back.jpg")}>
+                        <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
 
                             {/* <ImageBackground source={require('../assets/back.jpg')} /> */}
                             <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20`}>
                                 <View style={tw` h-16  w-4/5 ml-8`} >
-                                    <Image style={tw` w-full h-full pl-2 `} source={require("../assets/logo.png")} />
+                                    <Image style={tw` w-full h-full pl-2 `} source={require("../../assets/images/logo.png")} />
                                 </View>
 
                                 <View style={tw` items-center `}>
@@ -143,7 +145,7 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
 
                                 <View style={tw`border border-white items-center bg-white mt-8 rounded w-4/5 ml-8 h-8`}>
                                     <View style={tw`flex flex-row`} >
-                                        <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../assets/gogleh.png")} />
+                                        <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../../assets/images/GOOGLE.png")} />
                                         <Text onPress={handleSignin} style={tw`mt-1 pl-6 font-bold text-black`}>Connect with GOOGLE</Text>
                                     </View>
 
@@ -166,6 +168,7 @@ const Styles = StyleSheet.create({
         backgroundColor: "#e7ff19",
         alignItems: "center",
         padding: 10,
+        opacity: .8
 
     },
     text: {
