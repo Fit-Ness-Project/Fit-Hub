@@ -31,14 +31,14 @@ const FirstVue = ({
 </View>
 <View style = {tw`bg-black opacity-80`}>
 <View style = {tw`bg-transparent text-left`}>
-<Text style = {tw`font-bold  bg-transparent text-3xl`}> {ready[0]}  </Text > 
+<Text style = {tw`font-bold text-white bg-transparent text-3xl`}> {ready[0]}  </Text > 
 </View>
 
-<View  style ={{backgroundColor : "transparent",height :"12%" ,width:"90%", alignItems: "center"}}>
-    <Text  >{ready[1].slice(0,150)}...  </Text>
+<View  style ={{backgroundColor : "transparent",height :"25%" ,width:"90%", alignItems: "center"}}>
+    <Text style={tw`text-white `} >{ready[1].slice(0,150)}...  </Text>
+    
     </View>
-    </View>
-    <View style = {tw`items-center`}>
+    <View style = {tw`items-center bg-transparent`}>
 <View style ={tw`bg-transparent   flex-row `}>
 <View  style = {tw` items-center  bg-transparent  `} >
 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("signUp")} > 
@@ -47,6 +47,7 @@ const FirstVue = ({
 <View  style = {tw` items-center pl-4 bg-transparent`}>
 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("login")} > 
 <Text style = {tw`text-center   font-bold text-black text-xl pt-3.5`} >LOGIN</Text></TouchableOpacity>
+</View>
 </View>
 </View>
 </View>
