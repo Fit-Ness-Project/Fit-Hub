@@ -23,8 +23,8 @@ export default function ChangeView({
 
       </View>
       <View style={tw`mt-5 h-36 bg-red-200 rounded-xl`} >
-        <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/restoo.jpeg")}>
-        </ImageBackground>
+        {/* <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/restoo.jpeg")}>
+        </ImageBackground> */}
 
       </View>
       <View style={tw`mt-5 h-36 bg-red-200 rounded-xl`} >
