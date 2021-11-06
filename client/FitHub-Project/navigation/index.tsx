@@ -34,6 +34,10 @@ import Blogs from "../screens/Blogs/Blogs";
 import GymScrean from "../screens/Gym/Gym";
 import Event from "../screens/Events/Events";
 import FoodScren from "../screens/Food/Food";
+import Login from "../components/auth/signin";
+import FirstVue from '../screens/FirstVue/FIrstVue'
+import signUp from "../components/auth/signUp";
+import INfoPage from "../screens/HomePage/getData/INfoPage";
 import { useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -77,7 +81,7 @@ function RootNavigator({}) {
     <Stack.Navigator>
       <Stack.Screen
         name="Root"
-        component={BottomTabNavigator}
+        component={FirstVue}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -95,8 +99,11 @@ function RootNavigator({}) {
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Gym" component={GymScrean} />
       <Stack.Screen name="Events" component={Event} />
-     <Stack.Screen name="coach" component={Coach}  /> 
+      <Stack.Screen name="coach" component={Coach}  /> 
       <Stack.Screen name="Gymdescription" component={Gym} />
+      <Stack.Screen name="bmi" component={INfoPage} />
+      <Stack.Screen name="login" component={Login} />
+      <Stack.Screen name="signUp" component={signUp} />
 
 
     </Stack.Navigator>
@@ -129,7 +136,7 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate("Modal")}
+              // onPress={() => navigation.navigate("Modal")}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}
