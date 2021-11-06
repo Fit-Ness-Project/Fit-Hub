@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import  React , { useState }  from 'react';
+import { StyleSheet ,Picker  } from 'react-native';
 import { Text, View ,  TouchableOpacity, TextInput } from '../../../components/Themed';
 import { RootTabScreenProps } from '../../../types';
 
 const INfoPage = ({ navigation } : RootTabScreenProps<'UserInfo'>) =>{
+   const [selectedValue, setSelectedValue] = useState("male");
   return (
       <View style = {styles.container}> 
       <Text style={styles.title}>Add You Information for us to help You</Text>
@@ -28,10 +29,16 @@ const INfoPage = ({ navigation } : RootTabScreenProps<'UserInfo'>) =>{
          autoCapitalize = "none"
        />
       
-      <TouchableOpacity
-         style = {styles.submitButton}
-            
-         >
+      <TouchableOpacity style = {styles.submitButton}>
+      <Text  style = {styles.label}>Select Your Gender</Text>
+        <Picker
+        selectedValue={selectedValue}
+        style={{ height: 50, width: 150 ,marginLeft:20 }}
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+      >
+        <Picker.Item label="Male" value="Male" />
+        <Picker.Item label="Female " value="Female" />
+      </Picker>
          <Text style = {styles.submitButtonText}> Submet </Text>
       </TouchableOpacity>
       <Text style = {styles.resultText}></Text>
