@@ -45,7 +45,7 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
         setMessage(message);
         setMessageType(type);
     }
-    
+
     const handleSignin = () => {
         setGoogleSubmitting(true)
         const config = {
