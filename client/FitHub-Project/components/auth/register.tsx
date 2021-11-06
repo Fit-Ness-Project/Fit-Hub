@@ -1,10 +1,18 @@
-import * as React from 'react';
-import { View, Image, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
-import tw from 'tailwind-react-native-classnames';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+import * as React from "react";
+import {
+  View,
+  Image,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
+import tw from "tailwind-react-native-classnames";
+import { Formik } from "formik";
+import * as Yup from "yup";
 import * as _ from "lodash";
-
 export default function Register() {
     const validationSchema = Yup.object().shape({
         last: Yup.string().required('Last Name is required').label('Name'),
