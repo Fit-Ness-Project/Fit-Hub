@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { View, Image, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, Text, TextInput, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import * as _ from "lodash";
+import _ from "lodash";
 
 export default function Register() {
     const validationSchema = Yup.object().shape({
@@ -32,42 +32,70 @@ export default function Register() {
     });
     return (
         <Formik
-        initialValues={{ email: '', password: "" }}
-        validationSchema={validationSchema}
-        onSubmit={values => console.log(values)}
-    >
-        {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-                    <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
+            initialValues={{ email: '', password: "", first: "", last: "", number: "" }}
+            validationSchema={validationSchema}
+            onSubmit={values => console.log(values)}
+        >
 
-                        {/* <ImageBackground source={require('../assets/back.jpg')} /> */}
-                        <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20`}>
-                            <View style={tw` h-16  w-4/5 ml-8`} >
-                                <Image style={tw` w-full h-full pl-2 `} source={require("../../assets/images/logo.png")} />
-                            </View>
+            {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+                <View style={tw`flex:1, w-full h-full `}>
+                    <ImageBackground style={tw`w-full h-full`} source={require("../assets/back.jpg")}>
+                        <View style={tw`flex:1, bg-black bg-opacity-60 h-4/5 pt-20`}>
 
-                            <View style={tw` items-center `}>
+                            <View style={tw`flex items-center `}>
 
-                                <Text style={tw` pt-16 text-white font-bold text-2xl`} >Log In to FitHub </Text>
+                                <Text style={tw`pt-20  text-white font-bold text-2xl`} >Sign Up to your account </Text>
                             </View>
 
 
-                            <View style={tw` mt-10 w-4/5 ml-8 flex `}>
+                            <View style={tw` mt-16 w-4/5 ml-8 flex  `}>
                                 <TextInput
+                                    style={tw`mt-4 rounded h-10 bg-white p-2 flex`}
+                                    placeholder="First name"
+                                    onChangeText={handleChange('first')}
+                                    onBlur={handleBlur('first')}
+                                    value={values.first}
+
+                                />
+                                {errors.first && touched.first && (
+                                    <Text style={{ color: 'red' }}>{errors.first}</Text>
+                                )}
+                                <TextInput
+                                    style={tw` mt-4 rounded h-10 bg-white p-2 flex`}
+                                    placeholder="Last name"
+                                    onChangeText={handleChange('last')}
+                                    onBlur={handleBlur('last')}
+                                    value={values.last}
+                                />
+                                {errors.last && touched.last && (
+                                    <Text style={{ color: 'red' }}>{errors.last}</Text>
+                                )}
+
+                                <TextInput
+                                    style={tw`mt-4 rounded h-10 bg-white p-2 flex`}
+                                    placeholder="Email"
                                     onChangeText={handleChange('email')}
                                     onBlur={handleBlur('email')}
                                     value={values.email}
-                                    style={tw` h-10 rounded bg-white p-2`}
-                                    placeholder="foulen@gmail.com"
-                                    autoCompleteType="email"
-                                    keyboardType="email-address"
                                 />
                                 {errors.email && touched.email && (
                                     <Text style={{ color: 'red' }}>{errors.email}</Text>
                                 )}
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white p-2 `}
+                                    style={tw`mt-4 rounded h-10 bg-white text-pl-4 p-2 flex `}
+                                    placeholder="Phone number"
+                                    keyboardType="numeric"
+                                    onChangeText={handleChange('number')}
+                                    onBlur={handleBlur('number')}
+                                    value={values.number}
+                                />
+                                {errors.number && touched.number && (
+                                    <Text style={{ color: 'red' }}>{errors.number}</Text>
+                                )}
+                                <TextInput
+                                    style={tw`mt-4 rounded h-10 bg-white p-2 flex `}
                                     secureTextEntry={true}
-                                    placeholder="* * * * * * * *"
+                                    placeholder="Password"
                                     onChangeText={handleChange('password')}
                                     onBlur={handleBlur('password')}
                                     value={values.password}
@@ -75,37 +103,22 @@ export default function Register() {
                                 {errors.password && touched.password && (
                                     <Text style={{ color: 'red' }}>{errors.password}</Text>
                                 )}
+
                             </View>
 
 
-
-                            <View style={tw`  pt-4 w-4/5 ml-8`}>
+                            <View style={tw` text-black pt-6 w-4/5 ml-8`}>
                                 <TouchableOpacity
-                                    // onPress={handleSubmit}
+
                                     style={Styles.button}
-                                ><Text style={Styles.text}>Log In</Text></TouchableOpacity>
-                            </View>
-                            <View style={tw`items-center`}>
-                                <Text style={tw`text-white items-center mt-8 `}>Or</Text>
-                            </View>
-
-                            <View style={tw`border border-white items-center bg-white mt-8 rounded w-4/5 ml-8 h-8`}>
-                                <View style={tw`flex flex-row`} >
-                                    <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../../assets/images/GOOGLE.png")} />
-                                    <Text  style={tw`mt-1 pl-6 font-bold text-black`}>Connect with Google</Text>
-                                    {/* onPress={handleSignin} */}
-                                </View>
-
-                            </View>
-                            <View style={tw`h-10 mt-6 items-center`}>
-                                <Text style={tw`text-white  pl-6 pt-4`}>
-                                    Don't have an account ? <Text style={tw`text-blue-400 underline`}>Register</Text>
-                                </Text>
+                                ><Text style={Styles.text}>REGISTER</Text></TouchableOpacity>
                             </View>
                         </View>
+
                     </ImageBackground>
-        )}
-    </Formik> 
+                </View>
+            )}
+        </Formik>
     )
 };
 const Styles = StyleSheet.create({
@@ -113,11 +126,10 @@ const Styles = StyleSheet.create({
         backgroundColor: "#e7ff19",
         alignItems: "center",
         padding: 10,
-        opacity: .8
-
 
     },
     text: {
+        fontFamily: "Cochin",
         color: "black",
         fontWeight: "bold",
         fontSize: 20,
