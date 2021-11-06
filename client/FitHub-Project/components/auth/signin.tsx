@@ -168,6 +168,7 @@ const Styles = StyleSheet.create({
         backgroundColor: "#e7ff19",
         alignItems: "center",
         padding: 10,
+        opacity: .8
 
     },
     text: {

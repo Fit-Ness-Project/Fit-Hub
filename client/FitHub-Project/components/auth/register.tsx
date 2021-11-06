@@ -32,7 +32,7 @@ export default function Register() {
     });
     return (
         <Formik
-            initialValues={{ email: '', password: "", first: "", last: "", number: "" }}
+            initialValues={{ email: "", password: "", first: "", last: "", number: "" }}
             validationSchema={validationSchema}
             onSubmit={values => console.log(values)}
         >
@@ -132,7 +132,6 @@ const Styles = StyleSheet.create({
 
     },
     text: {
-        fontFamily: "Cochin",
         color: "black",
         fontWeight: "bold",
         fontSize: 20,
