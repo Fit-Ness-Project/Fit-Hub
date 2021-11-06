@@ -4,6 +4,7 @@ import { Image, ScrollView, ImageBackground } from "react-native";
 import { RootTabScreenProps } from "../../../../types";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
+import BottomTabNavigator from'../../../../navigation/index'
 
 
 export default function ChangeView({

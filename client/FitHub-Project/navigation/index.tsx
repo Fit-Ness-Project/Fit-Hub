@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from "@expo/vector-icons";
+// import { FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
@@ -14,11 +14,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
 import Gym from "../components/Gyms/Gym"
-import CommunityScren from "../screens/HomePage/getData/community/communuty";
-import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
+import CommunityScren from "../screens/HomePage/getData/community/communuty";
+import Colors from "../constants/Colors";
 import TabOneScreen from "../screens/Information";
 import Calendar from "../screens/Calendar";
 import {
@@ -38,8 +38,10 @@ import Login from "../components/auth/signin";
 import FirstVue from '../screens/FirstVue/FirstVue'
 import signUp from "../components/auth/register";
 import INfoPage from "../screens/HomePage/getData/INfoPage";
-// import { useEffect} from 'react';
-// import AsyncStorage from '@react-native-async-storage/async-storage'
+import myprofile from "../components/myprofile/myprofile";
+import { useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { FontAwesome } from "@expo/vector-icons";
 
 export default function Navigation({
   colorScheme,
@@ -104,8 +106,7 @@ function RootNavigator({}) {
       <Stack.Screen name="bmi" component={INfoPage} />
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="signUp" component={signUp} />
-
-
+      <Stack.Screen name="changeViewProps" component={ChangeView} />
     </Stack.Navigator>
   );
 }
@@ -118,66 +119,67 @@ function RootNavigator({}) {
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-function BottomTabNavigator() {
+export  function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
   return (
     <BottomTab.Navigator
-      //should be Log in af ter I puul
-      initialRouteName="TabOne"
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
-      <BottomTab.Screen
-        name="TabOne"
-        component={ChangeView}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Home",
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          headerRight: () => (
-            <Pressable
-              // onPress={() => navigation.navigate("Modal")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
-      />
-      <BottomTab.Screen
-        name="TabTwo"
-        component={Calendar}
-        options={{
-          title: "Calendar",
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="calendar-o" color={color} />
-          ),
-        }}
-      />
-      <BottomTab.Screen
-        name="Community"
-        component={CommunityScren}
-        options={{
-          title: "Community",
-          tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
-        }}
-      />
-      <BottomTab.Screen
-        name="bmi"
-        component={TabOneScreen}
-        options={{
-          title: "My Profile",
-          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
-        }}
-      />
-    </BottomTab.Navigator>
+    //should be Log in af ter I puul
+    initialRouteName="TabOne"
+    screenOptions={{
+      tabBarActiveTintColor: Colors[colorScheme].tint,
+    }}
+  >
+    <BottomTab.Screen
+      name="TabOne"
+      component={ChangeView}
+      options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
+        title: "",
+        tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+        headerRight: () => (
+          <Pressable
+            // onPress={() => navigation.navigate("Modal")}
+            style={({ pressed }) => ({
+              opacity: pressed ? 0.5 : 1,
+            })}
+          >
+            <FontAwesome
+              name="info-circle"
+              size={25}
+              color={Colors[colorScheme].text}
+              style={{ marginRight: 15 }}
+            />
+          </Pressable>
+        ),
+      })}
+    />
+    <BottomTab.Screen
+      name="TabTwo"
+      component={Calendar}
+      options={{
+        title: "",
+        tabBarIcon: ({ color }) => (
+          <TabBarIcon name="calendar-o" color={color} />
+        ),
+      }}
+    />
+    <BottomTab.Screen
+      name="Community"
+      component={CommunityScren}
+      options={{
+        title: "",
+        tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
+      }}
+    />
+    <BottomTab.Screen
+      name="myProfile"
+      component={myprofile}
+      options={{
+        title: "",
+        tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
+      }}
+    />
+  </BottomTab.Navigator>
   );
 }
 
