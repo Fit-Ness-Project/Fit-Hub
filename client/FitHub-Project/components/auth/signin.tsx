@@ -1,10 +1,11 @@
 
-import React, { useEffect, useState} from 'react';
+import * as  React from 'react';
+import { useEffect, useState} from 'react';
 import { View, Image, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import _ from "lodash";
+import * as _ from "lodash";
 import * as Google from 'expo-google-app-auth';
 import { LogBox } from 'react-native';
 import { useKeepAwake } from 'expo-keep-awake';
@@ -44,6 +45,7 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
         setMessage(message);
         setMessageType(type);
     }
+    
     const handleSignin = () => {
         setGoogleSubmitting(true)
         const config = {
@@ -62,7 +64,7 @@ export default function Login({ navigation }: RootTabScreenProps<'bmi'>) {
 
                             console.log(result)
                             handleMessage('Google signin successful', "SUCCESS");
-                            setTimeout(() => navigation.navigate('bmi'), 1000)
+                            // setTimeout(() => navigation.navigate('bmi'), 1000)
                         })
 
                 }
