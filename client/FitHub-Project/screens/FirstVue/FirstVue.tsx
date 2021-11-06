@@ -2,8 +2,8 @@ import * as React from 'react'
 import { StyleSheet , Button,ImageBackground,TouchableOpacity } from 'react-native'
 import {Text, View} from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
-import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
+import tw from 'tailwind-react-native-classnames';
 
 const FirstVue = ({
 }: RootTabScreenProps<"FirstVueProps">) => {
