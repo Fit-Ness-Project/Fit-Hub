@@ -37,7 +37,7 @@ import FoodScren from "../screens/Food/Food";
 import Login from "../components/auth/signin";
 import FirstVue from '../screens/FirstVue/FirstVue'
 import signUp from "../components/auth/register";
-import INfoPage from "../screens/HomePage/getData/INfoPage";
+import Information from "../screens/Information";
 import myprofile from "../components/myprofile/myprofile";
 import { useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -103,7 +103,7 @@ function RootNavigator({}) {
       <Stack.Screen name="Events" component={Event} />
       <Stack.Screen name="coach" component={Coach}  /> 
       <Stack.Screen name="Gymdescription" component={Gym} />
-      <Stack.Screen name="bmi" component={INfoPage} />
+      <Stack.Screen name="bmi" component={Information} />
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="signUp" component={signUp} />
       <Stack.Screen name="changeViewProps" component={ChangeView} />

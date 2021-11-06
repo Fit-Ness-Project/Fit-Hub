@@ -9,9 +9,7 @@ import * as _ from "lodash";
 import * as Google from 'expo-google-app-auth';
 import { LogBox } from 'react-native';
 import { useKeepAwake } from 'expo-keep-awake';
-import {
-    RootTabScreenProps
-} from "../../types";
+import { RootTabScreenProps} from "../../types";
 import { useNavigation } from '@react-navigation/native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -20,7 +18,7 @@ LogBox.ignoreLogs(['Remote debugger']);
 type MessageType = "SUCCESS" | "FAILED"
 
 // import icon from 'react-native-vector-icons';
-export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
+export default function Login({}: RootTabScreenProps<'bmi'>) {
 
     const navigation = useNavigation()
 
@@ -138,12 +136,12 @@ export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
                                 <View style={tw`  pt-4 w-4/5 ml-8`}>
                                     <TouchableOpacity
                                         // onPress={handleSubmit}
-                                        onPress={() => navigation.navigate("changeViewProps")}
+                                        onPress={() => navigation.navigate("bmi")}
                                         style={Styles.button}
                                     ><Text style={Styles.text}>Sign In</Text></TouchableOpacity>
                                 </View>
                                 <View style={tw`items-center`}>
-                                    <Text style={tw`text-white items-center mt-8 `}>Or-----</Text>
+                                    <Text style={tw`text-white items-center mt-8 `}>Or</Text>
                                 </View>
 
                                 <View style={tw`border border-white items-center bg-white mt-8 rounded w-4/5 ml-8 h-8`}>
