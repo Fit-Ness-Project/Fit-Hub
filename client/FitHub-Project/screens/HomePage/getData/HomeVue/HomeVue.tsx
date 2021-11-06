@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { View, Text, TouchableOpacity } from "../../../../components/Themed";
 import { Image } from "react-native";
 import { RootTabScreenProps } from "../../../../types";
@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function ChangeView({
  
-}: RootTabScreenProps<"changeViewProps">) {
+}) {
   const navigation = useNavigation()
   return (
     <View style ={{alignItems:'center'}}>
