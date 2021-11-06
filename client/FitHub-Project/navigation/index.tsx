@@ -13,7 +13,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
-
+import Gym from "../components/Gyms/Gym"
 import CommunityScren from "../screens/HomePage/getData/community/communuty";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -21,8 +21,6 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/Information";
 import Calendar from "../screens/Calendar";
-import MyProfile from "../screens/HomePage/getData/Profile/MyProfile";
-import Gyms  from "../components/Gyms/Gyms";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -30,17 +28,21 @@ import {
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import ChangeView from "../screens/HomePage/getData/HomeVue/HomeVue";
-import Coach from "../components/coachs/allCoachs";
+import Coachs from "../components/coachs/allCoachs";
+import Coach from "../components/coachs/coach"
 import Blogs from "../screens/Blogs/Blogs";
+import GymScrean from "../screens/Gym/Gym";
 import Event from "../screens/Events/Events";
-
-import FoodScren from "../components/Food/Food";
+import FoodScren from "../screens/Food/Food";
+import { useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function Navigation({
   colorScheme,
 }: {
   colorScheme: ColorSchemeName;
 }) {
+
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
@@ -54,10 +56,23 @@ export default function Navigation({
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
- */
+ */ 
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-function RootNavigator() {
+function RootNavigator({}) {
+//   useEffect(() => {
+//     AsyncStorage.getItem('auth')
+//         .then((data) => {
+//             if (data !== null) {
+//                 navigation.navigate("bmi")
+//             }
+//             else {
+//                 navigation.navigate('signin')
+//             }
+//         })
+// })
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -71,17 +86,24 @@ function RootNavigator() {
         options={{ title: "Oops!" }}
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+      <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
+
+
       <Stack.Screen name="Food" component={FoodScren} />
-      <Stack.Screen name="coach" component={Coach} />
+      <Stack.Screen name="Coachs" component={Coachs} />
       <Stack.Screen name="Blogs" component={Blogs} />
-      <Stack.Screen name="Gym" component={Gyms} />
+      <Stack.Screen name="Gym" component={GymScrean} />
       <Stack.Screen name="Events" component={Event} />
-      <Stack.Screen name="bmi" component={TabOneScreen} />
+     <Stack.Screen name="coach" component={Coach}  /> 
+      <Stack.Screen name="Gymdescription" component={Gym} />
+
+
     </Stack.Navigator>
   );
 }
+
+
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
@@ -98,13 +120,12 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}
-    >
+      }}>
       <BottomTab.Screen
         name="TabOne"
         component={ChangeView}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "",
+          title: "Home",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
@@ -127,7 +148,7 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={Calendar}
         options={{
-          title: "",
+          title: "Calendar",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="calendar-o" color={color} />
           ),
@@ -137,15 +158,15 @@ function BottomTabNavigator() {
         name="Community"
         component={CommunityScren}
         options={{
-          title: "",
+          title: "Community",
           tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="myProfile"
-        component={MyProfile}
+        name="bmi"
+        component={TabOneScreen}
         options={{
-          title: "",
+          title: "My Profile",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />

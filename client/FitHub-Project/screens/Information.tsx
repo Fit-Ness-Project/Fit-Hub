@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { StyleSheet, Picker } from 'react-native';
-import { Text, View,  TouchableOpacity , TextInput } from '../components/Themed';
+import * as React from 'react';
+import { StyleSheet } from 'react-native';
 
+import EditScreenInfo from '../components/EditScreenInfo';
+import { Text, View,  TouchableOpacity, TextInput } from '../components/Themed';
+import { RootTabScreenProps } from '../types';
 
-export default function TabOneScreen() {
-   const [selectedValue, setSelectedValue] = useState("male");
-
+export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   return (
     <View style = {styles.container}> 
     <Text style={styles.title}>Add You Information for us to help You</Text>
@@ -29,24 +29,16 @@ export default function TabOneScreen() {
        placeholder = "Weight (Kg)"
        autoCapitalize = "none"
      />
-     <Text  style = {styles.label}>Select Your Gender</Text>
-        <Picker
-        selectedValue={selectedValue}
-        style={{ height: 50, width: 150 ,marginLeft:20 }}
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-      >
-        <Picker.Item label="Male" value="Male" />
-        <Picker.Item label="Female " value="Female" />
-      </Picker>
+    
     <TouchableOpacity
-       style = {styles.submitButton}  
+       style = {styles.submitButton}
+          
        >
        <Text style = {styles.submitButtonText}> Next </Text>
     </TouchableOpacity>
     <Text style = {styles.resultText}></Text>
     < Text style = {styles.resultText}></Text>
     < Text style = {styles.resultText}></Text>
-
     </View>
 )
   }
@@ -70,7 +62,7 @@ const styles = StyleSheet.create({
   submitButtonText:{
      textAlign: "center",
      color: 'white',
-   //  fontWeight:"bold",
+    // fontWeight:"bold",
      fontSize: 18,
   },
   output:{
