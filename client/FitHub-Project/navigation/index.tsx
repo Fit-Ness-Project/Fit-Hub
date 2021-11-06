@@ -36,7 +36,7 @@ import Event from "../screens/Events/Events";
 import FoodScren from "../screens/Food/Food";
 import Login from "../components/auth/signin";
 import FirstVue from '../screens/FirstVue/FirstVue'
-import signUp from "../components/auth/signUp";
+import signUp from "../components/auth/register";
 import INfoPage from "../screens/HomePage/getData/INfoPage";
 // import { useEffect} from 'react';
 // import AsyncStorage from '@react-native-async-storage/async-storage'
