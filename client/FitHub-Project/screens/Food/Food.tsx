@@ -46,8 +46,8 @@ const renderItems: React.FC<{item:FoodR}> = ({item})=> {
 
      <View style={styles.footer} >
          <Text  style={styles.footerText}  >{item.recipeTitle} </Text>
-         <Text  style={styles.footerText}  >{item.created_at} </Text>
-         <Text  style={styles.footerText}  >{item.likes} </Text>
+         <Text  style={styles.footerText}  >{item.created_at.slice(0,10)}  </Text>
+         <Text  style={styles.footerText}  >{item.likes} Likes </Text>
      </View>
   </TouchableOpacity>
  }
@@ -96,8 +96,9 @@ const styles = StyleSheet.create({
      
     },
     image:{
-      width: 350 ,
+      width: 'full' ,
       height: 230 ,
+      alignItems : 'center',
       resizeMode: 'cover' ,
       marginVertical : 10 ,
     },
