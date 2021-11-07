@@ -5,8 +5,10 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import  _ from "lodash";
 import { useKeepAwake } from 'expo-keep-awake';
-
-export default function Register() {
+import { RootTabScreenProps } from '../../types';
+import { useNavigation } from '@react-navigation/native';
+export default function Register({}: RootTabScreenProps<'bmi'>) {
+    const navigation = useNavigation();
     useKeepAwake();
 
     
@@ -117,7 +119,7 @@ export default function Register() {
 
                             <View style={tw` text-black pt-6 w-4/5 ml-8`}>
                                 <TouchableOpacity
-
+                                    onPress={() => navigation.navigate("bmi")}
                                     style={Styles.button}
                                 ><Text style={Styles.text}>REGISTER</Text></TouchableOpacity>
                             </View>

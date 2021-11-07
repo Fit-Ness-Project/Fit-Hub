@@ -4,7 +4,7 @@ import { Text, View,  TouchableOpacity } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Information({}: RootTabScreenProps<'changeViewProps'>) {
+export default function Information({}: RootTabScreenProps<'Home'>) {
    const [selectedValue, setSelectedValue] = useState("male");
    const navigation = useNavigation();
   return (
@@ -42,7 +42,7 @@ export default function Information({}: RootTabScreenProps<'changeViewProps'>) {
        
     
     <TouchableOpacity
-     onPress={() => navigation.navigate("changeViewProps")}
+     onPress={() => navigation.navigate("Home")}
        style = {styles.submitButton}
        >
        <Text style = {styles.submitButtonText}> Next </Text>
