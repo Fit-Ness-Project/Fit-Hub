@@ -80,22 +80,22 @@ export default Coach
 
 const styles = StyleSheet.create({
     container: {
-        flex: 4,
-        // alignItems: 'center',
-        // justifyContent: 'center',
+        flex: 1,
+        //  alignItems: 'center',
+    // justifyContent: 'center',
 
     },
     image: {
         alignItems: 'center',
         justifyContent: 'center',
         width: 350,
-        height: 430,
+        height: 480,
         resizeMode: 'cover',
         marginVertical: 10,
         borderRadius: 6,
     },
     title: {
-
+       marginTop:20,
         fontSize: 25,
         fontWeight: 'bold',
 

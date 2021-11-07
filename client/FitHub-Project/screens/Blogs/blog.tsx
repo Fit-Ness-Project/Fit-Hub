@@ -32,11 +32,6 @@ const Blog: React.FC<{
     }, 'params'>
 }> = ({ route: { params } }) => {
 
-  
-
-  
- 
-
     return (
         <View style={styles.container}>
 <Text>{params.blogTitle}</Text>
