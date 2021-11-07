@@ -47,6 +47,7 @@ const renderItems: React.FC<{item:FoodR}> = ({item})=> {
      <View style={styles.footer} >
          <Text  style={styles.footerText}  >{item.recipeTitle} </Text>
          <Text  style={styles.footerText}  >{item.created_at} </Text>
+         <Text  style={styles.footerText}  >{item.likes} </Text>
      </View>
   </TouchableOpacity>
  }
