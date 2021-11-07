@@ -13,7 +13,7 @@ export default function ChangeView({ }) {
     return (
         <ScrollView style={tw`bg-gray-400`} >
 <View>
-            <View style={tw`mt-1 h-36 bg-red-200`} >
+            <View style={tw`mt-1 h-36 bg-black`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/gymView2.png")}>
@@ -35,7 +35,7 @@ export default function ChangeView({ }) {
 
             </View>
 
-            <View style={tw`mt-1 h-36 bg-red-200`} >
+            <View style={tw`mt-1 h-36 bg-black`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Coachs")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/coach.png")}>
@@ -59,7 +59,7 @@ export default function ChangeView({ }) {
                 </TouchableOpacity>
 
             </View>
-            <View style={tw`mt-1 h-36 bg-red-200`} >
+            <View style={tw`mt-1 h-36 bg-black`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Food")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/resto.png")}>
@@ -87,7 +87,7 @@ export default function ChangeView({ }) {
                 </TouchableOpacity>
 
             </View>
-            <View style={tw`mt-1 h-36 bg-red-200`} >
+            <View style={tw`mt-1 h-36 bg-black`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Food")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/resto.png")}>
@@ -113,7 +113,7 @@ export default function ChangeView({ }) {
                 </TouchableOpacity>
 
             </View>
-            <View style={tw`mt-1 h-36 bg-red-200`} >
+            <View style={tw`mt-1 h-36 bg-black`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Events")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/events.png")}>
@@ -138,7 +138,7 @@ export default function ChangeView({ }) {
                 </TouchableOpacity>
 
             </View>
-            <View style={tw`mt-1 h-36 bg-red-200`} >
+            <View style={tw`mt-1 h-36 bg-black`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Blogs")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/blogs.png")}>
