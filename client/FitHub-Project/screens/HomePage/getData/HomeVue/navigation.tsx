@@ -6,7 +6,7 @@ import GymScreen from "../../../Gym/Gym";
 import CoachScreen from "../../../../components/coachs/allCoachs";
 import EventScreen from "../../../Events/Events";
 import Login from "../../../../components/auth/signin";
-import signUp from "../../../../components/auth/signUp";
+import signUp from "../../../../components/auth/register";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
