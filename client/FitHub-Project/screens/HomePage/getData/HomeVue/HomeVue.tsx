@@ -11,9 +11,9 @@ export default function ChangeView({ }) {
     const navigation = useNavigation()
 
     return (
-        <ScrollView>
-
-            <View style={tw`mt-5 h-36 bg-red-200 rounded-xl`} >
+        <ScrollView style={tw`bg-gray-400`} >
+<View>
+            <View style={tw`mt-1 h-36 bg-red-200`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/gymView2.png")}>
@@ -23,7 +23,7 @@ export default function ChangeView({ }) {
                                 <View style={styles.inview}>
                                     <Image style={tw` w-10 h-10  `} source={require("../../../../assets/Icons/gym.png")} />
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-                                        <Text style={tw`text-black  pl-2 font-normal  `} >GYMS</Text>
+                                        <Text style={tw`text-black  pl-2 font-bold`} >GYMS</Text>
                                     </View>
                                 </View>
 
@@ -35,7 +35,7 @@ export default function ChangeView({ }) {
 
             </View>
 
-            <View style={tw`mt-5 h-36 bg-red-200 rounded-xl`} >
+            <View style={tw`mt-1 h-36 bg-red-200`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Coachs")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/coach.png")}>
@@ -48,7 +48,7 @@ export default function ChangeView({ }) {
                                         <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/coach.png")} />
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-                                        <Text style={tw`text-black  pl-2  `} >COACH</Text>
+                                        <Text style={tw`text-black  pl-2 font-bold`} >COACH</Text>
                                     </View>
                                 </View>
 
@@ -59,7 +59,7 @@ export default function ChangeView({ }) {
                 </TouchableOpacity>
 
             </View>
-            <View style={tw`mt-5 h-36 bg-red-200 rounded-xl`} >
+            <View style={tw`mt-1 h-36 bg-red-200`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Food")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/resto.png")}>
@@ -75,7 +75,7 @@ export default function ChangeView({ }) {
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
 
-                                        <Text style={tw`  text-black  pl-2 h-full w-full `} >DIETS</Text>
+                                        <Text style={tw`  text-black  pl-2 h-full w-full font-bold`} >DIETS</Text>
                                     </View>
 
 
@@ -87,7 +87,7 @@ export default function ChangeView({ }) {
                 </TouchableOpacity>
 
             </View>
-            <View style={tw`mt-5 h-36 bg-red-200 rounded-xl`} >
+            <View style={tw`mt-1 h-36 bg-red-200`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Food")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/resto.png")}>
@@ -102,7 +102,7 @@ export default function ChangeView({ }) {
                                         </View>
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-                                        <Text style={tw`  text-black  pl-2  `} >RESTAURANTS</Text>
+                                        <Text style={tw`  text-black  pl-2 font-bold`} >RESTAURANTS</Text>
                                     </View>
                                 </View>
 
@@ -113,7 +113,7 @@ export default function ChangeView({ }) {
                 </TouchableOpacity>
 
             </View>
-            <View style={tw`mt-5 h-36 bg-red-200 rounded-xl`} >
+            <View style={tw`mt-1 h-36 bg-red-200`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Events")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/events.png")}>
@@ -126,7 +126,7 @@ export default function ChangeView({ }) {
                                         <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/event.png")} />
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-                                        <Text style={tw`  text-black  pl-2  `} >EVENTS</Text>
+                                        <Text style={tw`  text-black  pl-2 font-bold`} >EVENTS</Text>
                                     </View>
                                 </View>
 
@@ -138,7 +138,7 @@ export default function ChangeView({ }) {
                 </TouchableOpacity>
 
             </View>
-            <View style={tw`mt-5 h-36 bg-red-200 rounded-xl`} >
+            <View style={tw`mt-1 h-36 bg-red-200`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Blogs")}>
 
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/blogs.png")}>
@@ -151,7 +151,7 @@ export default function ChangeView({ }) {
                                         <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/blog.png")} />
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-                                        <Text style={tw`  text-black  pl-2  `} >BLOGS</Text>
+                                        <Text style={tw`  text-black  pl-2 font-bold`} >BLOGS</Text>
                                     </View>
                                 </View>
 
@@ -163,7 +163,7 @@ export default function ChangeView({ }) {
 
             </View>
 
-
+</View>
         </ScrollView>
     )
 }
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
         padding: 10,
-        opacity: .6
+        opacity: .7
     },
     inview: {
         backgroundColor: "transparent",
