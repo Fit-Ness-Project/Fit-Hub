@@ -143,7 +143,7 @@ export default function Login({}: RootTabScreenProps<'changeViewProps'>) {
                                     ><Text style={Styles.text}>Log In</Text></TouchableOpacity>
                                 </View>
                                 <View style={tw`items-center`}>
-                                    <Text style={tw`text-white items-center mt-8 `}>Or-----</Text>
+                                    <Text style={tw`text-white items-center mt-8 `}>Or</Text>
                                 </View>
 
                                 <View style={tw`border border-white items-center bg-white mt-8 rounded w-4/5 ml-8 h-8`}>
