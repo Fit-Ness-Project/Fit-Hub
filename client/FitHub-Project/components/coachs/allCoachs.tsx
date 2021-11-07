@@ -17,8 +17,9 @@ import {
   TextInput
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-// import Stars from 'react-native-stars';
+import tw from 'tailwind-react-native-classnames';
+import { AirbnbRating } from "react-native-ratings";
+
 
 const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 }
 
@@ -101,75 +102,108 @@ export default function AllCoachs() {
 
   return (
 
-    <View style={styles.container} >
-      <TextInput
-        style={styles.input}
-        value={search}
-        placeholder=" search your coach here..."
-        underlineColorAndroid="transparent"
-        onChangeText={(text) => searchFilter(text)}
-      />
+    // <View style={styles.container} >
+    //   <TextInput
+    //     style={styles.input}
+    //     value={search}
+    //     placeholder=" search your coach here..."
+    //     underlineColorAndroid="transparent"
+    //     onChangeText={(text) => searchFilter(text)}
+    //   />
 
 
-      <FlatList data={coachData}
-        renderItem={renderItems}
-        keyExtractor={(item, i) => i.toString()}
+    //   <FlatList data={coachData}
+    //     renderItem={renderItems}
+    //     keyExtractor={(item, i) => i.toString()}
 
-        showsHorizontalScrollIndicator={false}
+    //     showsHorizontalScrollIndicator={false}
 
-        ref={(ref) => { flatListRef.current = ref }}
-        style={styles.carousel}
-        viewabilityConfig={viewConfigRef}
+    //     ref={(ref) => { flatListRef.current = ref }}
+    //     style={styles.carousel}
+    //     viewabilityConfig={viewConfigRef}
 
-      />
-      <View style={styles.dotview}>
-        {coachData.map(({ }, index: number) => (
-          <TouchableOpacity key={index.toString()}
-            onPress={() => scrollToIndex(index)}
-          >
+    //   />
+    //   <View style={styles.dotview}>
+    //     {coachData.map(({ }, index: number) => (
+    //       <TouchableOpacity key={index.toString()}
+    //         onPress={() => scrollToIndex(index)}
+    //       >
 
-          </TouchableOpacity>
-        ))}
+    //       </TouchableOpacity>
+    //     ))}
+    //   </View>
+    //   <StatusBar />
+    // </View>
+    <View>
+      <View style={tw` h-40 mt-1 flex flex-row`} >
+
+        <View style={tw`bg-black w-2/5 h-full items-center`} >
+          <Image style={tw` w-full h-full  items-center `} source={require("../../assets/images/coachbg.png")} />
+
+        </View>
+        <View style={tw`bg-gray-200 flex flex-cols w-3/5 items-center`} >
+          <Text style={tw`font-bold text-xl pl-4 mt-4 items-center`} >
+            Mohamed Salah
+          </Text>
+          <Text style={tw`pl-4  `}>
+            metkharej ml ineps
+          </Text>
+          <Text style={tw`pl-4`}>
+            box, fitness
+          </Text>
+          <AirbnbRating
+                            count={5}
+                            reviews={["1", "2", "3", "4", "5"]}
+                            defaultRating={4}
+                            size={20}
+                            showRating={false}
+                            
+                          />
+          <View style={tw`absolute inset-x-0 bottom-0`}>
+            <View style={styles.seeMore}>
+
+              <View style={tw`h-8 w-full bg-transparent items-center `}>
+                <Image style={tw` h-8 w-8 items-center `} source={require("../../assets/Icons/seeMore.png")} />
+              </View>
+            </View>
+          </View>
+        </View>
+
       </View>
-     
-    </View>
 
+
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
     flexDirection: "column"
   },
+  seeMore: {
+    backgroundColor: "#e7ff19",
+    alignItems: "center",
+
+
+  },
   image: {
-    // flex: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 350,
+
     height: 230,
-    resizeMode: 'cover',
-    marginVertical: 10,
-    borderRadius: 16,
   },
   footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    height: 50,
-    paddingHorizontal: 30,
-    alignItems: 'center',
-    backgroundColor: '#000',
-    borderRadius: 13,
-
+    borderWidth: 1,
+    borderRadius: 5,
+    height: 60,
+    opacity: .8,
+    fontWeight: "bold",
+    backgroundColor: "#e7ff19",
 
   },
   footerText: {
-    color: '#fff',
+    color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
-
   },
   carousel: {
     maxHeight: 590
@@ -198,7 +232,6 @@ const styles = StyleSheet.create({
     width: 350,
     height: 55,
     borderWidth: 1,
-   
     margin: 2,
     borderColor: 'black',
     backgroundColor: "white",
