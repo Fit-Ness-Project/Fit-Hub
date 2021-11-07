@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { StyleSheet, Button, ImageBackground, TouchableOpacity,Image} from 'react-native'
-import { Text, View} from '../../components/Themed';
+import { StyleSheet, Button, ImageBackground, TouchableOpacity, Image } from 'react-native'
+import { Text, View } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
 import { useNavigation } from '@react-navigation/native';
 import tw from 'tailwind-react-native-classnames';
@@ -55,14 +55,13 @@ const FirstVue = ({
         </ImageBackground>
         </View>
 
-      
-
     )
 }
 
 export default FirstVue
 
 const styles = StyleSheet.create({
+
     button: {
         borderWidth: 1,
         width: 150,
