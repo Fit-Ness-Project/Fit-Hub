@@ -34,7 +34,7 @@ export default function AllCoachs() {
  
   useEffect(() => {
     axios
-      .get('http://192.168.43.226:5000/coachs')
+      .get('http://192.168.11.65:5000/coachs')
 
       .then((response) => {
 
