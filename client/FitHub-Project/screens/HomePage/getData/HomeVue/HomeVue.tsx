@@ -7,9 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import BottomTabNavigator from'../../../../navigation/index'
 
 
-export default function ChangeView({
-
-}) {
+export default function ChangeView({}) {
   const navigation = useNavigation()
   return (
     <ScrollView>
