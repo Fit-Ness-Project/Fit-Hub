@@ -1,13 +1,8 @@
 import * as React from 'react';
-import { ScrollView ,StyleSheet ,Text,Image,  FlatList, View } from 'react-native';
+import { ScrollView ,StyleSheet ,Text,Image, View,TouchableOpacity } from 'react-native';
  import { Avatar, Button, Card, Title, Paragraph,Colors } from 'react-native-paper';
-// import EditScreenInfo from '../../components/EditScreenInfo';
-// import { Text, View } from '../../components/Themed';
-// import { RootTabScreenProps } from '../../types';
-// // import {Gym} from "./Gyminterface"
-// import axios from 'axios';
  import tw from "tailwind-react-native-classnames"
-// import  { useEffect, useState , useRef } from 'react'
+
 
  
 
@@ -29,24 +24,13 @@ import { RouteProp } from '@react-navigation/native';
         }, 'params'>
     }> = ({ route: { params } }) => {
         return (
-                 
-        <View style = {tw` h-full  bg-gray-900`}>
-            
-      <Card style = {tw`bg-gray-400   rounded mt-1`}   >
-          <View style = {tw`h-2/3`}>
-<Card.Cover style = {tw ` h-full `} source={{ uri:params.imgUrl}}  />
+         <View style={{width:"100%" , height:"100%",alignItems: "center"}}>
+<View style={{width:"100%" ,height:"32%"}}>
+  <Image style={{width:"100%" , height:"100%"}}source = {{ uri: params.imgUrl }} />
 </View>
-    <Card.Content style ={tw``}>
-    
-      <Title style = {tw` text-white text-4xl`}> {params.gymName}</Title>    
-       <Paragraph style = {tw`text-xl text-white pt-6`}>{params.description} </Paragraph>
-       <Text style = {tw`text-xl pt-6 text-gray-900`}>{params.fields}</Text>
-       <Text style = {tw`text-xl text-gray-900`}>{params.price} TND</Text>
-       <Button style = {tw`text-2xl`} onPress={()=>{}} >JOIN US </Button>
-    </Card.Content>
-   
-   </Card>
-      </View>
+
+
+         </View>
    );
     }
 
