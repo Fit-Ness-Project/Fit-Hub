@@ -18,7 +18,7 @@ export default function ChangeView({ }) {
                         <View style={tw`bg-transparent h-8 absolute inset-x-0 bottom-0`} >
                             <View style={styles.view}>
                                 <View style={styles.inview}>
-                                    <Image style={tw` w-10 h-10  `} source={require("../../../../assets/Icons/Gym.png")} />
+                                    <Image style={tw` w-10 h-10  `} source={require("../../../../assets/Icons/gym.png")} />
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
                                         <Text style={tw`text-black  pl-2 font-bold`} >GYMS</Text>
                                     </View>
@@ -65,7 +65,7 @@ export default function ChangeView({ }) {
                                     <View style={tw`h-7 w-8 bg-transparent`}>
                                         <View style={tw`h-7 w-7 bg-transparent`}>
 
-                                            <Image style={tw` w-full h-full `} source={require("../../../../assets/Icons/Food.png")} />
+                                            <Image style={tw` w-full h-full `} source={require("../../../../assets/Icons/food.png")} />
                                         </View>
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
@@ -118,7 +118,7 @@ export default function ChangeView({ }) {
                                 <View style={styles.inview}>
                                     <View style={tw`h-7 w-8 bg-transparent`}>
 
-                                        <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/Event.png")} />
+                                        <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/event.png")} />
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
                                         <Text style={tw`  text-black  pl-2 font-bold`} >EVENTS</Text>
@@ -143,7 +143,7 @@ export default function ChangeView({ }) {
                                 <View style={styles.inview}>
                                     <View style={tw`h-7 w-7 bg-transparent`}>
 
-                                        <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/Blog.png")} />
+                                        <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/blog.png")} />
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
                                         <Text style={tw`  text-black  pl-2 font-bold`} >BLOGS</Text>
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
         width: 150,
         borderRadius: 5,
         height: 60,
-        opacity: .8,
+        opacity: .9,
         fontWeight: "bold",
         backgroundColor: "#e7ff19",
         borderColor: "gray",
