@@ -4,10 +4,6 @@ import { ScrollView ,StyleSheet ,Text,Image, View,TouchableOpacity } from 'react
  import tw from "tailwind-react-native-classnames"
 
 
- 
-
-const viewConfigRef = {viewAreaCoveragePercentTreshold:95}
-
 import { RouteProp } from '@react-navigation/native';
 
    const Gym: React.FC<{
