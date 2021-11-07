@@ -33,8 +33,8 @@ export default function Food() {
         setFoodData(response.data)
         setSearchData(response.data)
     })
-    .catch(( Error) => {
-      console.log(Error);
+    .catch((error) => {
+      console.log(error);
     });
 
 }, [])
