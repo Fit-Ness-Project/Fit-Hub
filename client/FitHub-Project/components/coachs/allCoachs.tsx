@@ -17,6 +17,7 @@ import {
   TextInput
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import tw from "tailwind-react-native-classnames";
 
 
 
@@ -49,10 +50,6 @@ export default function AllCoachs() {
   },
 
     [])
-
-
-
-
 
   const searchFilter = (text: string) => {
     if (text) {
@@ -101,8 +98,8 @@ export default function AllCoachs() {
 
   return (
 
-    <View style={styles.container} >
-      <TextInput
+    <View style={tw`bg-red-200 h-32 `} >
+    <TextInput
         style={styles.input}
         value={search}
         placeholder=" search your coach here..."
@@ -111,7 +108,7 @@ export default function AllCoachs() {
       />
 
 
-      <FlatList data={coachData}
+      {/* <FlatList data={coachData}
         renderItem={renderItems}
         keyExtractor={(item, i) => i.toString()}
 
@@ -121,7 +118,9 @@ export default function AllCoachs() {
         style={styles.carousel}
         viewabilityConfig={viewConfigRef}
 
-      />
+      /> */}
+
+      {/* 
       <View style={styles.dotview}>
         {coachData.map(({ }, index: number) => (
           <TouchableOpacity key={index.toString()}
@@ -130,86 +129,88 @@ export default function AllCoachs() {
 
           </TouchableOpacity>
         ))}
-      </View>
-      <StatusBar />
-    </View>
+      </View> */}
 
-  )
+
+        <View style={tw`bg-black w-40 h-full items-center`} >
+          <Image style={tw` w-full h-full  items-center `} source={require("../../assets/images/logo.png")} />
+
+        </View>
+        <View style={tw`bg-green-200 -mt-32 ml-40 h-24 `} >
+          <Text style={tw`font-bold text-xl pl-4 items-center`} >
+            Mohamed Salah
+          </Text>
+          <Text style={tw`pl-4  `}>
+            metkharej ml ineps
+          </Text>
+          <Text style={tw`pl-4`}>
+            box, fitness
+          </Text>
+        </View>
+        <View style={tw`bg-white ml-40 h-8`}>
+
+        </View>
+      </View>
+
+      )
 }
 
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: "column"
-  },
-  image: {
-    // flex: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 350,
-    height: 230,
-    resizeMode: 'cover',
-    marginVertical: 10,
-    borderRadius: 16,
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    height: 50,
-    paddingHorizontal: 30,
-    alignItems: 'center',
-    backgroundColor: '#000',
-    borderRadius: 13,
+      const styles = StyleSheet.create({
+     
+      image: {
 
+        height: 230,
+  },
+      footer: {
+        // borderWidth: 1,
+        // height: 60,
+        // opacity: .8,
+        // fontWeight: "bold",
+        // backgroundColor: "#e7ff19",
 
+      },
+      footerText: {
+        // color: 'black',
+        // fontSize: 18,
+        // fontWeight: 'bold',
+      },
+      carousel: {
+        maxHeight: 590
   },
-  footerText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-
-  },
-  carousel: {
-    maxHeight: 590
-  },
-  dotview: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginVertical: 20,
-  },
-  circle: {
-    width: 10,
-    height: 10,
-    backgroundColor: "grey",
-    borderRadius: 50,
-  },
-  title: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    backgroundColor: "black"
-  },
-  itemStyle: {
-    padding: 10
-  },
-  input: {
-    width: 350,
-    height: 55,
-    borderWidth: 1,
-    // paddingLeft: 20,
-    margin: 2,
-    borderColor: 'black',
-    backgroundColor: "white",
-    borderRadius: 6,
-  },
-  rating: {
-    position: 'absolute',
-    left: 5,
-    top: 5,
-  }
-
+      dotview: {
+        // flexDirection: 'row',
+        // justifyContent: 'center',
+        // marginVertical: 20,
+      },
+      circle: {
+        // width: 10,
+        // height: 10,
+        // backgroundColor: "grey",
+        // borderRadius: 50,
+      },
+      title: {
+        // color: 'white',
+        // fontSize: 25,
+        // fontWeight: 'bold',
+        // backgroundColor: "black"
+      },
+      itemStyle: {
+        // padding: 10
+      },
+      input: {
+        // width: 350,
+        // height: 55,
+        // borderWidth: 1,
+        // margin: 2,
+        // borderColor: 'black',
+        // backgroundColor: "white",
+        // borderRadius: 6,
+      },
+      rating: {
+        // position: 'absolute',
+        // left: 5,
+        // top: 5,
+      }
 })

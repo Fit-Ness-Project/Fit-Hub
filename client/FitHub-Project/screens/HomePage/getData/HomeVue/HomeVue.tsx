@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
         width: 150,
         borderRadius: 5,
         height: 60,
-        opacity: .8,
+        opacity: .9,
         fontWeight: "bold",
         backgroundColor: "#e7ff19",
         borderColor: "gray",
