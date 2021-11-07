@@ -38,6 +38,7 @@ import myprofile from "../components/myprofile/myprofile";
 import { createEvent } from "../screens/Events/createEvent";
 import { useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import Register from "../components/auth/register";
 import { FontAwesome } from "@expo/vector-icons";
 export default function Navigation({
   colorScheme,
@@ -99,6 +100,7 @@ function RootNavigator({ }) {
       <Stack.Screen name="createEvent" component={createEvent} />
       <Stack.Screen name="Home" component={ChangeView} />
       <Stack.Screen name="blog" component={blog} />
+      <Stack.Screen name="register" component={Register} />
     </Stack.Navigator>
   );
 }
