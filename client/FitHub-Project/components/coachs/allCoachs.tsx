@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import  {Rating } from 'react-native-elements';
+import { Rating } from 'react-native-elements';
 import { Text, View } from '../Themed';
 import * as React from 'react';
 import { Coach } from "./interface";
@@ -31,7 +31,7 @@ export default function AllCoachs() {
   const [coachData, setCoachData] = useState<Coach[]>([]);
   const [search, setSearch] = useState('');
 
- 
+
   useEffect(() => {
     axios
       .get('http://192.168.11.65:5000/coachs')
@@ -52,7 +52,7 @@ export default function AllCoachs() {
 
 
 
- 
+
 
   const searchFilter = (text: string) => {
     if (text) {
@@ -88,11 +88,11 @@ export default function AllCoachs() {
 
       activeOpacity={1} >
       <ImageBackground source={{ uri: item.imageUrl }} style={styles.image} >
-      <Rating imageSize={25} readonly startingValue={item.rating/2} style={styles.rating} />
+        <Rating imageSize={25} readonly startingValue={item.rating / 2} style={styles.rating} />
       </ImageBackground>
       <View style={styles.footer} >
         <Text style={styles.footerText}>{item.coachName} </Text>
-         <Text style={styles.footerText}>{item.price} TND</Text>
+        <Text style={styles.footerText}>{item.price} TND</Text>
 
       </View>
     </TouchableOpacity>
@@ -100,23 +100,23 @@ export default function AllCoachs() {
 
 
   return (
-   
+
     <View style={styles.container} >
- <TextInput
+      <TextInput
         style={styles.input}
         value={search}
         placeholder=" search your coach here..."
         underlineColorAndroid="transparent"
         onChangeText={(text) => searchFilter(text)}
       />
-     
-    
+
+
       <FlatList data={coachData}
         renderItem={renderItems}
         keyExtractor={(item, i) => i.toString()}
 
         showsHorizontalScrollIndicator={false}
-        
+
         ref={(ref) => { flatListRef.current = ref }}
         style={styles.carousel}
         viewabilityConfig={viewConfigRef}
@@ -133,7 +133,7 @@ export default function AllCoachs() {
       </View>
       <StatusBar />
     </View>
-    
+
   )
 }
 
@@ -142,8 +142,8 @@ export default function AllCoachs() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-     alignItems: 'center',
-     justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: "column"
   },
   image: {
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   input: {
-    width:350,
+    width: 350,
     height: 55,
     borderWidth: 1,
     // paddingLeft: 20,
@@ -206,10 +206,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 6,
   },
-  rating:{
+  rating: {
     position: 'absolute',
-                left: 5,
-                top: 5,
+    left: 5,
+    top: 5,
   }
 
 })
