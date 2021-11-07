@@ -39,10 +39,10 @@ import FirstVue from '../screens/FirstVue/FirstVue'
 import signUp from "../components/auth/register";
 import Information from "../screens/Information";
 import myprofile from "../components/myprofile/myprofile";
+import { createEvent } from "../screens/Events/createEvent";
 import { useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { FontAwesome } from "@expo/vector-icons";
-
 export default function Navigation({
   colorScheme,
 }: {
@@ -84,6 +84,7 @@ function RootNavigator({}) {
       <Stack.Screen
         name="Root"
         component={FirstVue}
+        // component={BottomTabNavigator}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -105,6 +106,7 @@ function RootNavigator({}) {
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="signUp" component={signUp} />
       <Stack.Screen name="changeViewProps" component={ChangeView} />
+      <Stack.Screen name="createEvent" component={createEvent} />
     </Stack.Navigator>
   );
 }

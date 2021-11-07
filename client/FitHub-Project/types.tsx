@@ -50,6 +50,7 @@ export type RootStackParamList = {
      login:undefined;
      signUp:undefined;
      FirstVueProps:undefined;
+     createEvent:undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -73,6 +74,7 @@ export type RootTabParamList = {
   Gymdescription:{GymId:number};
   myProfile:undefined;
   FirstVueProps:undefined;
+  createEvent:undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
