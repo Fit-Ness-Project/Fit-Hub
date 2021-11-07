@@ -13,6 +13,7 @@ import {
   Animated,
   TouchableOpacity,
   Platform,
+  ImageBackground,
   TextInput
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
@@ -33,7 +34,7 @@ export default function AllCoachs() {
  
   useEffect(() => {
     axios
-      .get('http://192.168.43.226:5000/coachs')
+      .get('http://192.168.11.65:5000/coachs')
 
       .then((response) => {
 
@@ -86,8 +87,9 @@ export default function AllCoachs() {
     })}
 
       activeOpacity={1} >
-      <Image source={{ uri: item.imageUrl }} style={styles.image} />
+      <ImageBackground source={{ uri: item.imageUrl }} style={styles.image} >
       <Rating imageSize={25} readonly startingValue={item.rating/2} style={styles.rating} />
+      </ImageBackground>
       <View style={styles.footer} >
         <Text style={styles.footerText}>{item.coachName} </Text>
          <Text style={styles.footerText}>{item.price} TND</Text>
@@ -140,8 +142,8 @@ export default function AllCoachs() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+     alignItems: 'center',
+     justifyContent: 'center',
     flexDirection: "column"
   },
   image: {
@@ -205,6 +207,9 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   rating:{
+    position: 'absolute',
+                left: 5,
+                top: 5,
   }
 
 })

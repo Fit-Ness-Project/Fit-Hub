@@ -113,7 +113,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                                 onBlur={handleBlur('email')}
                                 value={values.email}
                                 style={tw` h-10 rounded bg-white p-2`}
-                                placeholder="E-mail@YourEmail.com"
+                                placeholder="E-mail@mail.com"
                                 autoCompleteType="email"
                                 keyboardType="email-address"
                             />
