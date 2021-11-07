@@ -1,34 +1,20 @@
 import * as React from 'react';
-import { ScrollView ,StyleSheet ,  FlatList } from 'react-native';
+import {StyleSheet,Text,View,Image,ImageBackground,TouchableOpacity,ScrollView} from 'react-native';
   import tw from "tailwind-react-native-classnames"
-import Map from "./Map"
-import { Avatar, Button, Card, Title, Paragraph,Colors } from 'react-native-paper';
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-import { RootTabScreenProps } from '../../types';
 import {Gym} from "./Gyminterface"
 import axios from 'axios';
-import  { useEffect, useState , useRef } from 'react'
+import  { useEffect, useState } from 'react'
+import { Button,Card } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/core';
-
-
-const viewConfigRef = {viewAreaCoveragePercentTreshold:95}
 export default function Gyms() {
-
-let flatListRef = useRef<FlatList<Gym> | null >();
-
-// const [currentIndex, setCurrentIndex] = useState(0);
-
 const [GymData, setGymData] = useState<Gym[]>([]);
-
 const navigation = useNavigation()
-
 useEffect(() => {
   axios 
   .get('http://192.168.11.161:5000/gyms')
    
   .then((response)=> {
-    //  console.log(response.data)
+     console.log(response.data)
       setGymData(response.data)
   })
   .catch(( Error) => {
@@ -36,37 +22,46 @@ useEffect(() => {
   });
 
 }, [])
+return (
+  <ScrollView style={{backgroundColor:"black"}}>
 
-  return (
-    <ScrollView style = {tw  `bg-white`}>
-      {GymData.map((e,k)=>(
+{GymData.map((e,k)=>(
+     
+      <Card style = {{ width:"100%",backgroundColor:'rgba(236, 236, 236, 1)', marginTop:6}}  key = {k} >
+     
+       <Card.Cover  source={{ uri: e.imgUrl }} />
 
-      <Card style = {tw`bg-gray-500 w-96 ml-4 rounded mt-1`}  key = {k} >
-    <Card.Cover  source={{ uri: e.imgUrl }} />
-    <Card.Content>
-      <Title style = {tw`text-white`}>  {e.gymName}</Title>
-      <Paragraph style = {tw`text-white`}>{e.description}</Paragraph>
-    </Card.Content>
-    <Card.Actions>
-      <Button  onPress={() => navigation.navigate('Gymdescription' , {
-         GymId: e.id,
-         gymName: e.gymName,
-         imgUrl: e.imgUrl,
-         rating: e.rating,
-         description: e.description,
-         fields: e.fields,
-         price: e.price 
-      })} color = "#e7ff19">See More</Button>
-      <Button onPress = {()=>console.log(e)} color = "#e7ff19">Show in Maps</Button>
-    </Card.Actions>
+          <Card.Content>
+   <View style = {{flexDirection:"row" , backgroundColor :"transparent",alignItems: "center"}}>
+     <Image style= {tw`h-6 w-6  mt-1`} source ={require("../../assets/Icons/test.png")}/>
+      <Text style = {tw`text-black text-lg font-bold`}>  {e.gymName}</Text>
+      </View>
+      </Card.Content>
+      <View style = {{width:"100%"}}>
+      <Text style = {tw`text-black text-sm ml-4 mt-3`}>{e.description}</Text>
+      </View>
+      <View style = {{height:30}}></View>
+      <View style = {{alignItems:"center"}}>
+      <TouchableOpacity  onPress={() => navigation.navigate('Gymdescription' , {
+   GymId: e.id,
+   gymName: e.gymName,
+   imgUrl: e.imgUrl,
+   rating: e.rating,
+   description: e.description,
+   fields: e.fields,
+   price: e.price 
+})} style={{backgroundColor:"#e7ff19",height:35,width:"100%",alignItems:"center",opacity:.7}} ><Image style={tw`h-8 w-8`} source = {require("../../assets/Icons/expand-button.png")}/></TouchableOpacity>
+  </View>
   </Card>
+
+
       ))}
-    </ScrollView>
+
+
+</ScrollView>
+ 
   );
 }
-
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -83,3 +78,4 @@ const styles = StyleSheet.create({
     width: '80%',
   },
 });
+   
