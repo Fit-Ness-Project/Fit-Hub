@@ -3,14 +3,9 @@ import { View, Image, Text, TextInput, Button, StyleSheet, ImageBackground, Touc
 import tw from 'tailwind-react-native-classnames';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import  _ from "lodash";
-import { useKeepAwake } from 'expo-keep-awake';
-import { RootTabScreenProps } from '../../types';
-import { useNavigation } from '@react-navigation/native';
-export default function Register({}: RootTabScreenProps<'bmi'>) {
-    const navigation = useNavigation();
-    useKeepAwake();
+import _ from "lodash";
 
+export default function Register() {
     const validationSchema = Yup.object().shape({
         last: Yup.string().required('Last Name is required').label('Name'),
         first: Yup.string().required('First Name is required').label('Name'),
@@ -20,7 +15,7 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
             .matches(/^[0-9]+$/, "Must be only digits")
             .min(8, 'The phone number must be exactly 8 digits')
             .max(8, 'The phone number must be exactly 8 digits')
-            
+
             .required('A phone number is required'),
 
         email: Yup.string()
@@ -43,23 +38,22 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
         >
 
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-                <View style={tw` w-full h-full `}>
-                <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
-                        <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20`}>
-                            <View style={tw` h-16  w-4/5 ml-8`} >  
-                            <Image style={tw` w-full h-full pl-2 `} source={require("../../assets/images/logo.png")} />
-                             </View>
+                <View style={tw`w-full h-full `}>
+                    <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
+                        {/* <ImageBackground source={require('../assets/back.jpg')} /> */}
+                        <View style={tw`bg-black bg-opacity-60 h-4/5 pt-20`}>
+                            <View style={tw` h-16  w-4/5 ml-8`} >
+                                <Image style={tw` w-full h-full pl-2 `} source={require("../../assets/images/logo.png")} /></View>
 
                             <View style={tw` items-center `}>
 
-                                <Text style={tw`pt-8  text-white font-bold text-2xl`} >Create an account </Text>
+                                <Text style={tw`pt-20  text-white font-bold text-2xl`} >Create an account </Text>
                             </View>
 
 
-                            <View style={tw` mt-8 w-4/5 ml-8   `}>
+                            <View style={tw` mt-16 w-4/5 ml-8   `}>
                                 <TextInput
                                     style={tw`mt-4 rounded h-10 bg-white p-2 `}
-                                  
                                     placeholder="First name"
                                     onChangeText={handleChange('first')}
                                     onBlur={handleBlur('first')}
@@ -91,7 +85,7 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
                                     <Text style={{ color: 'red' }}>{errors.email}</Text>
                                 )}
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white p-2  `}
+                                    style={tw`mt-4 rounded h-10 bg-white  p-2  `}
                                     placeholder="Phone number"
                                     keyboardType="numeric"
                                     onChangeText={handleChange('number')}
@@ -116,9 +110,10 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
                             </View>
 
 
+                            {/* <View style={{ width: 167, marginTop: 70, marginLeft: 73 }}> */}
                             <View style={tw` text-black pt-6 w-4/5 ml-8`}>
                                 <TouchableOpacity
-                                    onPress={() => navigation.navigate("bmi")}
+
                                     style={Styles.button}
                                 ><Text style={Styles.text}>REGISTER</Text></TouchableOpacity>
                             </View>
