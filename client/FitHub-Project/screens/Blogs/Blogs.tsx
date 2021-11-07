@@ -30,7 +30,7 @@ export default function Blogs() {
 
    useEffect(() => {
       axios
-         .get('http://192.168.43.226:5000/blogs')
+         .get('http://192.168.11.65:5000/blogs')
          .then((response) => {
             setBlogData(response.data)
             // console.log(response.data)
@@ -63,21 +63,20 @@ export default function Blogs() {
      
 
 
-
-
-
    return (
   <View style={styles.container}>
+     {/* <ImageBackground  source="../../assets/images/coachbg.png" > */}
          <FlatList
          data={blogData}
          renderItem={renderItems}
          keyExtractor={(item, i) => i.toString()}
-
+       
          showsHorizontalScrollIndicator={false}
          
          ref={(ref) => { flatListRef.current = ref }}
         
          viewabilityConfig={viewConfigRef} />
+          {/* </ImageBackground> */}
          </View>
    )
 }
@@ -105,6 +104,7 @@ const styles = StyleSheet.create({
       fontSize: 25,
       fontWeight: 'bold',
       backgroundColor: "black",
+
       opacity:0.7,
     }
 })
