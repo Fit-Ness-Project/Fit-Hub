@@ -24,6 +24,9 @@ import { RouteProp } from '@react-navigation/native';
 <View style={{width:"100%" ,height:"32%"}}>
   <Image style={{width:"100%" , height:"100%"}}source = {{ uri: params.imgUrl }} />
 </View>
+<View>
+  
+</View>
 
 
          </View>

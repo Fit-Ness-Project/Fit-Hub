@@ -4,7 +4,7 @@ import {StyleSheet,Text,View,Image,ImageBackground,TouchableOpacity,ScrollView} 
 import {Gym} from "./Gyminterface"
 import axios from 'axios';
 import  { useEffect, useState } from 'react'
-import { Button,Card } from 'react-native-paper';
+import { Card } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/core';
 export default function Gyms() {
 const [GymData, setGymData] = useState<Gym[]>([]);
