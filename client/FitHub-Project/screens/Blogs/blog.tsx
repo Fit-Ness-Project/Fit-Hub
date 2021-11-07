@@ -34,22 +34,28 @@ const Blog: React.FC<{
 
     return (
         <View style={styles.container}>
-<Text>{params.blogTitle}</Text>
- 
+<Text style={styles.title}>{params.blogTitle}</Text>
+<ImageBackground source={{ uri: params.imageUrl }} style={styles.image} >
+</ImageBackground>
+<Text  style={styles.date}>{params.date}</Text>
+<Text style={styles.text} >{params.content}</Text>
         </View>
     )
 
 }
 
+
+
 export default Blog
+
 
 
 const styles = StyleSheet.create({
     container: {
-        flex: 4,
-        // alignItems: 'center',
-        // justifyContent: 'center',
-
+        flex: 1,
+         alignItems: 'center',
+         justifyContent: 'center',
+         flexDirection: "column"
     },
     image: {
         alignItems: 'center',
@@ -61,9 +67,15 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     title: {
-
-        fontSize: 25,
+        alignItems: 'center',
+        fontSize:32,
         fontWeight: 'bold',
-
+        justifyContent: 'center',
     },
+    text:{
+        fontSize: 25,
+    },
+    date:{
+        fontSize:15
+    }
 })

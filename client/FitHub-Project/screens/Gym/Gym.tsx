@@ -5,18 +5,17 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import Gyms from "../../components/Gyms/Gyms"
 import { RootTabScreenProps } from '../../types';
+import tw from "tailwind-react-native-classnames"
 
 
 export default function GymScrean() {
   return (
     
-   <View style={{width:'100%', height:'100%'}}>
-   <Map ></Map>
-   <View style={{width:'100%', height:'65%'}}>
-       <Gyms/>
-   </View>
+
+      <Gyms/>
+
    
-</View>
+
 )
   }
  const styles = StyleSheet.create({
