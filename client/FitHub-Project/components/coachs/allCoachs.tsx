@@ -17,8 +17,8 @@ import {
   TextInput
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-
-
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import Stars from 'react-native-stars';
 
 const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 }
 
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     width:350,
     height: 55,
     borderWidth: 1,
-    // paddingLeft: 20,
+   
     margin: 2,
     borderColor: 'black',
     backgroundColor: "white",
@@ -208,8 +208,9 @@ const styles = StyleSheet.create({
   },
   rating:{
     position: 'absolute',
-                left: 5,
-                top: 5,
+    left: 5,
+    top: 5,
+    ratingBackgroundColor:'black',
+    opacity:5
   }
-
 })
