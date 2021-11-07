@@ -13,18 +13,10 @@ import {
   Animated,
   TouchableOpacity,
   Platform,
+  ImageBackground,
   TextInput
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-// import { RootTabScreenProps } from '../../types';
-// import { NavigatorScreenParams } from '@react-navigation/native';
-// export type RootStackParamList = {
-//   HomeScreen: undefined;
-//   DetailsScreen: {
-//     itemId: number;
-//     otherParam: string;
-//   };
-// };
 
 
 
@@ -39,7 +31,7 @@ export default function AllCoachs() {
   const [coachData, setCoachData] = useState<Coach[]>([]);
   const [search, setSearch] = useState('');
 
-
+ 
   useEffect(() => {
     axios
       .get('http://192.168.11.65:5000/coachs')
@@ -47,7 +39,7 @@ export default function AllCoachs() {
       .then((response) => {
 
         setCoachData(response.data)
-        // console.log(response.data)
+        //  console.log(response.data)
       })
       .catch((Error) => {
         console.log(Error);
@@ -73,12 +65,6 @@ export default function AllCoachs() {
       setSearch(text)
     }
   }
-  
-
-  // const ratingCompleted = (rating:number) => {
-  //   console.log("Rating is: " + rating)
-  // }
-
 
   const scrollToIndex = (index: number) => {
     flatListRef.current?.scrollToIndex({ animated: true, index: index })
@@ -87,12 +73,6 @@ export default function AllCoachs() {
 
 
   const renderItems: React.FC<{ item: Coach }> = ({ item }) => {
-
-    // type TabParamList = {
-    //   Home: NavigatorScreenParams<any>;
-    //   Profile: { userId: string };
-    // };
-
 
     return <TouchableOpacity onPress={() => navigation.navigate("coach", {
       coachId: item.id,
@@ -107,8 +87,9 @@ export default function AllCoachs() {
     })}
 
       activeOpacity={1} >
-      <Image source={{ uri: item.imageUrl }} style={styles.image} />
+      <ImageBackground source={{ uri: item.imageUrl }} style={styles.image} >
       <Rating imageSize={25} readonly startingValue={item.rating/2} style={styles.rating} />
+      </ImageBackground>
       <View style={styles.footer} >
         <Text style={styles.footerText}>{item.coachName} </Text>
          <Text style={styles.footerText}>{item.price} TND</Text>
@@ -119,8 +100,6 @@ export default function AllCoachs() {
 
 
   return (
-   
-
    
     <View style={styles.container} >
  <TextInput
@@ -163,8 +142,8 @@ export default function AllCoachs() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+     alignItems: 'center',
+     justifyContent: 'center',
     flexDirection: "column"
   },
   image: {
@@ -228,6 +207,9 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   rating:{
+    position: 'absolute',
+                left: 5,
+                top: 5,
   }
 
 })

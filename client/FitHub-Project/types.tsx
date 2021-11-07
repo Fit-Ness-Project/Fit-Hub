@@ -23,6 +23,16 @@ export type RootStackParamList = {
   NotFound: undefined;
   Food: undefined;
   Blogs: undefined;
+  blog:{
+     id: number;
+      blogTitle: string; 
+      imageUrl: string; 
+      content: string;
+      date: Date;
+      comment: string;
+      comment_count: Number; 
+      like: Number;
+  }
   Gym: undefined;
   Coachs: undefined;
   coach: {
@@ -36,7 +46,7 @@ export type RootStackParamList = {
     email : string,
     imageUrl : string
   };
-  changeViewProps: undefined;
+  Home: undefined;
   Events: undefined;
   bmi : undefined;
   Gymdescription:{GymId:Number,
@@ -47,6 +57,7 @@ export type RootStackParamList = {
     fields: string;
     price: Number;
      };
+    
      login:undefined;
      signUp:undefined;
      FirstVueProps:undefined;
@@ -62,10 +73,10 @@ export type RootTabParamList = {
   UserInfo: undefined;
   Community: undefined;
   Food: undefined;
-  Blogs: undefined;
+  Blogs:undefined;
   Gym: undefined;
   Coachs: undefined;
-  changeViewProps: undefined;
+  Home: undefined;
   Events: undefined;
   bmi : undefined;
   login:undefined;
@@ -75,6 +86,7 @@ export type RootTabParamList = {
   myProfile:undefined;
   FirstVueProps:undefined;
   createEvent:undefined;
+  blog:undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
