@@ -120,7 +120,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     borderWidth: 1,
     borderColor: '#E5E5E5',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderRadius: 20
 },
     image:{
       width: 'full' ,
