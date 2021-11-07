@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 import { Text, View} from '../Themed'
 import { Card, Title, Paragraph , Button } from 'react-native-paper';
 import tw from 'tailwind-react-native-classnames';
-import { fontSize } from '@mui/system';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 

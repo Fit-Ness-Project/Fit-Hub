@@ -9,9 +9,7 @@ import * as _ from "lodash";
 import * as Google from 'expo-google-app-auth';
 import { LogBox } from 'react-native';
 import { useKeepAwake } from 'expo-keep-awake';
-import {
-    RootTabScreenProps
-} from "../../types";
+import { RootTabScreenProps} from "../../types";
 import { useNavigation } from '@react-navigation/native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -155,7 +153,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                         </View>
                         <View style={tw`h-10 mt-6 items-center`}>
                             <Text style={tw`text-white  pl-6 pt-4`}>
-                                Don't have an account ? <Text style={tw`text-blue-400 underline`}>Register</Text>
+                                Don't have an account ? <Text  onPress={() => navigation.navigate("register")}  style={tw`text-blue-400 underline`}>Register</Text>
                             </Text>
                         </View>
                     </View>

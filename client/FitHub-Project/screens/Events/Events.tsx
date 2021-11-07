@@ -2,18 +2,16 @@ import * as React from "react";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Events } from "./interface";
-import {
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Button,
-} from "react-native";
+import { FlatList,  StyleSheet,TouchableOpacity,Image, Button} from "react-native";
 import { View, Text } from "../../components/Themed";
-
 const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 };
+import { RootTabScreenProps } from "../../types";
+import { useNavigation } from "@react-navigation/core";
 
-export default function Event() {
+
+export default function Event({}: RootTabScreenProps<'createEvent'>) {
+
+  const navigation = useNavigation();
   let flatListRef = useRef<FlatList<Event> | null>();
 
   const [eventhData, setEventData] = useState<Events[]>([]);
@@ -57,6 +55,12 @@ export default function Event() {
         //  ref={(ref)=>{flatListRef.current = ref}}
         viewabilityConfig={viewConfigRef}
       />
+      {/* <HStack alignItems="center" space={4}> */}
+      <Text>Create Event</Text>
+      <TouchableOpacity
+        style={styles.button}
+       onPress={() => navigation.navigate("createEvent")} />
+    {/* </HStack> */}
     </View>
   );
 }
@@ -106,4 +110,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     backgroundColor: "black",
   },
+  button: {
+    backgroundColor: "#e7ff19",
+    alignItems: "center",
+    padding: 10,
+    opacity: .8
+
+}
 });
