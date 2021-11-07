@@ -38,95 +38,93 @@ export default function Register() {
             .label('Password'),
     });
     return (
-        <View><Text>HEY</Text></View>
-        // <Formik
-        //     initialValues={{ email: '', password: "", first: "", last: "", number: "" }}
-        //     validationSchema={validationSchema}
-        //     onSubmit={values => console.log(values)}
-        // >
+        <Formik
+            initialValues={{ email: '', password: "", first: "", last: "", number: "" }}
+            validationSchema={validationSchema}
+            onSubmit={values => console.log(values)}>
 
-        //     {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-        //         <View style={tw`flex:1, w-full h-full `}>
-        //             <ImageBackground style={tw`w-full h-full`} source={require("../assets/back.jpg")}>
-        //                 <View style={tw`flex:1, bg-black bg-opacity-60 h-4/5 pt-20`}>
+            {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+                <View style={tw`flex:1, w-full h-full `}>
+                    <ImageBackground style={tw`w-full h-full`} source={require("../assets/back.jpg")}>
+                        <View style={tw`flex:1, bg-black bg-opacity-60 h-4/5 pt-20`}>
 
-        //                     <View style={tw`flex items-center `}>
+                            <View style={tw`flex items-center `}>
 
-        //                         <Text style={tw`pt-20  text-white font-bold text-2xl`} >Sign Up to your account </Text>
-        //                     </View>
+                                <Text style={tw`pt-20  text-white font-bold text-2xl`} >Sign Up to your account </Text>
+                            </View>
 
 
-        //                     <View style={tw` mt-16 w-4/5 ml-8 flex  `}>
-        //                         <TextInput
-        //                             style={tw`mt-4 rounded h-10 bg-white p-2 flex`}
-        //                             placeholder="First name"
-        //                             onChangeText={handleChange('first')}
-        //                             onBlur={handleBlur('first')}
-        //                             value={values.first}
+                            <View style={tw` mt-16 w-4/5 ml-8 flex  `}>
+                                <TextInput
+                                    style={tw`mt-4 rounded h-10 bg-white p-2 flex`}
+                                    placeholder="First name"
+                                    onChangeText={handleChange('first')}
+                                    onBlur={handleBlur('first')}
+                                    value={values.first}
 
-        //                         />
-        //                         {errors.first && touched.first && (
-        //                             <Text style={{ color: 'red' }}>{errors.first}</Text>
-        //                         )}
-        //                         <TextInput
-        //                             style={tw` mt-4 rounded h-10 bg-white p-2 flex`}
-        //                             placeholder="Last name"
-        //                             onChangeText={handleChange('last')}
-        //                             onBlur={handleBlur('last')}
-        //                             value={values.last}
-        //                         />
-        //                         {errors.last && touched.last && (
-        //                             <Text style={{ color: 'red' }}>{errors.last}</Text>
-        //                         )}
+                                />
+                                {errors.first && touched.first && (
+                                    <Text style={{ color: 'red' }}>{errors.first}</Text>
+                                )}
+                                <TextInput
+                                    style={tw` mt-4 rounded h-10 bg-white p-2 flex`}
+                                    placeholder="Last name"
+                                    onChangeText={handleChange('last')}
+                                    onBlur={handleBlur('last')}
+                                    value={values.last}
+                                />
+                                {errors.last && touched.last && (
+                                    <Text style={{ color: 'red' }}>{errors.last}</Text>
+                                )}
 
-        //                         <TextInput
-        //                             style={tw`mt-4 rounded h-10 bg-white p-2 flex`}
-        //                             placeholder="Email"
-        //                             onChangeText={handleChange('email')}
-        //                             onBlur={handleBlur('email')}
-        //                             value={values.email}
-        //                         />
-        //                         {errors.email && touched.email && (
-        //                             <Text style={{ color: 'red' }}>{errors.email}</Text>
-        //                         )}
-        //                         <TextInput
-        //                             style={tw`mt-4 rounded h-10 bg-white text-pl-4 p-2 flex `}
-        //                             placeholder="Phone number"
-        //                             keyboardType="numeric"
-        //                             onChangeText={handleChange('number')}
-        //                             onBlur={handleBlur('number')}
-        //                             value={values.number}
-        //                         />
-        //                         {errors.number && touched.number && (
-        //                             <Text style={{ color: 'red' }}>{errors.number}</Text>
-        //                         )}
-        //                         <TextInput
-        //                             style={tw`mt-4 rounded h-10 bg-white p-2 flex `}
-        //                             secureTextEntry={true}
-        //                             placeholder="Password"
-        //                             onChangeText={handleChange('password')}
-        //                             onBlur={handleBlur('password')}
-        //                             value={values.password}
-        //                         />
-        //                         {errors.password && touched.password && (
-        //                             <Text style={{ color: 'red' }}>{errors.password}</Text>
-        //                         )}
+                                <TextInput
+                                    style={tw`mt-4 rounded h-10 bg-white p-2 flex`}
+                                    placeholder="Email"
+                                    onChangeText={handleChange('email')}
+                                    onBlur={handleBlur('email')}
+                                    value={values.email}
+                                />
+                                {errors.email && touched.email && (
+                                    <Text style={{ color: 'red' }}>{errors.email}</Text>
+                                )}
+                                <TextInput
+                                    style={tw`mt-4 rounded h-10 bg-white text-pl-4 p-2 flex `}
+                                    placeholder="Phone number"
+                                    keyboardType="numeric"
+                                    onChangeText={handleChange('number')}
+                                    onBlur={handleBlur('number')}
+                                    value={values.number}
+                                />
+                                {errors.number && touched.number && (
+                                    <Text style={{ color: 'red' }}>{errors.number}</Text>
+                                )}
+                                <TextInput
+                                    style={tw`mt-4 rounded h-10 bg-white p-2 flex `}
+                                    secureTextEntry={true}
+                                    placeholder="Password"
+                                    onChangeText={handleChange('password')}
+                                    onBlur={handleBlur('password')}
+                                    value={values.password}
+                                />
+                                {errors.password && touched.password && (
+                                    <Text style={{ color: 'red' }}>{errors.password}</Text>
+                                )}
 
-        //                     </View>
+                            </View>
 
 
-        //                     <View style={tw` text-black pt-6 w-4/5 ml-8`}>
-        //                         <TouchableOpacity
+                            <View style={tw` text-black pt-6 w-4/5 ml-8`}>
+                                <TouchableOpacity
 
-        //                             style={Styles.button}
-        //                         ><Text style={Styles.text}>REGISTER</Text></TouchableOpacity>
-        //                     </View>
-        //                 </View>
+                                    style={Styles.button}
+                                ><Text style={Styles.text}>REGISTER</Text></TouchableOpacity>
+                            </View>
+                        </View>
 
-        //             </ImageBackground>
-        //         </View>
-        //     )}
-        // </Formik>
+                    </ImageBackground>
+                </View>
+            )}
+        </Formik>
     )
 };
 const Styles = StyleSheet.create({
@@ -137,7 +135,6 @@ const Styles = StyleSheet.create({
 
     },
     text: {
-        fontFamily: "Cochin",
         color: "black",
         fontWeight: "bold",
         fontSize: 20,
