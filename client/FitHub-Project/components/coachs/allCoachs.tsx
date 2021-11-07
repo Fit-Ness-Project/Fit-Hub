@@ -18,7 +18,7 @@ import {
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import tw from 'tailwind-react-native-classnames';
-
+import { AirbnbRating } from "react-native-ratings";
 
 
 const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 }
@@ -151,6 +151,14 @@ export default function AllCoachs() {
           <Text style={tw`pl-4`}>
             box, fitness
           </Text>
+          <AirbnbRating
+                            count={5}
+                            reviews={["1", "2", "3", "4", "5"]}
+                            defaultRating={4}
+                            size={20}
+                            showRating={false}
+                            
+                          />
           <View style={tw`absolute inset-x-0 bottom-0`}>
             <View style={styles.seeMore}>
 
@@ -167,8 +175,6 @@ export default function AllCoachs() {
     </View>
   )
 }
-
-
 
 const styles = StyleSheet.create({
   container: {

@@ -12,13 +12,7 @@ import { ActivityIndicator } from 'react-native';
 
 export default function TabOneScreen() {
   
-  let flatListRef = useRef<FlatList<Gym> | null >();
-
-// const [currentIndex, setCurrentIndex] = useState(0);
-
 const [GymData, setGymData] = useState<Gym[]>([]);
-
-
 
 useEffect(() => {
   axios 

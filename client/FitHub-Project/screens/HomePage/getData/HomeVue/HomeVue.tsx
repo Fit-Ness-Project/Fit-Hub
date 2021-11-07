@@ -1,10 +1,9 @@
 import * as React from "react";
 import { View, Text, TouchableOpacity } from "../../../../components/Themed";
 import { Image, ScrollView, ImageBackground, StyleSheet } from "react-native";
-import { RootTabScreenProps } from "../../../../types";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
-import BottomTabNavigator from '../../../../navigation/index'
+
 
 
 export default function ChangeView({ }) {
@@ -15,10 +14,8 @@ export default function ChangeView({ }) {
 <View>
             <View style={tw`mt-1 h-36 bg-black`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
-
                     <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/gymView2.png")}>
                         <View style={tw`bg-transparent h-8 absolute inset-x-0 bottom-0`} >
-
                             <View style={styles.view}>
                                 <View style={styles.inview}>
                                     <Image style={tw` w-10 h-10  `} source={require("../../../../assets/Icons/gym.png")} />
@@ -26,9 +23,7 @@ export default function ChangeView({ }) {
                                         <Text style={tw`text-black  pl-2 font-bold`} >GYMS</Text>
                                     </View>
                                 </View>
-
                             </View>
-
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>

@@ -1,4 +1,3 @@
-
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
@@ -35,6 +34,7 @@ import FirstVue from '../screens/FirstVue/FirstVue'
 import signUp from "../components/auth/register";
 import Information from "../screens/Information";
 import myprofile from "../components/myprofile/myprofile";
+import Recipe from '../screens/Food/OneRecipe'
 import { createEvent } from "../screens/Events/createEvent";
 import { useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -101,6 +101,7 @@ function RootNavigator({ }) {
       <Stack.Screen name="Home" component={ChangeView} />
       <Stack.Screen name="blog" component={blog} />
       <Stack.Screen name="register" component={Register} />
+      <Stack.Screen name="Recipe" component={Recipe} />
     </Stack.Navigator>
   );
 }
