@@ -9,6 +9,7 @@ import { useKeepAwake } from 'expo-keep-awake';
 export default function Register() {
     useKeepAwake();
 
+    
     const validationSchema = Yup.object().shape({
         last: Yup.string().required('Last Name is required').label('Name'),
         first: Yup.string().required('First Name is required').label('Name'),
