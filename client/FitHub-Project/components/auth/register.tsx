@@ -1,18 +1,14 @@
-import * as React from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  Button,
-  StyleSheet,
-  ImageBackground,
-  TouchableOpacity,
-} from "react-native";
-import tw from "tailwind-react-native-classnames";
-import { Formik } from "formik";
-import * as Yup from "yup";
-import * as _ from "lodash";
+import React from 'react';
+import { View, Image, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import tw from 'tailwind-react-native-classnames';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import  _ from "lodash";
+import { useKeepAwake } from 'expo-keep-awake';
+
 export default function Register() {
+    useKeepAwake();
+
     const validationSchema = Yup.object().shape({
         last: Yup.string().required('Last Name is required').label('Name'),
         first: Yup.string().required('First Name is required').label('Name'),
@@ -41,22 +37,27 @@ export default function Register() {
         <Formik
             initialValues={{ email: '', password: "", first: "", last: "", number: "" }}
             validationSchema={validationSchema}
-            onSubmit={values => console.log(values)}>
+            onSubmit={values => console.log(values)}
+        >
 
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-                <View style={tw`flex:1, w-full h-full `}>
-                    <ImageBackground style={tw`w-full h-full`} source={require("../assets/back.jpg")}>
-                        <View style={tw`flex:1, bg-black bg-opacity-60 h-4/5 pt-20`}>
+                <View style={tw` w-full h-full `}>
+                <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
+                        <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20`}>
+                            <View style={tw` h-16  w-4/5 ml-8`} >  
+                            <Image style={tw` w-full h-full pl-2 `} source={require("../../assets/images/logo.png")} />
+                             </View>
 
-                            <View style={tw`flex items-center `}>
+                            <View style={tw` items-center `}>
 
-                                <Text style={tw`pt-20  text-white font-bold text-2xl`} >Sign Up to your account </Text>
+                                <Text style={tw`pt-8  text-white font-bold text-2xl`} >Create an account </Text>
                             </View>
 
 
-                            <View style={tw` mt-16 w-4/5 ml-8 flex  `}>
+                            <View style={tw` mt-8 w-4/5 ml-8   `}>
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white p-2 flex`}
+                                    style={tw`mt-4 rounded h-10 bg-white p-2 `}
+                                  
                                     placeholder="First name"
                                     onChangeText={handleChange('first')}
                                     onBlur={handleBlur('first')}
@@ -67,7 +68,7 @@ export default function Register() {
                                     <Text style={{ color: 'red' }}>{errors.first}</Text>
                                 )}
                                 <TextInput
-                                    style={tw` mt-4 rounded h-10 bg-white p-2 flex`}
+                                    style={tw` mt-4 rounded h-10 bg-white p-2 `}
                                     placeholder="Last name"
                                     onChangeText={handleChange('last')}
                                     onBlur={handleBlur('last')}
@@ -78,7 +79,7 @@ export default function Register() {
                                 )}
 
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white p-2 flex`}
+                                    style={tw`mt-4 rounded h-10 bg-white p-2 `}
                                     placeholder="Email"
                                     onChangeText={handleChange('email')}
                                     onBlur={handleBlur('email')}
@@ -88,7 +89,7 @@ export default function Register() {
                                     <Text style={{ color: 'red' }}>{errors.email}</Text>
                                 )}
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white text-pl-4 p-2 flex `}
+                                    style={tw`mt-4 rounded h-10 bg-white p-2  `}
                                     placeholder="Phone number"
                                     keyboardType="numeric"
                                     onChangeText={handleChange('number')}
@@ -99,7 +100,7 @@ export default function Register() {
                                     <Text style={{ color: 'red' }}>{errors.number}</Text>
                                 )}
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white p-2 flex `}
+                                    style={tw`mt-4 rounded h-10 bg-white p-2  `}
                                     secureTextEntry={true}
                                     placeholder="Password"
                                     onChangeText={handleChange('password')}
