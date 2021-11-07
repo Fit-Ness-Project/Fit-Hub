@@ -16,13 +16,16 @@ import {
   Text,
   View
 } from "../../components/Themed";
+import { useNavigation } from '@react-navigation/core';
+
+const screenWidth = Dimensions.get('screen').width;
 
 export default function Food() {
   let flatListRef = useRef<FlatList<FoodR> | null >();
 
   const [foodData, setFoodData] = useState<FoodR[]>([]);
   const [searchData, setSearchData] = useState<FoodR[]>([]);
-
+  const  navigation  = useNavigation()
 
   useEffect(() => {
     axios 
@@ -40,20 +43,33 @@ export default function Food() {
 }, [])
 
 const renderItems: React.FC<{item:FoodR}> = ({item})=> {
-  return <TouchableOpacity onPress={()=> console.log(item)}
+  return <TouchableOpacity  onPress={()=> navigation.navigate('Recipe',{
+         recipeId: item.id,
+         recipeTitle: item.recipeTitle,
+         imageUrl: item.imageUrl,
+         likes: item.likes,
+         content: item.content,
+         created_at: item.created_at 
+  }) }
   activeOpacity={1} >
-     <Image source={{uri: item.imageUrl}} style={styles.image}  />
-
-     <View style={styles.footer} >
-         <Text  style={styles.footerText}  >{item.recipeTitle} </Text>
+    <View style={styles.container}>
+<View style={{ display: 'flex',flexDirection: 'col', flex: 8, padding: 10, justifyContent: 'center'}}>
+     <Image source={{ uri:item.imageUrl}} style={{ width: 100,flex:'col',height: 100, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
+      </View>
+     <View style={{display: 'flex', flex: 10, padding: 10, justifyContent:'space-around', alignItems: 'center',color: 'black', fontSize: 25 ,
+      fontWeight: 'bold', 
+      }} >
+         <Text  style={styles.titleT}  >{item.recipeTitle} </Text>
          <Text  style={styles.footerText}  >{item.created_at.slice(0,10)}  </Text>
          <Text  style={styles.footerText}  >{item.likes} Likes </Text>
+    
+     </View>
      </View>
   </TouchableOpacity>
  }
  
  const ItemView: React.FC<{item:FoodR}> = ({item}) => {
-  // const { navigate } = useNavigation()
+
 
      return (
          <Text>
@@ -69,8 +85,6 @@ const renderItems: React.FC<{item:FoodR}> = ({item})=> {
 return (
   <View  style={styles.container}>
      <StatusBar   />
-     <Text  style={styles.title} >  Food's program   </Text>
-       
       <FlatList data={foodData}
        renderItem={renderItems} 
        keyExtractor={(item,i)=> i.toString()}
@@ -89,12 +103,25 @@ return (
 
 
 const styles = StyleSheet.create({
-  container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+  // container: {
+  //     flex: 1,
+  //     alignItems: 'center',
+  //     justifyContent: 'center',
      
-    },
+  //   },
+  container: {     
+    display: 'flex',
+    flex: 1, 
+    width: Dimensions.get('screen').width - 20,
+    margin: 10,
+    borderRadius: 20,
+    backgroundColor: "black",
+    height: 100,
+    justifyContent: 'flex-start',
+    borderWidth: 1,
+    borderColor: '#E5E5E5',
+    flexDirection: 'row'
+},
     image:{
       width: 'full' ,
       height: 230 ,
@@ -110,8 +137,8 @@ const styles = StyleSheet.create({
       alignItems : 'center',
       backgroundColor: '#000' ,
     },
-    footerText:{
-     color: '#fff' ,
+    titleT:{
+     color: 'black' ,
      fontSize: 18 ,
      fontWeight: 'bold',
     },
@@ -130,8 +157,8 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
     title:{
-        color: 'white',
-   
+      color: 'white',
+      flex:'col',
       fontSize: 25 ,
       fontWeight: 'bold', 
       backgroundColor: "black"
