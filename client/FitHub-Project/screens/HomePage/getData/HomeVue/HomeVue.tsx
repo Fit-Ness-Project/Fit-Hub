@@ -63,22 +63,18 @@ export default function ChangeView({ }) {
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
                                         <View style={tw`h-7 w-8 bg-transparent`}>
-                                            <View style={tw`h-7 w-7 bg-transparent`}>
-
-
+                                          
                                             <Image style={tw` w-full h-full `} source={require("../../../../assets/Icons/Food.png")} />
-
                                         </View>
                                         <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-
-                                            <Text style={tw`  text-black  pl-2 h-full w-full font-bold`} >DIETS</Text>
+                                            <Text style={tw`  text-black  pl-2  font-bold`} >DIETS</Text>
                                         </View>
 
                                         </View>
                                     </View>
                                 </View>
 
-                            </View>
+                            
                         </ImageBackground>
                     </TouchableOpacity>
 
