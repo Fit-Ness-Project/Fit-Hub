@@ -4,7 +4,7 @@ import { Text, View } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
 import { useNavigation } from '@react-navigation/native';
 import tw from 'tailwind-react-native-classnames';
-
+import { BottomTabNavigator } from '../../navigation';
 const FirstVue = ({
 }: RootTabScreenProps<"FirstVueProps">) => {
     const navigation = useNavigation()

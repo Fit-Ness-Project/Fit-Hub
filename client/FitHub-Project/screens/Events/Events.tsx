@@ -36,14 +36,14 @@ export default function Event({}: RootTabScreenProps<'createEvent'>) {
     return (
       <View style={{ alignItems: "center" }}>
         <Image source={{ uri: item.imageurl }} style={styles.image} />
-        <Text> {item.eventName} </Text>
+        <Text style={styles.title}> {item.eventName} </Text>
         <Text> {item.description} </Text>
-        <Text> {item.adress} </Text>
-        <Text> {item.date} </Text>
+        <Text > {item.adress} </Text>
+        <Text style={{color:'grey'}}> Date : {item.date.slice(0,10)} </Text>
+   
         <TouchableOpacity
          onPress ={()=>{}}
-        >
-          <Text>Join</Text>
+        >      <Text style={{backgroundColor:"#e7ff19"}}>Join This Event</Text>
           </TouchableOpacity>
     
       </View>

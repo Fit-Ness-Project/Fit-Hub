@@ -3,13 +3,14 @@ import { View, Text, TouchableOpacity } from "../../../../components/Themed";
 import { Image, ScrollView, ImageBackground, StyleSheet } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
-
+import { BottomTabNavigator } from "../../../../navigation";
 
 
 export default function ChangeView({ }) {
     const navigation = useNavigation()
 
     return (
+        <View>
         <ScrollView style={tw`bg-gray-400`} >
 <View>
             <View style={tw`mt-1 h-36 bg-black`} >
@@ -156,18 +157,19 @@ export default function ChangeView({ }) {
                             </View>
                         </ImageBackground>
                     </TouchableOpacity>
-
                 </View>
-
             </View>
         </ScrollView>
+        <View>
+        </View>
+      </View> 
     )
 }
 
 const styles = StyleSheet.create({
     button: {
         borderWidth: 1,
-        width: 150,
+        width: 50,
         borderRadius: 5,
         height: 60,
         opacity: .9,
