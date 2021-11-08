@@ -65,7 +65,6 @@ export default function Blogs() {
 
    return (
   <View style={styles.container}>
-     {/* <ImageBackground  source="../../assets/images/coachbg.png" > */}
          <FlatList
          data={blogData}
          renderItem={renderItems}
@@ -76,7 +75,6 @@ export default function Blogs() {
          ref={(ref) => { flatListRef.current = ref }}
         
          viewabilityConfig={viewConfigRef} />
-          {/* </ImageBackground> */}
          </View>
    )
 }

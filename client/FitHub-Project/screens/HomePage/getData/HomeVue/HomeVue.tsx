@@ -11,7 +11,6 @@ export default function ChangeView({ }) {
 
     return (
         <ScrollView style={tw`bg-gray-400`} >
-
 <View>
             <View style={tw`mt-1 h-36 bg-black`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
@@ -24,6 +23,7 @@ export default function ChangeView({ }) {
                                         <Text style={tw`text-black  pl-2 font-bold`} >GYMS</Text>
                                     </View>
                                 </View>
+                            </View>
                             </View>
                         </ImageBackground>
                     </TouchableOpacity>
@@ -74,7 +74,7 @@ export default function ChangeView({ }) {
                                             <Text style={tw`  text-black  pl-2 h-full w-full font-bold`} >DIETS</Text>
                                         </View>
 
-
+                                        </View>
                                     </View>
                                 </View>
 
@@ -121,16 +121,14 @@ export default function ChangeView({ }) {
                                     <View style={styles.inview}>
                                         <View style={tw`h-7 w-8 bg-transparent`}>
 
-
                                         <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/Event.png")} />
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
                                         <Text style={tw`  text-black  pl-2 font-bold`} >EVENTS</Text>
-
                                     </View>
 
                                 </View>
-
+                                </View>
 
                             </View>
                         </ImageBackground>
@@ -147,16 +145,14 @@ export default function ChangeView({ }) {
                                     <View style={styles.inview}>
                                         <View style={tw`h-7 w-7 bg-transparent`}>
 
-
                                         <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/Blog.png")} />
                                     </View>
                                     <View style={tw`h-7 items-center bg-transparent pt-1 `}>
                                         <Text style={tw`  text-black  pl-2 font-bold`} >BLOGS</Text>
-
                                     </View>
 
                                 </View>
-
+                                </View>
                             </View>
                         </ImageBackground>
                     </TouchableOpacity>

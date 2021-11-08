@@ -52,7 +52,7 @@ export default Blog
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+      
          alignItems: 'center',
          justifyContent: 'center',
          flexDirection: "column"
