@@ -54,8 +54,10 @@ export default function ChangeView({ }) {
                     </TouchableOpacity>
 
                 </View>
-                <View style={tw`mt-1 h-36 bg-black`} >
-                    <TouchableOpacity onPress={() => navigation.navigate("Food")}>
+             
+               <View style={tw`mt-1 h-36 bg-black`} >
+                <TouchableOpacity onPress={() => navigation.navigate("Restaurant")}>
+
 
                         <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/resto.png")}>
                             <View style={tw`bg-transparent h-8 absolute inset-x-0 bottom-0`} >
@@ -65,25 +67,21 @@ export default function ChangeView({ }) {
                                         <View style={tw`h-7 w-8 bg-transparent`}>
                                             <View style={tw`h-7 w-7 bg-transparent`}>
 
-
                                             <Image style={tw` w-full h-full `} source={require("../../../../assets/Icons/Food.png")} />
-
+                                            </View>
                                         </View>
                                         <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-
-                                            <Text style={tw`  text-black  pl-2 h-full w-full font-bold`} >DIETS</Text>
-                                        </View>
-
+                                            <Text style={tw`  text-black  pl-2 font-bold`} >DIETS</Text>
                                         </View>
                                     </View>
+
                                 </View>
 
                             </View>
                         </ImageBackground>
                     </TouchableOpacity>
 
-
-            </View>
+                </View>
             <View style={tw`mt-1 h-36 bg-black`} >
                 <TouchableOpacity onPress={() => navigation.navigate("Restaurant")}>
 
