@@ -14,7 +14,6 @@ useEffect(() => {
   .get('http://192.168.11.161:5000/gyms')
    
   .then((response)=> {
-     console.log(response.data)
       setGymData(response.data)
   })
   .catch(( Error) => {
@@ -23,11 +22,11 @@ useEffect(() => {
 
 }, [])
 return (
-  <ScrollView style={{backgroundColor:"black"}}>
+  <ScrollView style={{backgroundColor:"rgba(46, 49, 49, 1)"}}>
 
 {GymData.map((e,k)=>(
      
-      <Card style = {{ width:"100%",backgroundColor:'rgba(236, 236, 236, 1)', marginTop:6}}  key = {k} >
+      <Card style = {{ width:"95%",backgroundColor:'rgba(236, 236, 236, 1)', marginTop:30,marginLeft:9}}  key = {k} >
      
        <Card.Cover  source={{ uri: e.imgUrl }} />
 
@@ -38,18 +37,21 @@ return (
       </View>
       </Card.Content>
       <View style = {{width:"100%"}}>
-      <Text style = {tw`text-black text-sm ml-4 mt-3`}>{e.description}</Text>
+      <Text style = {tw`text-black text-sm m-2 mt-3`}>{e.description}</Text>
       </View>
       <View style = {{height:30}}></View>
       <View style = {{alignItems:"center"}}>
       <TouchableOpacity  onPress={() => navigation.navigate('Gymdescription' , {
-   GymId: e.id,
-   gymName: e.gymName,
-   imgUrl: e.imgUrl,
-   rating: e.rating,
-   description: e.description,
-   fields: e.fields,
-   price: e.price 
+        gymName: e.gymName,
+        imgUrl: e.imgUrl,
+        rating: e.rating,
+        description: e.description,
+        fields: e.fields,
+        price: e.price ,      
+        latitude :  e.latitude,
+        longitude :  e.longitude,
+        phoneNumber: e.phoneNumber,
+        adress: e.adress,
 })} style={{backgroundColor:"#e7ff19",height:35,width:"100%",alignItems:"center",opacity:.7}} ><Image style={tw`h-8 w-8`} source = {require("../../assets/Icons/expand-button.png")}/></TouchableOpacity>
   </View>
   </Card>

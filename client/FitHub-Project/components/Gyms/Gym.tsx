@@ -9,26 +9,35 @@ import { RouteProp } from '@react-navigation/native';
    const Gym: React.FC<{
         route: RouteProp<{
             params: {
-               GymId: number,
+               
                gymName: string,
                imgUrl: string,
                rating: number,
                description: string,
                fields: string,
-               price: number 
+               price: number ,
+            
+              latitude :  string;
+              longitude :  string;
+              adress: string;
+              phoneNumber: number;
             }
         }, 'params'>
     }> = ({ route: { params } }) => {
         return (
-         <View style={{width:"100%" , height:"100%",alignItems: "center"}}>
+         <View style={{width:"100%" , height:"100%"}}>
 <View style={{width:"100%" ,height:"32%"}}>
   <Image style={{width:"100%" , height:"100%"}}source = {{ uri: params.imgUrl }} />
 </View>
-<View>
-  
+<View style={{flexDirection:"row",paddingTop:20,paddingLeft:5}}>
+  <Image style={tw`w-5 h-5`} source={require("../../assets/Icons/adress.png")}/>
+  <Text style={tw`text-black`}>{params.adress}</Text>
 </View>
-
-
+<View style={{flexDirection:"row",padding:20,fontSize: 20}}>
+  <Text style={tw`text-black`}>{params.gymName}</Text>
+</View>
+<View>
+</View>
          </View>
    );
     }
