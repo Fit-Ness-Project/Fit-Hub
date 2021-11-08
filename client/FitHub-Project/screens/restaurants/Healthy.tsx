@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     },
     navigation: { flex: 2, backgroundColor: 'red' },
     image:{
-        width: 'full' ,
+    
         height: 230 ,
         alignItems : 'center',
         resizeMode: 'cover' ,

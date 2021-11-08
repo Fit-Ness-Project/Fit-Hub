@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
 },
     image:{
-      width: 'full' ,
+     
       height: 230 ,
       alignItems : 'center',
       resizeMode: 'cover' ,

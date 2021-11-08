@@ -49,17 +49,17 @@ export default function Food() {
          imageUrl: item.imageUrl,
          likes: item.likes,
          content: item.content,
-         created_at: item.created_at 
+         comments: item.comments, 
   }) }
   activeOpacity={1} >
     <View style={styles.container}>
      <View style={{ display: 'flex',flexDirection: 'row', flex: 8, padding: 10, justifyContent: 'center',   borderRadius: 20,}}>
-     <Image source={{ uri:item.imageUrl}} style={{ width :100,flexDirection:'row',height: 100, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
+     <Image source={{ uri:item.imageUrl}} style={{ width :100,flexDirection:'row',height: 85, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
      
      <View style={{display: 'flex', flex: 10, padding: 10, justifyContent:'space-around', alignItems: 'center'
       }} >
          <Text  style={styles.titleT}  >{item.recipeTitle} </Text>
-         <Text >{item.created_at}  </Text>
+         <Text >{item.comments}  </Text>
          <Text >{item.likes} Likes </Text>
      </View>
      </View>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   container: {     
     display: 'flex',
     flex: 1, 
-    width: Dimensions.get('screen').width - 30,
+    // width: Dimensions.get('screen').width - 30,
     margin: 10,
     borderRadius: 20,
     backgroundColor: "black",
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
 },
     image:{
-      width: 'full' ,
+     
       height: 230 ,
       alignItems : 'center',
       resizeMode: 'cover' ,

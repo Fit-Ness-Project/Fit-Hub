@@ -27,7 +27,7 @@ export type RootStackParamList = {
     imageUrl: string,
     likes: number,
     content: string,
-    created_at: Date
+    comments:string
   };
   Blogs: undefined;
   blog:{
