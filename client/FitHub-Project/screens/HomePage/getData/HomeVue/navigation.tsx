@@ -9,6 +9,7 @@ import Login from "../../../../components/auth/signin";
 import signUp from "../../../../components/auth/register";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import Restaurant from "../../../restaurants/restaurant";
 
 import Gymdescription from "../../../../components/Gyms/Gym";
 
@@ -20,7 +21,9 @@ export enum AppScreens {
   CoachScreen = "CoachScreen",
   EventScreen = "EventScreen",
   Login='Login',
-  signUp='signUp'
+  signUp='signUp',
+  Restaurant='Restaurant'
+
  
 }
 
@@ -32,7 +35,8 @@ export type AuthStackParamList = {
   CoachScreen: undefined;
   EventScreen: undefined;
   Login:undefined,
-  signUp:undefined
+  signUp:undefined,
+  Restaurant:undefined
 
 };
 
@@ -50,7 +54,8 @@ const AuthFlowNavigator: React.FunctionComponent = () => {
         <AuthStack.Screen name={AppScreens.EventScreen} component={EventScreen} />
         <AuthStack.Screen name={AppScreens.Login} component={Login} />
         <AuthStack.Screen name={AppScreens.signUp} component={signUp} />
-        {/* <AuthStack.Screen name={AppScreens.TabOneScreen} component={TabOneScreen} /> */}
+        <AuthStack.Screen name={AppScreens.Restaurant} component={Restaurant} />
+
       </AuthStack.Navigator>
     </SafeAreaProvider>
   );

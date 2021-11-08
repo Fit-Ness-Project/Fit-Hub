@@ -18,7 +18,7 @@ import { RouteProp } from '@react-navigation/native';
                 imageUrl: string,
                 likes: number,
                 content: string,
-                created_at: string 
+                created_at: Date 
             }
         }, 'params'>
     }> = ({ route: { params } }) => {
@@ -29,7 +29,7 @@ import { RouteProp } from '@react-navigation/native';
             <View style={{ display: 'flex', flex: 8, padding: 10, justifyContent: 'center'}}> 
             <Image source={{uri: params.imageUrl}} style={styles.image}  />
                 <Text style={{ fontSize: 36, fontWeight: '500'}}>{params.recipeTitle}</Text>
-                <Text style={{ fontSize: 16, color: '#616161'}}>{params.created_at.slice(0,10)}</Text>
+                <Text style={{ fontSize: 16, color: '#616161'}}>{params.created_at}</Text>
                 <Text style={{ fontSize: 16, color: '#616161'}}>{params.likes}Likes</Text>
                 <Text style={{ fontSize: 20, color: '#000000'}}>{params.content}</Text>
             </View>
