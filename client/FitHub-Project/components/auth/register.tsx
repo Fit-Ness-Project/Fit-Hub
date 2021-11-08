@@ -117,6 +117,7 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
                             </View>
 
 
+
                             <View style={tw` text-black pt-6 w-4/5 ml-8`}>
                                 <TouchableOpacity
                                     onPress={() => navigation.navigate("bmi")}
