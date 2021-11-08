@@ -56,13 +56,19 @@ export type RootStackParamList = {
   Home: undefined;
   Events: undefined;
   bmi : undefined;
-  Gymdescription:{GymId:Number,
-     gymName: string;
-    imgUrl: string;
-    rating: Number;
-    description: string;
-    fields: string;
-    price: Number;
+  Gymdescription:{ 
+ 
+    gymName: string,
+    imgUrl: string,
+    rating: number,
+    description: string,
+    fields: string,
+    price: number ,
+
+   latitude :  string;
+   longitude :  string;
+   adress: string;
+   phoneNumber: number;
      };
      login:undefined;
      signUp:undefined;
@@ -105,7 +111,7 @@ export type RootTabParamList = {
   login:undefined;
    signUp:undefined;
   coach : undefined;
-  Gymdescription:{GymId:number};
+  Gymdescription:undefined;
   myProfile:undefined;
   FirstVueProps:undefined;
   createEvent:undefined;

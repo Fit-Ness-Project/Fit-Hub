@@ -1,13 +1,14 @@
 export  interface Gym { 
-    id: Number;
     gymName: string;
     imgUrl: string;
-    rating: Number;
+    rating:number;
     description: string;
     fields: string;
-    price: Number;   
-    user_id: Number
-   isAvailable: boolean;
-   latitude :  string;
-   longitude :  string;
+    price:number;   
+    user_id: number
+    isAvailable: boolean;
+    latitude :  string;
+    longitude :  string;
+    phoneNumber: number;
+    adress: string;
 }
