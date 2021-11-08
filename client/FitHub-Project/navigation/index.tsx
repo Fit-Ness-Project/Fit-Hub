@@ -41,6 +41,8 @@ import { useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Register from "../components/auth/register";
 import { FontAwesome } from "@expo/vector-icons";
+import { createStackNavigator } from '@react-navigation/stack';
+
 export default function Navigation({
   colorScheme,
 }: {
@@ -58,22 +60,15 @@ export default function Navigation({
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+const RootStack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator({ }) {
-  //   useEffect(() => {
-  //     AsyncStorage.getItem('auth')
-  //         .then((data) => {
-  //             if (data !== null) {
-  //                 navigation.navigate("bmi")
-  //             }
-  //             else {
-  //                 navigation.navigate('signin')
-  //             }
-  //         })
-  // })
 
   return (
     <Stack.Navigator>
+       {/* <RootStack.Screen name="Root" component={FirstVue} />
+       <RootStack.Screen name="BottomTabNavigator" component={BottomTabNavigator} /> */}
+
       <Stack.Screen
         name="Root"
         component={FirstVue}
@@ -104,7 +99,6 @@ function RootNavigator({ }) {
       <Stack.Screen name="register" component={Register} />
       <Stack.Screen name="Recipe" component={Recipe} />
       <Stack.Screen name="Restaurant" component={Restaurant} />
-
 
     </Stack.Navigator>
   );

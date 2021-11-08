@@ -1,7 +1,7 @@
 export interface Events {
     id: number;
     eventName: string;
-    url: string;
+    imageurl: string;
     user_id: number;
     adress: string;
     description: string;

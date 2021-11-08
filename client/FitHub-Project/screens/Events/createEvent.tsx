@@ -3,6 +3,7 @@ import { TouchableOpacity, TextInput, Text, View , Button } from "react-native";
 import { useFormik  } from "formik";
 import tw from "tailwind-react-native-classnames";
 import axios from "axios";
+import { useRoute } from "@react-navigation/core";
 
 
 const validate =(values: any) => {
@@ -11,6 +12,14 @@ const validate =(values: any) => {
 
 
 export const createEvent = () => {
+//   const router = useRoute();
+//   const [evnetName,setEventName]  = (useState:'')
+//   const [eventAdress,setEventAdress] = (useState:'')
+//  const [eventDescription,setEventDescription]= (useState:'')
+//  const [eventDate,setEventDate]= (useState:'')
+
+
+
   const formik = useFormik({
     initialValues: {
       eventName: '',
