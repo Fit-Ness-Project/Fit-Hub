@@ -10,31 +10,31 @@ export default function ChangeView({ }) {
     const navigation = useNavigation()
 
     return (
-        <ScrollView style={tw`bg-gray-400`} >
-<View>
-            <View style={tw`mt-1 h-36 bg-black`} >
-                <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
-                    <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/gymView2.png")}>
-                        <View style={tw`bg-transparent h-8 absolute inset-x-0 bottom-0`} >
-                            <View style={styles.view}>
-                                <View style={styles.inview}>
-                                    <Image style={tw` w-10 h-10  `} source={require("../../../../assets/Icons/Gym.png")} />
-                                    <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-                                        <Text style={tw`text-black  pl-2 font-bold`} >GYMS</Text>
+        <ScrollView  >
+            <View>
+                <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `} >
+                    <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
+                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/Gym.png")}>
+                            <View style={tw`bg-transparent h-16 w-3/5 ml-20 absolute inset-x-0 bottom-16`} >
+                                <View style={styles.view}>
+                                    <View style={styles.inview}>
+                                        <Image style={tw` w-10 h-10  `} source={require("../../../../assets/Icons/Gym.png")} />
+                                        <View style={tw`h-7 items-center bg-transparent pt-1 `}>
+                                            <Text style={tw`text-black  pl-2 font-bold`} >GYMS</Text>
+                                        </View>
                                     </View>
                                 </View>
-                            </View>
                             </View>
                         </ImageBackground>
                     </TouchableOpacity>
 
                 </View>
 
-                <View style={tw`mt-1 h-36 bg-black`} >
+                <View style={tw` h-52 p-2 bg-white pl-4 pr-4 `} >
                     <TouchableOpacity onPress={() => navigation.navigate("Coachs")}>
 
                         <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/coach.png")}>
-                            <View style={tw`bg-transparent h-8 absolute inset-x-0 bottom-0`} >
+                            <View style={tw`bg-transparent h-16 w-3/5 ml-20 items-center absolute inset-x-0 bottom-16`} >
 
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
@@ -54,20 +54,20 @@ export default function ChangeView({ }) {
                     </TouchableOpacity>
 
                 </View>
-             
-               <View style={tw`mt-1 h-36 bg-black`} >
-                <TouchableOpacity onPress={() => navigation.navigate("Restaurant")}>
+
+                <View style={tw` h-52 p-2 bg-white pl-4 pr-4 `} >
+                    <TouchableOpacity onPress={() => navigation.navigate("Restaurant")}>
 
 
-                        <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/resto.png")}>
-                            <View style={tw`bg-transparent h-8 absolute inset-x-0 bottom-0`} >
+                        <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/healthy.png")}>
+                            <View style={tw`bg-transparent h-16 w-3/5 ml-20 items-center absolute inset-x-0 bottom-16`} >
 
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
                                         <View style={tw`h-7 w-8 bg-transparent`}>
                                             <View style={tw`h-7 w-7 bg-transparent`}>
 
-                                            <Image style={tw` w-full h-full `} source={require("../../../../assets/Icons/Food.png")} />
+                                                <Image style={tw` w-full h-full `} source={require("../../../../assets/Icons/Food.png")} />
                                             </View>
                                         </View>
                                         <View style={tw`h-7 items-center bg-transparent pt-1 `}>
@@ -82,12 +82,10 @@ export default function ChangeView({ }) {
                     </TouchableOpacity>
 
                 </View>
-            <View style={tw`mt-1 h-36 bg-black`} >
-                <TouchableOpacity onPress={() => navigation.navigate("Restaurant")}>
-
-
+                <View style={tw` h-52 p-2 bg-white pl-4 pr-4 `} >
+                    <TouchableOpacity onPress={() => navigation.navigate("Restaurant")}>
                         <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/resto.png")}>
-                            <View style={tw`bg-transparent h-8 absolute inset-x-0 bottom-0`} >
+                            <View style={tw`bg-transparent h-16 w-3/5 ml-20 items-center absolute inset-x-0 bottom-16`} >
 
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
@@ -109,23 +107,23 @@ export default function ChangeView({ }) {
                     </TouchableOpacity>
 
                 </View>
-                <View style={tw`mt-1 h-36 bg-black`} >
+                <View style={tw` h-52 p-2 bg-white pl-4 pr-4 `} >
                     <TouchableOpacity onPress={() => navigation.navigate("Events")}>
 
-                        <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/events.png")}>
-                            <View style={tw`bg-transparent h-8 absolute inset-x-0 bottom-0`} >
+                        <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/event1.png")}>
+                            <View style={tw`bg-transparent h-16 w-3/5 ml-20 items-center absolute inset-x-0 bottom-16`} >
 
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
                                         <View style={tw`h-7 w-8 bg-transparent`}>
 
-                                        <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/Event.png")} />
-                                    </View>
-                                    <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-                                        <Text style={tw`  text-black  pl-2 font-bold`} >EVENTS</Text>
-                                    </View>
+                                            <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/Event.png")} />
+                                        </View>
+                                        <View style={tw`h-7 items-center bg-transparent pt-1 `}>
+                                            <Text style={tw`  text-black  pl-2 font-bold`} >EVENTS</Text>
+                                        </View>
 
-                                </View>
+                                    </View>
                                 </View>
 
                             </View>
@@ -133,23 +131,23 @@ export default function ChangeView({ }) {
                     </TouchableOpacity>
 
                 </View>
-                <View style={tw`mt-1 h-36 bg-black`} >
+                <View style={tw` h-52 p-2 bg-white pl-4 pr-4 `} >
                     <TouchableOpacity onPress={() => navigation.navigate("Blogs")}>
 
                         <ImageBackground style={tw`w-full h-full`} source={require("../../../../assets/images/blogs.png")}>
-                            <View style={tw`bg-transparent h-8 absolute inset-x-0 bottom-0`} >
+                            <View style={tw`bg-transparent h-16 w-3/5 ml-20 items-center absolute inset-x-0 bottom-16`} >
 
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
                                         <View style={tw`h-7 w-7 bg-transparent`}>
 
-                                        <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/Blog.png")} />
-                                    </View>
-                                    <View style={tw`h-7 items-center bg-transparent pt-1 `}>
-                                        <Text style={tw`  text-black  pl-2 font-bold`} >BLOGS</Text>
-                                    </View>
+                                            <Image style={tw` w-full h-full  `} source={require("../../../../assets/Icons/Blog.png")} />
+                                        </View>
+                                        <View style={tw`h-7 items-center bg-transparent pt-1 `}>
+                                            <Text style={tw`  text-black  pl-2 font-bold`} >BLOGS</Text>
+                                        </View>
 
-                                </View>
+                                    </View>
                                 </View>
                             </View>
                         </ImageBackground>
