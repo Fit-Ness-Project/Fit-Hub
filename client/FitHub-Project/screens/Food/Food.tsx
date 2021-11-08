@@ -102,12 +102,7 @@ return (
 
 
 const styles = StyleSheet.create({
-  // container: {
-  //     flex: 1,
-  //     alignItems: 'center',
-  //     justifyContent: 'center',
-     
-  //   },
+  
   container: {     
     display: 'flex',
     flex: 1, 
