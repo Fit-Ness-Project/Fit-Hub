@@ -56,14 +56,14 @@ export default function Restaurant() {
   activeOpacity={1} >
     <View style={styles.container}>
      <View style={{ display: 'flex',flexDirection: 'row', flex: 8, padding: 10, justifyContent: 'center',   borderRadius: 20,}}>
-     <Image source={{ uri:item.img_Url}} style={{ width :100,flexDirection:'row',height: 100, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
+     <Image source={{ uri:item.img_Url}} style={{ width :100,flexDirection:'row',height:85, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
      
      <View style={{display: 'flex', flex: 10, padding: 10, justifyContent:'space-around', alignItems: 'center'
       }} >
          <Text  style={styles.titleT}  >{item.food_name} </Text>
-         <Text >{item.rest_name}  </Text>
-         <Text >{item.rating} /10 </Text>
-         <Text >{item.price} DT </Text>
+         {/* <Text >Chez {item.rest_name}  </Text> */}
+         {/* <Text >{item.rating} /10 </Text> */}
+         <Text style={styles.titleM} >{item.price} DT </Text>
      </View>
      </View>
      </View>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   container: {     
     display: 'flex',
     flex: 1, 
-    width: Dimensions.get('screen').width - 30,
+    // width: Dimensions.get('screen').width - 30,
     margin: 10,
     borderRadius: 20,
     backgroundColor: "black",
@@ -120,10 +120,17 @@ const styles = StyleSheet.create({
       backgroundColor: '#000' ,
     },
     titleT:{
-     color: 'black' ,
+     color: 'red' ,
      fontSize: 18 ,
      fontWeight: 'bold',
+
     },
+    titleM:{
+        color: 'black' ,
+        fontSize: 16 ,
+        textAlign:'right',
+        margin: 5
+       },
     carousel:{
         maxHeight: 300
     },
