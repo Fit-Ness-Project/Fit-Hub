@@ -42,7 +42,7 @@ export default function Food() {
 
 }, [])
 
- export default const renderItems: React.FC<{item:FoodR}> = ({item})=> {
+ const renderItems: React.FC<{item:FoodR}> = ({item})=> {
   return <TouchableOpacity  onPress={()=> navigation.navigate('Recipe',{
          recipeId: item.id,
          recipeTitle: item.recipeTitle,
@@ -53,15 +53,14 @@ export default function Food() {
   }) }
   activeOpacity={1} >
     <View style={styles.container}>
-     <View style={{ display: 'flex',flexDirection: 'col', flex: 8, padding: 10, justifyContent: 'center'}}>
-     <Image source={{ uri:item.imageUrl}} style={{ width: 100,flex:'col',height: 100, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
+     <View style={{ display: 'flex',flexDirection: 'row', flex: 8, padding: 10, justifyContent: 'center'}}>
+     <Image source={{ uri:item.imageUrl}} style={{ width: 100,flexDirection:'row',height: 100, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
       </View>
-     <View style={{display: 'flex', flex: 10, padding: 10, justifyContent:'space-around', alignItems: 'center',color: 'black', fontSize: 25 ,
-      fontWeight: 'bold', 
+     <View style={{display: 'flex', flex: 10, padding: 10, justifyContent:'space-around', alignItems: 'center'
       }} >
          <Text  style={styles.titleT}  >{item.recipeTitle} </Text>
-         <Text  style={styles.footerText}  >{item.created_at.slice(0,10)}  </Text>
-         <Text  style={styles.footerText}  >{item.likes} Likes </Text>
+         <Text >{item.created_at}  </Text>
+         <Text >{item.likes} Likes </Text>
     
      </View>
      </View>
@@ -153,7 +152,6 @@ const styles = StyleSheet.create({
     },
     title:{
       color: 'white',
-      flex:'col',
       fontSize: 25 ,
       fontWeight: 'bold', 
       backgroundColor: "black"

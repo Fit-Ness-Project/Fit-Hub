@@ -1,75 +1,65 @@
 import React, { useState } from "react";
-import { Button, TextInput, Text, View } from "react-native";
-import { Formik } from "formik";
+import { TouchableOpacity, TextInput, Text, View , Button } from "react-native";
+import { useFormik  } from "formik";
 import tw from "tailwind-react-native-classnames";
 import axios from "axios";
 
+
+const validate =(values: any) => {
+  console.log(values)
+};
+
+
 export const createEvent = () => {
-  useState(() => {
-    axios
-      .post("http://192.168.11.134:5000/events", {
-        eventName: "",
-      })
-
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((Error) => {
-        console.log(Error);
-      });
+  const formik = useFormik({
+    initialValues: {
+      eventName: '',
+      adress: '',
+      description: '',
+      date: "",
+      created_by: ""
+    },
+    validate,
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    },
   });
-
   return (
-    <Formik
-      initialValues={{
-        eventName: "",
-        adress: "",
-        description: "",
-        date: "",
-        created_by: "",
-      }}
-      onSubmit={(values) => console.log(values)}
-    >
-      {({ handleChange, handleBlur, handleSubmit, values }) => (
-        <View style={tw` mt-10 w-4/5 ml-8 flex `}>
-          <TextInput
-            style={tw`mt-4 rounded h-10 bg-white p-2 `}
-            placeholder="eventName"
-            onChangeText={handleChange("eventName")}
-            onBlur={handleBlur("eventName")}
-            value={values.eventName}
-          />
-          <TextInput
-            style={tw`mt-4 rounded h-10 bg-white p-2 `}
-            onChangeText={handleChange("adress")}
-            onBlur={handleBlur("adress")}
-            placeholder="adress"
-            value={values.adress}
-          />
-          <TextInput
-            style={tw`mt-4 rounded h-10 bg-white p-2 `}
-            onChangeText={handleChange("description")}
-            onBlur={handleBlur("description")}
-            placeholder="description"
-            value={values.description}
-          />
-          <TextInput
-            style={tw`mt-4 rounded h-10 bg-white p-2 `}
-            onChangeText={handleChange("date")}
-            placeholder="date"
-            onBlur={handleBlur("date")}
-            value={values.date}
-          />
-          <TextInput
-            style={tw`mt-4 rounded h-10 bg-white p-2 `}
-            onChangeText={handleChange("created_by")}
-            onBlur={handleBlur("created_by")}
-            placeholder="created by"
-            value={values.created_by}
-          />
-          <Button onPress={() => handleSubmit} title="Submit" />
-        </View>
-      )}
-    </Formik>
+    <View  style={tw` mt-10 w-4/5 ml-8 flex `}>
+    <Text>event Name</Text>
+    <TextInput
+        style={tw`mt-4 rounded h-10 bg-white p-2 `}
+        placeholder="eventName"
+         value={formik.values.eventName}
+       />
+<Text  >adress</Text>
+    <TextInput
+       style={tw`mt-4 rounded h-10 bg-white p-2 `}
+       placeholder="adress"
+         value={formik.values.adress}
+       />
+       <Text >description</Text>
+    <TextInput
+       style={tw`mt-4 rounded h-10 bg-white p-2 `}
+       placeholder="description"
+         value={formik.values.description}
+       />
+       <Text >date</Text>
+    <TextInput
+        style={tw`mt-4 rounded h-10 bg-white p-2 `}
+        placeholder="date"
+         value={formik.values.date}
+       />
+    <Text >user Name</Text>
+    <TextInput
+     style={tw`mt-4 rounded h-10 bg-white p-2 `}
+     placeholder="user Name"
+         value={formik.values.created_by}
+       />
+       <Button
+       onPress ={()=>{}}
+       title="Submit" />
+ 
+    </View>
   );
 };

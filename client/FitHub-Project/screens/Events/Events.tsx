@@ -64,6 +64,8 @@ export default function Event({}: RootTabScreenProps<'createEvent'>) {
     </View>
   );
 }
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

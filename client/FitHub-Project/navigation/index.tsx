@@ -28,14 +28,15 @@ import Blogs from "../screens/Blogs/Blogs";
 import blog from "../screens/Blogs/blog";
 import GymScrean from "../screens/Gym/Gym";
 import Event from "../screens/Events/Events";
-import FoodScren from "../screens/Food/Food";
+import Food from "../screens/Food/Food";
 import Login from "../components/auth/signin";
 import FirstVue from '../screens/FirstVue/FirstVue'
 import signUp from "../components/auth/register";
 import Information from "../screens/Information";
 import myprofile from "../components/myprofile/myprofile";
 import Recipe from '../screens/Food/OneRecipe'
-import { createEvent } from "../screens/Events/createEvent";
+import Restaurant from "../screens/restaurants/restaurant";
+import { createEvent } from "../screens/Events/createEvent"
 import { useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Register from "../components/auth/register";
@@ -87,7 +88,7 @@ function RootNavigator({ }) {
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
-      <Stack.Screen name="Food" component={FoodScren} />
+      <Stack.Screen name="Food" component={Food} />
       <Stack.Screen name="Coachs" component={Coachs} />
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Gym" component={GymScrean} />
@@ -102,6 +103,9 @@ function RootNavigator({ }) {
       <Stack.Screen name="blog" component={blog} />
       <Stack.Screen name="register" component={Register} />
       <Stack.Screen name="Recipe" component={Recipe} />
+      <Stack.Screen name="Restaurant" component={Restaurant} />
+
+
     </Stack.Navigator>
   );
 }
