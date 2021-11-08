@@ -17,6 +17,7 @@ import {
   View
 } from "../../components/Themed";
 import { useNavigation } from '@react-navigation/core';
+import tw from "tailwind-react-native-classnames";
 
 const screenWidth = Dimensions.get('screen').width;
 
@@ -63,6 +64,7 @@ export default function Restaurant() {
          <Text  style={styles.titleT}  >{item.food_name} </Text>
          {/* <Text >Chez {item.rest_name}  </Text> */}
          {/* <Text >{item.rating} /10 </Text> */}
+         <Image style={tw` w-6 h-6 `} source={require("../../assets/Icons/like.png")} />
          <Text style={styles.titleM} >{item.price} DT </Text>
      </View>
      </View>

@@ -17,6 +17,7 @@ import {
   View
 } from "../../components/Themed";
 import { useNavigation } from '@react-navigation/core';
+import tw from "tailwind-react-native-classnames";
 
 const screenWidth = Dimensions.get('screen').width;
 
@@ -53,13 +54,14 @@ export default function Food() {
   }) }
   activeOpacity={1} >
     <View style={styles.container}>
-     <View style={{ display: 'flex',flexDirection: 'row', flex: 8, padding: 10, justifyContent: 'center',backgroundColor:'#EEEDE7'}}>
+     <View style={{ display: 'flex',flexDirection: 'row', flex: 8, padding: 10, justifyContent: 'center',backgroundColor:'#EEEDE7',borderRadius: 20}}>
      <Image source={{ uri:item.imageUrl}} style={{ width :100,flexDirection:'row',height: 85, borderRadius: 20, backgroundColor: '#EEEDE7'}} /> 
      
      <View style={{display: 'flex', flex: 10, padding: 10, justifyContent:'space-around', alignItems: 'center',backgroundColor:'#EEEDE7'
       }} >
          <Text  style={styles.titleT}  >{item.recipeTitle} </Text>
          {/* <Text >{item.comments}  </Text> */}
+         <Image style={tw` w-6 h-6 `} source={require("../../assets/Icons/like.png")} />
          <Text >{item.likes} Likes </Text>
      </View>
      </View>
