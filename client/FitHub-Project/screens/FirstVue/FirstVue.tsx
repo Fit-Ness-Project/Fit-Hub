@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { StyleSheet , Button,ImageBackground,TouchableOpacity } from 'react-native'
-import {Text, View} from '../../components/Themed';
+import { StyleSheet, Button, ImageBackground, TouchableOpacity, Image } from 'react-native'
+import { Text, View } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
 import { useNavigation } from '@react-navigation/native';
 import tw from 'tailwind-react-native-classnames';
@@ -59,15 +59,16 @@ const FirstVue = ({
 export default FirstVue
 
 const styles = StyleSheet.create({
+
     button: {
         borderWidth: 1,
         width: 150,
-        borderRadius : 5,
-        height: 60, 
+        borderRadius: 5,
+        height: 60,
         opacity: .8,
-        fontWeight : "bold",
-        backgroundColor : "#e7ff19",
-        borderColor : "gray",
+        fontWeight: "bold",
+        backgroundColor: "#e7ff19",
+        borderColor: "gray",
 
     }
 })

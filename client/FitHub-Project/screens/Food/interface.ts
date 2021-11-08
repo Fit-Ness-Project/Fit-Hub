@@ -3,8 +3,8 @@ export  interface FoodR {
         recipeTitle: string ;
         created_at: Date;
         content: string ;
-        user_id: Number ;
-        likes: Number;
+        user_id: number ;
+        likes: number;
         comments: string ;
         imageUrl :string ; 
     
