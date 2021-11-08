@@ -1,6 +1,6 @@
 import  React , {useState} from 'react';
-import { StyleSheet ,   Picker } from 'react-native';
-import { Text, View,  TouchableOpacity,TextInput } from '../components/Themed';
+import { StyleSheet ,   Picker , TextInput } from 'react-native';
+import { Text, View,  TouchableOpacity } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { useNavigation } from '@react-navigation/native';
 

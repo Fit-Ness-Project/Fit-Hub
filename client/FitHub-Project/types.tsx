@@ -70,9 +70,10 @@ export type RootStackParamList = {
      createEvent:undefined;
      register:undefined;
      Food:undefined;
+
      Restaurant : undefined;
-  Healthy:{
-    id: number;
+     Healthy:{
+     id: number;
     rest_name: string ;
     food_name : string;
     rating : number;
@@ -81,6 +82,9 @@ export type RootStackParamList = {
     supp: string ;
     img_Url :string ; 
      };
+
+     BottomTabNavigator:undefined;
+
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -109,6 +113,7 @@ export type RootTabParamList = {
   register:undefined;
   Recipe:undefined;
   Restaurant:undefined;
+
   Healthy:{
     id: number;
     rest_name: string ;
@@ -119,6 +124,9 @@ export type RootTabParamList = {
     supp: string ;
     img_Url :string ; 
      };
+
+  BottomTabNavigator:undefined;
+
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
