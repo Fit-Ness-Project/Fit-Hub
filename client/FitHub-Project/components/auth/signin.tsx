@@ -37,8 +37,6 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
             .label('Email'),
         password: Yup.string()
             .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
-            .matches(/\w*[A-Z]\w*/, 'Password must have a capital letter')
-            .matches(/\d/, 'Password must have a number')
             .min(8, ({ min }) => `Password must be at least ${min} characters`)
             .required('Password is required')
             .label('Password'),
@@ -110,7 +108,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                                 onChangeText={handleChange('email')}
                                 onBlur={handleBlur('email')}
                                 value={values.email}
-                                style={tw` h-10 rounded bg-white p-2`}
+                                style={tw` h-10  bg-white p-2`}
                                 placeholder="E-mail@mail.com"
                                 autoCompleteType="email"
                                 keyboardType="email-address"
@@ -119,7 +117,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                                 <Text style={{ color: 'red' }}>{errors.email}</Text>
                             )}
                             <TextInput
-                                style={tw`mt-4 rounded h-10 bg-white p-2 `}
+                                style={tw`mt-4 h-10 bg-white p-2 `}
                                 secureTextEntry={true}
                                 placeholder="* * * * * * * *"
                                 onChangeText={handleChange('password')}
@@ -144,7 +142,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                             <Text style={tw`text-white items-center mt-8 `}>Or</Text>
                         </View>
 
-                        <View style={tw`border border-white items-center bg-white mt-8 rounded w-4/5 ml-8 h-8`}>
+                        <View style={tw`border border-white items-center bg-white mt-8 w-4/5 ml-8 h-8`}>
                             <View style={tw`flex flex-row`} >
                                 <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../../assets/images/GOOGLE.png")} />
                                 <Text onPress={handleSignin} style={tw`mt-1 pl-6 font-bold text-black`}>Connect with Google</Text>

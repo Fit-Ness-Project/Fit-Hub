@@ -27,7 +27,7 @@ export type RootStackParamList = {
     imageUrl: string,
     likes: number,
     content: string,
-    created_at: Date
+    comments:string
   };
   Blogs: undefined;
   blog:{
@@ -64,14 +64,27 @@ export type RootStackParamList = {
     fields: string;
     price: Number;
      };
-    
      login:undefined;
      signUp:undefined;
      FirstVueProps:undefined;
      createEvent:undefined;
      register:undefined;
      Food:undefined;
-     Restaurant:undefined;
+
+     Restaurant : undefined;
+     Healthy:{
+     id: number;
+    rest_name: string ;
+    food_name : string;
+    rating : number;
+    price : number ;
+    ingredients: string ;
+    supp: string ;
+    img_Url :string ; 
+     };
+
+     BottomTabNavigator:undefined;
+
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -100,6 +113,20 @@ export type RootTabParamList = {
   register:undefined;
   Recipe:undefined;
   Restaurant:undefined;
+
+  Healthy:{
+    id: number;
+    rest_name: string ;
+    food_name : string;
+    rating : number;
+    price : number ;
+    ingredients: string ;
+    supp: string ;
+    img_Url :string ; 
+     };
+
+  BottomTabNavigator:undefined;
+
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
