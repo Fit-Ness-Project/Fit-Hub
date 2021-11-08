@@ -18,7 +18,7 @@ import { RouteProp } from '@react-navigation/native';
                 imageUrl: string,
                 likes: number,
                 content: string,
-                created_at: Date
+                created_at: Date 
             }
         }, 'params'>
     }> = ({ route: { params } }) => {
