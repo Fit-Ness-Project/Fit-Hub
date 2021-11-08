@@ -13,7 +13,6 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import CommunityScren from "../screens/HomePage/getData/community/communuty";
 import Colors from "../constants/Colors";
-import TabOneScreen from "../screens/Information";
 import Calendar from "../screens/Calendar";
 import {
   RootStackParamList,
