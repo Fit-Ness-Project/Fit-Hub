@@ -42,7 +42,7 @@ export default function Food() {
 
 }, [])
 
-const renderItems: React.FC<{item:FoodR}> = ({item})=> {
+ export default const renderItems: React.FC<{item:FoodR}> = ({item})=> {
   return <TouchableOpacity  onPress={()=> navigation.navigate('Recipe',{
          recipeId: item.id,
          recipeTitle: item.recipeTitle,
@@ -53,7 +53,7 @@ const renderItems: React.FC<{item:FoodR}> = ({item})=> {
   }) }
   activeOpacity={1} >
     <View style={styles.container}>
-<View style={{ display: 'flex',flexDirection: 'col', flex: 8, padding: 10, justifyContent: 'center'}}>
+     <View style={{ display: 'flex',flexDirection: 'col', flex: 8, padding: 10, justifyContent: 'center'}}>
      <Image source={{ uri:item.imageUrl}} style={{ width: 100,flex:'col',height: 100, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
       </View>
      <View style={{display: 'flex', flex: 10, padding: 10, justifyContent:'space-around', alignItems: 'center',color: 'black', fontSize: 25 ,
@@ -70,18 +70,13 @@ const renderItems: React.FC<{item:FoodR}> = ({item})=> {
  
  const ItemView: React.FC<{item:FoodR}> = ({item}) => {
 
-
      return (
          <Text>
              {item.recipeTitle.toUpperCase()}
          </Text>
      )
  }
- const ItemSeparatorView = () => {
-     return (
-         <View />
-     )
- }
+
 return (
   <View  style={styles.container}>
      <StatusBar   />
@@ -121,7 +116,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#E5E5E5',
     flexDirection: 'row',
-    borderRadius: 20
 },
     image:{
       width: 'full' ,

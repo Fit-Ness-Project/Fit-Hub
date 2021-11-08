@@ -69,7 +69,8 @@ export type RootStackParamList = {
      signUp:undefined;
      FirstVueProps:undefined;
      createEvent:undefined;
-     register:undefined
+     register:undefined;
+     Recipe : undefined
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -95,7 +96,8 @@ export type RootTabParamList = {
   FirstVueProps:undefined;
   createEvent:undefined;
   blog:undefined;
-  register:undefined
+  register:undefined;
+  Recipe: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
