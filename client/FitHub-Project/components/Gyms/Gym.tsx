@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Text, Image, View, TouchableOpacity } from "react-native";
+import {ScrollView, StyleSheet, Text, Image, View, TouchableOpacity } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { AirbnbRating } from "react-native-ratings";
 import { RouteProp } from "@react-navigation/native";
@@ -24,6 +24,7 @@ const Gym: React.FC<{
   >;
 }> = ({ route: { params } }) => {
   return (
+
     <View style={{ width: "100%", height: "100%" }}>
       <View style={{ width: "100%", height: "32%" }}>
         <Image
@@ -38,11 +39,25 @@ const Gym: React.FC<{
         />
         <Text style={tw`text-black pl-2`}>{params.adress}</Text>
       </View>
-      <View>
-        <TouchableOpacity style={{ flexDirection: "row", padding: 15 }}>
-          <Text style={tw`text-black text-lg`}>{params.price} </Text>
-          <Text style={tw`text-black text-xl font-bold`}>TND</Text>
-        </TouchableOpacity>
+            <View>
+              <Text style={tw`text-gray-600 p-3 text-2xl font-bold `}>
+                {params.gymName}
+              </Text>
+            </View>
+            <View style={tw`flex pl-6  flex-row`}>
+              <AirbnbRating
+                count={6}
+                reviews={["1", "2", "3", "4", "5"]}
+                defaultRating={params.rating / 2}
+                size={12}
+                showRating={false}
+              />
+            </View>
+      <View style={{ flexDirection: "row", padding: 15 }}>
+   
+          <Text style={tw`text-gray-600 text-lg font-bold`}>{params.price} </Text>
+          <Text style={tw`text-gray-600 font-bold`}>DT</Text>
+
       </View>
       <View style={{ alignItems: "center" }}>
         <TouchableOpacity
@@ -60,29 +75,14 @@ const Gym: React.FC<{
         </TouchableOpacity>
       </View>
       <View>
-        <Text style={tw`text-gray-600 p-3 text-2xl font-bold `}>
-          {params.gymName}
-        </Text>
-      </View>
-      <View style={tw`flex pl-6  flex-row`}>
-        <AirbnbRating
-          count={6}
-          reviews={["1", "2", "3", "4", "5"]}
-          defaultRating={params.rating / 2}
-          size={12}
-          showRating={false}
-        />
-      </View>
-      <View>
         <Text style={tw`p-6 font-bold text-gray-600 text-xl`}>
           {" "}
           Description{" "}
         </Text>
       </View>
-      <View style={tw``}>
-        <Text style={tw`pl-6 text-gray-600 text-lg`}>
-          {" "}
-          {params.description}{" "}
+      <View >
+        <Text style={tw`pl-6 text-gray-600 text-sm`}>
+          {params.description}
         </Text>
       </View>
       <View style={{ width: "100%", height: "30%", padding: 20 }}>
@@ -92,6 +92,7 @@ const Gym: React.FC<{
         />
       </View>
     </View>
+ 
   );
 };
 
