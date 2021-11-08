@@ -63,9 +63,6 @@ export default function Blogs() {
      
 
 
-
-
-
    return (
   <View style={styles.container}>
      {/* <ImageBackground  source="../../assets/images/coachbg.png" > */}
@@ -107,6 +104,7 @@ const styles = StyleSheet.create({
       fontSize: 25,
       fontWeight: 'bold',
       backgroundColor: "black",
+
       opacity:0.7,
     }
 })

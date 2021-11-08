@@ -21,7 +21,14 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
-  Food: undefined;
+  Food:{
+    recipeId: number,
+    recipeTitle: string,
+    imageUrl: string,
+    likes: number,
+    content: string,
+    created_at: string 
+  };
   Blogs: undefined;
   blog:{
      id: number;

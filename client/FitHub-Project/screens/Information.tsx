@@ -4,6 +4,9 @@ import { Text, View,  TouchableOpacity,TextInput } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { useNavigation } from '@react-navigation/native';
 
+
+
+
 export default function Information({}: RootTabScreenProps<'Home'>) {
    const [selectedValue, setSelectedValue] = useState("male");
    const navigation = useNavigation();
@@ -14,8 +17,7 @@ export default function Information({}: RootTabScreenProps<'Home'>) {
     <TextInput style= {styles.input} 
     underlineColorAndroid = "transparent"
     placeholder = "Age (year)"
-    autoCapitalize = "none"
-  
+    autoCapitalize = "none" 
     />
 
     <Text  style = {styles.label}>Height</Text>
