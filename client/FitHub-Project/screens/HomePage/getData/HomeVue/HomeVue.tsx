@@ -71,7 +71,7 @@ export default function ChangeView({ }) {
                                         </View>
                                         <View style={tw`h-7 items-center bg-transparent pt-1 `}>
 
-                                            <Text style={tw`  text-black  pl-2 h-full w-full font-bold`} >DIETS</Text>
+                                            <Text style={tw`  text-black  pl-2  font-bold`} >DIETS</Text>
                                         </View>
 
                                         </View>
