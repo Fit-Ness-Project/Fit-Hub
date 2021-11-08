@@ -21,6 +21,7 @@ export default function Event({}: RootTabScreenProps<'createEvent'>) {
       .get("http://192.168.11.134:5000/events")
 
       .then((response) => {
+
         setEventData(response.data);
       })
       .catch((Error) => {
@@ -33,16 +34,19 @@ export default function Event({}: RootTabScreenProps<'createEvent'>) {
   };
   const renderItems: React.FC<{ item: Events }> = ({ item }) => {
     return (
-      <TouchableOpacity style={{ alignItems: "center" }}>
-        <Image source={{ uri: item.url }} style={styles.image} />
+      <View style={{ alignItems: "center" }}>
+        <Image source={{ uri: item.imageurl }} style={styles.image} />
         <Text> {item.eventName} </Text>
         <Text> {item.description} </Text>
         <Text> {item.adress} </Text>
         <Text> {item.date} </Text>
-        <TouchableOpacity>
-          <Text> Join </Text>
-        </TouchableOpacity>
-      </TouchableOpacity>
+        <TouchableOpacity
+         onPress ={()=>{}}
+        >
+          <Text>Join</Text>
+          </TouchableOpacity>
+    
+      </View>
     );
   };
   return (
@@ -55,12 +59,11 @@ export default function Event({}: RootTabScreenProps<'createEvent'>) {
         //  ref={(ref)=>{flatListRef.current = ref}}
         viewabilityConfig={viewConfigRef}
       />
-      {/* <HStack alignItems="center" space={4}> */}
-      <Text>Create Event</Text>
+      
+      {/* <Text>Create Event</Text>
       <TouchableOpacity
         style={styles.button}
-       onPress={() => navigation.navigate("createEvent")} />
-    {/* </HStack> */}
+       onPress={() => navigation.navigate("createEvent")} /> */}
     </View>
   );
 }

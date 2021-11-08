@@ -10,15 +10,18 @@ const viewConfigRef = {viewAreaCoveragePercentTreshold:95}
 
 import { RouteProp } from '@react-navigation/native';
 
-   const Recipe: React.FC<{
+   const Healthy: React.FC<{
         route: RouteProp<{
             params: {
-                recipeId: number,
-                recipeTitle: string,
-                imageUrl: string,
-                likes: number,
-                content: string,
-                comments:string
+                id: number;
+        rest_name: string ;
+        food_name : string;
+        rating : number;
+        price : number ;
+        ingredients: string ;
+        supp: string ;
+        img_Url :string ; 
+    
             }
         }, 'params'>
     }> = ({ route: { params } }) => {
@@ -27,11 +30,11 @@ import { RouteProp } from '@react-navigation/native';
             <View style={styles.container}>
     <View  style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
             <View style={{ display: 'flex', flex: 8, padding: 10, justifyContent: 'center'}}> 
-            <Image source={{uri: params.imageUrl}} style={styles.image}  />
-                <Text style={{ fontSize: 36, fontWeight: '500'}}>{params.recipeTitle}</Text>
-                <Text style={{ fontSize: 16, color: '#616161'}}>{params.comments}</Text>
-                <Text style={{ fontSize: 16, color: '#616161'}}>{params.likes}Likes</Text>
-                <Text style={{ fontSize: 20, color: '#000000'}}>{params.content}</Text>
+            <Image source={{uri: params.img_Url}} style={styles.image}  />
+                <Text style={{ fontSize: 36, fontWeight: '500'}}>{params.food_name}</Text>
+                <Text style={{ fontSize: 20, color: '#FF0000',textAlign:'right'}}>{params.price}DT</Text>
+                <Text style={{ fontSize: 16, color: '#616161'}}>{params.rest_name}</Text>
+                <Text style={{ fontSize: 20, color: '#000000'}}>{params.ingredients}</Text>
             </View>
             </View>
           <View style = {tw`h-2/3`}>
@@ -51,7 +54,7 @@ import { RouteProp } from '@react-navigation/native';
    );
         }
 
-    export default Recipe
+    export default Healthy
 
 
 
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
     container: {     
         display: 'flex',
         flex: 1, 
-        // width: Dimensions.get('screen').width - 20,
+        width: Dimensions.get('screen').width - 20,
         margin: 10,
         borderRadius: 20,
         backgroundColor: '#FFF',
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
     },
     navigation: { flex: 2, backgroundColor: 'red' },
     image:{
-      
+    
         height: 230 ,
         alignItems : 'center',
         resizeMode: 'cover' ,
