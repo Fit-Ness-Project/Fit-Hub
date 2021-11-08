@@ -72,6 +72,7 @@ export type RootStackParamList = {
      register:undefined;
      Food:undefined;
      Restaurant:undefined;
+     BottomTabNavigator:undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -100,6 +101,7 @@ export type RootTabParamList = {
   register:undefined;
   Recipe:undefined;
   Restaurant:undefined;
+  BottomTabNavigator:undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
