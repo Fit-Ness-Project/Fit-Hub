@@ -29,7 +29,7 @@ export default function Restaurant() {
 
   useEffect(() => {
     axios 
-    .get('http://192.168.11.64:5000/recipes') 
+    .get('http://192.168.11.64:5000/restaurants') 
      
     .then((response)=> {
        console.log(response.data)
@@ -43,24 +43,27 @@ export default function Restaurant() {
 }, [])
 
   const renderItems: React.FC<{item:RestaurantR}> = ({item})=> {
-  return <TouchableOpacity  onPress={()=> navigation.navigate('Recipe',{
-         recipeId: item.id,
-         recipeTitle: item.recipeTitle,
-         imageUrl: item.imageUrl,
-         likes: item.likes,
-         content: item.content,
-         created_at: item.created_at 
+  return <TouchableOpacity  onPress={()=> navigation.navigate('Healthy',{
+         id: item.id,
+         food_name: item.food_name,
+         rest_name:item.rest_name,
+         img_Url: item.img_Url,
+         price: item.price,
+         ingredients: item.ingredients,
+         rating: item.rating ,
+         supp : item.supp,
   }) }
   activeOpacity={1} >
     <View style={styles.container}>
      <View style={{ display: 'flex',flexDirection: 'row', flex: 8, padding: 10, justifyContent: 'center',   borderRadius: 20,}}>
-     <Image source={{ uri:item.imageUrl}} style={{ width :100,flexDirection:'row',height: 100, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
+     <Image source={{ uri:item.img_Url}} style={{ width :100,flexDirection:'row',height: 100, borderRadius: 20, backgroundColor: '#EAEAEA'}} /> 
      
      <View style={{display: 'flex', flex: 10, padding: 10, justifyContent:'space-around', alignItems: 'center'
       }} >
-         <Text  style={styles.titleT}  >{item.recipeTitle} </Text>
-         <Text >{item.created_at}  </Text>
-         <Text >{item.likes} Likes </Text>
+         <Text  style={styles.titleT}  >{item.food_name} </Text>
+         <Text >{item.rest_name}  </Text>
+         <Text >{item.rating} /10 </Text>
+         <Text >{item.price} DT </Text>
      </View>
      </View>
      </View>

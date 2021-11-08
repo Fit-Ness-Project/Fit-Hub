@@ -1,11 +1,11 @@
-export  interface FoodR { 
+export  interface RestaurantR { 
         id: number;
-        recipeTitle: string ;
-        created_at: Date;
-        content: string ;
-        user_id: number ;
-        likes: number;
-        comments: string ;
-        imageUrl :string ; 
+        rest_name: string ;
+        food_name : string;
+        rating : number;
+        price : number ;
+        ingredients: string ;
+        supp: string ;
+        img_Url :string  
     
 }
