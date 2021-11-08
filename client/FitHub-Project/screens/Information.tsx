@@ -1,6 +1,6 @@
 import  React , {useState} from 'react';
-import { StyleSheet ,   Picker , TextInput } from 'react-native';
-import { Text, View,  TouchableOpacity } from '../components/Themed';
+import { View, Image, TextInput, StyleSheet, Picker, TouchableOpacity } from 'react-native';
+import { Text } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { useNavigation } from '@react-navigation/native';
 
@@ -35,11 +35,13 @@ export default function Information({}: RootTabScreenProps<'Home'>) {
      <Text  style = {styles.label}>Select Your Gender</Text>
      <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 150 }}
+        style={{ height: 50, width: 150 , backgroundColor:'#e7ff19' }}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
-        <Picker.Item label="male" value="male" />
-        <Picker.Item label="Female" value="Female" />
+        <Picker.Item 
+         label="male" value="male"  />
+        <Picker.Item 
+         label="Female" value="Female" />
       </Picker>
        
     
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
      height: 40,
      borderWidth: 1,
      padding: 10,
+     backgroundColor:'white'
   },
   submitButton: {
      backgroundColor: '#e7ff19',
@@ -74,9 +77,10 @@ const styles = StyleSheet.create({
   },
   submitButtonText:{
      textAlign: "center",
-     color: 'white',
+     color: 'black',
     // fontWeight:"bold",
      fontSize: 18,
+
   },
   output:{
      textAlign: "center",

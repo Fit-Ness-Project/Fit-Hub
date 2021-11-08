@@ -37,8 +37,6 @@ import Recipe from '../screens/Food/OneRecipe'
 import Restaurant from "../screens/restaurants/restaurant";
 import Healthy from '../screens/restaurants/Healthy'
 import { createEvent } from "../screens/Events/createEvent"
-import { useEffect} from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import Register from "../components/auth/register";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from '@react-navigation/stack';
@@ -60,19 +58,14 @@ export default function Navigation({
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-const RootStack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator({ }) {
 
   return (
     <Stack.Navigator>
-       {/* <RootStack.Screen name="Root" component={FirstVue} />
-       <RootStack.Screen name="BottomTabNavigator" component={BottomTabNavigator} /> */}
-
       <Stack.Screen
         name="Root"
         component={FirstVue}
-        // component={BottomTabNavigator}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -83,6 +76,7 @@ function RootNavigator({ }) {
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
+      <Stack.Screen name="Home" component={ChangeView} />
       <Stack.Screen name="Food" component={Food} />
       <Stack.Screen name="Coachs" component={Coachs} />
       <Stack.Screen name="Blogs" component={Blogs} />
@@ -94,7 +88,6 @@ function RootNavigator({ }) {
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="signUp" component={signUp} />
       <Stack.Screen name="createEvent" component={createEvent} />
-      <Stack.Screen name="Home" component={ChangeView} />
       <Stack.Screen name="blog" component={blog} />
       <Stack.Screen name="register" component={Register} />
       <Stack.Screen name="Recipe" component={Recipe} />
@@ -112,7 +105,6 @@ export function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-    
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
