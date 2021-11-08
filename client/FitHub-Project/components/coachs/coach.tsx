@@ -3,16 +3,8 @@ import { Text, View } from '../Themed';
 import * as React from 'react';
 import { RouteProp } from '@react-navigation/native';
 import {
-    ImageBackground,
-    StatusBar,
     StyleSheet,
-    FlatList,
     Image,
-    Dimensions,
-    Animated,
-    TouchableOpacity,
-    Platform,
-    TextInput,
     Button,
     Alert
 } from "react-native";
@@ -20,7 +12,9 @@ import {
 const Coach: React.FC<{
     route: RouteProp<{
         params: {
-            coachId: number, coachName: string, rating: number,
+            coachId: number,
+            coachName: string,
+            rating: number,
             price: number,
             description: string,
             adress: string,
@@ -31,30 +25,29 @@ const Coach: React.FC<{
     }, 'params'>
 }> = ({ route: { params } }) => {
 
-    const bc = "https://img3.goodfon.com/wallpaper/nbig/7/a8/fitness-model-gym-sport.jpg"
 
-  const createThreeButtonAlert = () =>
-  Alert.alert(
-    "Want to book your Coach ?",
-    "Click OK!",
-    [
-      {
-        text: "Ask me later",
-        onPress: () => console.log("Ask me later pressed")
-      },
-      {
-        text: "Cancel",
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel"
-      },
-      { text: "OK", onPress: () => console.log("OK Pressed") }
-    ]
-  );
+    const createThreeButtonAlert = () =>
+        Alert.alert(
+            "Want to book your Coach ?",
+            "Click OK!",
+            [
+                {
+                    text: "Ask me later",
+                    onPress: () => console.log("Ask me later pressed")
+                },
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                },
+                { text: "OK", onPress: () => console.log("OK Pressed") }
+            ]
+        );
 
     return (
         <View style={styles.container}>
 
- 
+
             <Image style={styles.image} source={{ uri: params.imageUrl }} />
             <Text style={styles.title}>
 
@@ -68,8 +61,11 @@ const Coach: React.FC<{
             <Text>{params.price} TND</Text>
             <Text>{params.adress}</Text>
             <Text>{params.email}</Text>
-            <Button onPress={createThreeButtonAlert} title="book" />
-         
+            <View  style={styles.button} >
+            <Text onPress={createThreeButtonAlert} >
+                BOOK
+                </Text>
+            </View>
         </View>
     )
 
@@ -80,10 +76,10 @@ export default Coach
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        //  alignItems: 'center',
-    // justifyContent: 'center',
-
+        // flex: 1,
+          alignItems: 'center',
+         justifyContent: 'center',
+         position:"relative"
     },
     image: {
         alignItems: 'center',
@@ -95,9 +91,17 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     title: {
-       marginTop:20,
+        marginTop: 20,
         fontSize: 25,
         fontWeight: 'bold',
 
     },
+    button:{
+     height:38,
+     width:198,
+     alignItems:"center",
+     backgroundColor: "#e7ff19",
+     justifyContent: 'center',
+    }
 })
+

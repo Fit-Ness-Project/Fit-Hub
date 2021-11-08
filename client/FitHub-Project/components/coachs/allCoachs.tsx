@@ -6,15 +6,9 @@ import { Coach } from "./interface";
 import axios from "axios";
 import {
   ScrollView,
-  StatusBar,
   StyleSheet,
-  FlatList,
   Image,
-  Dimensions,
-  Animated,
   TouchableOpacity,
-  Platform,
-  ImageBackground,
   TextInput
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
@@ -22,13 +16,10 @@ import tw from 'tailwind-react-native-classnames';
 import { AirbnbRating } from "react-native-ratings";
 
 
-const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 }
-
 export default function AllCoachs() {
 
   const navigation = useNavigation()
 
-  let flatListRef = useRef<FlatList<Coach> | null>();
 
   const [coachData, setCoachData] = useState<Coach[]>([]);
   const [search, setSearch] = useState('');
@@ -68,144 +59,82 @@ export default function AllCoachs() {
     }
   }
 
-  const scrollToIndex = (index: number) => {
-    flatListRef.current?.scrollToIndex({ animated: true, index: index })
-  }
-
-
-
-  // const renderItems: React.FC<{ item: Coach }> = ({ item }) => {
-
-  //   return <TouchableOpacity onPress={() => navigation.navigate("coach", {
-  //     coachId: item.id,
-  //     coachName: item.coachName,
-  //     rating: item.rating,
-  //     price: item.price,
-  //     description: item.description,
-  //     adress: item.adress,
-  //     phoneNumber: item.phoneNumber,
-  //     email: item.email,
-  //     imageUrl: item.imageUrl
-  //   })}
-
-  //     activeOpacity={1} >
-  //     <ImageBackground source={{ uri: item.imageUrl }} style={styles.image} >
-  //       <Rating imageSize={25} readonly startingValue={item.rating / 2} style={styles.rating} />
-  //     </ImageBackground>
-  //     <View style={styles.footer} >
-  //       <Text style={styles.footerText}>{item.coachName} </Text>
-  //       <Text style={styles.footerText}>{item.price} TND</Text>
-
-  //     </View>
-  //   </TouchableOpacity>
-  // }
 
 
   return (
 
-    // <View style={styles.container} >
-    //   <TextInput
-    //     style={styles.input}
-    //     value={search}
-    //     placeholder=" search your coach here..."
-    //     underlineColorAndroid="transparent"
-    //     onChangeText={(text) => searchFilter(text)}
-    //   />
 
-
-    //   <FlatList data={coachData}
-    //     renderItem={renderItems}
-    //     keyExtractor={(item, i) => i.toString()}
-
-    //     showsHorizontalScrollIndicator={false}
-
-    //     ref={(ref) => { flatListRef.current = ref }}
-    //     style={styles.carousel}
-    //     viewabilityConfig={viewConfigRef}
-
-    //   />
-    //   <View style={styles.dotview}>
-    //     {coachData.map(({ }, index: number) => (
-    //       <TouchableOpacity key={index.toString()}
-    //         onPress={() => scrollToIndex(index)}
-    //       >
-
-    //       </TouchableOpacity>
-    //     ))}
-    //   </View>
-    //   <StatusBar />
-    // </View>
     < ScrollView>
-   <View>
+      <View>
         <TextInput
-       style={styles.input}
-      value={search}
-     placeholder=" search your coach here..."
-        underlineColorAndroid="transparent"
-       onChangeText={(text) => searchFilter(text)}
-       />
-   {coachData.map((item,k)=>(
-    
-    
-       
-      <View style={tw` h-40 mt-1 flex flex-row`} >
+          style={styles.input}
+          value={search}
+          placeholder=" search your coach here..."
+          underlineColorAndroid="transparent"
+          onChangeText={(text) => searchFilter(text)}
+        />
+        {coachData.map((item, k) => (
 
-        <View style={tw`bg-black w-2/5 h-full items-center`} >
-          <Image style={tw` w-full h-full  items-center `} source={{ uri: item.imageUrl }} />
-        
-        </View>
-        <View style={tw`bg-gray-100 flex flex-cols w-3/5 items-center`} >
-          <Text style={tw`font-bold text-xl pl-4 mt-4 items-center`} >
-           {item.coachName}
-          </Text>
-          <Text style={tw`pl-4  `}>
-            {item.description}
-          </Text>
-          {/* <Text style={tw`pl-4`}>
+
+
+          <View style={tw` h-40 mt-1 flex flex-row`} key={k} >
+
+            <View style={tw`bg-black w-2/5 h-full items-center`} >
+              <Image style={tw` w-full h-full  items-center `} source={{ uri: item.imageUrl }} />
+
+            </View>
+            <View style={tw`bg-gray-100 flex  w-3/5 items-center`} >
+              <Text style={tw`font-bold text-xl pl-4 mt-4 items-center`} >
+                {item.coachName}
+              </Text>
+              <Text style={tw`pl-4  `}>
+                {item.description}
+              </Text>
+              {/* <Text style={tw`pl-4`}>
            {item.adress}
           </Text> */}
-          <AirbnbRating
-                            count={5}
-                            reviews={["1", "2", "3", "4", "5"]}
-                            defaultRating={item.rating/2}
-                            size={12}
-                            showRating={false}
-                            
-                          />
-                           
-          <View style={tw`absolute inset-x-0 bottom-0`}>
-          <TouchableOpacity  onPress={() => navigation.navigate("coach", {
-      coachId: item.id,
-      coachName: item.coachName,
-      rating: item.rating,
-      price: item.price,
-      description: item.description,
-      adress: item.adress,
-      phoneNumber: item.phoneNumber,
-      email: item.email,
-      imageUrl: item.imageUrl
-    })}
->
-            <View style={styles.seeMore}>
+              <AirbnbRating
+                count={5}
+                reviews={["1", "2", "3", "4", "5"]}
+                defaultRating={item.rating / 2}
+                size={12}
+                showRating={false}
 
-              <View style={tw`h-8 w-full bg-transparent items-center `}>
-              
-                <Image style={tw` h-8 w-8 items-center `} source={require("../../assets/Icons/seeMore.png")}
-                 />
-                  
+              />
+
+              <View style={tw`absolute inset-x-0 bottom-0`}>
+                <TouchableOpacity onPress={() => navigation.navigate("coach", {
+                  coachId: item.id,
+                  coachName: item.coachName,
+                  rating: item.rating,
+                  price: item.price,
+                  description: item.description,
+                  adress: item.adress,
+                  phoneNumber: item.phoneNumber,
+                  email: item.email,
+                  imageUrl: item.imageUrl
+                })}
+                >
+                  <View style={styles.seeMore}>
+
+                    <View style={tw`h-8 w-full bg-transparent items-center `}>
+
+                      <Image style={tw` h-8 w-8 items-center `} source={require("../../assets/Icons/seeMore.png")}
+                      />
+
+                    </View>
+                  </View>
+                </TouchableOpacity>
               </View>
-            </View>
-            </TouchableOpacity>
-          </View>
-       
-        </View>
 
+            </View>
+
+          </View>
+
+
+        ))}
       </View>
 
-    
-      ))}
-    </View>
-   
     </ScrollView>
   )
 }
@@ -221,59 +150,16 @@ const styles = StyleSheet.create({
 
 
   },
-  image: {
-
-    height: 230,
-  },
-  footer: {
-    borderWidth: 1,
-    borderRadius: 5,
-    height: 60,
-    opacity: .8,
-    fontWeight: "bold",
-    backgroundColor: "#e7ff19",
-
-  },
-  footerText: {
-    color: 'black',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  carousel: {
-    maxHeight: 590
-  },
-  dotview: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginVertical: 20,
-  },
-  circle: {
-    width: 10,
-    height: 10,
-    backgroundColor: "grey",
-    borderRadius: 50,
-  },
-  title: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    backgroundColor: "black"
-  },
-  itemStyle: {
-    padding: 10
-  },
+ 
   input: {
-    width: 350,
+    width: "100%",
     height: 55,
     borderWidth: 1,
-    margin: 2,
+    margin: 6,
     borderColor: 'black',
     backgroundColor: "white",
-    borderRadius: 6,
   },
-  rating: {
-    position: 'absolute',
-    left: 5,
-    top: 5,
-  }
+ 
 })
+
+

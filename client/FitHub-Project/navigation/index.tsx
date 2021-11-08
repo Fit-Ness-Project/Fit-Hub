@@ -35,6 +35,7 @@ import Information from "../screens/Information";
 import myprofile from "../components/myprofile/myprofile";
 import Recipe from '../screens/Food/OneRecipe'
 import Restaurant from "../screens/restaurants/restaurant";
+import Healthy from '../screens/restaurants/Healthy'
 import { createEvent } from "../screens/Events/createEvent"
 import Register from "../components/auth/register";
 import { FontAwesome } from "@expo/vector-icons";
@@ -91,6 +92,7 @@ function RootNavigator({ }) {
       <Stack.Screen name="register" component={Register} />
       <Stack.Screen name="Recipe" component={Recipe} />
       <Stack.Screen name="Restaurant" component={Restaurant} />
+      <Stack.Screen name="Healthy" component={Healthy} />
 
     </Stack.Navigator>
   );

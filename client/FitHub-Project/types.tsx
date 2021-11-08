@@ -27,7 +27,7 @@ export type RootStackParamList = {
     imageUrl: string,
     likes: number,
     content: string,
-    created_at: Date
+    comments:string
   };
   Blogs: undefined;
   blog:{
@@ -56,23 +56,41 @@ export type RootStackParamList = {
   Home: undefined;
   Events: undefined;
   bmi : undefined;
-  Gymdescription:{GymId:Number,
-     gymName: string;
-    imgUrl: string;
-    rating: Number;
-    description: string;
-    fields: string;
-    price: Number;
+  Gymdescription:{ 
+ 
+    gymName: string,
+    imgUrl: string,
+    rating: number,
+    description: string,
+    fields: string,
+    price: number ,
+
+   latitude :  string;
+   longitude :  string;
+   adress: string;
+   phoneNumber: number;
      };
-    
      login:undefined;
      signUp:undefined;
      FirstVueProps:undefined;
      createEvent:undefined;
      register:undefined;
      Food:undefined;
-     Restaurant:undefined;
+
+     Restaurant : undefined;
+     Healthy:{
+     id: number;
+    rest_name: string ;
+    food_name : string;
+    rating : number;
+    price : number ;
+    ingredients: string ;
+    supp: string ;
+    img_Url :string ; 
+     };
+
      BottomTabNavigator:undefined;
+
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -93,7 +111,7 @@ export type RootTabParamList = {
   login:undefined;
    signUp:undefined;
   coach : undefined;
-  Gymdescription:{GymId:number};
+  Gymdescription:undefined;
   myProfile:undefined;
   FirstVueProps:undefined;
   createEvent:undefined;
@@ -101,7 +119,20 @@ export type RootTabParamList = {
   register:undefined;
   Recipe:undefined;
   Restaurant:undefined;
+
+  Healthy:{
+    id: number;
+    rest_name: string ;
+    food_name : string;
+    rating : number;
+    price : number ;
+    ingredients: string ;
+    supp: string ;
+    img_Url :string ; 
+     };
+
   BottomTabNavigator:undefined;
+
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
