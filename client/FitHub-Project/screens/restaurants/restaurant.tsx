@@ -120,13 +120,13 @@ const styles = StyleSheet.create({
       backgroundColor: '#000' ,
     },
     titleT:{
-     color: 'red' ,
+    
      fontSize: 18 ,
      fontWeight: 'bold',
 
     },
     titleM:{
-        color: 'black' ,
+       
         fontSize: 16 ,
         textAlign:'right',
         margin: 5

@@ -117,8 +117,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#000' ,
     },
     titleT:{
-     color: 'black' ,
-     fontSize: 18 ,
+   
+     fontSize: 17 ,
      fontWeight: 'bold',
     },
     carousel:{

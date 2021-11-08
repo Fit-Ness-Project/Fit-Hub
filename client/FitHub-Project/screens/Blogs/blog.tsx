@@ -4,17 +4,8 @@ import * as React from 'react';
 import { RouteProp } from '@react-navigation/native';
 import {
     ImageBackground,
-    StatusBar,
-    StyleSheet,
-    FlatList,
-    Image,
-    Dimensions,
-    Animated,
-    TouchableOpacity,
-    Platform,
-    TextInput,
-    Button,
-    Alert
+    StyleSheet,  
+    ScrollView
 } from "react-native";
 
 const Blog: React.FC<{
@@ -33,6 +24,7 @@ const Blog: React.FC<{
 }> = ({ route: { params } }) => {
 
     return (
+        < ScrollView>
         <View style={styles.container}>
 <Text style={styles.title}>{params.blogTitle}</Text>
 <ImageBackground source={{ uri: params.imageUrl }} style={styles.image} >
@@ -40,6 +32,7 @@ const Blog: React.FC<{
 <Text  style={styles.date}>{params.date}</Text>
 <Text style={styles.text} >{params.content}</Text>
         </View>
+        </ScrollView>
     )
 
 }
@@ -51,8 +44,8 @@ export default Blog
 
 
 const styles = StyleSheet.create({
-    container: {
-      
+    container: {  
+        flex:1,    
          alignItems: 'center',
          justifyContent: 'center',
          flexDirection: "column"
@@ -61,7 +54,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: 350,
-        height: 430,
+        height: 410,
         resizeMode: 'cover',
         marginVertical: 10,
         borderRadius: 6,
