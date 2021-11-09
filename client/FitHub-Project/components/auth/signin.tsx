@@ -21,10 +21,7 @@ type MessageType = "SUCCESS" | "FAILED"
 
 // import icon from 'react-native-vector-icons';
 export default function Login({ }: RootTabScreenProps<'Home'>) {
-
     const navigation = useNavigation()
-
-
     const [message, setMessage] = useState("");
     const [messageType, setMessageType] = useState<MessageType>();
     const [googleSubmitting, setGoogleSubmitting] = useState(false);
@@ -72,7 +69,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                     handleMessage('Google signin ws cancelled')
                 }
                 setGoogleSubmitting(false);
-
+ 
             })
             .catch(error => {
                 setGoogleSubmitting(false);
