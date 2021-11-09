@@ -66,43 +66,46 @@ export default function AllCoachs() {
 
     < ScrollView>
       <View>
-        <TextInput
+        {/* <TextInput
           style={styles.input}
           value={search}
           placeholder=" search your coach here..."
           underlineColorAndroid="transparent"
           onChangeText={(text) => searchFilter(text)}
-        />
+        /> */}
         {coachData.map((item, k) => (
 
 
 
           <View style={tw` h-40 mt-1 flex flex-row`} key={k} >
 
-            <View style={tw`bg-black w-2/5 h-full items-center`} >
+            <View style={tw`bg-black w-3/5 h-28 items-center`} >
               <Image style={tw` w-full h-full  items-center `} source={{ uri: item.imageUrl }} />
-
+   
             </View>
-            <View style={tw`bg-gray-100 flex  w-3/5 items-center`} >
-              <Text style={tw`font-bold text-xl pl-4 mt-4 items-center`} >
-                {item.coachName}
+            <View style={tw`bg-gray-100 flex w-2/5 items-center`} >
+              <Text style={tw`font-bold text-l pl-2 mt-2 items-center`} >
+                Description:
               </Text>
-              
+              <Text style={tw` text-l pl-4 mt-4 items-center`} >
+                Calories things
+              </Text>
               {/* <Text style={tw`pl-4  `}>
                 {item.description}
               </Text> */}
               {/* <Text style={tw`pl-4`}>
            {item.adress}
           </Text> */}
-              <AirbnbRating
+
+              {/* <AirbnbRating
                 count={5}
                 reviews={["1", "2", "3", "4", "5"]}
                 defaultRating={item.rating / 2}
                 size={12}
                 showRating={false}
 
-              />
-
+              /> */}
+{/* 
               <View style={tw`absolute inset-x-0 bottom-0`}>
                 <TouchableOpacity onPress={() => navigation.navigate("coach", {
                   coachId: item.id,
@@ -126,7 +129,7 @@ export default function AllCoachs() {
                     </View>
                   </View>
                 </TouchableOpacity>
-              </View>
+              </View> */}
 
             </View>
 

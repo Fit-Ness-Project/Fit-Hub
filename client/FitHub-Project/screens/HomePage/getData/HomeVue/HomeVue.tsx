@@ -10,7 +10,7 @@ export default function ChangeView({ }) {
     const navigation = useNavigation()
 
     return (
-        <><ScrollView>
+        <ScrollView>
             <View>
                 <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
                     <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
@@ -242,8 +242,7 @@ export default function ChangeView({ }) {
     </View> */}
 
             </View>
-        </ScrollView><View>
-            </View></>
+        </ScrollView>
     
     )
 }

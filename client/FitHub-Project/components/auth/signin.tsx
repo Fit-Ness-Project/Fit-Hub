@@ -86,8 +86,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         <Formik
             initialValues={{ email: '', password: "" }}
             validationSchema={validationSchema}
-            onSubmit={values => console.log(values)}
-        >
+            onSubmit={values => console.log(values)}>
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                 <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
 

@@ -27,13 +27,14 @@ const FirstVue = ({
                 <View style={{ width: "100%", height: "100%", backgroundColor: "transparent" }}>
                     <View style={{ width: "100%", height: "65%", backgroundColor: "transparent" }}>
                     </View>
-                    <View style={tw`bg-black opacity-80`}>
-                        <View style={tw`bg-transparent text-left`}>
-                            <Text style={tw`font-bold text-white bg-transparent text-3xl`}> {newName[0]}  </Text >
+                    <View style={tw`bg-black opacity-80 `}>
+                        <View style={tw`bg-transparent text-left items-center`}>
+                            <Text style={{backgroundColor: "transparent",color:"white",alignItems:"center",marginLeft:"5%",fontSize:30,fontWeight:"500"}}> {newName[0]}  </Text >
                         </View>
-
-                        <View style={{ backgroundColor: "transparent", height: "25%", width: "90%", alignItems: "center" }}>
-                            <Text style={tw`text-white `} >{newName[1].slice(0, 150)}...  </Text>
+                        {/* {tw`font-bold text-white bg-transparent text-3xl` */}
+                        <View style={{ backgroundColor: "transparent", height: "25%", width: "90%", alignItems: "center",marginLeft:"5%"}}>
+                            <Text style={tw`text-white `} >Stop wishing, Start doing, Join our community </Text>
+                            <Text style={tw`text-white `} > and enjoy your healthy life.</Text>
 
                         </View>
                         <View style={tw`items-center bg-transparent`}>
@@ -61,14 +62,11 @@ export default FirstVue
 const styles = StyleSheet.create({
 
     button: {
-        borderWidth: 1,
         width: 150,
-        borderRadius: 5,
         height: 60,
         opacity: .8,
         fontWeight: "bold",
         backgroundColor: "#e7ff19",
-        borderColor: "gray",
 
     }
 })
