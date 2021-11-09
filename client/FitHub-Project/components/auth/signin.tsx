@@ -91,9 +91,9 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                 <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
 
 
-                    <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20`}>
-                        <View style={tw` h-16  w-4/5 ml-8`} >
-                            <Image style={tw` w-full h-full pl-2 `} source={require("../../assets/images/logo.png")} />
+                    <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20 items-center`}>
+                        <View style={tw` h-16  w-4/5 `} >
+                            <Image style={tw` w-full h-full `} source={require("../../assets/images/logo.png")} />
                         </View>
 
                         <View style={tw` items-center `}>
@@ -102,12 +102,12 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                         </View>
 
 
-                        <View style={tw` mt-10 w-4/5 ml-8 flex `}>
+                        <View style={tw` mt-10 w-4/5  flex `}>
                             <TextInput
                                 onChangeText={handleChange('email')}
                                 onBlur={handleBlur('email')}
                                 value={values.email}
-                                style={tw` h-10  bg-white p-2`}
+                                style={tw` h-10 bg-white p-2`}
                                 placeholder="E-mail@mail.com"
                                 autoCompleteType="email"
                                 keyboardType="email-address"
@@ -130,26 +130,26 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
 
 
-                        <View style={tw`  pt-4 w-4/5 ml-8`}>
+                        <View style={tw`pt-4 w-4/5 `}>
                             <TouchableOpacity
                                 // onPress={handleSubmit}
                                 onPress={() => navigation.navigate("Home")}
                                 style={Styles.button}
                             ><Text style={Styles.text}>Log In</Text></TouchableOpacity>
                         </View>
-                        <View style={tw`items-center`}>
-                            <Text style={tw`text-white items-center mt-8 `}>Or</Text>
-                        </View>
+                        
+                            <Text style={tw`text-white mt-8`}>Or</Text>
+                        
 
-                        <View style={tw`border border-white items-center bg-white mt-8 w-4/5 ml-8 h-8`}>
+                        <View style={tw`border border-white items-center bg-white mt-8 w-4/5 h-8 `}>
                             <View style={tw`flex flex-row`} >
                                 <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../../assets/images/GOOGLE.png")} />
                                 <Text onPress={handleSignin} style={tw`mt-1 pl-6 font-bold text-black`}>Connect with Google</Text>
                             </View>
 
                         </View>
-                        <View style={tw`h-10 mt-6 items-center`}>
-                            <Text style={tw`text-white  pl-6 pt-4`}>
+                        <View style={tw`items-center`}>
+                            <Text style={tw`text-white pt-4`}>
                                 Don't have an account ? <Text onPress={() => navigation.navigate("register")} style={tw`text-blue-400 underline`}>Register</Text>
                             </Text>
                         </View>
@@ -163,15 +163,15 @@ const Styles = StyleSheet.create({
     button: {
         backgroundColor: "#e7ff19",
         alignItems: "center",
-        padding: 10,
-        opacity: .8
+        opacity: .8,
+        height:45
 
     },
     text: {
         color: "black",
         fontWeight: "bold",
         fontSize: 20,
-
+        marginTop:"2%"
 
     }
 })

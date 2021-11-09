@@ -9,7 +9,8 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  ImageBackground
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import tw from 'tailwind-react-native-classnames';
@@ -64,8 +65,8 @@ export default function AllCoachs() {
   return (
 
 
-    < ScrollView>
-      <View>
+    < ScrollView >
+      <View style={tw`bg-gray-100`}>
         {/* <TextInput
           style={styles.input}
           value={search}
@@ -77,17 +78,26 @@ export default function AllCoachs() {
 
 
 
-          <View style={tw` h-40 mt-1 flex flex-row`} key={k} >
+          <View style={tw` h-36 mt-2 flex flex-row bg-white`} key={k} >
 
-            <View style={tw`bg-black w-3/5 h-28 items-center`} >
-              <Image style={tw` w-full h-full  items-center `} source={{ uri: item.imageUrl }} />
-   
+            <View style={tw`w-3/6 h-full  items-center`} >
+            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/restoo.jpeg")}>
+                            <View style={tw`bg-transparent h-16 absolute inset-x-0 bottom-10  w-full`}>
+                                <View style={styles.view}>
+                                    
+                                        <View style={tw`h-10 items-center bg-transparent pt-1 `}>
+                                            <Text style={tw`text-black text-xl pl-2 font-bold`}>Salade Cesar</Text>
+                                        </View>
+                                   
+                                </View>
+                            </View>
+                        </ImageBackground>
+              {/* <Text> penne a la creme </Text> */}
             </View>
-            <View style={tw`bg-gray-100 flex w-2/5 items-center`} >
-              <Text style={tw`font-bold text-l pl-2 mt-2 items-center`} >
-                Description:
-              </Text>
-              <Text style={tw` text-l pl-4 mt-4 items-center`} >
+            <View style={tw`bg-white flex w-2/5 items-center`} >
+             
+
+              <Text style={tw`pl-6 mt-14 items-center`} >
                 Calories things
               </Text>
               {/* <Text style={tw`pl-4  `}>
@@ -163,6 +173,41 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     backgroundColor: "white",
   },
+  button: {
+    borderWidth: 1,
+    width: 50,
+    borderRadius: 5,
+    height: 60,
+    opacity: .9,
+    fontWeight: "bold",
+    backgroundColor: "#e7ff19",
+    borderColor: "gray",
+
+},
+text: {
+    fontSize: 28,
+},
+view: {
+    backgroundColor: "white",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    padding: 10,
+    opacity: .7
+},
+inview: {
+    backgroundColor: "transparent",
+    flexDirection: "row",
+    height: "100%",
+    alignItems: "center",
+},
+holder: {
+    marginTop: -5,
+    height: "36%",
+    backgroundColor: "transparent",
+    borderRadius: 5,
+    alignItems: "center"
+}
  
 })
 
