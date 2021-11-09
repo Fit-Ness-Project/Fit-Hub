@@ -76,7 +76,6 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
             })
             .catch(error => {
                 setGoogleSubmitting(false);
-
                 console.log('hne ', error);
                 handleMessage('An error ocured, Check your network and try again')
             })
@@ -133,7 +132,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
                         <View style={tw`  pt-4 w-4/5 ml-8`}>
                             <TouchableOpacity
-                                // onPress={handleSubmit}
+                                // onPress={()=>handleSubmit}
                                 onPress={() => navigation.navigate("Home")}
                                 style={Styles.button}
                             ><Text style={Styles.text}>Log In</Text></TouchableOpacity>
