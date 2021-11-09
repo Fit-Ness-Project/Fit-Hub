@@ -37,7 +37,7 @@ export default function Food() {
         <View style={tw` h-36 mt-2 flex flex-row bg-white`} >
 
           <View style={tw`w-3/6 h-full  items-center`} >
-            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/food.png")}>
+            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/resto3.png")}>
               <View style={tw`bg-transparent h-16 absolute inset-x-0 bottom-10  w-full`}>
                 <View style={styles.view}>
 

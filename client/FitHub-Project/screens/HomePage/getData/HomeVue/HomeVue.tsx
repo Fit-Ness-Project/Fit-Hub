@@ -12,9 +12,9 @@ export default function ChangeView({ }) {
     return (
         <ScrollView>
             <View>
-                <View style={tw`h-52 p-2 bg-white pl-2 pr-2 `}>
+                <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
                     <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
-                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/Gymf.png")}>
+                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/gym.png")}>
                             <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
@@ -29,9 +29,9 @@ export default function ChangeView({ }) {
                     </TouchableOpacity>
 
                 </View>
-                <View style={tw`h-52 p-2 bg-white pl-2 pr-2 `}>
+                <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
                     <TouchableOpacity onPress={() => navigation.navigate("Coachs")}>
-                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/coach.jpg")}>
+                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/coach3.png")}>
                             <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
@@ -47,9 +47,9 @@ export default function ChangeView({ }) {
 
                 </View>
 
-                <View style={tw`h-52 p-2 bg-white pl-2 pr-2 `}>
+                <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
                     <TouchableOpacity onPress={() => navigation.navigate("Food")}>
-                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/diets.png")}>
+                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/diets3.png")}>
                             <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
@@ -65,9 +65,9 @@ export default function ChangeView({ }) {
 
                 </View>
 
-                <View style={tw`h-52 p-2 bg-white pl-2 pr-2 `}>
+                <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
                     <TouchableOpacity onPress={() => navigation.navigate("Restaurant")}>
-                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/restoo.jpeg")}>
+                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/resto3.png")}>
                             <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
@@ -82,9 +82,9 @@ export default function ChangeView({ }) {
                     </TouchableOpacity>
 
                 </View>
-                <View style={tw`h-52 p-2 bg-white pl-2 pr-2 `}>
+                <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
                     <TouchableOpacity onPress={() => navigation.navigate("Events")}>
-                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/event.png")}>
+                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/events3.png")}>
                             <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
@@ -99,9 +99,9 @@ export default function ChangeView({ }) {
                     </TouchableOpacity>
 
                 </View>
-                <View style={tw`h-52 p-2 bg-white pl-2 pr-2 `}>
+                <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
                     <TouchableOpacity onPress={() => navigation.navigate("Blogs")}>
-                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/blogs.png")}>
+                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/blog5.png")}>
                             <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     padding: 10,
-    opacity: 0.8,
+    opacity: 0.7,
   },
   inview: {
     backgroundColor: "transparent",
