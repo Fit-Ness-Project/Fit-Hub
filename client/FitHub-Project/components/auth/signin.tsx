@@ -137,20 +137,25 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                                 style={Styles.button}
                             ><Text style={Styles.text}>Log In</Text></TouchableOpacity>
                         </View>
-                        
-                            <Text style={tw`text-white mt-8`}>Or</Text>
-                        
 
-                        <View style={tw`border border-white items-center bg-white mt-8 w-4/5 h-8 `}>
-                            <View style={tw`flex flex-row`} >
-                                <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../../assets/images/GOOGLE.png")} />
-                                <Text onPress={handleSignin} style={tw`mt-1 pl-6 font-bold text-black`}>Connect with Google</Text>
-                            </View>
+                        <Text style={tw`text-white mt-8`}>Or</Text>
 
-                        </View>
+                        
+                       
+              <Text
+                style={{ color: "black", fontWeight: "500", backgroundColor: "white",width:"80%", height:"8%", paddingLeft:130, paddingTop:5 }}
+                onPress={handleSignin}
+              >
+                <Image
+                  style={{ height: 20, width: 60}}
+                  source={require("../../assets/images/ggl.png")}
+                 
+                />
+              </Text>
+           
                         <View style={tw`items-center`}>
                             <Text style={tw`text-white pt-4`}>
-                                Don't have an account ? <Text onPress={() => navigation.navigate("register")} style={tw`text-blue-400 underline`}>Register</Text>
+                                Don't have an account ? <Text onPress={() => navigation.navigate("register")} style={{ color: "#36e08b", textDecorationLine: 'underline' }}>Register</Text>
                             </Text>
                         </View>
                     </View>
@@ -159,19 +164,20 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         </Formik>
     )
 };
+
 const Styles = StyleSheet.create({
     button: {
         backgroundColor: "#e7ff19",
         alignItems: "center",
         opacity: .8,
-        height:45
+        height: 45
 
     },
     text: {
         color: "black",
         fontWeight: "bold",
         fontSize: 20,
-        marginTop:"2%"
+        marginTop: "2%"
 
     }
 })

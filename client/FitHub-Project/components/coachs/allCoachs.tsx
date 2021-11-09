@@ -9,8 +9,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  TextInput,
-  ImageBackground
+  TextInput
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import tw from 'tailwind-react-native-classnames';
@@ -65,57 +64,44 @@ export default function AllCoachs() {
   return (
 
 
-    < ScrollView >
-      <View style={tw`bg-gray-100`}>
-        {/* <TextInput
+    < ScrollView>
+      <View style={tw`bg-gray-100 items-center`}>
+        <TextInput
           style={styles.input}
           value={search}
           placeholder=" search your coach here..."
           underlineColorAndroid="transparent"
           onChangeText={(text) => searchFilter(text)}
-        /> */}
+        />
         {coachData.map((item, k) => (
 
 
 
-          <View style={tw` h-36 mt-2 flex flex-row bg-white`} key={k} >
+          <View style={tw` h-40 p-2 flex flex-row`} key={k} >
 
-            <View style={tw`w-3/6 h-full  items-center`} >
-            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/restoo.jpeg")}>
-                            <View style={tw`bg-transparent h-16 absolute inset-x-0 bottom-10  w-full`}>
-                                <View style={styles.view}>
-                                    
-                                        <View style={tw`h-10 items-center bg-transparent pt-1 `}>
-                                            <Text style={tw`text-black text-xl pl-2 font-bold`}>Salade Cesar</Text>
-                                        </View>
-                                   
-                                </View>
-                            </View>
-                        </ImageBackground>
-              {/* <Text> penne a la creme </Text> */}
+            <View style={tw`bg-black w-2/5 h-full items-center`} >
+              <Image style={tw` w-full h-full  items-center `} source={{ uri: item.imageUrl }} />
+
             </View>
-            <View style={tw`bg-white flex w-2/5 items-center`} >
-             
-
-              <Text style={tw`pl-6 mt-14 items-center`} >
-                Calories things
+            <View style={tw`bg-white flex  w-3/5 items-center`} >
+              <Text style={tw`font-bold text-xl pl-4 mt-4 items-center`} >
+                {item.coachName}
               </Text>
-              {/* <Text style={tw`pl-4  `}>
+              <Text style={tw`pl-4  `}>
                 {item.description}
-              </Text> */}
+              </Text>
               {/* <Text style={tw`pl-4`}>
            {item.adress}
           </Text> */}
-
-              {/* <AirbnbRating
+              <AirbnbRating
                 count={5}
                 reviews={["1", "2", "3", "4", "5"]}
                 defaultRating={item.rating / 2}
                 size={12}
                 showRating={false}
 
-              /> */}
-{/* 
+              />
+
               <View style={tw`absolute inset-x-0 bottom-0`}>
                 <TouchableOpacity onPress={() => navigation.navigate("coach", {
                   coachId: item.id,
@@ -139,7 +125,7 @@ export default function AllCoachs() {
                     </View>
                   </View>
                 </TouchableOpacity>
-              </View> */}
+              </View>
 
             </View>
 
@@ -173,41 +159,6 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     backgroundColor: "white",
   },
-  button: {
-    borderWidth: 1,
-    width: 50,
-    borderRadius: 5,
-    height: 60,
-    opacity: .9,
-    fontWeight: "bold",
-    backgroundColor: "#e7ff19",
-    borderColor: "gray",
-
-},
-text: {
-    fontSize: 28,
-},
-view: {
-    backgroundColor: "white",
-    alignItems: "center",
-    width: "100%",
-    height: "100%",
-    padding: 10,
-    opacity: .7
-},
-inview: {
-    backgroundColor: "transparent",
-    flexDirection: "row",
-    height: "100%",
-    alignItems: "center",
-},
-holder: {
-    marginTop: -5,
-    height: "36%",
-    backgroundColor: "transparent",
-    borderRadius: 5,
-    alignItems: "center"
-}
  
 })
 

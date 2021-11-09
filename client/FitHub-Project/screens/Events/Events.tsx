@@ -59,13 +59,28 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
         <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
           <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
-            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/restoo.jpeg")}>
+            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/eventbg.png")}>
               <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                 <View style={styles.view}>
                   <View style={styles.inview}>
-                    <Image style={tw` w-16 h-16  `} source={require("../../assets/Icons/Gym.png")} />
                     <View style={tw`h-10 items-center bg-transparent pt-1 `}>
-                      <Text style={tw`text-black text-3xl pl-2 font-bold`}>GYMS</Text>
+                      <Text style={tw`text-white text-3xl pl-2 font-bold`}>Yoga</Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+
+        </View>
+        <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
+          <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
+            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/event.png")}>
+              <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
+                <View style={styles.view}>
+                  <View style={styles.inview}>
+                    <View style={tw`h-10 items-center bg-transparent pt-1 `}>
+                      <Text style={tw`text-white text-3xl pl-2 font-bold`}>Zumba</Text>
                     </View>
                   </View>
                 </View>
@@ -96,12 +111,12 @@ const styles = StyleSheet.create({
     fontSize: 28,
   },
   view: {
-    backgroundColor: "white",
+    backgroundColor: "black",
     alignItems: "center",
     width: "100%",
     height: "100%",
     padding: 10,
-    opacity: .7
+    opacity: .6
   },
   inview: {
     backgroundColor: "transparent",
