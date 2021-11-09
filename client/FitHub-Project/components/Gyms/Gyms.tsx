@@ -47,6 +47,7 @@ export default function Gyms() {
                 flexDirection: "row",
                 backgroundColor: "transparent",
                 alignItems: "center",
+                // marginTop:"20px"
               }}
             >
               <Image
@@ -56,10 +57,10 @@ export default function Gyms() {
               <Text style={tw`text-black text-lg font-bold`}> {e.gymName}</Text>
             </View>
           </Card.Content>
-          <View style={{ width: "100%" }}>
+          {/* <View style={{ width: "100%" }}>
             <Text style={tw`text-black text-sm m-2 mt-3`}>{e.description}</Text>
-          </View>
-          <View style={{ height: 30 }}></View>
+          </View> */}
+          {/* <View style={{ height: 30 }}></View> */}
           <View style={{ alignItems: "center" }}>
             <TouchableOpacity
               onPress={() =>
@@ -77,13 +78,12 @@ export default function Gyms() {
                 })
               }
               style={{
-                backgroundColor: "#e7ff19",
+                backgroundColor: "#36e08b",
                 height: 35,
                 width: "100%",
                 alignItems: "center",
                 opacity: 0.7,
-              }}
-            >
+              }}>
               <Image
                 style={tw`h-8 w-8`}
                 source={require("../../assets/Icons/expand-button.png")}

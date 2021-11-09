@@ -87,9 +87,10 @@ export default function AllCoachs() {
               <Text style={tw`font-bold text-xl pl-4 mt-4 items-center`} >
                 {item.coachName}
               </Text>
-              <Text style={tw`pl-4  `}>
+              
+              {/* <Text style={tw`pl-4  `}>
                 {item.description}
-              </Text>
+              </Text> */}
               {/* <Text style={tw`pl-4`}>
            {item.adress}
           </Text> */}
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   seeMore: {
-    backgroundColor: "#e7ff19",
+    backgroundColor: "#36e08b",
     alignItems: "center",
 
 

@@ -82,9 +82,9 @@ function RootNavigator({ }) {
         options={{ title: "Oops!" }}
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+        {/* <Stack.Screen name="Modal" component={ModalScreen} /> */}
       </Stack.Group>
-      <Stack.Screen name="Food" component={Food} />
+      <Stack.Screen name="Food" component={Food}  />
       <Stack.Screen name="Coachs" component={Coachs} />
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Gym" component={GymScrean} />
