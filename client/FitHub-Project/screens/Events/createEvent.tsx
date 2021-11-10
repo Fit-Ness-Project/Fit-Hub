@@ -6,7 +6,6 @@ import axios from "axios";
 
 export const createEvent = () => {
   function handelSubmit ()  {
-    console.log(EventName,Adress,Description,date,user)
     axios.post('http://localhost:5000/events',{
         eventName:EventName,
         adress:Adress,
