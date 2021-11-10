@@ -40,6 +40,7 @@ import { createEvent } from "../screens/Events/createEvent"
 import Register from "../components/auth/register";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from '@react-navigation/stack';
+import EditProfile from "../components/myprofile/EditProfile";
 
 export default function Navigation({
   colorScheme,
@@ -93,6 +94,7 @@ function RootNavigator({ }) {
       <Stack.Screen name="Recipe" component={Recipe} />
       <Stack.Screen name="Restaurant" component={Restaurant} />
       <Stack.Screen name="Healthy" component={Healthy} />
+      <Stack.Screen name="EditProfile" component={EditProfile} />
 
     </Stack.Navigator>
   );

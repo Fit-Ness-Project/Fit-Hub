@@ -4,7 +4,6 @@ import axios from "axios";
 import { Events } from "./interface";
 import { FlatList, StyleSheet, TouchableOpacity, Image, ImageBackground } from "react-native";
 import { View, Text } from "../../components/Themed";
-const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 };
 import { RootTabScreenProps } from "../../types";
 import { useNavigation } from "@react-navigation/core";
 import { ScrollView } from "react-native-gesture-handler";
