@@ -31,25 +31,21 @@ const Gym: React.FC<{
 }> = ({ route: { params } }) => {
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
-      <View style={{ width: "100%" }}>
+      <View style={{ width: "100%", padding: 10 }}>
+
         <View style={{ width: "100%", height: 200 }}>
           <Image
             style={{ width: "100%", height: "100%" }}
             source={{ uri: params.imgUrl }}
           />
         </View>
-        <View style={{ flexDirection: "row", paddingTop: 20, paddingLeft: 5 }}>
-          <Image
-            style={tw`w-4 h-4`}
-            source={require("../../assets/Icons/adress.png")}
-          />
-          <Text style={tw`text-black pl-2`}>{params.adress}</Text>
-        </View>
+
         <View style={{ width: "100%", height: "auto" }}>
-          <Text style={tw`text-gray-600 p-3 text-2xl font-bold `}>
+          <Text style={tw`text-black p-3 text-2xl font-bold `}>
             {params.gymName}
           </Text>
         </View>
+
         <View style={tw`flex pl-6 h-2 flex-row`}>
           <AirbnbRating
             count={6}
@@ -59,38 +55,46 @@ const Gym: React.FC<{
             showRating={false}
           />
         </View>
-        <View style={{ flexDirection: "row", padding: 15 }}>
-          <Text style={tw`text-gray-600 text-lg font-bold`}>
+        <View style={{ flexDirection: "row", paddingTop: 15, paddingLeft: 15 }}>
+          <Image
+            style={tw`w-4 h-4 `}
+            source={require("../../assets/Icons/pin.png")}
+          />
+          <Text style={tw`text-black pl-2`}>{params.adress}</Text>
+        </View>
+
+
+        <View style={{ flexDirection: "row", paddingTop: 15, paddingLeft: 20 }}>
+          <Text style={tw`text-black text-lg font-bold`}>
             {params.price}{" "}
           </Text>
-          <Text style={tw`text-gray-600 font-bold`}>DT</Text>
+          <Text style={tw`text-black font-bold`}>TND</Text>
         </View>
-        <View style={{ alignItems: "center" }}>
+        <View style={{ alignItems: "center", paddingTop: 15 }}>
           <TouchableOpacity
             style={{
-              borderRadius: 8,
               alignItems: "center",
               height: 40,
-              width: "100%",
+              width: "90%",
               backgroundColor: "#36e08b",
               opacity: 0.8,
               paddingTop: 6,
             }}
           >
-            <Text style={tw`text-black font-bold text-lg`}>SUBSCRIBE </Text>
+            <Text style={tw`text-black font-bold text-lg `}>SUBSCRIBE </Text>
           </TouchableOpacity>
         </View>
         <View>
-          <Text style={tw`p-6 font-bold text-gray-600 text-xl`}>
+          <Text style={tw`p-6 font-bold text-black text-xl`}>
             Description
           </Text>
         </View>
         <View>
-          <Text style={tw`pl-6 text-gray-600 text-sm`}>
+          <Text style={tw`pl-5 pr-4 text-black text-xs `}>
             {params.description}
           </Text>
         </View>
-        <View style={{ width: "100%", height: 200, padding: 20 }}>
+        <View style={{ width: "100%", height: 200, paddingTop: 15 }}>
           <Image
             style={tw`w-full h-full`}
             source={require("../../assets/images/map.png")}
