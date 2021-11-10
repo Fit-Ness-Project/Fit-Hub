@@ -47,7 +47,7 @@ export default function AllCoachs() {
 
 
 
-  const searchFilter = (text: string) => {
+  const searchFilter = (text: string) => {  
     if (text) {
       const newData = coachData.filter((item) => {
         const itemData = item.coachName ? item.coachName.toUpperCase() : ''.toUpperCase()
