@@ -30,7 +30,7 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
     const [messageType, setMessageType] = useState<MessageType>();
    
     const [googleSubmitting, setGoogleSubmitting] = useState(false);
-    // const [loginSubmitting, setLoginSubmitting] = useState(false);
+    const [loginSubmitting, setLoginSubmitting] = useState(false);
     // useKeepAwake();
     // const validationSchema = Yup.object().shape({
     //     name: Yup.string().required('Name is required').label('Name'),
@@ -46,6 +46,7 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
     // });
 
 
+    
 
   const handleGoogleSignIn = () => {
     setGoogleSubmitting(true);
@@ -84,17 +85,16 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
 
 
 
+
   const handleMessage = (message: string, type: MessageType = 'FAILED') => {
     setMessage(message);
     setMessageType(type);
 }
 
 
-
-
      const handleLogin = (credentials: { email: string; password: string; }, setSubmitting: { (isSubmitting: boolean): void; (arg0: boolean): void; }) => {
         handleMessage("null")
-       axios.post('http://192.168.11.65:5000/customer', credentials)
+       axios.post('http://192.168.11.104:5000/customer', credentials)
          .then((response)=> {
             const result = response.data
            console.log('user',result)
@@ -115,10 +115,15 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
 
 
 
+
+
+
+
+
     return (
         <Formik
             initialValues={{ email: '', password: "" }}
-            // validationSchema={validationSchema}
+            //  validationSchema={validationSchema}
             
             onSubmit= {(values,{ setSubmitting}) => {
              console.log(values);
@@ -129,8 +134,10 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
                 setSubmitting(false)
                
               }else { 
+               
+                handleLogin(values, setSubmitting) 
                 navigation.navigate('Home')
-                handleLogin(values, setSubmitting)  }
+              }
             }}
           
         >
@@ -186,7 +193,7 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
                                 style={Styles.button}
                             >
                            
-                                <Text style={Styles.text}>Log In</Text>
+                                <Text style={Styles.text}>Login</Text>
                            
                             </TouchableOpacity>
                             }
