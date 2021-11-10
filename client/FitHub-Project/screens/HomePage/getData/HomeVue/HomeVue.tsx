@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Text, TouchableOpacity } from "../../../../components/Themed";
-import { Image, ScrollView, ImageBackground, StyleSheet } from "react-native";
+import { Image, ScrollView, ImageBackground, StyleSheet} from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
 import { BottomTabNavigator } from "../../../../navigation";
