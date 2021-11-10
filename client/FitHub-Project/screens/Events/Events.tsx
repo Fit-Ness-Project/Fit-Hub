@@ -2,12 +2,15 @@ import * as React from "react";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Events } from "./interface";
-import { FlatList,  StyleSheet,TouchableOpacity,Image, Button} from "react-native";
+import { FlatList, StyleSheet, TouchableOpacity, Image, ImageBackground } from "react-native";
 import { View, Text } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
 import { useNavigation } from "@react-navigation/core";
-import Test from "./test";
-export default function Event({}: RootTabScreenProps<'createEvent'>) {
+import { ScrollView } from "react-native-gesture-handler";
+import tw from "tailwind-react-native-classnames";
+
+
+export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
   const navigation = useNavigation();
   let flatListRef = useRef<FlatList<Event> | null>();
@@ -27,98 +30,105 @@ export default function Event({}: RootTabScreenProps<'createEvent'>) {
       });
   }, []);
 
-  const scrollToIndex = (index: number) => {
-    flatListRef.current?.scrollToIndex({ animated: true, index: index });
-  };
-  const renderItems: React.FC<{ item: Events }> = ({ item }) => {
-    return (
-      <View style={{ alignItems: "center" }}>
-        <Image source={{ uri: item.imageurl }} style={styles.image} />
-        <Text style={styles.title}> {item.eventName} </Text>
-        <Text> {item.description} </Text>
-        <Text > {item.adress} </Text>
-        <Text style={{color:'grey'}}> Date : {item.date} </Text>
-   
-        <TouchableOpacity
-         onPress ={()=>{}}
-       >  
-           <Text style={{backgroundColor:"#e7ff19"}}>Join This Event</Text>
-          </TouchableOpacity>
-    
-      </View>
-    );
-  };
+  // const scrollToIndex = (index: number) => {
+  //   flatListRef.current?.scrollToIndex({ animated: true, index: index });
+  // };
+  // const renderItems: React.FC<{ item: Events }> = ({ item }) => {
+  //   return (
+  //     <View style={{ alignItems: "center" }}>
+  //       <Image source={{ uri: item.imageurl }} style={styles.image} />
+  //       <Text style={styles.title}> {item.eventName} </Text>
+  //       <Text> {item.description} </Text>
+  //       <Text > {item.adress} </Text>
+  //       <Text style={{color:'grey'}}> Date : {item.date} </Text>
+
+  //       <TouchableOpacity
+  //        onPress ={()=>{}}
+  //      >  
+  //          <Text style={{backgroundColor:"#e7ff19"}}>Join This Event</Text>
+  //         </TouchableOpacity>
+
+  //     </View>
+  //   );
+  // };
+
   return (
-    <View>
-      <FlatList
-        data={eventhData}
-        renderItem={renderItems}
-        keyExtractor={(item, i) => i.toString()}
-        showsHorizontalScrollIndicator={false}
-        //  ref={(ref)=>{flatListRef.current = ref}}
-        // viewabilityConfig={viewConfigRef}
-      />
-      <Text>Create Event</Text>
-      <Test />
-      <TouchableOpacity
-        style={styles.button}
-       onPress={() => navigation.navigate("createEvent")} />
-    </View>
+    <ScrollView>
+      {/* {eventhData.map((item, k) => ( */}
+
+        <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
+          <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
+            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/eventbg.png")}>
+              <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
+                <View style={styles.view}>
+                  <View style={styles.inview}>
+                    <View style={tw`h-10 items-center bg-transparent pt-1 `}>
+                      <Text style={tw`text-white text-3xl pl-2 font-bold`}>Yoga</Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+
+        </View>
+        <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
+          <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
+            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/event.png")}>
+              <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
+                <View style={styles.view}>
+                  <View style={styles.inview}>
+                    <View style={tw`h-10 items-center bg-transparent pt-1 `}>
+                      <Text style={tw`text-white text-3xl pl-2 font-bold`}>Zumba</Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+
+        </View>
+      {/* ))} */}
+    </ScrollView>
   );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    width: 350,
-    height: 230,
-    resizeMode: "cover",
-    marginVertical: 10,
-  },
-  footer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    height: 50,
-    paddingHorizontal: 50,
-    alignItems: "center",
-    backgroundColor: "#000",
-  },
-  footerText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  carousel: {
-    maxHeight: 700,
-  },
-  dotview: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginVertical: 20,
-  },
-  circle: {
-    width: 10,
-    height: 10,
-    backgroundColor: "grey",
-    borderRadius: 50,
-  },
-  title: {
-    color: "white",
-
-    fontSize: 25,
-    fontWeight: "bold",
-    backgroundColor: "black",
-  },
   button: {
+    borderWidth: 1,
+    width: 50,
+    borderRadius: 5,
+    height: 60,
+    opacity: .9,
+    fontWeight: "bold",
     backgroundColor: "#e7ff19",
-    alignItems: "center",
-    padding: 10,
-    opacity: .8
+    borderColor: "gray",
 
-}
-});
+  },
+  text: {
+    fontSize: 28,
+  },
+  view: {
+    backgroundColor: "black",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    padding: 10,
+    opacity: .6
+  },
+  inview: {
+    backgroundColor: "transparent",
+    flexDirection: "row",
+    height: "100%",
+    alignItems: "center",
+  },
+  holder: {
+    marginTop: -5,
+    height: "36%",
+    backgroundColor: "transparent",
+    borderRadius: 5,
+    alignItems: "center"
+  }
+
+})

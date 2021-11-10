@@ -65,7 +65,7 @@ export default function AllCoachs() {
 
 
     < ScrollView>
-      <View>
+      <View style={tw`bg-gray-100 items-center`}>
         <TextInput
           style={styles.input}
           value={search}
@@ -77,13 +77,13 @@ export default function AllCoachs() {
 
 
 
-          <View style={tw` h-40 mt-1 flex flex-row`} key={k} >
+          <View style={tw` h-40 p-2 flex flex-row`} key={k} >
 
             <View style={tw`bg-black w-2/5 h-full items-center`} >
               <Image style={tw` w-full h-full  items-center `} source={{ uri: item.imageUrl }} />
 
             </View>
-            <View style={tw`bg-gray-100 flex  w-3/5 items-center`} >
+            <View style={tw`bg-white flex  w-3/5 items-center`} >
               <Text style={tw`font-bold text-xl pl-4 mt-4 items-center`} >
                 {item.coachName}
               </Text>
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   seeMore: {
-    backgroundColor: "#e7ff19",
+    backgroundColor: "#36e08b",
     alignItems: "center",
 
 
