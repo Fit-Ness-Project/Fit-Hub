@@ -25,7 +25,7 @@ export default function AllCoachs() {
   const [search, setSearch] = useState('');
 
 
-  useEffect(() => {
+  useEffect(() => { 
     axios
       .get('http://192.168.11.65:5000/coachs')
 

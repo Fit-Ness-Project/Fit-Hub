@@ -81,6 +81,20 @@ const EditProfile = () => {
           value={Password}
           onChangeText={setPassword}
         />
+        <Text>email</Text>
+        <TextInput
+          style={tw`mt-4 rounded h-10 bg-white p-2 `}
+          placeholder="email"
+          value={email}
+          onChangeText={setemail}
+        />
+         <Text>mobilePhone</Text>
+        <TextInput
+          style={tw`mt-4 rounded h-10 bg-white p-2 `}
+          placeholder="mobilePhone"
+          value={mobilePhone}
+          onChangeText={setmobilePhone}
+        />
         <Button onPress={handelSubmit} title="Submit" />
       </View>
     )

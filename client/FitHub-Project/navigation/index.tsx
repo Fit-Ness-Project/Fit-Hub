@@ -32,7 +32,6 @@ import Login from "../components/auth/signin";
 import FirstVue from '../screens/FirstVue/FirstVue'
 import signUp from "../components/auth/register";
 import Information from "../screens/Information";
-import myprofile from "../components/myprofile/myprofile";
 import Recipe from '../screens/Food/OneRecipe'
 import Restaurant from "../screens/restaurants/restaurant";
 import Healthy from '../screens/restaurants/Healthy'
