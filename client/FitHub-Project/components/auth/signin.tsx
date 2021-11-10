@@ -127,9 +127,9 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
                 <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
 
 
-                    <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20`}>
-                        <View style={tw` h-16  w-4/5 ml-8`} >
-                            <Image style={tw` w-full h-full pl-2 `} source={require("../../assets/images/logo.png")} />
+                    <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20 items-center`}>
+                        <View style={tw` h-16  w-4/5 `} >
+                            <Image style={tw` w-full h-full `} source={require("../../assets/images/logo.png")} />
                         </View>
 
                         <View style={tw` items-center `}>
@@ -138,12 +138,12 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
                         </View>
 
 
-                        <View style={tw` mt-10 w-4/5 ml-8 flex `}>
+                        <View style={tw` mt-10 w-4/5  flex `}>
                             <TextInput
                                 onChangeText={handleChange('email')}
                                 onBlur={handleBlur('email')}
                                 value={values.email}
-                                style={tw` h-10  bg-white p-2`}
+                                style={tw` h-10 bg-white p-2`}
                                 placeholder="E-mail@mail.com"
                                 autoCompleteType="email"
                                 keyboardType="email-address"
@@ -220,15 +220,15 @@ const Styles = StyleSheet.create({
     button: {
         backgroundColor: "#e7ff19",
         alignItems: "center",
-        padding: 10,
-        opacity: .8
+        opacity: .8,
+        height: 45
 
     },
     text: {
         color: "black",
         fontWeight: "bold",
         fontSize: 20,
-
+        marginTop: "2%"
 
     }
 })

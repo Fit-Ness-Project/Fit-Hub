@@ -66,7 +66,7 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
 
                             <View style={tw` mt-8 w-4/5 ml-8   `}>
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white p-2 `}
+                                    style={tw`mt-4 h-10 bg-white p-2 `}
                                   
                                     placeholder="First name"
                                     onChangeText={handleChange('first')}
@@ -78,7 +78,7 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
                                     <Text style={{ color: 'red' }}>{errors.first}</Text>
                                 )}
                                 <TextInput
-                                    style={tw` mt-4 rounded h-10 bg-white p-2 `}
+                                    style={tw` mt-4 h-10 bg-white p-2 `}
                                     placeholder="Last name"
                                     onChangeText={handleChange('last')}
                                     onBlur={handleBlur('last')}
@@ -89,7 +89,7 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
                                 )}
 
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white p-2 `}
+                                    style={tw`mt-4 h-10 bg-white p-2 `}
                                     placeholder="Email"
                                     onChangeText={handleChange('email')}
                                     onBlur={handleBlur('email')}
@@ -99,7 +99,7 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
                                     <Text style={{ color: 'red' }}>{errors.email}</Text>
                                 )}
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white p-2  `}
+                                    style={tw`mt-4 h-10 bg-white p-2  `}
                                     placeholder="Phone number"
                                     keyboardType="numeric"
                                     onChangeText={handleChange('number')}
@@ -110,7 +110,7 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
                                     <Text style={{ color: 'red' }}>{errors.number}</Text>
                                 )}
                                 <TextInput
-                                    style={tw`mt-4 rounded h-10 bg-white p-2  `}
+                                    style={tw`mt-4 h-10 bg-white p-2  `}
                                     secureTextEntry={true}
                                     placeholder="Password"
                                     onChangeText={handleChange('password')}
