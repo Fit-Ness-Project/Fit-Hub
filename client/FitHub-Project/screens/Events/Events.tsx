@@ -4,11 +4,9 @@ import axios from "axios";
 import { Events } from "./interface";
 import { FlatList,  StyleSheet,TouchableOpacity,Image, Button} from "react-native";
 import { View, Text } from "../../components/Themed";
-const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 };
 import { RootTabScreenProps } from "../../types";
 import { useNavigation } from "@react-navigation/core";
-
-
+import Test from "./test";
 export default function Event({}: RootTabScreenProps<'createEvent'>) {
 
   const navigation = useNavigation();
@@ -58,13 +56,13 @@ export default function Event({}: RootTabScreenProps<'createEvent'>) {
         keyExtractor={(item, i) => i.toString()}
         showsHorizontalScrollIndicator={false}
         //  ref={(ref)=>{flatListRef.current = ref}}
-        viewabilityConfig={viewConfigRef}
+        // viewabilityConfig={viewConfigRef}
       />
-      
-      {/* <Text>Create Event</Text>
+      <Text>Create Event</Text>
+      <Test />
       <TouchableOpacity
         style={styles.button}
-       onPress={() => navigation.navigate("createEvent")} /> */}
+       onPress={() => navigation.navigate("createEvent")} />
     </View>
   );
 }
