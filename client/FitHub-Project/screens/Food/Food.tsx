@@ -56,30 +56,28 @@ export default function Food() {
             </View>
 
             <View style={{ position: 'absolute', bottom: 2, width: "95%", height: "35%" }}>
-            
-            <View style={{  height: "100%", width: "30%", bottom:0,borderWidth:1,borderColor: "#gray"}}>
-                <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7}}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>Kcal</Text>
+
+              <View style={{ height: "100%", width: "30%", bottom: 0, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "#36E08Bblack", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>Kcal</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>492</Text>
               </View>
 
-              <View style={{  height: "100%", width: "30%", left: 61, bottom: 50,borderWidth:1,borderColor: "#gray"}}>
-                <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>fat</Text>
+              <View style={{ height: "100%", width: "30%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "#36E08B", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>fat</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>31g</Text>
               </View>
 
-              <View style={{ height: "100%", width: "30%", left: 124, bottom: 100,borderWidth:1,borderColor: "#gray" }}>
-              <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>carbs</Text>
+              <View style={{ height: "100%", width: "30%", left: 124, bottom: 100, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "#36E08B", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>carbs</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>14g</Text>
-             
               </View>
             </View>
-
           </View>
 
         </View>
@@ -111,27 +109,27 @@ export default function Food() {
               />
             </View>
             <View style={{ position: 'absolute', bottom: 2, width: "95%", height: "35%" }}>
-            
-            <View style={{  height: "100%", width: "30%", bottom:0,borderWidth:1,borderColor: "#gray"}}>
-                <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>Kcal</Text>
+
+              <View style={{ height: "100%", width: "30%", bottom: 0, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "black", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>Kcal</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>492</Text>
               </View>
 
-              <View style={{  height: "100%", width: "30%", left: 61, bottom: 50,borderWidth:1,borderColor: "#gray"}}>
-                <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>fat</Text>
+              <View style={{ height: "100%", width: "30%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "black", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>fat</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>31g</Text>
               </View>
 
-              <View style={{ height: "100%", width: "30%", left: 124, bottom: 100,borderWidth:1,borderColor: "#gray" }}>
-              <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>carbs</Text>
+              <View style={{ height: "100%", width: "30%", left: 124, bottom: 100, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "black", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>carbs</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>14g</Text>
-             
+
               </View>
             </View>
           </View>
@@ -163,27 +161,27 @@ export default function Food() {
               />
             </View>
             <View style={{ position: 'absolute', bottom: 2, width: "95%", height: "35%" }}>
-            
-            <View style={{  height: "100%", width: "30%", bottom:0,borderWidth:1,borderColor: "#gray"}}>
-                <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>Kcal</Text>
+
+              <View style={{ height: "100%", width: "30%", bottom: 0, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "black", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>Kcal</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>492</Text>
               </View>
 
-              <View style={{  height: "100%", width: "30%", left: 61, bottom: 50,borderWidth:1,borderColor: "#gray"}}>
-                <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>fat</Text>
+              <View style={{ height: "100%", width: "30%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "black", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>fat</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>31g</Text>
               </View>
 
-              <View style={{ height: "100%", width: "30%", left: 124, bottom: 100,borderWidth:1,borderColor: "#gray" }}>
-              <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>carbs</Text>
+              <View style={{ height: "100%", width: "30%", left: 124, bottom: 100, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "black", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>carbs</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>14g</Text>
-             
+
               </View>
             </View>
           </View>
@@ -225,27 +223,27 @@ export default function Food() {
               />
             </View>
             <View style={{ position: 'absolute', bottom: 2, width: "95%", height: "35%" }}>
-            
-            <View style={{  height: "100%", width: "30%", bottom:0,borderWidth:1,borderColor: "#gray"}}>
-                <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>Kcal</Text>
+
+              <View style={{ height: "100%", width: "30%", bottom: 0, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "black", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>Kcal</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>492</Text>
               </View>
 
-              <View style={{  height: "100%", width: "30%", left: 61, bottom: 50,borderWidth:1,borderColor: "#gray"}}>
-                <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>fat</Text>
+              <View style={{ height: "100%", width: "30%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "black", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>fat</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>31g</Text>
               </View>
 
-              <View style={{ height: "100%", width: "30%", left: 124, bottom: 100,borderWidth:1,borderColor: "#gray" }}>
-              <View style={{ backgroundColor: "black", height: "50%", padding: 2,borderWidth:1,borderColor: "#gray",opacity:0.7 }}>
-                  <Text style={{ textAlign: "center", fontSize: 14,color:"white" }}>carbs</Text>
+              <View style={{ height: "100%", width: "30%", left: 124, bottom: 100, borderWidth: 1, borderColor: "#gray" }}>
+                <View style={{ backgroundColor: "black", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "white" }}>carbs</Text>
                 </View>
                 <Text style={{ textAlign: "center", fontSize: 14 }}>14g</Text>
-             
+
               </View>
             </View>
           </View>
