@@ -13,6 +13,8 @@ import { Gym } from "./Gyminterface";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
+import Footer from "../../screens/Footer/Footer";
+
 export default function Gyms() {
   const [GymData, setGymData] = useState<Gym[]>([]);
   const navigation = useNavigation();
@@ -28,7 +30,9 @@ export default function Gyms() {
       });
   }, []);
   return (
+<View>
     <ScrollView style={{ backgroundColor: "white" }}>
+      <View style={{ alignItems: "center", marginTop: 10, marginBottom: 50 }}>
       {GymData.map((e, k) => (
         <View key={k} style={tw`h-52 w-full p-2 bg-transparent  `} >
           <TouchableOpacity onPress={() =>
@@ -60,7 +64,12 @@ export default function Gyms() {
           </TouchableOpacity>
         </View>
       ))}
+      </View>
     </ScrollView>
+    <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
+                <Footer/>
+            </View>
+    </View>
   );
 }
 const styles = StyleSheet.create({
