@@ -50,14 +50,14 @@ export default function Event({}: RootTabScreenProps<'createEvent'>) {
   };
   return (
     <View>
-      {/* <FlatList
+      <FlatList
         data={eventhData}
         renderItem={renderItems}
         keyExtractor={(item, i) => i.toString()}
         showsHorizontalScrollIndicator={false}
         //  ref={(ref)=>{flatListRef.current = ref}}
-        viewabilityConfig={viewConfigRef}
-      /> */}
+        // viewabilityConfig={viewConfigRef}
+      />
       <Text>Create Event</Text>
       <Test />
       <TouchableOpacity

@@ -88,7 +88,7 @@ export type RootStackParamList = {
     supp: string ;
     img_Url :string ; 
      };
-
+     EditProfile:undefined
      BottomTabNavigator:undefined;
 
 };
@@ -130,7 +130,7 @@ export type RootTabParamList = {
     supp: string ;
     img_Url :string ; 
      };
-
+     EditProfile:undefined
   BottomTabNavigator:undefined;
 
 };

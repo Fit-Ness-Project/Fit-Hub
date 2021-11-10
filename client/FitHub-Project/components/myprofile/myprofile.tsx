@@ -5,65 +5,9 @@ import { Card, Title, Paragraph , Button } from 'react-native-paper';
 import tw from 'tailwind-react-native-classnames';
 import axios from 'axios';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Profile } from './interface';
+
 
 const myprofile = () => {
-  const userId = 0;
-function handelSubmit () {
-axios.patch(`http://localhost:5000/users${userId}`,{
-  id: usersId ,
-  first_name:firstName ,
-  last_name: lastName,
-  mobile_phone: mobilePhone,
-  email: email,
-  likes: likes,
-  comments: comments,
-  hashed_password:  Password,
-  last_login: lastLogin,
-  registred_at: registredAt,
-  events_joined: events,
-  healthy_food_posted: healthyFoodPosted,
-  healthy_food_liked: healthyFoodLiked,
-  healthy_food: healthyFood,
-  gyms: gyms,
-  event_created: eventCreated,
-  event_joined_id:eventJoinedId,
-  bmi: bmi,
-  weight:weight,
-  height:height,
-  age: age,
-  gender:gender
-}).then((res)=>
-console.log(res.data))
-.catch((err)=>console.log(err))
-}
-let [usersId, setusersId] = useState(0)
-  let [firstName, setfirstName] = useState('')
-  let [lastName, setlastName] = useState('')
-  let [mobilePhone, setmobilePhone] = useState(0)
-  let [email, setemail] = useState('')
-  let [likes, setlikes] = useState(0)
-  let [comments, setcomments] = useState('')
-  let [Password,setPassword] = useState('')
-  let [lastLogin,setlastLogin]= useState('')
-  let [registredAt,setregistredAt]= useState('')
-  let [events,setevents]=useState('')
-  let [healthyFoodPosted,sethealthyFoodPosted]=useState('')
-  let [healthyFoodLiked,sethealthyFoodLiked]=useState('')
-  let [healthyFood,sehealthyFood]=useState('')
-  let [gyms, setgyms] = useState('')
-  let [eventCreated, seteventCreated] = useState('')
-  let [eventJoinedId,seteventJoinedId] = useState(0)
-  let [bmi,setbmi]= useState(0)
-  let [weight,setweight]=useState(0)
-  let [height,setheight]=useState(0)
-  let [age,setage]=useState(0)
-  let [gender,segender]=useState('')
-
-
-
-
-
     return (
         <SafeAreaProvider>
      {/* my profile car view start here */}
@@ -117,10 +61,7 @@ let [usersId, setusersId] = useState(0)
 <View style={tw`h-2/6 bg-yellow-200 rounded-3xl`}>
 <Text style={tw`text-center text-lg`}>BMI here</Text>
 
-
 </View>
-
-
   </View>
  </View>
  </SafeAreaProvider>
@@ -129,4 +70,3 @@ let [usersId, setusersId] = useState(0)
 
 export default myprofile
 
-const styles = StyleSheet.create({})
