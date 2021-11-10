@@ -49,7 +49,7 @@ export default function Gyms() {
                             <View style={tw`bg-transparent h-16 absolute inset-x-0 bottom-16  w-full`}>
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
-                                        <Image style={tw` w-10 h-10  `} source={require("../../assets/Icons/Gym.png")} />
+                                        <Image style={tw` w-10 h-10  `} source={require("../../assets/Icons/gym1.png")} />
                                         <View style={tw`h-10 items-center bg-transparent pt-1 `}>
                                             <Text style={tw`text-black text-3xl pl-2 font-bold`}>{e.gymName}</Text>
                                         </View>
