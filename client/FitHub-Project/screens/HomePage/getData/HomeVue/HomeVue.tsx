@@ -3,7 +3,12 @@ import { View, Text, TouchableOpacity } from "../../../../components/Themed";
 import { Image, ScrollView, ImageBackground, StyleSheet } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
-export default function ChangeView({ }) {
+import { RouteProp } from '@react-navigation/native';
+ export default function ChangeView({ }) {
+
+
+
+
   const navigation = useNavigation();
 
   return (
@@ -172,6 +177,7 @@ export default function ChangeView({ }) {
     </>
   );
 }
+
 
 const styles = StyleSheet.create({
   button: {
