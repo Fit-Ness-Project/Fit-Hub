@@ -120,10 +120,7 @@ export default function Register({}: RootTabScreenProps<'bmi'>) {
                                 {errors.password && touched.password && (
                                     <Text style={{ color: 'red' }}>{errors.password}</Text>
                                 )}
-
                             </View>
-
-
 
                             <View style={tw` text-black pt-6 w-4/5 ml-8`}>
                                 <TouchableOpacity

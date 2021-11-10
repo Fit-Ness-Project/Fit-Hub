@@ -12,7 +12,8 @@ import { useKeepAwake } from 'expo-keep-awake';
 import { RootTabScreenProps } from "../../types";
 import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 LogBox.ignoreLogs(['Remote debugger']);
 
 
@@ -54,6 +55,8 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
         androidClientId: `196418584285-13csvmvh90m2bbl7aiqmqg654vhbtf0o.apps.googleusercontent.com`,
       scopes: ["profile", "email"],
     };
+
+
     Google.logInAsync(config)
       .then((result) => {
         const { type } = result;
@@ -78,6 +81,9 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
 
 
 
+
+
+
   const handleMessage = (message: string, type: MessageType = 'FAILED') => {
     setMessage(message);
     setMessageType(type);
@@ -88,7 +94,7 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
 
      const handleLogin = (credentials: { email: string; password: string; }, setSubmitting: { (isSubmitting: boolean): void; (arg0: boolean): void; }) => {
         handleMessage("null")
-       axios.post('http://192.168.11.65:5000/users', credentials)
+       axios.post('http://192.168.11.65:5000/customer', credentials)
          .then((response)=> {
             const result = response.data
            console.log('user',result)
@@ -100,12 +106,14 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
                }
               setSubmitting(false)
         })
-        .catch(error=> {
-            console.log(error.JSON());
+        .catch( (err: any)=> {
+            console.log(err);
             setSubmitting(false)
            handleMessage("Try Again")
         })
  }
+
+
 
     return (
         <Formik
@@ -114,12 +122,15 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
             
             onSubmit= {(values,{ setSubmitting}) => {
              console.log(values);
-            //  navigation.navigate('Home')
+         
              if(values.email == '' || values.password == '' ){
+           
                 handleMessage("Please fill all the fields")
                 setSubmitting(false)
                
-              }else { handleLogin(values, setSubmitting)  }
+              }else { 
+                navigation.navigate('Home')
+                handleLogin(values, setSubmitting)  }
             }}
           
         >
@@ -195,8 +206,8 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
                         <View style={tw`border border-white items-center bg-white mt-8 w-4/5 ml-8 h-8`}>
                             <View style={tw`flex flex-row`} >
                            
-                                <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../../assets/images/GOOGLE.png")} />
-                                <Text  style={tw`mt-1 pl-6 font-bold text-black`}>Connect with Google</Text>
+                                <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../../assets/images/ggl.png")} />
+                                {/* <Text  style={tw`mt-1 pl-6 font-bold text-black`}>Connect with Google</Text> */}
                                
                             </View>
 

@@ -14,7 +14,7 @@ export default function ChangeView({ }) {
             <View>
                 <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
                     <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
-                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/gym.png")}>
+                        <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../../../assets/images/Gym.png")}>
                             <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                                 <View style={styles.view}>
                                     <View style={styles.inview}>
@@ -80,7 +80,6 @@ export default function ChangeView({ }) {
                             </View>
                         </ImageBackground>
                     </TouchableOpacity>
-
                 </View>
                 <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
                     <TouchableOpacity onPress={() => navigation.navigate("Events")}>
