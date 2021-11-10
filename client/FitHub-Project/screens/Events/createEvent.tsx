@@ -34,20 +34,20 @@ export const createEvent = () => {
   let [imageurl,setimageurl]=useState('')
   return (
     <View style={tw` mt-10 w-4/5 ml-8 flex `}>
-      <Text>event Name</Text>
+      <Text>image</Text>
       <TextInput
         style={tw`mt-4 rounded h-10 bg-white p-2 `}
-        placeholder="eventName"
+        placeholder="imageurl"
+        value={imageurl}
+        onChangeText={setimageurl}
+      />
+        <Text>Event Name</Text>
+      <Text>EventName</Text>
+      <TextInput
+        style={tw`mt-4 rounded h-10 bg-white p-2 `}
+        placeholder="EventName"
         value={EventName}
         onChangeText={setEventName}
-      />
-        <Text>user_id</Text>
-      <Text>adress</Text>
-      <TextInput
-        style={tw`mt-4 rounded h-10 bg-white p-2 `}
-        placeholder="adress"
-        value={Adress}
-        onChangeText={setAdress}
       />
       <Text>description</Text>
       <TextInput
