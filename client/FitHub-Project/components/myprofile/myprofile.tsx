@@ -1,8 +1,9 @@
-import * as  React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, View} from '../Themed'
 import { Card, Title, Paragraph , Button } from 'react-native-paper';
 import tw from 'tailwind-react-native-classnames';
+import axios from 'axios';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
@@ -60,10 +61,7 @@ const myprofile = () => {
 <View style={tw`h-2/6 bg-yellow-200 rounded-3xl`}>
 <Text style={tw`text-center text-lg`}>BMI here</Text>
 
-
 </View>
-
-
   </View>
  </View>
  </SafeAreaProvider>
@@ -72,4 +70,3 @@ const myprofile = () => {
 
 export default myprofile
 
-const styles = StyleSheet.create({})

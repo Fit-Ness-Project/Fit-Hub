@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState, useEffect} from 'react';
 import { View, Image, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { Formik } from 'formik';
@@ -7,6 +7,13 @@ import  _ from "lodash";
 import { useKeepAwake } from 'expo-keep-awake';
 import { RootTabScreenProps } from '../../types';
 import { useNavigation } from '@react-navigation/native';
+
+
+
+
+    
+    
+
 export default function Register({}: RootTabScreenProps<'bmi'>) {
     const navigation = useNavigation();
     useKeepAwake();
