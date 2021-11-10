@@ -19,7 +19,7 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
   useEffect(() => {
     axios
-      .get("http://192.168.11.134:5000/events")
+      .get("http://192.168.11.67:5000/events")
 
       .then((response) => {
 
@@ -30,40 +30,40 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
       });
   }, []);
 
-  // const scrollToIndex = (index: number) => {
-  //   flatListRef.current?.scrollToIndex({ animated: true, index: index });
-  // };
-  // const renderItems: React.FC<{ item: Events }> = ({ item }) => {
-  //   return (
-  //     <View style={{ alignItems: "center" }}>
-  //       <Image source={{ uri: item.imageurl }} style={styles.image} />
-  //       <Text style={styles.title}> {item.eventName} </Text>
-  //       <Text> {item.description} </Text>
-  //       <Text > {item.adress} </Text>
-  //       <Text style={{color:'grey'}}> Date : {item.date} </Text>
+  const scrollToIndex = (index: number) => {
+    flatListRef.current?.scrollToIndex({ animated: true, index: index });
+  };
+  const renderItems: React.FC<{ item: Events }> = ({ item }) => {
+    return (
+      <View style={{ alignItems: "center" }}>
+        <Image source={{ uri: item.imageurl }} />
+        <Text > {item.eventName} </Text>
+        <Text> {item.description} </Text>
+        <Text > {item.adress} </Text>
+        <Text style={{color:'grey'}}> Date : {item.date} </Text>
 
-  //       <TouchableOpacity
-  //        onPress ={()=>{}}
-  //      >  
-  //          <Text style={{backgroundColor:"#e7ff19"}}>Join This Event</Text>
-  //         </TouchableOpacity>
+        <TouchableOpacity
+         onPress ={()=>{}}
+       >  
+           <Text style={{backgroundColor:"#e7ff19"}}>Join This Event</Text>
+          </TouchableOpacity>
 
-  //     </View>
-  //   );
-  // };
+      </View>
+    );
+  };
 
   return (
     <ScrollView>
-      {/* {eventhData.map((item, k) => ( */}
+      {eventhData.map((item, k) => (
 
-        <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
-          <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
-            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/eventbg.png")}>
+        <><View style={tw`h-52 p-2 bg-white pl-4 pr-4 `} key={k}>
+          <TouchableOpacity >
+            <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri : item.imageurl}}>
               <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                 <View style={styles.view}>
                   <View style={styles.inview}>
                     <View style={tw`h-10 items-center bg-transparent pt-1 `}>
-                      <Text style={tw`text-white text-3xl pl-2 font-bold`}>Yoga</Text>
+                      <Text style={tw`text-white text-3xl pl-2 font-bold`}>{item.eventName}</Text>
                     </View>
                   </View>
                 </View>
@@ -71,24 +71,8 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
             </ImageBackground>
           </TouchableOpacity>
 
-        </View>
-        <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `}>
-          <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
-            <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/event.png")}>
-              <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
-                <View style={styles.view}>
-                  <View style={styles.inview}>
-                    <View style={tw`h-10 items-center bg-transparent pt-1 `}>
-                      <Text style={tw`text-white text-3xl pl-2 font-bold`}>Zumba</Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </ImageBackground>
-          </TouchableOpacity>
-
-        </View>
-      {/* ))} */}
+          </View></>
+       ))} 
     </ScrollView>
   );
 }
