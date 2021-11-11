@@ -15,7 +15,7 @@ const ProfileInfo = () => {
      const [ProfileData, setProfileData] = useState<Profile[]>([]);
      const navigation = useNavigation()
 
-const userId = 0;
+const userId = 3;
 console.log(setProfileData)
 useEffect(()=>{
     axios.get(`http://localhost:5000/users/${userId}`,{
@@ -345,7 +345,7 @@ useEffect(()=>{
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/Gym.png")}
+                    source={require("../../assets/images/gym.png")}
                   />
                 </View>
               </View>
@@ -380,7 +380,7 @@ useEffect(()=>{
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/Gym.png")}
+                    source={require("../../assets/images/gym.png")}
                   />
                 </View>
               </View>
@@ -415,7 +415,7 @@ useEffect(()=>{
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/Gym.png")}
+                    source={require("../../assets/images/gym.png")}
                   />
                 </View>
               </View>
