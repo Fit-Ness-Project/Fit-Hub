@@ -21,6 +21,7 @@ const ProfileInfo = () => {
       flexDirection: "row",
     }}
   >
+    
     <Image
       style={{ height: 25, width: 25 }}
       source={require("../../assets/Icons/bmi.png")}
