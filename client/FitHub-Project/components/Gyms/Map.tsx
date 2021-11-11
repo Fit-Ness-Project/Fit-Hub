@@ -8,7 +8,7 @@ import axios from "axios";
 import MapView, { Callout, Circle, Marker } from "react-native-maps";
 import { StyleSheet, Text, View, Dimensions, FlatList } from "react-native";
 import { ActivityIndicator } from "react-native";
-export default function TabOneScreen() {
+export default function TabOneScreen({longi,latit,name} :any) {
   const [GymData, setGymData] = useState<Gym[]>([]);
   useEffect(() => {
     axios
@@ -24,11 +24,10 @@ export default function TabOneScreen() {
   const [location, setLocation] = useState({
     latitude: 36.880384,
     longitude: 36.880384,
-    latitudeDelta: 0,
-    longitudeDelta: 0,
+    latitudeDelta: 0.0181,
+    longitudeDelta: 0.0181,
   });
   const [errorMsg, setErrorMsg] = useState("");
-
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -36,26 +35,28 @@ export default function TabOneScreen() {
         setErrorMsg("Permission to access location was denied");
         return;
       }
-
+      
       let position = await Location.getCurrentPositionAsync({});
       const { longitude, latitude } = position.coords;
       setLocation({
         longitude,
         latitude,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitudeDelta:0.0181,
+        longitudeDelta: 0.0181,
       });
     })();
   }, []);
-
+  
   let text = "Waiting..";
   if (errorMsg) {
     text = errorMsg;
   } else if (location) {
     text = JSON.stringify(location);
   }
+  const a = Number(longi);
+  const b = Number(latit);
 
-  return location.latitude ? (
+  return location.longitude,location.latitude ? (
     <View style={styles.container}>
       <MapView
         style={styles.map}
@@ -63,17 +64,16 @@ export default function TabOneScreen() {
         provider="google"
         showsUserLocation
       >
-        {GymData.map((e, k) => {
-          const a = Number(e.latitude);
-          const b = Number(e.longitude);
-          return (
-            <Marker key={k} coordinate={{ latitude: a, longitude: b }}>
+
+     
+
+            <Marker  coordinate={{ latitude:b, longitude: a }}>
               <Callout>
-                <Text>{e.gymName}</Text>
+                <Text>{name}</Text>
               </Callout>
             </Marker>
-          );
-        })}
+
+
 
         <Circle center={location} radius={3000} />
       </MapView>

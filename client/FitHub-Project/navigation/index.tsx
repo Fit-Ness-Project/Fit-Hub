@@ -151,14 +151,14 @@ export function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
         }}
       />
-      <BottomTab.Screen
+      {/* <BottomTab.Screen
         name="myProfile"
         component={myprofile}
         options={{
           title: "",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
-      />
+      /> */}
     </BottomTab.Navigator>
   );
 }

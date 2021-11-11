@@ -79,22 +79,20 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
   };
 
 
-
   const handleMessage = (message: string, type: MessageType = 'FAILED') => {
     setMessage(message);
     setMessageType(type);
   }
 
 
-
-
+  
 
   const handleLogin = (credentials: { email: string; password: string; }, setSubmitting: { (isSubmitting: boolean): void; (arg0: boolean): void; }) => {
     console.log("credentials",credentials)
     handleMessage("null")
     axios.post('http://192.168.11.104:5000/customer/login', credentials)
       .then((response) => {
-        AsyncStorage.setItem('Token', response.data.Token).then((response_) => {
+        AsyncStorage.setItem('Token', response.data.Token).then(() => {
           const result = response.data
           console.log('result:', result)
           const { message, status, data } = result
@@ -117,8 +115,6 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
 
 
-
-
   return (
     <Formik
       initialValues={{ email: '', password: "" }}
@@ -135,7 +131,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         } else {
 
           handleLogin(values, setSubmitting)
-           navigation.navigate('Home')
+          //  navigation.navigate('Home')
         }
       }}
 
