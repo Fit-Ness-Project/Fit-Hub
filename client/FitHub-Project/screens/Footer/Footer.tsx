@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, TouchableOpacity } from "../../components/Themed";
+import { View, TouchableOpacity } from "../../components/Themed";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -12,7 +12,7 @@ const  ChangeView = ({}) =>{
                 <TouchableOpacity
                 style={tw `w-10 bg-transparent ml-8 mt-1`}
             onPress={() => {
-              navigation.navigate("myProfile");
+              navigation.navigate("ProfileInfo");
             }}
           >
             <View style={tw `bg-transparent `}>
@@ -32,7 +32,7 @@ const  ChangeView = ({}) =>{
             <TouchableOpacity
                 style={tw `w-10 bg-transparent ml-24 mt-1`}
             onPress={() => {
-              navigation.navigate("Restaurant");
+              navigation.navigate("NotFound");
             }}
           >
             <View style={tw `items-center bg-transparent`}>

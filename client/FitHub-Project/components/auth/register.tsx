@@ -46,61 +46,24 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
       .label("Password"),
   });
 
-
-
-
   function handelSubmit() {
     console.log(firstName, lastName, email, mobilePhone, Password);
-    axios.post("http://192.168.11.104:5000/users",{
-        id: usersId,
+    axios
+      .post("http://localhost:5000/users", {
         first_name: firstName,
         last_name: lastName,
         mobile_phone: mobilePhone,
         email: email,
-        likes: likes,
-        comments: comments,
-        hashed_password: Password,
-        last_login: lastLogin,
-        registred_at: registredAt,
-        events_joined: events,
-        healthy_food_posted: healthyFoodPosted,
-        healthy_food_liked: healthyFoodLiked,
-        healthy_food: healthyFood,
-        gyms: gyms,
-        event_created: eventCreated,
-        event_joined_id: eventJoinedId,
-        bmi: bmi,
-        weight: weight,
-        height: height,
-        age: age,
-        gender: gender,
       })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
 
-  let [usersId, setusersId] = useState(0);
   let [firstName, setfirstName] = useState("");
   let [lastName, setlastName] = useState("");
   let [mobilePhone, setmobilePhone] = useState("0");
   let [Password, setPassword] = useState("");
   let [email, setemail] = useState("");
-  let [likes, setlikes] = useState(0);
-  let [comments, setcomments] = useState("");
-  let [lastLogin, setlastLogin] = useState("");
-  let [registredAt, setregistredAt] = useState("");
-  let [events, setevents] = useState("");
-  let [healthyFoodPosted, sethealthyFoodPosted] = useState("");
-  let [healthyFoodLiked, sethealthyFoodLiked] = useState("");
-  let [healthyFood, sehealthyFood] = useState("");
-  let [gyms, setgyms] = useState("");
-  let [eventCreated, seteventCreated] = useState("");
-  let [eventJoinedId, seteventJoinedId] = useState(0);
-  let [bmi, setbmi] = useState(0);
-  let [weight, setweight] = useState(0);
-  let [height, setheight] = useState(0);
-  let [age, setage] = useState(0);
-  let [gender, segender] = useState("");
 
   return (
     <View style={tw`w-full h-full `}>
@@ -175,7 +138,12 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
           </View>
 
           <View style={tw` text-black pt-6 w-4/5 ml-8`}>
-            <TouchableOpacity  onPress={()=>handelSubmit()}  style={Styles.button}>
+            <TouchableOpacity
+              onPress={() => {
+                handelSubmit(), navigation.navigate("bmi");
+              }}
+              style={Styles.button}
+            >
               <Text style={Styles.text}>REGISTER</Text>
             </TouchableOpacity>
           </View>
