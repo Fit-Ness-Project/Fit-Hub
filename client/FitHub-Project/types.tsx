@@ -90,7 +90,7 @@ export type RootStackParamList = {
      };
      EditProfile:undefined
      BottomTabNavigator:undefined;
-
+     ProfileInfo:undefined
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -119,7 +119,7 @@ export type RootTabParamList = {
   register:undefined;
   Recipe:undefined;
   Restaurant:undefined;
-
+  ProfileInfo:undefined
   Healthy:{
     id: number;
     rest_name: string ;

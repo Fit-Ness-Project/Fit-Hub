@@ -19,7 +19,7 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
   useEffect(() => {
     axios
-      .get("http://192.168.11.67:5000/events")
+      .get("http://192.168.11.66:5000/events")
 
       .then((response) => {
 
