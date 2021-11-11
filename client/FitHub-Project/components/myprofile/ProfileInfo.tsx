@@ -270,7 +270,7 @@ useEffect(()=>{
       
             <View style={tw`bg-transparent mt-6`}>
               <TouchableOpacity>
-                <Text  onPress={()=>{if(verif=== false){setVerif(true);setSee("Show Less")} else{setVerif(false);setSee("See More")}}} style= {tw`text-black underline`}>{see}</Text>
+                <Text  onPress={()=>{if(verif=== false){setVerif(true);setSee("Show Less")} else{setVerif(false);setSee("See More")}}}  style= {tw`text-black underline`}>{see}</Text>
               </TouchableOpacity>
             </View>
             <View
