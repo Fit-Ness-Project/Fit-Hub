@@ -23,8 +23,6 @@ export enum AppScreens {
   Login='Login',
   signUp='signUp',
   Restaurant='Restaurant'
-
- 
 }
 
 export type AuthStackParamList = {

@@ -46,9 +46,12 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
       .label("Password"),
   });
 
+
+
+
   function handelSubmit() {
     console.log(firstName, lastName, email, mobilePhone, Password);
-    axios.post("http://localhost:5000/users",{
+    axios.post("http://192.168.11.104:5000/users",{
         id: usersId,
         first_name: firstName,
         last_name: lastName,
@@ -172,7 +175,7 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
           </View>
 
           <View style={tw` text-black pt-6 w-4/5 ml-8`}>
-            <TouchableOpacity onPress={handelSubmit} style={Styles.button}>
+            <TouchableOpacity  onPress={()=>handelSubmit()}  style={Styles.button}>
               <Text style={Styles.text}>REGISTER</Text>
             </TouchableOpacity>
           </View>
@@ -181,6 +184,7 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
     </View>
   );
 }
+
 const Styles = StyleSheet.create({
   button: {
     backgroundColor: "#e7ff19",

@@ -1,7 +1,7 @@
 
 import * as  React from 'react';
 import { useEffect, useState } from 'react';
-import { View, Image, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import { View,ActivityIndicator , Image, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -11,82 +11,132 @@ import { LogBox } from 'react-native';
 import { useKeepAwake } from 'expo-keep-awake';
 import { RootTabScreenProps } from "../../types";
 import { useNavigation } from '@react-navigation/native';
+import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import AsyncStorage from '@react-native-async-storage/async-storage'
+
 LogBox.ignoreLogs(['Remote debugger']);
-
-
 type MessageType = "SUCCESS" | "FAILED"
 
 
-// import icon from 'react-native-vector-icons';
-export default function Login({ }: RootTabScreenProps<'Home'>) {
 
-    const navigation = useNavigation()
+export default function Login({}: RootTabScreenProps<'Home'>) {
 
+
+   const navigation = useNavigation()
 
     const [message, setMessage] = useState("");
     const [messageType, setMessageType] = useState<MessageType>();
+   
     const [googleSubmitting, setGoogleSubmitting] = useState(false);
-    useKeepAwake();
-    const validationSchema = Yup.object().shape({
-        name: Yup.string().required('Name is required').label('Name'),
-        email: Yup.string()
-            .email('Please enter valid email')
-            .required('Email is required')
-            .label('Email'),
-        password: Yup.string()
-            .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
-            .min(8, ({ min }) => `Password must be at least ${min} characters`)
-            .required('Password is required')
-            .label('Password'),
-    });
-    const handleMessage = (message: string, type: MessageType = 'FAILED') => {
-        setMessage(message);
-        setMessageType(type);
-    }
+    const [loginSubmitting, setLoginSubmitting] = useState(false);
 
-    const handleSignin = () => {
-        setGoogleSubmitting(true)
-        const config = {
-            webClient: `274546852331-6fop8qr7e6of6gt5db0g66fp8jmvo39g.apps.googleusercontent.com`,
-            iosClientId: `274546852331-u70lh7m0nma8l64ojqgtepjlv8vqoft4.apps.googleusercontent.com`,
-            androidClientId: `139390994367-fipsm4r0n6bv2gos62km9arj2p3e8n39.apps.googleusercontent.com`,
-            scopes: ['profile', 'email']
-        }
-        Google.logInAsync(config)
-            .then((result) => {
-                const { type } = result;
-                if (type === 'success') {
-                    // const { user: { email, name, photoUrl } } = result;
-                    AsyncStorage.setItem('auth', JSON.stringify(result))
-                        .then((result) => {
 
-                            console.log(result)
-                            handleMessage('Google signin successful', "SUCCESS");
-                            // setTimeout(() => navigation.navigate('bmi'), 1000)
-                        })
+    // useKeepAwake();
+    // const validationSchema = Yup.object().shape({
+    //     name: Yup.string().required('Name is required').label('Name'),
+    //     email: Yup.string()
+    //         .email('Please enter valid email')
+    //         .required('Email is required')
+    //         .label('Email'),
+    //     password: Yup.string()
+    //         .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
+    //         .min(8, ({ min }) => `Password must be at least ${min} characters`)
+    //         .required('Password is required')
+    //         .label('Password'),
+    // });
 
-                }
-                else {
-                    handleMessage('Google signin ws cancelled')
-                }
-                setGoogleSubmitting(false);
 
-            })
-            .catch(error => {
-                setGoogleSubmitting(false);
-                console.log('hne ', error);
-                handleMessage('An error ocured, Check your network and try again')
-            })
+  const handleGoogleSignIn = () => {
+    setGoogleSubmitting(true);
+    const config = {
+        iosClientId: `196418584285-c63js4737tou3b1l8m0gtulpduial66a.apps.googleusercontent.com`,
+        androidClientId: `196418584285-13csvmvh90m2bbl7aiqmqg654vhbtf0o.apps.googleusercontent.com`,
+      scopes: ["profile", "email"],
     };
+
+
+    Google.logInAsync(config)
+      .then((result) => {
+        const { type } = result;
+        if (type === "success") {
+        const {user: {email, name, photoUrl} } = result;
+          handleMessage("Google sign in successful", "SUCCESS");
+          setTimeout(
+            () => navigation.navigate("Home"),
+            10000
+          );
+        } else {
+          handleMessage("Google signin was cancelled");
+        }
+        setGoogleSubmitting(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        handleMessage("An Errr occured . check your Network and try again");
+        setGoogleSubmitting(false);
+      });
+  };
+
+
+
+  const handleMessage = (message: string, type: MessageType = 'FAILED') => {
+    setMessage(message);
+    setMessageType(type);
+}
+
+
+     const handleLogin = (credentials: { email: string; password: string; }, setSubmitting: { (isSubmitting: boolean): void; (arg0: boolean): void; }) => {
+        handleMessage("null")
+       axios.post('http://192.168.11.104:5000/customer/login', credentials)
+         .then((response)=> {
+          AsyncStorage.setItem('Token', response.data.Token).then((response_) => {
+            navigation.navigate("Home")
+            const result = response.data
+           console.log('user',result)
+            const {message, status, data} = result
+        
+          if(status !== "SUCCESS"){
+                  handleMessage(message, status)
+           }else {
+               navigation.navigate('Home', {...data[0]})
+               }
+              setSubmitting(false)
+        })
+      })
+        .catch( (err: any)=> {
+            console.log(err);
+            setSubmitting(false)
+           handleMessage("Try Again")
+        })
+ }
+
+
+
+
 
     return (
         <Formik
             initialValues={{ email: '', password: "" }}
-            validationSchema={validationSchema}
-            onSubmit={values => console.log(values)}>
-            {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+            //  validationSchema={validationSchema}
+            
+            onSubmit= {(values,{ setSubmitting}) => {
+             console.log(values);
+         
+             if(values.email == '' || values.password == '' ){
+           
+                handleMessage("Please fill all the fields")
+                setSubmitting(false)
+               
+              }else { 
+               
+                handleLogin(values, setSubmitting) 
+                navigation.navigate('Home')
+              }
+            }}
+          
+        >
+            {({ handleChange, handleBlur, handleSubmit,isSubmitting, values, errors, touched }) => (
                 <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
 
 
@@ -129,32 +179,47 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
 
 
-                        <View style={tw`pt-4 w-4/5 `}>
-                            <TouchableOpacity
-                                // onPress={()=>handleSubmit}
-                                onPress={() => navigation.navigate("Home")}
+                        <View style={tw`  pt-4 w-4/5`}>
+                            {!isSubmitting &&
+
+                              <TouchableOpacity
+                              onPress={()=>handleSubmit()}
+                                // onPress={() => navigation.navigate("Home")}
                                 style={Styles.button}
-                            ><Text style={Styles.text}>Log In</Text></TouchableOpacity>
+                            >
+                           
+                                <Text style={Styles.text}>Login</Text>
+                           
+                            </TouchableOpacity>
+                            }
+                             {isSubmitting &&
+                              <TouchableOpacity
+                        disabled={true}
+                                style={Styles.button}
+                            >
+                             <ActivityIndicator size="large" color="white"  />
+                            </TouchableOpacity>
+                            }
                         </View>
-
-                        <Text style={tw`text-white mt-8`}>Or</Text>
-
-                        
-                       
-              <Text
+                   
+                            <Text style={tw`text-white mt-8`}>Or</Text>
+                 
+                      
+                        <Text    onPress={handleGoogleSignIn}
                 style={{ color: "black", fontWeight: "500", backgroundColor: "white",width:"80%", height:"8%", paddingLeft:130, paddingTop:5 }}
-                onPress={handleSignin}
+              
               >
                 <Image
                   style={{ height: 20, width: 60}}
                   source={require("../../assets/images/ggl.png")}
-                 
+               
                 />
               </Text>
-           
-                        <View style={tw`items-center`}>
-                            <Text style={tw`text-white pt-4`}>
-                                Don't have an account ? <Text onPress={() => navigation.navigate("register")} style={{ color: "#36e08b", textDecorationLine: 'underline' }}>Register</Text>
+                       
+                        
+                        <View style={tw`h-10 mt-6 items-center`}>
+                            <Text style={tw`text-white  pl-6 pt-4`}>
+                                Don't have an account ? <Text onPress={() => navigation.navigate("register")} style={tw`text-blue-400 underline`}>Register</Text>
                             </Text>
                         </View>
                     </View>
@@ -163,6 +228,8 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         </Formik>
     )
 };
+
+
 
 const Styles = StyleSheet.create({
     button: {
@@ -180,4 +247,7 @@ const Styles = StyleSheet.create({
 
     }
 })
+
+
+
 
