@@ -10,8 +10,10 @@ import signUp from "../../../../components/auth/register";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Restaurant from "../../../restaurants/restaurant";
+import ProfileInfo from "../../../../components/myprofile/ProfileInfo";
 
 import Gymdescription from "../../../../components/Gyms/Gym";
+import { NavigationContainer } from "@react-navigation/native";
 
 export enum AppScreens {
   ChangeView = "ChangeView",
@@ -22,7 +24,8 @@ export enum AppScreens {
   EventScreen = "EventScreen",
   Login='Login',
   signUp='signUp',
-  Restaurant='Restaurant'
+  Restaurant='Restaurant',
+  ProfileInfo='ProfileInfo'
 
  
 }
@@ -37,6 +40,7 @@ export type AuthStackParamList = {
   Login:undefined,
   signUp:undefined,
   Restaurant:undefined
+  ProfileInfo:undefined
 
 };
 
@@ -44,7 +48,7 @@ const AuthStack = createStackNavigator<AuthStackParamList>();
 
 const AuthFlowNavigator: React.FunctionComponent = () => {
   return (
-    <SafeAreaProvider>
+    <NavigationContainer>
       <AuthStack.Navigator>
         <AuthStack.Screen name={AppScreens.ChangeView} component={ChangeView} />
         <AuthStack.Screen name={AppScreens.FoodScreen} component={FoodScreen} />
@@ -55,9 +59,9 @@ const AuthFlowNavigator: React.FunctionComponent = () => {
         <AuthStack.Screen name={AppScreens.Login} component={Login} />
         <AuthStack.Screen name={AppScreens.signUp} component={signUp} />
         <AuthStack.Screen name={AppScreens.Restaurant} component={Restaurant} />
-
+        <AuthStack.Screen name={AppScreens.ProfileInfo} component={ProfileInfo} />
       </AuthStack.Navigator>
-    </SafeAreaProvider>
+    </NavigationContainer>
   );
 };
 export default AuthFlowNavigator;
