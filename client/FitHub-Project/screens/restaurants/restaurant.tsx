@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 
     },
     titleM:{
-        color: 'black' ,
+       
         fontSize: 16 ,
         textAlign:'right',
         margin: 5
