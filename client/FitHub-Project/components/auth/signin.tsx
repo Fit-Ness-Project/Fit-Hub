@@ -14,13 +14,12 @@ import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 LogBox.ignoreLogs(['Remote debugger']);
-
-
 type MessageType = "SUCCESS" | "FAILED"
 
 
-// import icon from 'react-native-vector-icons';
+
 export default function Login({}: RootTabScreenProps<'Home'>) {
 
 
@@ -31,6 +30,8 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
    
     const [googleSubmitting, setGoogleSubmitting] = useState(false);
     const [loginSubmitting, setLoginSubmitting] = useState(false);
+
+
     // useKeepAwake();
     // const validationSchema = Yup.object().shape({
     //     name: Yup.string().required('Name is required').label('Name'),
@@ -44,8 +45,6 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
     //         .required('Password is required')
     //         .label('Password'),
     // });
-
-
 
 
   const handleGoogleSignIn = () => {
@@ -81,35 +80,17 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
 
 
 
-
-
-
-
   const handleMessage = (message: string, type: MessageType = 'FAILED') => {
     setMessage(message);
     setMessageType(type);
 }
 
 
-
-useEffect(() => {
-    AsyncStorage.getItem('auth').then((data) => {
-      if (data !== null) {
-         navigation.navigate('Home')
-        return
-        }
-    })
-  }, [])
-
-
-
-
-
      const handleLogin = (credentials: { email: string; password: string; }, setSubmitting: { (isSubmitting: boolean): void; (arg0: boolean): void; }) => {
         handleMessage("null")
        axios.post('http://192.168.11.104:5000/customer/login', credentials)
          .then((response)=> {
-          AsyncStorage.setItem("auth", response.data.Token).then((response_) => {
+          AsyncStorage.setItem('Token', response.data.Token).then((response_) => {
             navigation.navigate("Home")
             const result = response.data
            console.log('user',result)
@@ -129,6 +110,9 @@ useEffect(() => {
            handleMessage("Try Again")
         })
  }
+
+
+
 
 
     return (
@@ -264,49 +248,4 @@ const Styles = StyleSheet.create({
 
 
 
-
-
-
-// const [isOpen, setIsOpen] = React.useState(false);
-//   const [message, setMessage] = useState();
-//   const [messageType, setMessageType] = useState();
-//   const [googleSubmitting, setGoogleSubmitting] = useState(false);
-//   const handleMessage = (message, type = "FAILED") => {
-//     setMessage(message);
-//     setMessageType(type);
-//   };
-
-
-
-
-
-//   const handleGoogleSignIn = () => {
-//     setGoogleSubmitting(true);
-//     const config = {
-//       iosClientId: `215341427022-haijkikj7ejpthac9sld1ihejeouoj06.apps.googleusercontent.com`,
-//       androidClientId: `215341427022-eosmagesimfkte0p4b84ci77t6b7m6o2.apps.googleusercontent.com`,
-//       androidStandaloneAppClientId: `215341427022-ktifsf6rj56ubln7ddtac012o0s4rlb5.apps.googleusercontent.com`,
-//       scopes: ["profile", "email"],
-//     };
-//     Google.logInAsync(config)
-//       .then((result) => {
-//         const { type, user } = result;
-//         if (type === "success") {
-//           const { email, name, photoUrl } = user;
-//           handleMessage("Google sign in successful", "success");
-//           setTimeout(
-//             () => props.navigation.navigate("WhyUs", { email, name, photoUrl }),
-//             100
-//           );
-//         } else {
-//           handleMessage("Google signin was cancelled");
-//         }
-//         setGoogleSubmitting(false);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//         handleMessage("An Errr occured . check your Network and try again");
-//         setGoogleSubmitting(false);
-//       });
-//   };
 
