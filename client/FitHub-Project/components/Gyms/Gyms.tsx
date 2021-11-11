@@ -36,7 +36,7 @@ export default function Gyms() {
       {GymData.map((e, k) => (
         <View key={k} style={tw`h-52 w-full p-2 bg-transparent  `} >
           <TouchableOpacity onPress={() =>
-            navigation.navigate("Gymdescription", {
+            navigation.navigate("Gym", {
               gymName: e.gymName,
               imgUrl: e.imgUrl,
               rating: e.rating,

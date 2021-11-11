@@ -40,7 +40,7 @@ export type RootStackParamList = {
       comment_count: Number; 
       like: Number;
   }
-  Gym: undefined;
+  // Gym: undefined;
   Coachs: undefined;
   coach: {
     coachId : number ,
@@ -56,7 +56,7 @@ export type RootStackParamList = {
   Home: undefined;
   Events: undefined;
   bmi : undefined;
-  Gymdescription:{ 
+  Gym:{ 
  
     gymName: string,
     imgUrl: string,
@@ -90,13 +90,15 @@ export type RootStackParamList = {
      };
      EditProfile:undefined
      BottomTabNavigator:undefined;
-
+     ProfileInfo:undefined
+     Gyms:undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, Screen>;
 
 export type RootTabParamList = {
+  Gyms:undefined;
   TabOne: undefined;
   TabTwo: undefined;
   UserInfo: undefined;
@@ -111,7 +113,7 @@ export type RootTabParamList = {
   login:undefined;
    signUp:undefined;
   coach : undefined;
-  Gymdescription:undefined;
+  // Gymdescription:undefined;
   myProfile:undefined;
   FirstVueProps:undefined;
   createEvent:undefined;
@@ -119,7 +121,7 @@ export type RootTabParamList = {
   register:undefined;
   Recipe:undefined;
   Restaurant:undefined;
-
+  ProfileInfo:undefined
   Healthy:{
     id: number;
     rest_name: string ;
