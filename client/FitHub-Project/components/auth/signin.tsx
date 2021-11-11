@@ -46,12 +46,11 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
     // });
 
 
-    
+
 
   const handleGoogleSignIn = () => {
     setGoogleSubmitting(true);
     const config = {
-        webClient: `196418584285-2lkuc7ip8msroi9eddku0r82asi9v9n5.apps.googleusercontent.com`,
         iosClientId: `196418584285-c63js4737tou3b1l8m0gtulpduial66a.apps.googleusercontent.com`,
         androidClientId: `196418584285-13csvmvh90m2bbl7aiqmqg654vhbtf0o.apps.googleusercontent.com`,
       scopes: ["profile", "email"],
@@ -62,7 +61,7 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
       .then((result) => {
         const { type } = result;
         if (type === "success") {
-        const{ user: { email, name, photoUrl }} = result;
+        const {user: {email, name, photoUrl} } = result;
           handleMessage("Google sign in successful", "SUCCESS");
           setTimeout(
             () => navigation.navigate("Home"),
@@ -92,13 +91,30 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
 }
 
 
+
+useEffect(() => {
+    AsyncStorage.getItem('auth').then((data) => {
+      if (data !== null) {
+         navigation.navigate('Home')
+        return
+        }
+    })
+  }, [])
+
+
+
+
+
      const handleLogin = (credentials: { email: string; password: string; }, setSubmitting: { (isSubmitting: boolean): void; (arg0: boolean): void; }) => {
         handleMessage("null")
-       axios.post('http://192.168.11.104:5000/customer', credentials)
+       axios.post('http://192.168.11.104:5000/customer/login', credentials)
          .then((response)=> {
+          AsyncStorage.setItem("auth", response.data.Token).then((response_) => {
+            navigation.navigate("Home")
             const result = response.data
            console.log('user',result)
             const {message, status, data} = result
+        
           if(status !== "SUCCESS"){
                   handleMessage(message, status)
            }else {
@@ -106,18 +122,13 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
                }
               setSubmitting(false)
         })
+      })
         .catch( (err: any)=> {
             console.log(err);
             setSubmitting(false)
            handleMessage("Try Again")
         })
  }
-
-
-
-
-
-
 
 
     return (
