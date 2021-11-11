@@ -14,6 +14,7 @@ export default function ChangeView({ }) {
     const navigation = useNavigation()
 
     return (
+        
         <View>
             <ScrollView>
                 <View style={{ marginTop: 10, marginBottom: 60 }} >
@@ -134,6 +135,7 @@ export default function ChangeView({ }) {
         </View>
     )
 }
+
 
 const styles = StyleSheet.create({
     button: {
