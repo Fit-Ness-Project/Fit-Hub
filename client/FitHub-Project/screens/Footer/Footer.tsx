@@ -4,7 +4,8 @@ import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-export default function ChangeView({}) {
+
+const  ChangeView = ({}) =>{
     const navigation = useNavigation()
     return (
         <View style={tw `flex flex-row h-12 bg-gray-300 rounded`}>
@@ -42,3 +43,5 @@ export default function ChangeView({}) {
         </View>
     )
 }
+
+export default ChangeView
