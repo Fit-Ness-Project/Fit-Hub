@@ -179,7 +179,7 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
 
 
 
-                        <View style={tw`  pt-4 w-4/5 ml-8`}>
+                        <View style={tw`  pt-4 w-4/5`}>
                             {!isSubmitting &&
 
                               <TouchableOpacity
@@ -201,20 +201,22 @@ export default function Login({}: RootTabScreenProps<'Home'>) {
                             </TouchableOpacity>
                             }
                         </View>
-                        <View style={tw`items-center`}>
-                            <Text style={tw`text-white items-center mt-8 `}>Or</Text>
-                        </View>
-                        <TouchableOpacity onPress={handleGoogleSignIn}>
-                        <View style={tw`border border-white items-center bg-white mt-8 w-4/5 ml-8 h-8`}>
-                            <View style={tw`flex flex-row`} >
-                           
-                                <Image style={tw`mt-1.5 w-4 pl-2 h-4`} source={require("../../assets/images/ggl.png")} />
-                                {/* <Text  style={tw`mt-1 pl-6 font-bold text-black`}>Connect with Google</Text> */}
-                               
-                            </View>
-
-                        </View>
-                        </TouchableOpacity>
+                   
+                            <Text style={tw`text-white mt-8`}>Or</Text>
+                 
+                      
+                        <Text    onPress={handleGoogleSignIn}
+                style={{ color: "black", fontWeight: "500", backgroundColor: "white",width:"80%", height:"8%", paddingLeft:130, paddingTop:5 }}
+              
+              >
+                <Image
+                  style={{ height: 20, width: 60}}
+                  source={require("../../assets/images/ggl.png")}
+               
+                />
+              </Text>
+                       
+                        
                         <View style={tw`h-10 mt-6 items-center`}>
                             <Text style={tw`text-white  pl-6 pt-4`}>
                                 Don't have an account ? <Text onPress={() => navigation.navigate("register")} style={tw`text-blue-400 underline`}>Register</Text>
