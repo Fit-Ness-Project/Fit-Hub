@@ -48,6 +48,7 @@ export default function Navigation({
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+
 function RootNavigator({ }) {
 
   return (
@@ -84,6 +85,7 @@ function RootNavigator({ }) {
     </Stack.Navigator>
   );
 }
+
 
 
 
