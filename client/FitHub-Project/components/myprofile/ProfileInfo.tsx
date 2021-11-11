@@ -37,10 +37,11 @@ useEffect(()=>{
       flexDirection: "row",
     }}
   >
-    {/* <Image
+
+    <Image
       style={{ height: 25, width: 25 }}
       source={require("../../assets/Icons/bmi.png")}
-    ></Image> */}
+    ></Image>
     <View
       style={{
         backgroundColor: "transparent",
@@ -48,8 +49,7 @@ useEffect(()=>{
         width: "100%",
       }}
     >
-    
-      <Text style={tw` ml-6  text-black`}>{ProfileData.bmi}</Text>
+      <Text style={tw` ml-6  text-black`}></Text>
       <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
         BMI
       </Text>
@@ -72,7 +72,7 @@ useEffect(()=>{
               >
                 <Image
                   style={{ height: 25, width: 25 }}
-                  source={require("../../assets/Icons/weight.png")}
+                  source={require("../../assets/Icons/kg.png")}
                 ></Image>
                 <View
                   style={{
@@ -81,7 +81,7 @@ useEffect(()=>{
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}>{ProfileData.weight}</Text>
+                  <Text style={tw` ml-6  text-black`}></Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Weight
                   </Text>
@@ -102,7 +102,7 @@ useEffect(()=>{
             >
               <Image
                 style={{ height: 25, width: 25 }}
-                source={require("../../assets/Icons/weight.png")}
+                source={require("../../assets/Icons/height.png")}
               ></Image>
               <View
                 style={{
@@ -111,7 +111,7 @@ useEffect(()=>{
                   width: "100%",
                 }}
               >
-                <Text style={tw` ml-6  text-black`}>{ProfileData.height}</Text>
+                <Text style={tw` ml-6  text-black`}>  </Text>
                 <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                   Height
                 </Text>
@@ -130,10 +130,10 @@ useEffect(()=>{
               flexDirection: "row",
             }}
           >
-            {/* <Image
+            <Image
               style={{ height: 25, width: 25 }}
               source={require("../../assets/Icons/age.png")}
-            ></Image> */}
+            ></Image>
             <View
               style={{
                 backgroundColor: "transparent",
@@ -176,18 +176,18 @@ useEffect(()=>{
                 source={ProfileData[0].image}
               ></Avatar.Image> */}
             </TouchableOpacity>
-            <View style={tw`mt-4 bg-transparent  flex-row`}>
+            {/* <View style={tw`mt-4 bg-transparent  flex-row`}>
               <Text style={tw`text-white text-base font-bold `}>
                 {" "}
                DESCRIPTION{" "}
               </Text>
-            </View>
+            </View> */}
             <View style={tw`mt-4 bg-transparent flex-row`}>
-              {/* <Image
+               <Image
                 style={tw`w-4 h-4`}
-                source={require("../../assets/Icons/plasa.png")}
-              /> */}
-              {/* <Text style={tw` pl-2 text-white font-bold `}> {ProfileData[0].address} </Text> */}
+                source={require("../../assets/Icons/pin.png")}
+              /> 
+             
             </View>
           </View>
 
@@ -209,10 +209,10 @@ useEffect(()=>{
                   flexDirection: "row",
                 }}
               >
-                {/* <Image
+                <Image
                   style={{ height: 25, width: 25 }}
                   source={require("../../assets/Icons/phone.png")}
-                ></Image> */}
+                ></Image>
                 <View
                   style={{
                     backgroundColor: "transparent",
@@ -220,7 +220,7 @@ useEffect(()=>{
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}>{ProfileData.mobile_phone}</Text>
+                  <Text style={tw` ml-6  text-black`}></Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Mobile
                   </Text>
@@ -243,10 +243,10 @@ useEffect(()=>{
                   flexDirection: "row",
                 }}
               >
-                {/* <Image
+                <Image
                   style={{ height: 25, width: 25 }}
                   source={require("../../assets/Icons/email.png")}
-                ></Image> */}
+                ></Image>
                 <View
                   style={{
                     backgroundColor: "transparent",
@@ -255,10 +255,10 @@ useEffect(()=>{
                   }}
                 >
                   <Text style={tw`ml-6  text-black`}>
-                  {ProfileData.email}
+            
                   </Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-                    Personal
+                    Personal email
                   </Text>
                 </View>
               </View>
@@ -320,7 +320,7 @@ useEffect(()=>{
                   flexDirection: "row",
                   backgroundColor: "white",
                 }}
-              >
+               >
                 <View
                   style={{
                     marginTop: 40,

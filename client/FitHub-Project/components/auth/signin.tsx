@@ -85,7 +85,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
   }
 
 
-  
+
 
   const handleLogin = (credentials: { email: string; password: string; }, setSubmitting: { (isSubmitting: boolean): void; (arg0: boolean): void; }) => {
     console.log("credentials",credentials)
@@ -99,11 +99,11 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
           if (status !== "SUCCESS") {
             handleMessage(message, status)
+            setSubmitting(false)
           } else {
-            
-            navigation.navigate('Home', { ...data[0] })
-          }
-          setSubmitting(false)
+            setSubmitting(true)
+            navigation.navigate('Home', data[0] )
+          }     
         })
       })
       .catch((err: any) => {
@@ -112,8 +112,6 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         handleMessage("Try Again")
       })
   }
-
-
 
   return (
     <Formik
@@ -131,7 +129,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         } else {
 
           handleLogin(values, setSubmitting)
-          //  navigation.navigate('Home')
+         navigation.navigate('Home')
         }
       }}
 
