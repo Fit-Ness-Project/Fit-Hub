@@ -9,7 +9,23 @@ import { Avatar } from "react-native-paper";
 import tw from "tailwind-react-native-classnames";
 import { Text, View } from "../../components/Themed";
 import { Profile } from "./interface";
+import {  useNavigation } from '@react-navigation/native';
+
 const ProfileInfo = () => {
+     const [ProfileData, setProfileData] = useState<Profile[]>([]);
+     const navigation = useNavigation()
+
+const userId = 3;
+console.log(setProfileData)
+useEffect(()=>{
+    axios.get(`http://localhost:5000/users/${userId}`,{
+    }).then((res)=>
+    setProfileData(res.data)
+    
+    )
+    .catch((err)=>console.log(err)
+    )
+},[]) 
   const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
   <View
     style={{
@@ -21,10 +37,10 @@ const ProfileInfo = () => {
       flexDirection: "row",
     }}
   >
-    <Image
+    {/* <Image
       style={{ height: 25, width: 25 }}
       source={require("../../assets/Icons/bmi.png")}
-    ></Image>
+    ></Image> */}
     <View
       style={{
         backgroundColor: "transparent",
@@ -32,7 +48,8 @@ const ProfileInfo = () => {
         width: "100%",
       }}
     >
-      <Text style={tw` ml-6  text-black`}>Skinny</Text>
+    
+      <Text style={tw` ml-6  text-black`}>{ProfileData.bmi}</Text>
       <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
         BMI
       </Text>
@@ -64,7 +81,7 @@ const ProfileInfo = () => {
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}>50 KG</Text>
+                  <Text style={tw` ml-6  text-black`}>{ProfileData.weight}</Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Weight
                   </Text>
@@ -85,7 +102,7 @@ const ProfileInfo = () => {
             >
               <Image
                 style={{ height: 25, width: 25 }}
-                source={require("../../assets/Icons/height.png")}
+                source={require("../../assets/Icons/weight.png")}
               ></Image>
               <View
                 style={{
@@ -94,7 +111,7 @@ const ProfileInfo = () => {
                   width: "100%",
                 }}
               >
-                <Text style={tw` ml-6  text-black`}>1.12 M</Text>
+                <Text style={tw` ml-6  text-black`}>{ProfileData.height}</Text>
                 <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                   Height
                 </Text>
@@ -113,10 +130,10 @@ const ProfileInfo = () => {
               flexDirection: "row",
             }}
           >
-            <Image
+            {/* <Image
               style={{ height: 25, width: 25 }}
               source={require("../../assets/Icons/age.png")}
-            ></Image>
+            ></Image> */}
             <View
               style={{
                 backgroundColor: "transparent",
@@ -124,9 +141,9 @@ const ProfileInfo = () => {
                 width: "100%",
               }}
             >
-              <Text style={tw` ml-6  text-black`}>22</Text>
+              <Text style={tw` ml-6  text-black`}></Text>
               <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-               Age
+               Age{ProfileData[0]}
               </Text>
             </View>
           </View>
@@ -134,21 +151,7 @@ const ProfileInfo = () => {
         </TouchableOpacity>]
             const [verif,setVerif] :any= useState(false)
             const [see , setSee] : any = useState("See More")
-
-    const [ProfileData, setProfileData] = useState<Profile[]>([]);
-
-    const userId = 0;
-    useEffect(()=>{
-        axios.get(`http://localhost:5000/users${userId}`,{
-        }).then((res)=>
-        setProfileData(res.data)
-        
-        )
-        .catch((err)=>console.log(err)
-        )
-    },[]) 
     
-
     return (
       <SafeAreaView>
       <ScrollView>
@@ -163,15 +166,15 @@ const ProfileInfo = () => {
           >
 
             <TouchableOpacity>
-              <Avatar.Image
+              {/* <Avatar.Image
                 size={150}
                 style={{
                   marginTop: 60,
                   borderColor: "#36e08b",
                   borderWidth: 1,
                 }}
-                source={require("../../assets/images/coach.png")}
-              ></Avatar.Image>
+                source={ProfileData[0].image}
+              ></Avatar.Image> */}
             </TouchableOpacity>
             <View style={tw`mt-4 bg-transparent  flex-row`}>
               <Text style={tw`text-white text-base font-bold `}>
@@ -180,11 +183,11 @@ const ProfileInfo = () => {
               </Text>
             </View>
             <View style={tw`mt-4 bg-transparent flex-row`}>
-              <Image
+              {/* <Image
                 style={tw`w-4 h-4`}
                 source={require("../../assets/Icons/plasa.png")}
-              />
-              <Text style={tw` pl-2 text-white font-bold `}> ADDRESS </Text>
+              /> */}
+              {/* <Text style={tw` pl-2 text-white font-bold `}> {ProfileData[0].address} </Text> */}
             </View>
           </View>
 
@@ -206,10 +209,10 @@ const ProfileInfo = () => {
                   flexDirection: "row",
                 }}
               >
-                <Image
+                {/* <Image
                   style={{ height: 25, width: 25 }}
                   source={require("../../assets/Icons/phone.png")}
-                ></Image>
+                ></Image> */}
                 <View
                   style={{
                     backgroundColor: "transparent",
@@ -217,7 +220,7 @@ const ProfileInfo = () => {
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}>+216 28 344 175</Text>
+                  <Text style={tw` ml-6  text-black`}>{ProfileData.mobile_phone}</Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Mobile
                   </Text>
@@ -240,10 +243,10 @@ const ProfileInfo = () => {
                   flexDirection: "row",
                 }}
               >
-                <Image
+                {/* <Image
                   style={{ height: 25, width: 25 }}
                   source={require("../../assets/Icons/email.png")}
-                ></Image>
+                ></Image> */}
                 <View
                   style={{
                     backgroundColor: "transparent",
@@ -252,7 +255,7 @@ const ProfileInfo = () => {
                   }}
                 >
                   <Text style={tw`ml-6  text-black`}>
-                    mohamedsalah@gmail.com
+                  {ProfileData.email}
                   </Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Personal
@@ -277,7 +280,7 @@ const ProfileInfo = () => {
                 flexDirection: "row",
               }}
             >
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity style={styles.button} onPress = {()=>navigation.navigate("EditProfile")}>
                 <View
                   style={{
                     alignItems: "center",
@@ -285,14 +288,15 @@ const ProfileInfo = () => {
                     flexDirection: "row",
                   }}
                 >
-                  <Image
+                  {/* <Image
                     style={tw` mt-3 h-4 w-4`}
                     source={require("../../assets/Icons/edit.png")}
-                  />
-                  <Text style={tw`pt-3 pl-2  font-bold`}>Edit Profile</Text>
+                  /> */}
+                  
+                  <Text style={tw`pt-3 pl-2  font-bold`} >Edit Profile</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.button, { marginLeft: 20 }]}>
+              <TouchableOpacity style={[styles.button, { marginLeft: 20 }]} onPress={()=>navigation.navigate("createEvent")}>
                 <View
                   style={{
                     alignItems: "center",
@@ -300,10 +304,10 @@ const ProfileInfo = () => {
                     flexDirection: "row",
                   }}
                 >
-                  <Image
+                  {/* <Image
                     style={tw` mt-3 h-4 w-4`}
                     source={require("../../assets/Icons/plus.png")}
-                  />
+                  /> */}
                   <Text style={tw`pt-3 pl-2 font-bold`}>Create Event</Text>
                 </View>
               </TouchableOpacity>
@@ -327,7 +331,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/coach.png")}
+                    source={require("../../assets/images/coach3.png")}
                   />
                 </View>
                 <View
@@ -341,7 +345,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/Gym.png")}
+                    source={require("../../assets/images/gym.png")}
                   />
                 </View>
               </View>
@@ -362,7 +366,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/coach.png")}
+                    source={require("../../assets/images/coach3.png")}
                   />
                 </View>
                 <View
@@ -376,7 +380,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/Gym.png")}
+                    source={require("../../assets/images/gym.png")}
                   />
                 </View>
               </View>
@@ -397,7 +401,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/coach.png")}
+                    source={require("../../assets/images/coach3.png")}
                   />
                 </View>
                 <View
@@ -411,7 +415,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/Gym.png")}
+                    source={require("../../assets/images/gym.png")}
                   />
                 </View>
               </View>

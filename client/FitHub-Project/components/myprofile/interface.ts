@@ -1,4 +1,6 @@
 export interface Profile {
+  // address: String;
+  // image: String;
   id: number;
   first_name: string;
   last_name: string;
