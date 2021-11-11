@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -10,6 +11,7 @@ import {
 import tw from "tailwind-react-native-classnames";
 import { AirbnbRating } from "react-native-ratings";
 import { RouteProp } from "@react-navigation/native";
+import Map from "./Map"
 const Gym: React.FC<{
   route: RouteProp<
     {
@@ -28,7 +30,7 @@ const Gym: React.FC<{
     },
     "params"
   >;
-}> = ({ route: { params } }) => {
+}> = ({ route: { params  } }) :any => {
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
       <View style={{ width: "100%" }}>
@@ -91,10 +93,7 @@ const Gym: React.FC<{
           </Text>
         </View>
         <View style={{ width: "100%", height: 200, padding: 20 }}>
-          <Image
-            style={tw`w-full h-full`}
-            source={require("../../assets/images/map.png")}
-          />
+         <Map longi = {params.longitude} latit = {params.latitude} name = {params.gymName}/>
         </View>
       </View>
     </ScrollView>
