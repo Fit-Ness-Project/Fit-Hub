@@ -55,7 +55,7 @@ const ProfileInfo = () => {
               >
                 <Image
                   style={{ height: 25, width: 25 }}
-                  source={require("../../assets/Icons/weight.png")}
+                  source={require("../../assets/Icons/kg.png")}
                 ></Image>
                 <View
                   style={{
@@ -170,7 +170,7 @@ const ProfileInfo = () => {
                   borderColor: "#36e08b",
                   borderWidth: 1,
                 }}
-                source={require("../../assets/images/coach.png")}
+                source={require("../../assets/images/blogs1.png")}
               ></Avatar.Image>
             </TouchableOpacity>
             <View style={tw`mt-4 bg-transparent  flex-row`}>
@@ -182,7 +182,7 @@ const ProfileInfo = () => {
             <View style={tw`mt-4 bg-transparent flex-row`}>
               <Image
                 style={tw`w-4 h-4`}
-                source={require("../../assets/Icons/plasa.png")}
+                source={require("../../assets/images/blogs1.png")}
               />
               <Text style={tw` pl-2 text-white font-bold `}> ADDRESS </Text>
             </View>
@@ -327,7 +327,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/coach.png")}
+                    source={require("../../assets/images/blogs1.png")}
                   />
                 </View>
                 <View
@@ -341,7 +341,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/Gym.png")}
+                    source={require("../../assets/images/blogs1.png")}
                   />
                 </View>
               </View>
@@ -362,7 +362,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/coach.png")}
+                    source={require("../../assets/images/blogs1.png")}
                   />
                 </View>
                 <View
@@ -376,7 +376,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/Gym.png")}
+                    source={require("../../assets/images/gym.png")}
                   />
                 </View>
               </View>
@@ -397,7 +397,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/coach.png")}
+                    source={require("../../assets/images/blogs1.png")}
                   />
                 </View>
                 <View
@@ -411,7 +411,7 @@ const ProfileInfo = () => {
                 >
                   <Image
                     style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/Gym.png")}
+                    source={require("../../assets/images/gym.png")}
                   />
                 </View>
               </View>

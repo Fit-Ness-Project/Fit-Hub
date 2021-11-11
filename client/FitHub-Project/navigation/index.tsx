@@ -40,6 +40,7 @@ import Register from "../components/auth/register";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from '@react-navigation/stack';
 import EditProfile from "../components/myprofile/EditProfile";
+import ProfileInfo from "../components/myprofile/ProfileInfo"
 
 export default function Navigation({
   colorScheme,
@@ -94,6 +95,7 @@ function RootNavigator({ }) {
       <Stack.Screen name="Restaurant" component={Restaurant} />
       <Stack.Screen name="Healthy" component={Healthy} />
       <Stack.Screen name="EditProfile" component={EditProfile} />
+      <Stack.Screen name="myProfile" component={ProfileInfo} />
 
     </Stack.Navigator>
   );
@@ -153,7 +155,7 @@ export function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="myProfile"
-        component={myprofile}
+        component={ProfileInfo}
         options={{
           title: "",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,

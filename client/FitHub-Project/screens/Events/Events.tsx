@@ -8,6 +8,8 @@ import { RootTabScreenProps } from "../../types";
 import { useNavigation } from "@react-navigation/core";
 import { ScrollView } from "react-native-gesture-handler";
 import tw from "tailwind-react-native-classnames";
+import Footer from "../Footer/Footer";
+import { AirbnbRating } from "react-native-ratings";
 
 
 export default function Event({ }: RootTabScreenProps<'createEvent'>) {
@@ -30,50 +32,83 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
       });
   }, []);
 
-  const scrollToIndex = (index: number) => {
-    flatListRef.current?.scrollToIndex({ animated: true, index: index });
-  };
-  const renderItems: React.FC<{ item: Events }> = ({ item }) => {
-    return (
-      <View style={{ alignItems: "center" }}>
-        <Image source={{ uri: item.imageurl }} />
-        <Text > {item.eventName} </Text>
-        <Text> {item.description} </Text>
-        <Text > {item.adress} </Text>
-        <Text style={{color:'grey'}}> Date : {item.date} </Text>
+  // const scrollToIndex = (index: number) => {
+  //   flatListRef.current?.scrollToIndex({ animated: true, index: index });
+  // };
+  // const renderItems: React.FC<{ item: Events }> = ({ item }) => {
+  //   return (
+  //     <View style={{ alignItems: "center" }}>
+  //       <Image source={{ uri: item.imageurl }} />
+  //       <Text > {item.eventName} </Text>
+  //       <Text> {item.description} </Text>
+  //       <Text > {item.adress} </Text>
+  //       <Text style={{ color: 'grey' }}> Date : {item.date} </Text>
 
-        <TouchableOpacity
-         onPress ={()=>{}}
-       >  
-           <Text style={{backgroundColor:"#e7ff19"}}>Join This Event</Text>
-          </TouchableOpacity>
+  //       <TouchableOpacity
+  //         onPress={() => { }}
+  //       >
+  //         <Text style={{ backgroundColor: "#e7ff19" }}>Join This Event</Text>
+  //       </TouchableOpacity>
 
-      </View>
-    );
-  };
+  //     </View>
+  //   );
+  // };
 
   return (
-    <ScrollView>
-      {eventhData.map((item, k) => (
+    // <ScrollView>
+    //   {/* {eventhData.map((item, k) => ( */}
 
-        <><View style={tw`h-52 p-2 bg-white pl-4 pr-4 `} key={k}>
-          <TouchableOpacity >
-            <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri : item.imageurl}}>
-              <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
+    //     <><View style={tw`h-52 p-2 bg-white pl-4 pr-4 `} >
+    //       <TouchableOpacity >
+    //         <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/event.png")}>
+    //           <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
+    //             <View style={styles.view}>
+    //               <View style={styles.inview}>
+    //                 <View style={tw`h-10 items-center bg-transparent pt-1 `}>
+    //                 </View>
+    //               </View>
+    //             </View>
+    //           </View>
+    //         </ImageBackground>
+    //       </TouchableOpacity>
+
+    //       </View></>
+    //   {/* ))}  */}
+    // </ScrollView>
+    <View>
+      < ScrollView >
+        <View style={{ alignItems: "center", marginTop: 10, marginBottom: 60 }}>
+        <TouchableOpacity onPress={()=>navigation.navigate('Event')} >
+        {eventhData.map((item, k) => (
+
+          <View style={tw` h-36 mt-2 flex flex-row bg-white`} >
+            <View style={tw`w-3/6 h-full  items-center`} >
+              <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri:item.imageurl}}>
+              </ImageBackground>
+            </View>
+            <View style={tw`bg-white flex w-3/6 items-center`} >
+              <View style={tw`bg-transparent h-12 absolute inset-x-0 top-0 w-full`}>
                 <View style={styles.view}>
                   <View style={styles.inview}>
-                    <View style={tw`h-10 items-center bg-transparent pt-1 `}>
-                      <Text style={tw`text-white text-3xl pl-2 font-bold`}>{item.eventName}</Text>
+                    {/* <View style={tw`h-4 items-center bg-transparent pt-1 `}> */}
+                    <View style={{ flex: 1, padding: 1, backgroundColor: "transparent" }}>
+
+                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>{item.eventName}</Text>
                     </View>
                   </View>
                 </View>
               </View>
-            </ImageBackground>
+            </View>
+          </View>
+          ))}
           </TouchableOpacity>
-
-          </View></>
-       ))} 
-    </ScrollView>
+        </View>
+        
+      </ScrollView>
+      <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
+        <Footer />
+      </View>
+    </View>
   );
 }
 

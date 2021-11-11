@@ -5,7 +5,7 @@ import axios from "axios";
 import {
   StyleSheet,
   Dimensions,
-  ImageBackground, ScrollView
+  ImageBackground, ScrollView,TouchableOpacity 
 } from "react-native";
 import {
   Text,
@@ -20,6 +20,7 @@ import Footer from "../Footer/Footer";
 const screenWidth = Dimensions.get('screen').width;
 
 export default function Food() {
+  const navigation = useNavigation();
 
   return (
     <View>
@@ -27,6 +28,12 @@ export default function Food() {
         <View style={{ alignItems: "center", marginTop: 10, marginBottom: 60 }}>
 
           {/* {coachData.map((item, k) => ( */}
+       
+       
+            {/* <TouchableOpacity onPress={() =>
+            navigation.navigate("OneRecipe")
+          } > */}
+
 
           <View style={tw` h-36 mt-2 flex flex-row bg-white`} >
             <View style={tw`w-3/6 h-full  items-center`} >
@@ -82,6 +89,9 @@ export default function Food() {
             </View>
 
           </View>
+
+          {/* </TouchableOpacity>  */}
+
 
           <View style={tw` h-36 mt-2 flex flex-row bg-white`} >
             <View style={tw`w-3/6 h-full  items-center`} >
@@ -146,7 +156,6 @@ export default function Food() {
                   <View style={styles.inview}>
                     {/* <View style={tw`h-4 items-center bg-transparent pt-1 `}> */}
                     <View style={{ flex: 1, padding: 2, backgroundColor: "transparent" }}>
-
                       <Text style={{ fontSize: 14, color: "white", textAlign: "center", }}>Roasted teriyaki veg bowl</Text>
                     </View>
                   </View>

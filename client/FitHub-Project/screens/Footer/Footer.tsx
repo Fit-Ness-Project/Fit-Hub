@@ -11,7 +11,7 @@ export default function ChangeView({}) {
                 <TouchableOpacity
                 style={tw `w-10 bg-transparent ml-8 mt-1`}
             onPress={() => {
-              navigation.navigate("Food");
+              navigation.navigate("myProfile");
             }}
           >
             <View style={tw `bg-transparent `}>
