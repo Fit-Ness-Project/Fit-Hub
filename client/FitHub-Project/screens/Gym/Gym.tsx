@@ -11,6 +11,7 @@ import SideMenu from 'react-native-side-menu-updated'
 export default function GymScrean() {
 
   return (
+    
     <Gyms></Gyms>
 
 )
