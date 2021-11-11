@@ -14,6 +14,8 @@ import { AirbnbRating } from "react-native-ratings";
 import Footer from "../../screens/Footer/Footer";
 import tw from "tailwind-react-native-classnames";
 const screenWidth = Dimensions.get('screen').width;
+
+
 export default function Food() {
     return (
         <View>

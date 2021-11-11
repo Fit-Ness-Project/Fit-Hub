@@ -14,7 +14,7 @@ export default function ChangeView({}) {
       <ScrollView>
         <View style={{ marginTop: 10, marginBottom: 60 }}>
           <View style={tw`h-52 p-2 bg-white pl-4 pr-4`}>
-            <TouchableOpacity onPress={() => navigation.navigate("Gym")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Gyms")}>
               <ImageBackground
                 style={{ width: "100%", height: "100%" }}
                 source={require("../../../../assets/images/gym.png")}
