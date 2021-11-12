@@ -4,24 +4,23 @@ import axios from "axios";
 import tw from "tailwind-react-native-classnames";
 
 const EditProfile = () => {
-  const userId = 0;
-  function handelSubmit() {
-    axios
-      .patch(`http://localhost:5000/users/${userId}`, {
-        mobile_phone: Number(mobilePhone),
-        email: email,
-        hashed_password: Password,
-        weight: Number(weight),
-        height: Number(height),
-      })
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  }
-  let [mobilePhone, setmobilePhone] = useState("0");
-  let [email, setemail] = useState("");
-  let [Password, setPassword] = useState("");
-  let [weight, setweight] = useState("0");
-  let [height, setheight] = useState("0");
+    const userId = 6;
+    function handelSubmit () {
+    axios.patch(`https://fithub-tn-app.herokuapp.com/${userId}`,{
+      mobile_phone:mobilePhone,
+      email: email,
+      hashed_password:  Password,
+      weight:weight,
+      height:height
+    }).then((res)=>
+    console.log(res.data))
+    .catch((err)=>console.log(err))
+    }
+      let [mobilePhone, setmobilePhone] = useState('0')
+      let [email, setemail] = useState('')
+      let [Password,setPassword] = useState('')
+      let [weight,setweight]=useState('0')
+      let [height,setheight]=useState('0')
 
   return (
     <View style={tw` mt-10 w-4/5 ml-8 flex `}>
