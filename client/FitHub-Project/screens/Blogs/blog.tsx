@@ -11,7 +11,7 @@ import axios from 'axios'
 import Footer from "../../screens/Footer/Footer";
 
 export default function blog({ }) {
-    
+
     const [like, setLike]: any = useState(false)
     const likebut = [<TouchableOpacity onPress={() => { if (like === false) { setLike(true) } else { setLike(false) } }} >
         <Image style={{ width: 30, height: 30, left: 290 }} source={require("../../assets/Icons/heart.png")} />
