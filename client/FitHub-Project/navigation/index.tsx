@@ -25,12 +25,16 @@ import { createEvent } from "../screens/Events/createEvent"
 import Register from "../components/auth/register";
 import EditProfile from "../components/myprofile/EditProfile";
 import ProfileInfo from "../components/myprofile/ProfileInfo";
+import Gyms from "../components/Gyms/Gyms"
 
 export default function Navigation({
   colorScheme,
 }: {
   colorScheme: ColorSchemeName;
 }) {
+
+
+
 
   return (
     <NavigationContainer
@@ -64,7 +68,7 @@ function RootNavigator({ }) {
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Events" component={Event} />
       <Stack.Screen name="coach" component={Coach} />
-      <Stack.Screen name="Gymdescription" component={Gym} />
+      <Stack.Screen name="Gym" component={Gym} />
       <Stack.Screen name="bmi" component={Information} />
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="signUp" component={signUp} />
@@ -76,8 +80,12 @@ function RootNavigator({ }) {
       <Stack.Screen name="Healthy" component={Healthy} />
       <Stack.Screen name="ProfileInfo" component={ProfileInfo} />
       <Stack.Screen name="EditProfile" component={EditProfile} />
+      <Stack.Screen name="Gyms" component={Gyms} />
     </Stack.Navigator>
   );
 }
+
+
+
 
 
