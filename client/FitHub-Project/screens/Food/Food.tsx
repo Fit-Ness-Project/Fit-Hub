@@ -5,7 +5,7 @@ import axios from "axios";
 import {
   StyleSheet,
   Dimensions,
-  ImageBackground, ScrollView, TouchableOpacity
+  ImageBackground, ScrollView,TouchableOpacity 
 } from "react-native";
 import {
   Text,
@@ -65,8 +65,7 @@ return(
                   <View style={styles.inview}>
                     {/* <View style={tw`h-4 items-center bg-transparent pt-1 `}> */}
                     <View style={{ flex: 1, padding: 1, backgroundColor: "transparent" }}>
-
-                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>{e.recipeTitle}</Text>
+                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>Barbecued broccoli, cauliflower & halloumi</Text>
                     </View>
                   </View>
                 </View>
@@ -106,13 +105,8 @@ return(
                 </View>
               </View>
             </View>
-
           </View>
-          </TouchableOpacity>
-)})}
- 
         </View>
-
       </ScrollView>
     
       <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
@@ -123,7 +117,6 @@ return(
 
   )
 }
-
 
 const styles = StyleSheet.create({
 

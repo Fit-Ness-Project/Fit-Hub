@@ -63,6 +63,7 @@ export type RootStackParamList = {
   };
   Home: undefined;
   Events: undefined;
+  Event:undefined;
   bmi : undefined;
   Gym:{ 
  
@@ -117,6 +118,7 @@ export type RootTabParamList = {
   Coachs: undefined;
   Home: undefined;
   Events: undefined;
+  Event: undefined;
   bmi : undefined;
   login:undefined;
    signUp:undefined;
