@@ -24,6 +24,8 @@ useEffect(()=>{
     )
 
 },[])
+
+
   const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
   <View
     style={{
