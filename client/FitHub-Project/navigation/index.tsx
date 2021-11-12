@@ -33,9 +33,6 @@ export default function Navigation({
   colorScheme: ColorSchemeName;
 }) {
 
-
-
-
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
@@ -47,6 +44,7 @@ export default function Navigation({
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
 
 function RootNavigator({ }) {
 
@@ -84,6 +82,7 @@ function RootNavigator({ }) {
     </Stack.Navigator>
   );
 }
+
 
 
 

@@ -10,59 +10,80 @@ import tw from "tailwind-react-native-classnames";
 import { Text, View } from "../../components/Themed";
 import { Profile } from "./interface";
 import {  useNavigation } from '@react-navigation/native';
-
 const ProfileInfo = () => {
      const [ProfileData, setProfileData] = useState<any>([]);
      const navigation = useNavigation()
-
-const userId = 21;
+const userId = 6;
 console.log(setProfileData)
 useEffect(()=>{
     axios.get(`https://fithub-tn-app.herokuapp.com/users/${userId}`,{
     }).then((res)=>
     setProfileData(res.data)
-    
     )
     .catch((err)=>console.log(err)
     )
-},[]) 
 
-      const seemoreinfo = [ <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
-       
-      <View
+},[])
+  const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
+  <View
+    style={{
+      alignItems: "center",
+      marginTop: 20,
+      backgroundColor: "white",
+      width: "80%",
+      height: "auto",
+      flexDirection: "row",
+    }}
+  >
+    <Image
+      style={{ height: 25, width: 25 }}
+      source={require("../../assets/Icons/bmi.png")}
+    ></Image>
+    <View
       style={{
-        alignItems: "center",
-        marginTop: 20,
-        backgroundColor: "white",
-        width: "80%",
-        height: "auto",
-        flexDirection: "row",
+        backgroundColor: "transparent",
+        flexDirection: "column",
+        width: "100%",
       }}
-   
     >
-      <Image
-        style={{ height: 25, width: 25 }}
-        source={require("../../assets/Icons/bmi.png")}
-      ></Image>
-      <View
-        style={{
-          backgroundColor: "transparent",
-          flexDirection: "column",
-          width: "100%",
-        }}
-      >
 
-    <Text style={tw` ml-6  text-black`}>{ProfileData.bmi}</Text>
-    <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-      BMI
-    </Text>
+      <Text style={tw` ml-6  text-black`}></Text>
+      <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
+        BMI
+      </Text>
+    </View>
   </View>
-</View>
-
-</TouchableOpacity>,     
-    
-
+</TouchableOpacity>,      
 <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
+              <View
+                style={{
+                  alignItems: "center",
+                  marginTop: 20,
+                  backgroundColor: "white",
+                  width: "80%",
+                  height: "auto",
+                  flexDirection: "row",
+                }}
+              >
+                <Image
+                  style={{ height: 25, width: 25 }}
+                  source={require("../../assets/Icons/kg.png")}
+                ></Image>
+                <View
+                  style={{
+                    backgroundColor: "transparent",
+                    flexDirection: "column",
+                    width: "100%",
+                  }}
+                >
+                  <Text style={tw` ml-6  text-black`}></Text>
+                  <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
+                    Weight
+                  </Text>
+                </View>
+              </View>
+            </TouchableOpacity>,
+            <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
             <View
               style={{
                 alignItems: "center",
@@ -342,7 +363,6 @@ const styles = StyleSheet.create({
   },
   separatorOffset: {
     flex: 2,
-
     backgroundColor: "transparent",
   },
   separator: {

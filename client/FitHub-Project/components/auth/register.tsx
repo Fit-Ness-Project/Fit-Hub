@@ -20,31 +20,31 @@ import axios from "axios";
 
 export default function Register({}: RootTabScreenProps<"bmi">) {
   const navigation = useNavigation();
-  useKeepAwake();
-  const validationSchema = Yup.object().shape({
-    last: Yup.string().required("Last Name is required").label("Name"),
-    first: Yup.string().required("First Name is required").label("Name"),
-    number: Yup.string()
-      .typeError("That doesn't look like a phone number")
-      .required()
-      .matches(/^[0-9]+$/, "Must be only digits")
-      .min(8, "The phone number must be exactly 8 digits")
-      .max(8, "The phone number must be exactly 8 digits")
+  // useKeepAwake();
+  // const validationSchema = Yup.object().shape({
+  //   last: Yup.string().required("Last Name is required").label("Name"),
+  //   first: Yup.string().required("First Name is required").label("Name"),
+  //   number: Yup.string()
+  //     .typeError("That doesn't look like a phone number")
+  //     .required()
+  //     .matches(/^[0-9]+$/, "Must be only digits")
+  //     .min(8, "The phone number must be exactly 8 digits")
+  //     .max(8, "The phone number must be exactly 8 digits")
 
-      .required("A phone number is required"),
+  //     .required("A phone number is required"),
 
-    email: Yup.string()
-      .email("Please enter valid email")
-      .required("Email is required")
-      .label("Email"),
-    password: Yup.string()
-      .matches(/\w*[a-z]\w*/, "Password must have a small letter")
-      .matches(/\w*[A-Z]\w*/, "Password must have a capital letter")
-      .matches(/\d/, "Password must have a number")
-      .min(8, ({ min }) => `Password must be at least ${min} characters`)
-      .required("Password is required")
-      .label("Password"),
-  });
+  //   email: Yup.string()
+  //     .email("Please enter valid email")
+  //     .required("Email is required")
+  //     .label("Email"),
+  //   password: Yup.string()
+  //     .matches(/\w*[a-z]\w*/, "Password must have a small letter")
+  //     .matches(/\w*[A-Z]\w*/, "Password must have a capital letter")
+  //     .matches(/\d/, "Password must have a number")
+  //     .min(8, ({ min }) => `Password must be at least ${min} characters`)
+  //     .required("Password is required")
+  //     .label("Password"),
+  // });
 
   function handelSubmit() {
     console.log(firstName, lastName, email, mobilePhone, Password);
