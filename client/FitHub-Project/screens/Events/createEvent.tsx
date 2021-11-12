@@ -4,32 +4,26 @@ import tw from "tailwind-react-native-classnames";
 import axios from "axios";
 export const createEvent = () => {
   function handelSubmit ()  {
-    axios.post('http://localhost:5000/events',{
-        eventName:EventName,
-        adress:Adress,
-        description:Description,
-        date:date,
-        created_by:user,
-        id:id,
-        user_id:user_id,
-        created_at:created_at,
-        created_by_id:created_by_id,
-        imageurl:imageurl
-      }
-      ).then((res)=>
-      console.log(res.data))
-      .catch((err)=>console.log(err))
+    axios.post('https://fithub-tn-app.herokuapp.com/events',{
+      eventName:EventName,
+      adress:Adress,
+      description:Description,
+      date:date,
+      max_number:maxNumber,
+      imageUrl:imageUrl
     }
-  let [id, setid] = useState(0)
-  let [EventName, setEventName] = useState('')
-  let [user_id, setuser_id] = useState(0)
-  let [Adress, setAdress] = useState('')
-  let [Description, setDescription] = useState('')
-  let [date, setDate] = useState('')
-  let [user, setuser] = useState('')
-  let [created_at,setcreated_at] = useState('')
-  let [created_by_id,setcreated_by_id]= useState(0)
-  let [imageurl,setimageurl]=useState('')
+    ).then((res)=>
+    console.log(res.data))
+    .catch((err)=>console.log(err))
+  }
+  let [EventName, setEventName] = useState('');
+  let [Adress, setAdress] = useState('');
+  let [Description, setDescription] = useState('');
+  let [date, setDate] = useState('');
+  let [maxNumber,setmaxNumber]=useState('0');
+  let [imageUrl,SetimageUrl] = useState('');
+  
+  console.log(EventName,Adress,Description,maxNumber,imageUrl,date)
   return (
     <ImageBackground
     style={{ width: "100%", height: "100%",alignItems:"center" }}

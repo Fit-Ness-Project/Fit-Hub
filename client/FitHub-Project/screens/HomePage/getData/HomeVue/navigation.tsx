@@ -9,7 +9,7 @@ import signUp from "../../../../components/auth/register";
 import { createStackNavigator } from "@react-navigation/stack";
 import Restaurant from "../../../restaurants/restaurant";
 import { NavigationContainer } from "@react-navigation/native";
-
+import Gyms from "../../../../components/Gyms/Gyms";
 export enum AppScreens {
   ChangeView = "ChangeView",
   BlogScreen = "BlogScreen",
@@ -21,13 +21,14 @@ export enum AppScreens {
   signUp = "signUp",
   Restaurant = "Restaurant",
   ProfileInfo = "ProfileInfo",
+  Gyms = "Gyms"
 }
 
 export type AuthStackParamList = {
   ChangeView: undefined;
   BlogScreen: undefined;
   FoodScreen: undefined;
-  GymScreen: undefined;
+  Gyms: undefined;
   CoachScreen: undefined;
   EventScreen: undefined;
   Login: undefined;
@@ -45,7 +46,7 @@ const AuthFlowNavigator: React.FunctionComponent = () => {
         <AuthStack.Screen name={AppScreens.ChangeView} component={ChangeView} />
         <AuthStack.Screen name={AppScreens.FoodScreen} component={FoodScreen} />
         <AuthStack.Screen name={AppScreens.BlogScreen} component={BlogScreen} />
-        {/* <AuthStack.Screen name={AppScreens.GymScreen} component={GymScreen} /> */}
+        <AuthStack.Screen name={AppScreens.Gyms} component={Gyms} />
         <AuthStack.Screen
           name={AppScreens.CoachScreen}
           component={CoachScreen}

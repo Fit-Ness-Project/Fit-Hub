@@ -17,14 +17,13 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
-  const navigation = useNavigation();
   let flatListRef = useRef<FlatList<Event> | null>();
 
   const [eventhData, setEventData] = useState<Events[]>([]);
-
+console.log(eventhData)
   useEffect(() => {
     axios
-      .get("http://192.168.11.66:5000/events")
+      .get('https://fithub-tn-app.herokuapp.com/events')
 
       .then((response) => {
 
