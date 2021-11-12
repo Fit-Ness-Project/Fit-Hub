@@ -1,77 +1,79 @@
+
+
 import React, { useState } from "react";
-import { TextInput, Text, View, Button } from "react-native";
+import { TouchableOpacity, TextInput, Text, View, Button } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import axios from "axios";
 
 
 export const createEvent = () => {
   function handelSubmit ()  {
-    axios.post('https://fithub-tn-app.herokuapp.com/events',{
-      eventName:EventName,
-      adress:Adress,
-      description:Description,
-      date:date,
-      max_number:maxNumber,
-      imageUrl:imageUrl
+    axios.post('http://localhost:5000/events',{
+        eventName:EventName,
+        adress:Adress,
+        description:Description,
+        date:date,
+        created_by:user,
+        id:id,
+        user_id:user_id,
+        created_at:created_at,
+        created_by_id:created_by_id,
+        imageurl:imageurl
+      }
+      ).then((res)=>
+      console.log(res.data))
+      .catch((err)=>console.log(err))
     }
-    ).then((res)=>
-    console.log(res.data))
-    .catch((err)=>console.log(err))
-  }
-  let [EventName, setEventName] = useState('');
-  let [Adress, setAdress] = useState('');
-  let [Description, setDescription] = useState('');
-  let [date, setDate] = useState('');
-  let [maxNumber,setmaxNumber]=useState('0');
-  let [imageUrl,SetimageUrl] = useState('');
-  
-  console.log(EventName,Adress,Description,maxNumber,imageUrl,date)
+  let [id, setid] = useState(0)
+  let [EventName, setEventName] = useState('')
+  let [user_id, setuser_id] = useState(0)
+  let [Adress, setAdress] = useState('')
+  let [Description, setDescription] = useState('')
+  let [date, setDate] = useState('')
+  let [user, setuser] = useState('')
+  let [created_at,setcreated_at] = useState('')
+  let [created_by_id,setcreated_by_id]= useState(0)
+  let [imageurl,setimageurl]=useState('')
   return (
     <View style={tw` mt-10 w-4/5 ml-8 flex `}>
-      <Text>image</Text>
+      
       <TextInput
         style={tw`mt-4 rounded h-10 bg-white p-2 `}
-        placeholder="imageUrl"
-        value={imageUrl}
-        onChangeText={SetimageUrl}
+        placeholder="imageurl"
+        value={imageurl}
+        onChangeText={setimageurl}
       />
-        <Text>Event Name</Text>
-      <Text>Event Name</Text>
+     
       <TextInput
         style={tw`mt-4 rounded h-10 bg-white p-2 `}
         placeholder="EventName"
         value={EventName}
         onChangeText={setEventName}
       />
-      <Text>Description</Text>
+    
       <TextInput
         style={tw`mt-4 rounded h-10 bg-white p-2 `}
-        placeholder="Description"
+        placeholder="description"
         value={Description}
         onChangeText={setDescription}
       />
-      <Text>Date</Text>
+    
       <TextInput
         style={tw`mt-4 rounded h-10 bg-white p-2 `}
-        placeholder="Date"
+        placeholder="date"
         value={date}
         onChangeText={setDate}
       />
-      <Text>Adress</Text>
+   
       <TextInput
         style={tw`mt-4 rounded h-10 bg-white p-2 `}
-        placeholder="Adress"
-        value={Adress}
-        onChangeText={setAdress}
+        placeholder="user Name"
+        value={user}
+        onChangeText={setuser}
       />
-       <Text>maxNumber</Text>
-      <TextInput
-        style={tw`mt-4 rounded h-10 bg-white p-2 `}
-        placeholder="maxNumber"
-        value={maxNumber}
-        onChangeText={setmaxNumber}
-      />
+  
       <Button onPress={handelSubmit} title="Submit" />
+    
     </View>
   );
 };

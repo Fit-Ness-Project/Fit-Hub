@@ -72,6 +72,7 @@ export default function Gyms() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
