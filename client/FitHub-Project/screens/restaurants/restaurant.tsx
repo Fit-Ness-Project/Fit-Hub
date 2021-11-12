@@ -8,7 +8,7 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
- ScrollView,ImageBackground
+  ScrollView, ImageBackground
 } from "react-native";
 import {
   Text,
@@ -18,7 +18,7 @@ import { useNavigation } from '@react-navigation/core';
 import tw from "tailwind-react-native-classnames";
 import Footer from "../Footer/Footer";
 import { FontAwesome5 } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialIcons } from '@expo/vector-icons';
 
 const screenWidth = Dimensions.get('screen').width;
 
@@ -111,15 +111,15 @@ export default function Restaurant() {
                 </View>
               </View>
 
-              <View style={{ height: 50, width: "20%", flexDirection: "row",backgroundColor: "transparent",marginTop:36,marginLeft:28}}>
-              <MaterialIcons name="attach-money" size={20} color="black" />
-                <Text style={{ fontSize: 16,width:150,marginLeft:12}}>12.5 TND</Text>
+              <View style={{ height: 50, width: "20%", flexDirection: "row", backgroundColor: "transparent", marginTop: 36, marginLeft: 28 }}>
+                <MaterialIcons name="attach-money" size={20} color="black" />
+                <Text style={{ fontSize: 16, width: 150, marginLeft: 12 }}>12.5 TND</Text>
               </View>
-              <View style={{alignItems: "center",marginBottom:-112,marginLeft:-28}}>
-              <TouchableOpacity style={{ height: 32, width: 120,backgroundColor:"#36E08B",alignItems:"center",opacity:.7}}>
-                      <Text style={tw ` text-base `}>See more</Text>
-                      </TouchableOpacity>
-                      </View>
+              <View style={{ alignItems: "center", marginBottom: -112, marginLeft: -28 }}>
+                <TouchableOpacity style={{ height: 32, width: 120, backgroundColor: "#36E08B", alignItems: "center", opacity: .7 }}>
+                  <Text style={tw` text-base `}>See more</Text>
+                </TouchableOpacity>
+              </View>
               {/* <View style={{ position: 'absolute', bottom: 2, width: "95%", height: "35%" ,alignItems: "center",marginLeft:-56,backgroundColor: "transparent"}}>
 
                 <View style={{ height: "100%", width: "30%", bottom: 0, borderWidth: 1, borderColor: "#gray" }}>
