@@ -140,7 +140,7 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
           <View style={tw` text-black pt-6 w-4/5 ml-8`}>
             <TouchableOpacity
               onPress={() => {
-                handelSubmit(), navigation.navigate("bmi");
+                navigation.navigate("bmi");
               }}
               style={Styles.button}
             >
