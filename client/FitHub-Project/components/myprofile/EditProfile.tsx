@@ -32,7 +32,7 @@ const EditProfile = () => {
           onChangeText={setweight}
         />
           <Text>height</Text>
-        <Text>height</Text>
+   
         <TextInput
           style={tw`mt-4 rounded h-10 bg-white p-2 `}
           placeholder="height"
@@ -66,3 +66,4 @@ const EditProfile = () => {
 }
 
 export default EditProfile
+

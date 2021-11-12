@@ -73,7 +73,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
               >
                 <Image
                   style={{ height: 25, width: 25 }}
-                  source={require("../../assets/Icons/weight.png")}
+                  source={require("../../assets/Icons/kg.png")}
                 ></Image>
                 <View
                   style={{
@@ -82,7 +82,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}>{ProfileData.weight}</Text>
+                  <Text style={tw` ml-6  text-black`}></Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Weight
                   </Text>
@@ -103,7 +103,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
             >
               <Image
                 style={{ height: 25, width: 25 }}
-                source={require("../../assets/Icons/weight.png")}
+                source={require("../../assets/Icons/height.png")}
               ></Image>
               <View
                 style={{
@@ -112,7 +112,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   width: "100%",
                 }}
               >
-                <Text style={tw` ml-6  text-black`}>{ProfileData.height}</Text>
+                <Text style={tw` ml-6  text-black`}>  </Text>
                 <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                   Height
                 </Text>
@@ -178,10 +178,10 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
               ></Avatar.Image> */}
             </TouchableOpacity>
             <View style={tw`mt-4 bg-transparent flex-row`}>
-              {/* <Image
+               <Image
                 style={tw`w-4 h-4`}
                 source={require("../../assets/Icons/plasa.png")}
-              /> */}
+              />
               {/* <Text style={tw` pl-2 text-white font-bold `}> {item.address} </Text> */}
             </View>
           </View>
@@ -250,10 +250,10 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   }}
                 >
                   <Text style={tw`ml-6  text-black`}>
-                  {ProfileData.email}
+            
                   </Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-                    Personal
+                    Personal email
                   </Text>
                 </View>
               </View>
