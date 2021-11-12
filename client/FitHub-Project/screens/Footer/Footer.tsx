@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, TouchableOpacity } from "../../components/Themed";
+import { View, TouchableOpacity,Text } from "../../components/Themed";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -8,7 +8,8 @@ import { Ionicons } from '@expo/vector-icons';
 const  ChangeView = ({}) =>{
     const navigation = useNavigation()
     return (
-        <View style={tw `flex flex-row h-12 bg-gray-300 rounded`}>
+      // tw `flex flex-row h-12 bg-gray-300 rounded`
+        <View style={{flexDirection:"row",height:60,backgroundColor:"#e7ff19"}}>
                 <TouchableOpacity
                 style={tw `w-10 bg-transparent ml-8 mt-1`}
             onPress={() => {
@@ -17,6 +18,7 @@ const  ChangeView = ({}) =>{
           >
             <View style={tw `bg-transparent `}>
             <Ionicons name="person-circle" size={35} color="black"/>
+            <Text style={tw `w-24 -ml-1`}>Profile</Text>
             </View>
             </TouchableOpacity >
             <TouchableOpacity
@@ -27,6 +29,7 @@ const  ChangeView = ({}) =>{
           >
             <View style={tw `items-center bg-transparent`}>
             <FontAwesome5 name="home" size={35} color="black" />
+            <Text>Home</Text>
             </View>
             </TouchableOpacity>
             <TouchableOpacity
@@ -37,6 +40,8 @@ const  ChangeView = ({}) =>{
           >
             <View style={tw `items-center bg-transparent`}>
             <Ionicons name="people" size={35} color="black" />
+            <Text style={tw `w-24 ml-5`}>Community</Text>
+
             </View>
             </TouchableOpacity>
             
