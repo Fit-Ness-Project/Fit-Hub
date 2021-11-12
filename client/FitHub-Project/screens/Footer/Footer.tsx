@@ -9,7 +9,7 @@ const  ChangeView = ({}) =>{
     const navigation = useNavigation()
     return (
       // tw `flex flex-row h-12 bg-gray-300 rounded`
-        <View style={{flexDirection:"row",height:60,backgroundColor:"#e7ff19"}}>
+        <View style={{flexDirection:"row",height:60,backgroundColor:"#e7ff19",opacity: 0.7}}>
                 <TouchableOpacity
                 style={tw `w-10 bg-transparent ml-8 mt-1`}
             onPress={() => {

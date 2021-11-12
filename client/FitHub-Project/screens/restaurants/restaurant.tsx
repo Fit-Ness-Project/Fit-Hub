@@ -16,8 +16,10 @@ import {
 } from "../../components/Themed";
 import { useNavigation } from '@react-navigation/core';
 import tw from "tailwind-react-native-classnames";
-import { AirbnbRating } from "react-native-ratings";
 import Footer from "../Footer/Footer";
+import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons'; 
+
 const screenWidth = Dimensions.get('screen').width;
 
 export default function Restaurant() {
@@ -97,8 +99,8 @@ export default function Restaurant() {
               <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/dish1.jpg")}>
               </ImageBackground>
             </View>
-            <View style={tw`bg-white flex w-3/6 items-center`} >
-              <View style={tw`bg-transparent h-12 absolute inset-x-0 top-0 w-full`}>
+            <View style={tw`bg-white flex flex-row w-3/6 items-center`} >
+              <View style={tw`bg-transparent h-12 absolute inset-x-0 top-0 w-full items-center`}>
                 <View style={styles.view}>
                   <View style={styles.inview}>
                     {/* <View style={tw`h-4 items-center bg-transparent pt-1 `}> */}
@@ -109,17 +111,16 @@ export default function Restaurant() {
                 </View>
               </View>
 
-              <View style={{ backgroundColor: "transparent", position: 'absolute', top: 60 }}>
-                <AirbnbRating
-                  count={5}
-                  reviews={["1", "2", "3", "4", "5"]}
-                  defaultRating={100 / 2}
-                  size={12}
-                  showRating={false}
-                />
+              <View style={{ height: 50, width: "20%", flexDirection: "row",backgroundColor: "transparent",marginTop:36,marginLeft:28}}>
+              <MaterialIcons name="attach-money" size={20} color="black" />
+                <Text style={{ fontSize: 16,width:150,marginLeft:12}}>12.5 TND</Text>
               </View>
-
-              <View style={{ position: 'absolute', bottom: 2, width: "95%", height: "35%" }}>
+              <View style={{alignItems: "center",marginBottom:-112,marginLeft:-28}}>
+              <TouchableOpacity style={{ height: 32, width: 120,backgroundColor:"#36E08B",alignItems:"center",opacity:.7}}>
+                      <Text style={tw ` text-base `}>See more</Text>
+                      </TouchableOpacity>
+                      </View>
+              {/* <View style={{ position: 'absolute', bottom: 2, width: "95%", height: "35%" ,alignItems: "center",marginLeft:-56,backgroundColor: "transparent"}}>
 
                 <View style={{ height: "100%", width: "30%", bottom: 0, borderWidth: 1, borderColor: "#gray" }}>
                   <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
@@ -141,7 +142,7 @@ export default function Restaurant() {
                   </View>
                   <Text style={{ textAlign: "center", fontSize: 14 }}>14g</Text>
                 </View>
-              </View>
+              </View> */}
 
 
             </View>
