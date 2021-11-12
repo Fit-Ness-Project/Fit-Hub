@@ -24,6 +24,8 @@ useEffect(()=>{
     )
 
 },[])
+
+
   const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
   <View
     style={{
@@ -157,22 +159,22 @@ useEffect(()=>{
             }}
           >
             <TouchableOpacity>
-              {/* <Avatar.Image
+              <Avatar.Image
                 size={150}
                 style={{
                   marginTop: 60,
                   borderColor: "#36E08B",
                   borderWidth: 1,
                 }}
-                source={ProfileData[0].image}
-              ></Avatar.Image> */}
+                source={ProfileData[0]}
+              ></Avatar.Image>
             </TouchableOpacity>
-            {/* <View style={tw`mt-4 bg-transparent  flex-row`}>
+            <View style={tw`mt-4 bg-transparent  flex-row`}>
               <Text style={tw`text-white text-base font-bold `}>
                 {" "}
-               DESCRIPTION{" "}
+              USERNAME{" "}
               </Text>
-            </View> */}
+            </View>
             <View style={tw`mt-4 bg-transparent flex-row`}>
                <Image
                 style={tw`w-4 h-4`}
@@ -274,10 +276,10 @@ useEffect(()=>{
                     flexDirection: "row",
                   }}
                 >
-                  {/* <Image
+                  <Image
                     style={tw` mt-3 h-4 w-4`}
                     source={require("../../assets/Icons/edit.png")}
-                  /> */}
+                  />
                   <Text style={tw`pt-3 pl-2  font-bold`} >Edit Profile</Text>
                 </View>
               </TouchableOpacity>
@@ -289,18 +291,22 @@ useEffect(()=>{
                     flexDirection: "row",
                   }}
                 >
-                  {/* <Image
+                  <Image
                     style={tw` mt-3 h-4 w-4`}
                     source={require("../../assets/Icons/plus.png")}
-                  /> */}
+                  />
                   <Text style={tw`pt-3 pl-2 font-bold`}>Create Event</Text>
                 </View>
               </TouchableOpacity>
             </View>
             <View style={{ width: "100%", backgroundColor: "white" }}>
+              <View  style={[styles.button, { marginLeft: 90 }]}>
+            <Text>LOG OUT</Text>
+            </View>
             </View>
           </View>
         </View>
+        
       </ScrollView>
     </SafeAreaView>
       );
