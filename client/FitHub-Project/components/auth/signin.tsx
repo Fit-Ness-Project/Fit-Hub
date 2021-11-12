@@ -8,11 +8,12 @@ import * as Yup from 'yup';
 import * as _ from "lodash";
 import * as Google from 'expo-google-app-auth';
 import { LogBox } from 'react-native';
-import { useKeepAwake } from 'expo-keep-awake';
+// import { useKeepAwake } from 'expo-keep-awake';
 import { RootTabScreenProps } from "../../types";
 import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 LogBox.ignoreLogs(['Remote debugger']);
@@ -47,6 +48,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
   });
 
 
+  
   const handleGoogleSignIn = () => {
     setGoogleSubmitting(true);
     const config = {
@@ -54,6 +56,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
       androidClientId: `196418584285-13csvmvh90m2bbl7aiqmqg654vhbtf0o.apps.googleusercontent.com`,
       scopes: ["profile", "email"],
     };
+
 
 
     Google.logInAsync(config)
@@ -64,7 +67,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
           handleMessage("Google sign in successful", "SUCCESS");
           setTimeout(
             () => navigation.navigate("Home"),
-            10000
+            10
           );
         } else {
           handleMessage("Google signin was cancelled");
@@ -79,47 +82,71 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
   };
 
 
+
   const handleMessage = (message: string, type: MessageType = 'FAILED') => {
     setMessage(message);
     setMessageType(type);
   }
 
 
+  const handleLogin = (credentials: { email: string; password: string; }) => {
+    console.log("credentials", credentials)
 
-
-  const handleLogin = (credentials: { email: string; password: string; }, setSubmitting: { (isSubmitting: boolean): void; (arg0: boolean): void; }) => {
-    console.log("credentials",credentials)
-    handleMessage("null")
     axios.post('http://192.168.11.104:5000/customer/login', credentials)
-      .then((response) => {
-        AsyncStorage.setItem('Token', response.data.Token).then(() => {
-          const result = response.data
-          console.log('result:', result)
-          const { message, status, data } = result
+      .then((res) => {
+        console.log("token", res.data.Token)
+        AsyncStorage.setItem('Token', res.data.Token)
+        const result = res.data
+        const { message, status, data } = result
+        if (status === "SUCCESS") {
 
-          if (status !== "SUCCESS") {
-            handleMessage(message, status)
-            setSubmitting(false)
-          } else {
-            setSubmitting(true)
-            navigation.navigate('Home', data[0] )
-          }     
-        })
-      })
-      .catch((err: any) => {
-        console.log(err);
-        setSubmitting(false)
-        handleMessage("Try Again")
-      })
+          navigation.navigate('Home', data[0])
+
+        } else {
+          handleMessage(message, status)
+          console.log("errrrrrrrrrrr")
+        }
+
+
+      
+
+      }).catch(err => console.log(err))
+
+
+
+    //   .then((response) => {
+    //     AsyncStorage.setItem('Token', response.data.Token)
+    //       .then(() => {
+    //         const result = response.data
+    //        
+
+    //         const { message, status, data } = result
+
+    //         if (status === "SUCCESS") {
+
+    //           navigation.navigate('Home', data[0])
+
+    //         } else {
+    //           handleMessage(message, status)
+
+    //         }
+    //       })
+    //   })
+    //   .catch((err: any) => {
+    //     console.log(err);
+
+    //     handleMessage("Try Again")
+    //   })
   }
+
 
   return (
     <Formik
       initialValues={{ email: '', password: "" }}
-      //  validationSchema={validationSchema}
+      // validationSchema={validationSchema}
 
       onSubmit={(values, { setSubmitting }) => {
-        console.log("values:",values);
+        console.log("values:", values);
 
         if (values.email == '' || values.password == '') {
 
@@ -128,12 +155,13 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
         } else {
 
-          handleLogin(values, setSubmitting)
-         navigation.navigate('Home')
+          handleLogin(values)
+           navigation.navigate('Home')
         }
       }}
 
     >
+      
       {({ handleChange, handleBlur, handleSubmit, isSubmitting, values, errors, touched }) => (
         <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
 
@@ -181,7 +209,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
               {!isSubmitting &&
 
                 <TouchableOpacity
-                  onPress={()=>handleSubmit()}
+                  onPress={() => handleSubmit()}
                   // onPress={() => navigation.navigate("Home")}
                   style={Styles.button}
                 >

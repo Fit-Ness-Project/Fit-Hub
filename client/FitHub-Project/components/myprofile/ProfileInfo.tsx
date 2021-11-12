@@ -22,6 +22,7 @@ useEffect(()=>{
     )
     .catch((err)=>console.log(err)
     )
+
 },[])
   const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
   <View
@@ -45,6 +46,7 @@ useEffect(()=>{
         width: "100%",
       }}
     >
+
       <Text style={tw` ml-6  text-black`}></Text>
       <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
         BMI
@@ -145,6 +147,7 @@ useEffect(()=>{
       <SafeAreaView>
       <ScrollView>
         <View style={tw` h-full w-full bg-white  items-center`}>
+
           <View
             style={{
               width: "100%",

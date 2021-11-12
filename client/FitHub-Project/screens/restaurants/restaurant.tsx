@@ -14,13 +14,19 @@ import {
   Text,
   View
 } from "../../components/Themed";
+
+
+
 import { useNavigation } from '@react-navigation/core';
 import tw from "tailwind-react-native-classnames";
 import Footer from "../Footer/Footer";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
+
 const screenWidth = Dimensions.get('screen').width;
+
+
 
 export default function Restaurant() {
   let flatListRef = useRef<FlatList<RestaurantR> | null>();
@@ -29,6 +35,8 @@ export default function Restaurant() {
   const [searchData, setSearchData] = useState<RestaurantR[]>([]);
   const navigation = useNavigation()
 
+  
+  
   useEffect(() => {
     axios
       .get('http://192.168.11.64:5000/restaurants')
@@ -37,6 +45,7 @@ export default function Restaurant() {
         console.log(response.data)
         setFoodData(response.data)
         setSearchData(response.data)
+
       })
       .catch((error) => {
         console.log(error);
@@ -118,6 +127,7 @@ export default function Restaurant() {
               <View style={{ alignItems: "center", marginBottom: -112, marginLeft: -28 }}>
                 <TouchableOpacity style={{ height: 32, width: 120, backgroundColor: "#36E08B", alignItems: "center", opacity: .7 }}>
                   <Text style={tw` text-base `}>See more</Text>
+
                 </TouchableOpacity>
               </View>
             </View>
