@@ -4,14 +4,14 @@ import axios from 'axios';
 import tw from 'tailwind-react-native-classnames';
  
 const EditProfile = () => {
-    const userId = 0;
+    const userId = 6;
     function handelSubmit () {
-    axios.patch(`http://localhost:5000/users/${userId}`,{
-      mobile_phone:Number(mobilePhone),
+    axios.patch(`https://fithub-tn-app.herokuapp.com/${userId}`,{
+      mobile_phone:mobilePhone,
       email: email,
       hashed_password:  Password,
-      weight:Number(weight),
-      height:Number(height)
+      weight:weight,
+      height:height
     }).then((res)=>
     console.log(res.data))
     .catch((err)=>console.log(err))
@@ -32,7 +32,7 @@ const EditProfile = () => {
           onChangeText={setweight}
         />
           <Text>height</Text>
-        <Text>height</Text>
+   
         <TextInput
           style={tw`mt-4 rounded h-10 bg-white p-2 `}
           placeholder="height"
@@ -66,3 +66,4 @@ const EditProfile = () => {
 }
 
 export default EditProfile
+
