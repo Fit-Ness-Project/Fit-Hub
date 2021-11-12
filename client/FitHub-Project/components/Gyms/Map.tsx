@@ -3,12 +3,11 @@ import * as React from "react";
 import * as Location from "expo-location";
 import { Gym } from "./Gyminterface";
 import axios from "axios";
-// import { View } from '../components/Themed';
-// import MapView from 'react-native-maps';
+
 import MapView, { Callout, Circle, Marker } from "react-native-maps";
 import { StyleSheet, Text, View, Dimensions, FlatList } from "react-native";
 import { ActivityIndicator } from "react-native";
-export default function TabOneScreen({longi,latit,name} :any) {
+export default function TabOneScreen({ longi, latit, name }: any) {
   const [GymData, setGymData] = useState<Gym[]>([]);
   useEffect(() => {
     axios
@@ -35,18 +34,18 @@ export default function TabOneScreen({longi,latit,name} :any) {
         setErrorMsg("Permission to access location was denied");
         return;
       }
-      
+
       let position = await Location.getCurrentPositionAsync({});
       const { longitude, latitude } = position.coords;
       setLocation({
         longitude,
         latitude,
-        latitudeDelta:0.0181,
+        latitudeDelta: 0.0181,
         longitudeDelta: 0.0181,
       });
     })();
   }, []);
-  
+
   let text = "Waiting..";
   if (errorMsg) {
     text = errorMsg;
@@ -56,30 +55,28 @@ export default function TabOneScreen({longi,latit,name} :any) {
   const a = Number(longi);
   const b = Number(latit);
 
-  return location.longitude,location.latitude ? (
-    <View style={styles.container}>
-      <MapView
-        style={styles.map}
-        initialRegion={location}
-        provider="google"
-        showsUserLocation
-      >
+  return (
+    location.longitude,
+    location.latitude ? (
+      <View style={styles.container}>
+        <MapView
+          style={styles.map}
+          initialRegion={location}
+          provider="google"
+          showsUserLocation
+        >
+          <Marker coordinate={{ latitude: b, longitude: a }}>
+            <Callout>
+              <Text>{name}</Text>
+            </Callout>
+          </Marker>
 
-     
-
-            <Marker  coordinate={{ latitude:b, longitude: a }}>
-              <Callout>
-                <Text>{name}</Text>
-              </Callout>
-            </Marker>
-
-
-
-        <Circle center={location} radius={3000} />
-      </MapView>
-    </View>
-  ) : (
-    <ActivityIndicator style={{ flex: 1 }} animating size="large" />
+          <Circle center={location} radius={3000} />
+        </MapView>
+      </View>
+    ) : (
+      <ActivityIndicator style={{ flex: 1 }} animating size="large" />
+    )
   );
 }
 const styles = StyleSheet.create({

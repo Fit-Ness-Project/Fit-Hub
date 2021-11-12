@@ -6,7 +6,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { Gym } from "./Gyminterface";
@@ -30,45 +30,59 @@ export default function Gyms() {
       });
   }, []);
   return (
-<View>
-    <ScrollView style={{ backgroundColor: "white" }}>
-      <View style={{ alignItems: "center", marginTop: 10, marginBottom: 50 }}>
-      {GymData.map((e, k) => (
-        <View key={k} style={tw`h-52 w-full p-2 bg-transparent  `} >
-          <TouchableOpacity onPress={() =>
-            navigation.navigate("Gym", {
-              gymName: e.gymName,
-              imgUrl: e.imgUrl,
-              rating: e.rating,
-              description: e.description,
-              fields: e.fields,
-              price: e.price,
-              latitude: e.latitude,
-              longitude: e.longitude,
-              phoneNumber: e.phoneNumber,
-              adress: e.adress,
-            })
-          } >
-            <ImageBackground style={{ width: "100%", height: "100%" }} source={{ uri: e.imgUrl }}>
-              <View style={tw`bg-transparent h-16 absolute inset-x-0 bottom-16  w-full`}>
-                <View style={styles.view}>
-                  <View style={styles.inview}>
-                    <Image style={tw` w-10 h-10  `} source={require("../../assets/Icons/gym1.png")} />
-                    <View style={tw`h-10 items-center bg-transparent pt-1 `}>
-                      <Text style={tw`text-black text-3xl pl-2 font-bold`}>{e.gymName}</Text>
+    <View>
+      <ScrollView style={{ backgroundColor: "white" }}>
+        <View style={{ alignItems: "center", marginTop: 10, marginBottom: 50 }}>
+          {GymData.map((e, k) => (
+            <View key={k} style={tw`h-52 w-full p-2 bg-transparent  `}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("Gym", {
+                    gymName: e.gymName,
+                    imgUrl: e.imgUrl,
+                    rating: e.rating,
+                    description: e.description,
+                    fields: e.fields,
+                    price: e.price,
+                    latitude: e.latitude,
+                    longitude: e.longitude,
+                    phoneNumber: e.phoneNumber,
+                    adress: e.adress,
+                  })
+                }
+              >
+                <ImageBackground
+                  style={{ width: "100%", height: "100%" }}
+                  source={{ uri: e.imgUrl }}
+                >
+                  <View
+                    style={tw`bg-transparent h-16 absolute inset-x-0 bottom-16  w-full`}
+                  >
+                    <View style={styles.view}>
+                      <View style={styles.inview}>
+                        <Image
+                          style={tw` w-10 h-10  `}
+                          source={require("../../assets/Icons/gym1.png")}
+                        />
+                        <View
+                          style={tw`h-10 items-center bg-transparent pt-1 `}
+                        >
+                          <Text style={tw`text-black text-3xl pl-2 font-bold`}>
+                            {e.gymName}
+                          </Text>
+                        </View>
+                      </View>
                     </View>
                   </View>
-                </View>
-              </View>
-            </ImageBackground>
-          </TouchableOpacity>
-        </View>
-      ))}
-      </View>
-    </ScrollView>
-    <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
-                <Footer/>
+                </ImageBackground>
+              </TouchableOpacity>
             </View>
+          ))}
+        </View>
+      </ScrollView>
+      <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+        <Footer />
+      </View>
     </View>
   );
 }
@@ -93,12 +107,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     padding: 10,
-    opacity: .7
+    opacity: 0.7,
   },
   inview: {
     backgroundColor: "transparent",
     flexDirection: "row",
     height: "100%",
     alignItems: "center",
-  }
+  },
 });

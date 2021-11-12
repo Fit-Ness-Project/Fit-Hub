@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { ScrollView ,StyleSheet ,Text,Image,  FlatList, View , TouchableOpacity, TextInput, Dimensions} from 'react-native';
- import { Avatar, Button, Card, Title, Paragraph,Colors } from 'react-native-paper';
+import {StyleSheet ,Text,Image, View , Dimensions} from 'react-native';
+
  import tw from "tailwind-react-native-classnames"
 
-
- 
 
 const viewConfigRef = {viewAreaCoveragePercentTreshold:95}
 

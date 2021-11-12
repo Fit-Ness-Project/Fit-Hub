@@ -17,18 +17,31 @@ import { AirbnbRating } from "react-native-ratings";
 import Footer from "../Footer/Footer";
 
 
-const screenWidth = Dimensions.get('screen').width;
 
+const screenWidth = Dimensions.get('screen').width;
 export default function Food() {
+  const [FoodData, setFoodData] = useState<FoodR[]>([]);
+  useEffect(() => {
+    axios
+      .get("https://fithub-tn-app.herokuapp.com/recipes")
+      .then((response) => {
+        setFoodData(response.data);
+      })
+      .catch((Error) => {
+        console.log(Error);
+      });
+  }, []);
 
   return (
    <View>
     < ScrollView >
       <View style={{ alignItems: "center", marginTop: 10, marginBottom: 60 }}>
+{FoodData.map((e,k)=>{
+return(
 
-       <View style={tw` h-36 mt-2 flex flex-row bg-white`} >
+       <View key = {k} style={tw` h-36 mt-2 flex flex-row bg-white`} >
             <View style={tw`w-3/6 h-full  items-center`} >
-              <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/dish1.jpg")}>
+              <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri:e.imageUrl}}>
               </ImageBackground>
             </View>
             <View style={tw`bg-white flex w-3/6 items-center`} >
@@ -38,7 +51,7 @@ export default function Food() {
                     {/* <View style={tw`h-4 items-center bg-transparent pt-1 `}> */}
                     <View style={{ flex: 1, padding: 1, backgroundColor: "transparent" }}>
 
-                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>Barbecued broccoli, cauliflower & halloumi</Text>
+                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>{e.recipeTitle}</Text>
                     </View>
                   </View>
                 </View>
@@ -60,34 +73,35 @@ export default function Food() {
                   <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
                     <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>Kcal</Text>
                   </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>492</Text>
+                  <Text style={{ textAlign: "center", fontSize: 14 }}>{e.kcal}</Text>
                 </View>
 
                 <View style={{ height: "100%", width: "30%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>
                   <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
                     <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>fat</Text>
                   </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>31g</Text>
+                  <Text style={{ textAlign: "center", fontSize: 14 }}>{e.fat}g</Text>
                 </View>
 
                 <View style={{ height: "100%", width: "30%", left: 124, bottom: 100, borderWidth: 1, borderColor: "#gray" }}>
                   <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
                     <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>carbs</Text>
                   </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>14g</Text>
+                  <Text style={{ textAlign: "center", fontSize: 14 }}>{e.carb}g</Text>
                 </View>
               </View>
             </View>
 
           </View>
-      
+)})}
+ 
         </View>
 
       </ScrollView>
-{/*     
+    
       <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
         <Footer />
-      </View> */}
+      </View>
     </View>
     
 
