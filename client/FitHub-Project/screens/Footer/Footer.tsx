@@ -4,12 +4,14 @@ import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const  ChangeView = ({}) =>{
     const navigation = useNavigation()
     return (
       // tw `flex flex-row h-12 bg-gray-300 rounded`
-        <View style={{flexDirection:"row",height:60,backgroundColor:"#e7ff19",opacity: 0.7}}>
+      <SafeAreaView>
+        <View style={{flexDirection:"row",height:52,backgroundColor:"black",opacity: 0.9}}>
                 <TouchableOpacity
                 style={tw `w-10 bg-transparent ml-8 mt-1`}
             onPress={() => {
@@ -17,8 +19,8 @@ const  ChangeView = ({}) =>{
             }}
           >
             <View style={tw `bg-transparent `}>
-            <Ionicons name="person-circle" size={35} color="black"/>
-            <Text style={tw `w-24 -ml-1`}>Profile</Text>
+            <Ionicons name="person-circle" size={24} color="#e7ff19"/>
+            <Text style={tw `w-24 -ml-1 text-white`}>Profile</Text>
             </View>
             </TouchableOpacity >
             <TouchableOpacity
@@ -28,8 +30,8 @@ const  ChangeView = ({}) =>{
             }}
           >
             <View style={tw `items-center bg-transparent`}>
-            <FontAwesome5 name="home" size={35} color="black" />
-            <Text>Home</Text>
+            <FontAwesome5 name="home" size={24} color="#e7ff19" />
+            <Text style={tw `text-white`}>Home</Text>
             </View>
             </TouchableOpacity>
             <TouchableOpacity
@@ -39,13 +41,14 @@ const  ChangeView = ({}) =>{
             }}
           >
             <View style={tw `items-center bg-transparent`}>
-            <Ionicons name="people" size={35} color="black" />
-            <Text style={tw `w-24 ml-5`}>Community</Text>
+            <Ionicons name="people" size={24} color="#e7ff19" />
+            <Text style={tw `w-24 ml-5 text-white`}>Community</Text>
 
             </View>
             </TouchableOpacity>
             
         </View>
+        </SafeAreaView>
     )
 }
 

@@ -213,4 +213,3 @@ const styles = StyleSheet.create({
     body: { flex: 10, justifyContent: 'center', alignItems: 'center', backgroundColor: 'yellow' },
     footer: { flex: 1, backgroundColor: 'cyan' }
     })
-    
