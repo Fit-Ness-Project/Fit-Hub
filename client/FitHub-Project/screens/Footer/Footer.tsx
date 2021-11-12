@@ -10,8 +10,7 @@ const ChangeView = ({ }) => {
   const navigation = useNavigation()
   return (
     // tw `flex flex-row h-12 bg-gray-300 rounded`
-    <SafeAreaView>
-      <View style={{ flexDirection: "row", height: 52, backgroundColor: "black", opacity: 0.9 }}>
+      <View style={{ flexDirection: "row", height: 60, backgroundColor: "black", opacity: 0.9 }}>
         <TouchableOpacity
           style={tw`w-10 bg-transparent ml-8 mt-1`}
           onPress={() => {
@@ -48,7 +47,6 @@ const ChangeView = ({ }) => {
         </TouchableOpacity>
 
       </View>
-    </SafeAreaView>
   )
 }
 
