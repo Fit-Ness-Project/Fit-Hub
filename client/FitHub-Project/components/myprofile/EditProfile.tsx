@@ -6,10 +6,10 @@ import tw from 'tailwind-react-native-classnames';
 const EditProfile = () => {
     const userId = 6;
     function handelSubmit () {
-    axios.patch(`https://fithub-tn-app.herokuapp.com/${userId}`,{
+    axios.patch(`https://fithub-tn-app.herokuapp.com/users${userId}`,{
       mobile_phone:mobilePhone,
       email: email,
-      hashed_password:  Password,
+      hashed_password:Password,
       weight:weight,
       height:height
     }).then((res)=>
@@ -19,8 +19,8 @@ const EditProfile = () => {
       let [mobilePhone, setmobilePhone] = useState('0')
       let [email, setemail] = useState('')
       let [Password,setPassword] = useState('')
-      let [weight,setweight]=useState('0')
-      let [height,setheight]=useState('0')
+      let [weight,setweight]=useState('')
+      let [height,setheight]=useState('')
 
     return (
         <View style={tw` mt-10 w-4/5 ml-8 flex `}>
