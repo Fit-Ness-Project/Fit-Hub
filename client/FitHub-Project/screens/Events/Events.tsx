@@ -106,100 +106,67 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
     //       ))}
     //       </TouchableOpacity>
     //     </View>
-        
+
     //   </ScrollView>
     //   <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
     //     <Footer />
     //   </View>
     // </View>
     <View>
-    < ScrollView style={tw `bg-gray-200`}>
-       <View style={{ alignItems:"center",marginTop:10,marginBottom:10,marginLeft:15, marginRight:15,backgroundColor:"red"}}>
-          <View style={{ height:365,width:380, backgroundColor:"white",alignItems:"center"}}>
-          <ImageBackground style={{ width: 360, height: 150,marginTop:10, marginBottom:10}} source={require("../../assets/images/diets3.png")}>
-          </ImageBackground>
-          <View style={{alignItems:"center", position:"absolute",backgroundColor:"transparent", marginTop:60}}>
-          <View style={{alignItems:"center", backgroundColor:"black", height:50,opacity:.7,width:360}}>
-                <Text style={tw `text-2xl font-bold text-white mt-2`}>
+      < ScrollView style={tw`bg-gray-200`}>
+        {/* <View style={{ alignItems: "center", marginTop: 10, marginBottom: 10, marginLeft: 15, marginRight: 15, backgroundColor: "red" }}>
+          <View style={{ height: 365, width: 380, backgroundColor: "white", alignItems: "center" }}>
+            <ImageBackground style={{ width: 360, height: 150, marginTop: 10, marginBottom: 10 }} source={require("../../assets/images/diets3.png")}>
+            </ImageBackground>
+            <View style={{ alignItems: "center", position: "absolute", backgroundColor: "transparent", marginTop: 60 }}>
+              <View style={{ alignItems: "center", backgroundColor: "black", height: 50, opacity: .7, width: 360 }}>
+                <Text style={tw`text-2xl font-bold text-white mt-2`}>
                   Yoga
                 </Text>
               </View >
-                    <TouchableOpacity style={{ height: 50, width: 200,backgroundColor:"#36E08B",marginTop:15,alignItems:"center",opacity:.7}}>
-                      <Text style={tw ` mt-2 text-2xl `}>Join</Text>
-                      </TouchableOpacity>
-              </View>
-              <View style={tw `flex flex-row mt-2 mr-12`}>
-
-              <View style={{ height: 50, width: "20%", flexDirection: "row"}}>
-              <FontAwesome5 name="map-marker-alt" size={16} color="#36E08B" />
-                <Text style={{ fontSize: 14,marginLeft:4,width:180 }}>LOCATION HERE</Text>
-              </View>
-
-              </View>
-              <View style={tw `flex flex-row mt-2 mr-12`}>
-
-              <View style={{ height: 50, width: "20%", flexDirection: "row",marginLeft:20}}>
-              <FontAwesome5 name="phone-square" size={16} color="#36E08B" />
-                <Text style={{ textAlign: "center", fontSize: 14,marginLeft:4,width:70 }}>23456788</Text>
-              </View> 
-
-              <View style={{ height: 50, width: "30%", flexDirection: "row",marginLeft: 20 }}>
-              <MaterialIcons name="date-range" size={16} color="#36E08B" />
-                <Text style={tw `ml-1 text-black`}>
-                 20/21/9999
-                </Text>
-              </View> 
-                            </View> 
-
-                      
-             
-            
+              <TouchableOpacity style={{ height: 50, width: 200, backgroundColor: "#36E08B", marginTop: 15, alignItems: "center", opacity: .7 }}>
+                <Text style={tw` mt-2 text-2xl `}>Join</Text>
+              </TouchableOpacity>
             </View>
+            <View style={tw`flex flex-row mt-2 mr-12`}>
+
+              <View style={{ height: 50, width: "20%", flexDirection: "row" }}>
+                <FontAwesome5 name="map-marker-alt" size={16} color="#36E08B" />
+                <Text style={{ fontSize: 14, marginLeft: 4, width: 180 }}>LOCATION HERE</Text>
+              </View>
+
             </View>
+            <View style={tw`flex flex-row mt-2 mr-12`}>
 
-
-
-
-
-
-
-            <View style={{ alignItems:"center",marginTop:10,marginBottom:10,marginLeft:15, marginRight:15,backgroundColor:"red"}}>
-          <View style={{ height:365,width:380, backgroundColor:"white",alignItems:"center"}}>
-          <ImageBackground style={{ width: 360, height: 150,marginTop:10, marginBottom:10}} source={require("../../assets/images/diets3.png")}>
-          </ImageBackground>
-          <View style={{alignItems:"center", position:"absolute",backgroundColor:"transparent", marginTop:60}}>
-          <View style={{alignItems:"center", backgroundColor:"black", height:50,opacity:.7,width:360}}>
-                <Text style={tw `text-2xl font-bold text-white mt-2`}>
-                  Yoga
-                </Text>
-              </View >
-                    <TouchableOpacity style={{ height: 50, width: 200,backgroundColor:"#36E08B",marginTop:15,alignItems:"center",opacity:.7}}>
-                      <Text style={tw ` mt-2 text-2xl `}>Join</Text>
-                      </TouchableOpacity>
+              <View style={{ height: 50, width: "20%", flexDirection: "row", marginLeft: 20 }}>
+                <FontAwesome5 name="phone-square" size={16} color="#36E08B" />
+                <Text style={{ textAlign: "center", fontSize: 14, marginLeft: 4, width: 70 }}>23456788</Text>
               </View>
-              <View style={tw `flex flex-row mt-2 mr-12`}>
-              <View style={{ height: 50, width: "20%", flexDirection: "row"}}>
-              <FontAwesome5 name="map-marker-alt" size={16} color="#36E08B" />
-                <Text style={{ fontSize: 14,marginLeft:4,width:180 }}>Mohamed 3li ben 8dhehom balhwen</Text>
-              </View>
-              <View style={{ height: 50, width: "20%", flexDirection: "row",marginLeft:150}}>
-              <FontAwesome5 name="phone-square" size={16} color="#36E08B" />
-                <Text style={{ textAlign: "center", fontSize: 14,marginLeft:4,width:70 }}>23456788</Text>
-              </View>          
-              </View>
-              <View style={{ flexDirection:"row", marginRight:280}}>
-              <MaterialIcons name="date-range" size={16} color="#36E08B" />
-                <Text style={tw `ml-1 text-black`}>
-                 Infos
+
+              <View style={{ height: 50, width: "30%", flexDirection: "row", marginLeft: 20 }}>
+                <MaterialIcons name="date-range" size={16} color="#36E08B" />
+                <Text style={tw`ml-1 text-black`}>
+                  20/21/9999
                 </Text>
               </View>
             </View>
-            </View>
-    </ScrollView>
-    <View style={{position: 'absolute',bottom: -20,width:"100%"}}>
-    <Footer />
+          </View>
+        </View> */}
+<View>
+  
+</View>
+
+
+
+      </ScrollView>
+
+
+
+
+      {/* <View style={{ position: 'absolute', bottom: -20, width: "100%" }}>
+        <Footer />
+      </View> */}
     </View>
-     </View>
   );
 }
 

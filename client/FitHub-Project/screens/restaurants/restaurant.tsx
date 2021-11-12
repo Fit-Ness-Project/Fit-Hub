@@ -120,35 +120,9 @@ export default function Restaurant() {
                   <Text style={tw` text-base `}>See more</Text>
                 </TouchableOpacity>
               </View>
-              {/* <View style={{ position: 'absolute', bottom: 2, width: "95%", height: "35%" ,alignItems: "center",marginLeft:-56,backgroundColor: "transparent"}}>
-
-                <View style={{ height: "100%", width: "30%", bottom: 0, borderWidth: 1, borderColor: "#gray" }}>
-                  <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
-                    <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>Kcal</Text>
-                  </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>492</Text>
-                </View>
-
-                <View style={{ height: "100%", width: "30%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>
-                  <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
-                    <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>fat</Text>
-                  </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>31g</Text>
-                </View>
-
-                <View style={{ height: "100%", width: "30%", left: 124, bottom: 100, borderWidth: 1, borderColor: "#gray" }}>
-                  <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
-                    <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>carbs</Text>
-                  </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>14g</Text>
-                </View>
-              </View> */}
-
-
             </View>
           </View>
         </View>
-
       </ScrollView>
       {/*     
   <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>

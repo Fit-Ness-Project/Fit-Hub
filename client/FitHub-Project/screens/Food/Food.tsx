@@ -77,12 +77,9 @@ export default function Food() {
                   <Text style={{ textAlign: "center", fontSize: 14 }}>14g</Text>
                 </View>
               </View>
-
-
             </View>
           </View>
         </View>
-
       </ScrollView>
 {/*     
       <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>

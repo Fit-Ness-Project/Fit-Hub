@@ -90,10 +90,10 @@ export default function Blogs() {
                </View>
             </View>
          </ScrollView>
-         {/*     
-  <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
-    <Footer />
-  </View> */}
+
+         <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
+            <Footer />
+         </View>
       </View>
 
    )
