@@ -94,7 +94,6 @@ export default function Food() {
   )
 }
 
-
 const styles = StyleSheet.create({
 
   view: {

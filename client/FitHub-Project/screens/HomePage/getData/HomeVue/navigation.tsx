@@ -10,6 +10,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Restaurant from "../../../restaurants/restaurant";
 import { NavigationContainer } from "@react-navigation/native";
 
+
 export enum AppScreens {
   ChangeView = "ChangeView",
   BlogScreen = "BlogScreen",
@@ -22,6 +23,7 @@ export enum AppScreens {
   Restaurant = "Restaurant",
   ProfileInfo = "ProfileInfo",
 }
+
 
 export type AuthStackParamList = {
   ChangeView: undefined;
@@ -36,9 +38,11 @@ export type AuthStackParamList = {
   ProfileInfo: undefined;
 };
 
-const AuthStack = createStackNavigator<AuthStackParamList>();
 
+const AuthStack = createStackNavigator<AuthStackParamList>();
 const AuthFlowNavigator: React.FunctionComponent = () => {
+
+  
   return (
     <NavigationContainer>
       <AuthStack.Navigator>
@@ -62,3 +66,7 @@ const AuthFlowNavigator: React.FunctionComponent = () => {
   );
 };
 export default AuthFlowNavigator;
+
+
+
+

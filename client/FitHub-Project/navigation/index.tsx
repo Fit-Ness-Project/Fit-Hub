@@ -33,9 +33,6 @@ export default function Navigation({
   colorScheme: ColorSchemeName;
 }) {
 
-
-
-
   return (
     <NavigationContainer
       linking={LinkingConfiguration}

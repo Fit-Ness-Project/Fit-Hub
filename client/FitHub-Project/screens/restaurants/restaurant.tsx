@@ -16,10 +16,16 @@ import {
   Text,
   View
 } from "../../components/Themed";
+
+
+
 import { useNavigation } from '@react-navigation/core';
 import tw from "tailwind-react-native-classnames";
 
+
 const screenWidth = Dimensions.get('screen').width;
+
+
 
 export default function Restaurant() {
   let flatListRef = useRef<FlatList<RestaurantR> | null >();
@@ -28,6 +34,8 @@ export default function Restaurant() {
   const [searchData, setSearchData] = useState<RestaurantR[]>([]);
   const  navigation  = useNavigation()
 
+  
+  
   useEffect(() => {
     axios 
     .get('http://192.168.11.64:5000/restaurants') 
@@ -42,6 +50,9 @@ export default function Restaurant() {
     });
 
 }, [])
+
+
+
 
   const renderItems: React.FC<{item:RestaurantR}> = ({item})=> {
   return <TouchableOpacity  onPress={()=> navigation.navigate('Healthy',{

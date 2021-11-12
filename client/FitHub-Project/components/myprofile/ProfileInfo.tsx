@@ -156,6 +156,7 @@ useEffect(()=>{
       <SafeAreaView>
       <ScrollView>
         <View style={tw` h-full w-full bg-white  items-center`}>
+
           <View
             style={{
               width: "100%",
@@ -314,111 +315,7 @@ useEffect(()=>{
             </View>
 
             <View style={{ width: "100%", backgroundColor: "white" }}>
-              <View
-                style={{
-                  alignItems: "center",
-                  flexDirection: "row",
-                  backgroundColor: "white",
-                }}
-               >
-                <View
-                  style={{
-                    marginTop: 40,
-                    height: 140,
-                    marginLeft: 20,
-                    width: 150,
-                  }}
-                >
-                  <Image
-                    style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/coach3.png")}
-                  />
-                </View>
-                <View
-                  style={{
-                    backgroundColor: "red",
-                    marginLeft: 20,
-                    marginTop: 40,
-                    height: 140,
-                    width: 150,
-                  }}
-                >
-                  <Image
-                    style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/gym.png")}
-                  />
-                </View>
-              </View>
-              <View
-                style={{
-                  alignItems: "center",
-                  flexDirection: "row",
-                  backgroundColor: "white",
-                }}
-              >
-                <View
-                  style={{
-                    marginTop: 40,
-                    height: 140,
-                    marginLeft: 20,
-                    width: 150,
-                  }}
-                >
-                  <Image
-                    style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/coach3.png")}
-                  />
-                </View>
-                <View
-                  style={{
-                    backgroundColor: "red",
-                    marginLeft: 20,
-                    marginTop: 40,
-                    height: 140,
-                    width: 150,
-                  }}
-                >
-                  <Image
-                    style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/gym.png")}
-                  />
-                </View>
-              </View>
-              <View
-                style={{
-                  alignItems: "center",
-                  flexDirection: "row",
-                  backgroundColor: "white",
-                }}
-              >
-                <View
-                  style={{
-                    marginTop: 40,
-                    height: 140,
-                    marginLeft: 20,
-                    width: 150,
-                  }}
-                >
-                  <Image
-                    style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/coach3.png")}
-                  />
-                </View>
-                <View
-                  style={{
-                    backgroundColor: "red",
-                    marginLeft: 20,
-                    marginTop: 40,
-                    height: 140,
-                    width: 150,
-                  }}
-                >
-                  <Image
-                    style={{ height: "100%", width: "100%" }}
-                    source={require("../../assets/images/gym.png")}
-                  />
-                </View>
-              </View>
+          
             </View>
           </View>
         </View>
