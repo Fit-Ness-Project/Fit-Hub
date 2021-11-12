@@ -7,7 +7,6 @@ import {
   SafeAreaView,
 } from "react-native";
 import axios from "axios";
-import { Avatar } from "react-native-paper";
 import tw from "tailwind-react-native-classnames";
 import { Text, View } from "../../components/Themed";
 import { Profile } from "./interface";
@@ -52,7 +51,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
           }}
         >
 
-      <Text style={tw` ml-6  text-black`}>{ProfileData.bmi}</Text>
+      {/* <Text style={tw` ml-6  text-black`}>{ProfileData.bmi}</Text> */}
       <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
         BMI
       </Text>
@@ -144,7 +143,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                 width: "100%",
               }}
             >
-              <Text style={tw` ml-6  text-black`}>{ProfileData.age}</Text>
+              {/* <Text style={tw` ml-6  text-black`}>{ProfileData.age}</Text> */}
               <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                Age
               </Text>
@@ -216,7 +215,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}>{ProfileData.phone_number}</Text>
+                  {/* <Text style={tw` ml-6  text-black`}>{ProfileData.phone_number}</Text> */}
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Mobile
                   </Text>

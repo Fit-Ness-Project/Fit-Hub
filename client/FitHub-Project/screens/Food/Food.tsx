@@ -5,7 +5,7 @@ import axios from "axios";
 import {
   StyleSheet,
   Dimensions,
-  ImageBackground, ScrollView
+  ImageBackground, ScrollView, TouchableOpacity
 } from "react-native";
 import {
   Text,
@@ -18,8 +18,10 @@ import Footer from "../Footer/Footer";
 
 
 
+
 const screenWidth = Dimensions.get('screen').width;
 export default function Food() {
+  const navigation = useNavigation()
   const [FoodData, setFoodData] = useState<FoodR[]>([]);
   useEffect(() => {
     axios
@@ -38,7 +40,20 @@ export default function Food() {
       <View style={{ alignItems: "center", marginTop: 10, marginBottom: 60 }}>
 {FoodData.map((e,k)=>{
 return(
-
+<TouchableOpacity key= {k} onPress={() => navigation.navigate("Recipe",{ recipeTitle: e.recipeTitle,
+    content: e.content, 
+    likes: e.likes,
+    imageUrl : e.imageUrl,
+    kcal : e.Kcal,  
+    fat : e.fat, 
+    carb : e.carb, 
+    saturates : e.saturates, 
+    sugar : e.sugar,  
+    fibre : e.fibre,  
+    protein : e.protein, 
+    salt :e.salt,
+    ingredients : e.ingredients, 
+    methodes : e.methodes  })}>
        <View key = {k} style={tw` h-36 mt-2 flex flex-row bg-white`} >
             <View style={tw`w-3/6 h-full  items-center`} >
               <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri:e.imageUrl}}>
@@ -73,7 +88,7 @@ return(
                   <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
                     <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>Kcal</Text>
                   </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>{e.kcal}</Text>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>{e.Kcal}</Text>
                 </View>
 
                 <View style={{ height: "100%", width: "30%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>
@@ -93,6 +108,7 @@ return(
             </View>
 
           </View>
+          </TouchableOpacity>
 )})}
  
         </View>

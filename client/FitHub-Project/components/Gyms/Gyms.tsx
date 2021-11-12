@@ -20,7 +20,7 @@ export default function Gyms() {
   const navigation = useNavigation();
   useEffect(() => {
     axios
-      .get("http://192.168.11.161:5000/gyms")
+      .get("https://fithub-tn-app.herokuapp.com/gyms")
 
       .then((response) => {
         setGymData(response.data);

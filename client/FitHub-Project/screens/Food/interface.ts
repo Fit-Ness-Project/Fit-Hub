@@ -4,7 +4,7 @@ export interface FoodR {
   content: string ;
   likes: number;
   imageUrl: string;
-  kcal: number;
+Kcal: number;
   fat: number;
   carb: number;
   saturates: number;
