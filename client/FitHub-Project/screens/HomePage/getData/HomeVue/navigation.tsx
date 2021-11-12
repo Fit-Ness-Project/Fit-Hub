@@ -45,7 +45,6 @@ const AuthFlowNavigator: React.FunctionComponent = () => {
         <AuthStack.Screen name={AppScreens.ChangeView} component={ChangeView} />
         <AuthStack.Screen name={AppScreens.FoodScreen} component={FoodScreen} />
         <AuthStack.Screen name={AppScreens.BlogScreen} component={BlogScreen} />
-        <AuthStack.Screen name={AppScreens.GymScreen} component={GymScreen} />
         <AuthStack.Screen
           name={AppScreens.CoachScreen}
           component={CoachScreen}

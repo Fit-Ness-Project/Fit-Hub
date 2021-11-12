@@ -12,14 +12,13 @@ import tw from "tailwind-react-native-classnames";
 
 export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
-  const navigation = useNavigation();
   let flatListRef = useRef<FlatList<Event> | null>();
 
   const [eventhData, setEventData] = useState<Events[]>([]);
-
+console.log(eventhData)
   useEffect(() => {
     axios
-      .get("http://192.168.11.66:5000/events")
+      .get('https://fithub-tn-app.herokuapp.com/events')
 
       .then((response) => {
 
@@ -30,35 +29,13 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
       });
   }, []);
 
-  const scrollToIndex = (index: number) => {
-    flatListRef.current?.scrollToIndex({ animated: true, index: index });
-  };
-  const renderItems: React.FC<{ item: Events }> = ({ item }) => {
-    return (
-      <View style={{ alignItems: "center" }}>
-        <Image source={{ uri: item.imageurl }} />
-        <Text > {item.eventName} </Text>
-        <Text> {item.description} </Text>
-        <Text > {item.adress} </Text>
-        <Text style={{color:'grey'}}> Date : {item.date} </Text>
-
-        <TouchableOpacity
-         onPress ={()=>{}}
-       >  
-           <Text style={{backgroundColor:"#e7ff19"}}>Join This Event</Text>
-          </TouchableOpacity>
-
-      </View>
-    );
-  };
 
   return (
     <ScrollView>
       {eventhData.map((item, k) => (
-
-        <><View style={tw`h-52 p-2 bg-white pl-4 pr-4 `} key={k}>
+        <View style={tw`h-52 p-2 bg-white pl-4 pr-4 `} key={k}>
           <TouchableOpacity >
-            <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri : item.imageurl}}>
+            <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri : item.imageUrl}}>
               <View style={tw`bg-transparent h-20 absolute inset-x-0 bottom-16  w-full`}>
                 <View style={styles.view}>
                   <View style={styles.inview}>
@@ -71,7 +48,7 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
             </ImageBackground>
           </TouchableOpacity>
 
-          </View></>
+          </View>
        ))} 
     </ScrollView>
   );
