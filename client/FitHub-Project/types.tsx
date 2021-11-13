@@ -44,9 +44,7 @@ export type RootStackParamList = {
       imageUrl: string; 
       content: string;
       date: Date;
-      comment: string;
-      comment_count: Number; 
-      like: Number;
+      like: number;
   }
   // Gym: undefined;
   Coachs: undefined;

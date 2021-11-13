@@ -1,7 +1,7 @@
 import { Text, View } from "../Themed";
 import * as React from "react";
 import { RouteProp } from "@react-navigation/native";
-import { StyleSheet, Image, Alert } from "react-native";
+import { StyleSheet, Image, Alert, Linking, ScrollView } from "react-native";
 
 const Coach: React.FC<{
   route: RouteProp<
@@ -20,6 +20,7 @@ const Coach: React.FC<{
     },
     "params"
   >;
+
 }> = ({ route: { params } }) => {
   const createThreeButtonAlert = () =>
     Alert.alert("Want to book your Coach ?", "Click OK!", [
@@ -32,20 +33,22 @@ const Coach: React.FC<{
         onPress: () => console.log("Cancel Pressed"),
         style: "cancel",
       },
-      { text: "OK", onPress: () => console.log("OK Pressed") },
+      { text: "OK", onPress: () =>Linking.openURL('https://api.konnect.network/APgPg9HrG') },
     ]);
 
   return (
     <View style={styles.container}>
+      <ScrollView >
       <Image style={styles.image} source={{ uri: params.imageUrl }} />
       <Text style={styles.title}>{params.coachName}</Text>
       <Text>{params.description}</Text>
-      <Text>{params.price} TND</Text>
+      <Text>50 TND</Text>
       <Text>{params.adress}</Text>
       <Text>{params.email}</Text>
       <View style={styles.button}>
         <Text onPress={createThreeButtonAlert}>BOOK</Text>
       </View>
+      </ScrollView>
     </View>
   );
 };
@@ -80,3 +83,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+
+
