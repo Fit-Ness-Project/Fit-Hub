@@ -35,8 +35,8 @@ export default function Restaurant() {
   const [searchData, setSearchData] = useState<RestaurantR[]>([]);
   const navigation = useNavigation()
 
-  
-  
+
+
   useEffect(() => {
     axios
       .get('http://192.168.11.64:5000/restaurants')
@@ -99,11 +99,10 @@ export default function Restaurant() {
     //             ))}
     //         </View>
     //      </View>
-    <View>
+    <View style={tw`bg-gray-100`}>
       < ScrollView >
-        <View style={{ alignItems: "center", marginTop: 10, marginBottom: 60 }}>
-
-          <View style={tw` h-36 mt-2 flex flex-row bg-white`} >
+        <View style={{ alignItems: "center", marginTop: 10, marginBottom:10, marginLeft: 15, marginRight: 15 }}>
+          <View style={tw` h-36  flex flex-row bg-white m-2`} >
             <View style={tw`w-3/6 h-full  items-center`} >
               <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/dish1.jpg")}>
               </ImageBackground>
@@ -112,7 +111,6 @@ export default function Restaurant() {
               <View style={tw`bg-transparent h-12 absolute inset-x-0 top-0 w-full items-center`}>
                 <View style={styles.view}>
                   <View style={styles.inview}>
-                    {/* <View style={tw`h-4 items-center bg-transparent pt-1 `}> */}
                     <View style={{ flex: 1, padding: 1, backgroundColor: "transparent" }}>
                       <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>Barbecued broccoli, cauliflower & halloumi</Text>
                     </View>
@@ -122,11 +120,11 @@ export default function Restaurant() {
 
               <View style={{ height: 50, width: "20%", flexDirection: "row", backgroundColor: "transparent", marginTop: 36, marginLeft: 28 }}>
                 <MaterialIcons name="attach-money" size={20} color="black" />
-                <Text style={{ fontSize: 16, width: 150, marginLeft: 12 }}>12.5 TND</Text>
+                <Text style={{ fontSize: 16, width: 150 }}>12.5 TND</Text>
               </View>
               <View style={{ alignItems: "center", marginBottom: -112, marginLeft: -28 }}>
                 <TouchableOpacity style={{ height: 32, width: 120, backgroundColor: "#36E08B", alignItems: "center", opacity: .7 }}>
-                  <Text style={tw` text-base `}>See more</Text>
+                  <Text style={tw`mt-1 font-bold `}>See more</Text>
 
                 </TouchableOpacity>
               </View>
@@ -134,10 +132,10 @@ export default function Restaurant() {
           </View>
         </View>
       </ScrollView>
-      {/*     
-  <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
-    <Footer />
-  </View> */}
+
+      <View style={{ position: 'absolute', bottom: -50, width: "100%" }}>
+        <Footer />
+      </View>
     </View>
 
 
