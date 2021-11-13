@@ -47,12 +47,12 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
   // });
 
 
-  
+
   const handleGoogleSignIn = () => {
     setGoogleSubmitting(true);
     const config = {
-        iosClientId: `139390994367-ovh7mn3b3gjgqlustn50p2n12pdflb4r.apps.googleusercontent.com`,
-        androidClientId: `139390994367-do2jpfprao629c268pg3u95m2c7k2vrn.apps.googleusercontent.com`,
+      iosClientId: `139390994367-ovh7mn3b3gjgqlustn50p2n12pdflb4r.apps.googleusercontent.com`,
+      androidClientId: `139390994367-do2jpfprao629c268pg3u95m2c7k2vrn.apps.googleusercontent.com`,
       scopes: ["profile", "email"],
     };
 
@@ -64,10 +64,10 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         if (type === "success") {
           const { user: { email, name, photoUrl } } = result;
           handleMessage("Google sign in successful", "SUCCESS");
-      console.log(result.user)
-            navigation.navigate("Home")
-        
-       
+          console.log(result.user)
+          navigation.navigate("Home")
+
+
         } else {
           handleMessage("Google signin was cancelled");
         }
@@ -80,9 +80,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
       });
   };
 
- const storeToken = () => {
-  // AsyncStorage.setItem('Token', res.data.Token)
- }
+
 
   const handleMessage = (message: string, type: MessageType = 'FAILED') => {
     setMessage(message);
@@ -100,7 +98,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         const { message, status, data } = result
         if (status === "SUCCESS") {
           AsyncStorage.setItem('Token', res.data.Token)
-          navigation.navigate('Home', data[0])
+          navigation.navigate('Home', { ...data[0] })
         } else {
           handleMessage(message, status)
           console.log("Something went wrong !")
@@ -108,10 +106,11 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
 
       }).catch(
-        err =>{ console.log(err),
-        handleMessage("Try Again")
-      })
-    }
+        err => {
+          console.log(err),
+          handleMessage("Try Again")
+        })
+  }
 
 
 
@@ -130,14 +129,14 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
           setSubmitting(false)
 
         } else {
-
           handleLogin(values)
-           navigation.navigate('Home')
+          setSubmitting(true)    
+          navigation.navigate('Home')
         }
       }}
 
     >
-      
+
       {({ handleChange, handleBlur, handleSubmit, isSubmitting, values, errors, touched }) => (
         <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
 
