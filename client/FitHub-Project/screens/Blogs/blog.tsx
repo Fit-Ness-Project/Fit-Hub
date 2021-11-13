@@ -10,7 +10,22 @@ import {
 import axios from 'axios'
 import Footer from "../../screens/Footer/Footer";
 
-export default function blog({ }) {
+const blog: React.FC<{
+    route: RouteProp<
+      {
+        params: {
+            id: number;
+            blogTitle: string;
+            imageUrl: string;
+            content: string;
+            date: Date;
+            like: Number;
+        };
+      },
+      "params"
+    >;
+    
+  }> = ({ route: { params } }) => {
 
     const [like, setLike]: any = useState(false)
     const likebut = [<TouchableOpacity onPress={() => { if (like === false) { setLike(true) } else { setLike(false) } }} >
@@ -20,19 +35,7 @@ export default function blog({ }) {
         <Image style={{ width: 30, height: 30, left: 290 }} source={require("../../assets/Icons/love.png")} />
     </TouchableOpacity>
     ]
-    const [data, setData]: any = useState([])
-    useEffect(() => {
-        axios
-            .get("http://192.168.11.161:5000/blogs")
-
-            .then((response) => {
-                setData(response.data);
-            })
-            .catch((Error) => {
-                console.log(Error);
-            });
-    }, []);
-
+    
 
     return (
         <View>
@@ -74,3 +77,4 @@ export default function blog({ }) {
     )
 }
 
+export default blog;

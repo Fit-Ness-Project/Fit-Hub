@@ -1,9 +1,8 @@
 import { Text, View } from "../Themed";
 import * as React from "react";
 import { RouteProp } from "@react-navigation/native";
-import { StyleSheet, Image, Alert,TouchableOpacity } from "react-native";
-import tw from "tailwind-react-native-classnames";
-
+import { StyleSheet, Image, Alert, Linking, TouchableOpacity } from "react-native";
+import tw from "tailwind-react-native-classnames"
 const Coach: React.FC<{
   route: RouteProp<
     {
@@ -21,6 +20,7 @@ const Coach: React.FC<{
     },
     "params"
   >;
+
 }> = ({ route: { params } }) => {
   const createThreeButtonAlert = () =>
     Alert.alert("Want to book your Coach ?", "Click OK!", [
@@ -33,7 +33,7 @@ const Coach: React.FC<{
         onPress: () => console.log("Cancel Pressed"),
         style: "cancel",
       },
-      { text: "OK", onPress: () => console.log("OK Pressed") },
+      { text: "OK", onPress: () =>Linking.openURL('https://api.konnect.network/APgPg9HrG') },
     ]);
 
   return (
@@ -100,3 +100,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+
+

@@ -33,7 +33,7 @@ const navigation = useNavigation()
       .then((response) => {
 
         setCoachData(response.data)
-        //  console.log(response.data)
+         console.log("coachs:",coachData)
       })
       .catch((Error) => {
         console.log(Error);
