@@ -123,7 +123,7 @@ const navigation = useNavigation()
                       <Image style={tw` h-8 w-8 items-center `} source={require("../../assets/Icons/seeMore.png")}
                       />
 
-                    </View>
+                    </View>                                                     
                   </View>
                 </TouchableOpacity>
               </View>
