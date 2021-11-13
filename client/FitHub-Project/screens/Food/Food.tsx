@@ -37,7 +37,7 @@ export default function Food() {
   return (
    <View style={tw`bg-gray-100`}>
     < ScrollView >
-      <View style={{ alignItems: "center", marginTop: 10, marginBottom: 88 }}>
+      <View style={{ alignItems: "center", marginTop: 10, marginBottom: 88, marginLeft: 15, marginRight: 15 }}>
 {FoodData.map((e,k)=>{
 return(
 <TouchableOpacity key= {k} onPress={() => navigation.navigate("Recipe",{ recipeTitle: e.recipeTitle,
@@ -54,7 +54,7 @@ return(
     salt :e.salt,
     ingredients : e.ingredients, 
     methodes : e.methodes  })}>
-       <View key = {k} style={tw` h-36 mt-2 flex flex-row bg-white`} >
+       <View key = {k} style={tw` h-36 m-2 flex flex-row bg-gray-100`} >
             <View style={tw`w-3/6 h-full  items-center`} >
               <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri:e.imageUrl}}>
               </ImageBackground>
