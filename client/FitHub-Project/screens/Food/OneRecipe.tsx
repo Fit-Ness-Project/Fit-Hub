@@ -34,7 +34,7 @@ const Food: React.FC<{
 }> = ({ route: { params } }): any => {
   return (
     <View>
-      <ScrollView style={tw`bg-red-300`}>
+      <ScrollView style={tw`bg-gray-100`}>
         <View style={{ alignItems: "center", marginTop: 10, marginBottom: 50 }}>
           <View
             style={{

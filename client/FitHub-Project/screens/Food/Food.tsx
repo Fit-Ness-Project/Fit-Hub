@@ -40,7 +40,12 @@ export default function Food() {
       <View style={{ alignItems: "center", marginTop: 10, marginBottom: 88, marginLeft: 15, marginRight: 15 }}>
 {FoodData.map((e,k)=>{
 return(
-<TouchableOpacity key= {k} onPress={() => navigation.navigate("Recipe",{ recipeTitle: e.recipeTitle,
+
+       <View key = {k} style={tw` h-36 m-2 flex flex-row bg-gray-100`} >
+            <View style={tw`w-3/6 h-full  items-center`} >
+              <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri:e.imageUrl}}>
+              </ImageBackground>
+              <TouchableOpacity onPress={() => navigation.navigate("Recipe",{ recipeTitle: e.recipeTitle,
     content: e.content, 
     likes: e.likes,
     imageUrl : e.imageUrl,
@@ -53,13 +58,8 @@ return(
     protein : e.protein, 
     salt :e.salt,
     ingredients : e.ingredients, 
-    methodes : e.methodes  })}>
-       <View key = {k} style={tw` h-36 m-2 flex flex-row bg-gray-100`} >
-            <View style={tw`w-3/6 h-full  items-center`} >
-              <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri:e.imageUrl}}>
-              </ImageBackground>
-              <TouchableOpacity style={{ alignItems: "center",position: "absolute",backgroundColor: "#e7ff19", height: 45, width: 175,marginTop:100,opacity:0.7}}
-              onPress={() => navigation.navigate("Event")}>
+    methodes : e.methodes  })} style={{ alignItems: "center",position: "absolute",backgroundColor: "#e7ff19", height: 45, width: 175,marginTop:100,opacity:0.7}}
+              >
               <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
             </TouchableOpacity>
             </View>
@@ -110,7 +110,7 @@ return(
               </View>
             </View>      
           </View>
-          </TouchableOpacity>
+    
 )})}
  
         </View>
