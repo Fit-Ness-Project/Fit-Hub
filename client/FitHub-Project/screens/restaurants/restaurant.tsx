@@ -83,6 +83,7 @@ export default function Restaurant() {
   //   </TouchableOpacity>
   // }
 
+
   return (
     //   <View  style={styles.container}>
     //      <StatusBar   />
@@ -99,6 +100,8 @@ export default function Restaurant() {
     //             ))}
     //         </View>
     //      </View>
+
+    
     <View>
       < ScrollView >
         <View style={{ alignItems: "center", marginTop: 10, marginBottom: 60 }}>
