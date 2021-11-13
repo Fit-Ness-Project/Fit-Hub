@@ -1,8 +1,8 @@
 import { Text, View } from "../Themed";
 import * as React from "react";
 import { RouteProp } from "@react-navigation/native";
-import { StyleSheet, Image, Alert, Linking, ScrollView } from "react-native";
-
+import { StyleSheet, Image, Alert, Linking, TouchableOpacity } from "react-native";
+import tw from "tailwind-react-native-classnames"
 const Coach: React.FC<{
   route: RouteProp<
     {
@@ -38,17 +38,33 @@ const Coach: React.FC<{
 
   return (
     <View style={styles.container}>
-      <ScrollView >
+      <View style={{alignItems: "center"}}>
       <Image style={styles.image} source={{ uri: params.imageUrl }} />
-      <Text style={styles.title}>{params.coachName}</Text>
-      <Text>{params.description}</Text>
-      <Text>50 TND</Text>
-      <Text>{params.adress}</Text>
-      <Text>{params.email}</Text>
-      <View style={styles.button}>
-        <Text onPress={createThreeButtonAlert}>BOOK</Text>
       </View>
-      </ScrollView>
+      <View style={{alignItems: "center"}}>
+      <Text style={styles.title}>{params.coachName}</Text>
+      </View>
+      <View style={tw`flex-row p-2`}> 
+      <Image style={tw`w-4 h-4`} source = {require("../../assets/Icons/sports.png")}/>
+      <Text style={tw`pl-2`}>{params.description}</Text>
+      </View>
+      <View style={tw`flex-row p-2`}> 
+      <Image style={tw`w-4 h-4`} source = {require("../../assets/Icons/profit.png")}/>
+      <Text style={tw`pl-2 text-base`}>{params.price} <Text style = {{fontSize:9,fontWeight:"500",}}>TND</Text></Text>
+      </View>
+      <View style={tw`flex-row p-2`}> 
+      <Image style={tw`w-4 h-4`} source = {require("../../assets/Icons/map-pin.png")}/>
+      <Text style={tw`pl-2`}>{params.adress}</Text>
+      </View>
+      <View style={tw`flex-row p-2`}> 
+      <Image style={tw`w-4 h-4`} source = {require("../../assets/Icons/email.png")}/>
+      <Text style={tw`pl-2`}>{params.email}</Text>
+      </View>
+        <TouchableOpacity  onPress={createThreeButtonAlert} >
+      <View style={styles.button}>
+        <Text>BOOK</Text>
+      </View>
+        </TouchableOpacity>
     </View>
   );
 };
@@ -57,7 +73,7 @@ export default Coach;
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+
     justifyContent: "center",
     position: "relative",
   },
@@ -65,19 +81,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: 350,
-    height: 480,
+    height: 380,
     resizeMode: "cover",
     marginVertical: 10,
     borderRadius: 6,
   },
   title: {
-    marginTop: 20,
+    marginTop: 15,
     fontSize: 25,
     fontWeight: "bold",
   },
   button: {
     height: 38,
-    width: 198,
+    width: "95%",
+    margin:8,
     alignItems: "center",
     backgroundColor: "#36e08b",
     justifyContent: "center",
