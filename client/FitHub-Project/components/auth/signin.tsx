@@ -80,7 +80,9 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
       });
   };
 
-
+ const storeToken = () => {
+  AsyncStorage.setItem('Token', res.data.Token)
+ }
 
   const handleMessage = (message: string, type: MessageType = 'FAILED') => {
     setMessage(message);
