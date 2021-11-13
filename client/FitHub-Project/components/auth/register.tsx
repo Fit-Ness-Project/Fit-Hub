@@ -21,7 +21,7 @@ import jwt_decode from "jwt-decode";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Register() {
- 
+
   // useKeepAwake();
   // const validationSchema = Yup.object().shape({
   //   last: Yup.string().required("Last Name is required").label("Name"),
@@ -50,21 +50,21 @@ export default function Register() {
 
   function handelSubmit() {
     axios
-    //putt back the deploied link after changing the server funvtion to the server side 
+      //putt back the deploied link after changing the server funvtion to the server side 
       .post("https://fithub-tn-app.herokuapp.com/users", {
         first_name: first_name,
         last_name: last_name,
         phone_number: phone_number,
-        password:password,
+        password: password,
         email: email,
       })
       .then((res) => {
         //  console.log(jwt_decode(res.data.Token))
-        AsyncStorage.setItem('key',res.data.Token)
-      navigation.navigate('bmi')   
-       }    
-      
- )
+        AsyncStorage.setItem('key', res.data.Token)
+        navigation.navigate('bmi')
+      }
+
+      )
       .catch((err) => console.log(err));
   }
   const navigation = useNavigation();
@@ -97,7 +97,7 @@ export default function Register() {
 
           <View style={tw` mt-8 w-4/5 ml-8   `}>
             <TextInput
-              style={tw`mt-4 rounded h-10 bg-white p-2 `}
+              style={tw`mt-4  h-10 bg-white p-2 `}
               placeholder="First name"
               value={first_name}
               onChangeText={setfirstName}
@@ -106,7 +106,7 @@ export default function Register() {
                                     <Text style={{ color: 'red' }}>{errors.first}</Text>
                                 )} */}
             <TextInput
-              style={tw` mt-4 rounded h-10 bg-white p-2 `}
+              style={tw` mt-4  h-10 bg-white p-2 `}
               placeholder="Last name"
               onChangeText={setlastName}
               value={last_name}
@@ -116,7 +116,7 @@ export default function Register() {
                                 )} */}
 
             <TextInput
-              style={tw`mt-4 rounded h-10 bg-white p-2 `}
+              style={tw`mt-4  h-10 bg-white p-2 `}
               placeholder="Email"
               onChangeText={setemail}
               value={email}
@@ -125,7 +125,7 @@ export default function Register() {
                                     <Text style={{ color: 'red' }}>{errors.email}</Text>
                                 )} */}
             <TextInput
-              style={tw`mt-4 rounded h-10 bg-white p-2  `}
+              style={tw`mt-4  h-10 bg-white p-2  `}
               placeholder="Phone number"
               keyboardType="numeric"
               onChangeText={setmobilePhone}
@@ -135,9 +135,9 @@ export default function Register() {
                                     <Text style={{ color: 'red' }}>{errors.number}</Text>
                                 )} */}
             <TextInput
-              style={tw`mt-4 rounded h-10 bg-white p-2  `}
+              style={tw`mt-4  h-10 bg-white p-2  `}
               secureTextEntry={true}
-              placeholder="Password"
+              placeholder="* * * * * * * *"
               onChangeText={setpassword}
               value={password}
             />
