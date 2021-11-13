@@ -1,4 +1,4 @@
-import  React , {useState} from 'react';
+import  React , {useState,useEffect} from 'react';
 import { View, Image, TextInput, StyleSheet, Picker, TouchableOpacity } from 'react-native';
 import { Text } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
@@ -8,6 +8,9 @@ import { useNavigation } from '@react-navigation/native';
 
 
 export default function Information({}: RootTabScreenProps<'Home'>) {
+
+    
+
    const [selectedValue, setSelectedValue] = useState("male");
    const navigation = useNavigation();
   return (

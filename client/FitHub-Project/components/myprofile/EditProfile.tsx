@@ -1,29 +1,45 @@
 
 
 
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { View, Text , TextInput , Button } from 'react-native'
 import axios from 'axios';
 import tw from 'tailwind-react-native-classnames';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import jwtDecode from 'jwt-decode';
 const EditProfile = () => {
-    const userId = 6;
-    function handelSubmit () {
-    axios.patch(`https://fithub-tn-app.herokuapp.com/users${userId}`,{
-      phone_number:phone_number,
-      email: email,
-      password:Password,
-      weight:weight,
-      height:height
-    }).then((res)=>
-    console.log(res.data))
-    .catch((err)=>console.log(err))
-    }
+    
       let [phone_number, setmobilePhone] = useState('0')
       let [email, setemail] = useState('')
       let [Password,setPassword] = useState('')
       let [weight,setweight]=useState('')
       let [height,setheight]=useState('')
+     let[userId,setUserId] = useState(null)
+
+     useEffect(()=>{
+      
+      AsyncStorage.getItem('key').then(res=>{
+        const token = res
+       let id = jwtDecode(token)
+     
+       setUserId(id.user_id)
+
+      })
+
+     },[])
+     console.log(userId,"hhaha")
+     function handelSubmit () {
+       // putt back the deploid link 
+      axios.patch(`http://192.168.11.67:5000/users${userId}`,{
+        phone_number:phone_number,
+        email: email,
+        password:Password,
+        weight:weight,
+        height:height
+      }).then((res)=>
+      console.log(res.data))
+      .catch((err)=>console.log(err))
+      }
 
     return (
         <View style={tw` mt-10 w-4/5 ml-8 flex `}>
