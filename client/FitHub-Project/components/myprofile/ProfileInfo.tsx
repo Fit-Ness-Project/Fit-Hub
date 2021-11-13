@@ -160,7 +160,7 @@ useEffect(()=>{
             }}
           >
             <TouchableOpacity>
-              <Avatar.Image
+              {/* <Avatar.Image
                 size={150}
                 style={{
                   marginTop: 60,
@@ -168,7 +168,7 @@ useEffect(()=>{
                   borderWidth: 1,
                 }}
                 source={ProfileData[0]}
-              ></Avatar.Image>
+              ></Avatar.Image> */}
             </TouchableOpacity>
             <View style={tw`mt-4 bg-transparent  flex-row`}>
               <Text style={tw`text-white text-base font-bold `}>

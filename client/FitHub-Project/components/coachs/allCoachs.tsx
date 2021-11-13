@@ -28,7 +28,7 @@ const navigation = useNavigation()
 
   useEffect(() => { 
     axios
-      .get('http://192.168.11.104:5000/coachs')
+      .get('https://fithub-tn-app.herokuapp.com/coachs')
 
       .then((response) => {
 
