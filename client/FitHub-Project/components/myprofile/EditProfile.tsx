@@ -16,14 +16,14 @@ const EditProfile = () => {
       
       AsyncStorage.getItem('key').then(res=>{
         const token = res
-      //  let id = jwtDecode(token)
+       let id = jwtDecode(token)
      
-      //  setUserId(id.user_id)
+       setUserId(id.user_id)
 
       })
 
      },[])
-     console.log(userId,"hhaha")
+
      function handelSubmit () {
        // putt back the deploid link 
       axios.patch(`https://fithub-tn-app.herokuapp.com/users${userId}`,{

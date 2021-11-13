@@ -59,9 +59,8 @@ export default function Register() {
         email: email,
       })
       .then((res) => {
-        console.log(jwt_decode(res.data.Token))
         AsyncStorage.setItem('key',res.data.Token)
-      navigation.navigate('bmi')      }
+      navigation.navigate('bmi')}
       
       
       )
