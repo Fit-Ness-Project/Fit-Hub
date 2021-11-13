@@ -22,12 +22,20 @@ export type RootStackParamList = {
   Modal: undefined;
   NotFound: undefined;
   Recipe:{
-    recipeId: number,
-    recipeTitle: string,
-    imageUrl: string,
-    likes: number,
-    content: string,
-    comments:string
+    recipeTitle: string ;
+    content: string ;
+    likes: number;
+    imageUrl : string;
+    kcal : number  ;
+    fat : number ;
+    carb : number ;
+    saturates : number ;
+    sugar : number ;
+    fibre : number ;
+    protein : number; 
+    salt :number;
+    ingredients : string ;
+    methodes : string  ;
   };
   Blogs: undefined;
   blog:{

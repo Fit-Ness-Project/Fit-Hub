@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState, useEffect, useRef } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -11,7 +10,7 @@ import {
 import tw from "tailwind-react-native-classnames";
 import { AirbnbRating } from "react-native-ratings";
 import { RouteProp } from "@react-navigation/native";
-import Map from "./Map"
+import Map from "./Map";
 import Footer from "../../screens/Footer/Footer";
 
 const Gym: React.FC<{
@@ -32,14 +31,12 @@ const Gym: React.FC<{
     },
     "params"
   >;
-}> = ({ route: { params  } }) :any => {
+}> = ({ route: { params } }): any => {
   return (
     <View>
       <ScrollView style={{ backgroundColor: "white" }}>
-        <View style={{ marginTop: 10, marginBottom: 60 }} >
-
+        <View style={{ marginTop: 10, marginBottom: 60 }}>
           <View style={{ width: "100%", padding: 10 }}>
-
             <View style={{ width: "100%", height: 200 }}>
               <Image
                 style={{ width: "100%", height: "100%" }}
@@ -62,7 +59,9 @@ const Gym: React.FC<{
                 showRating={false}
               />
             </View>
-            <View style={{ flexDirection: "row", paddingTop: 15, paddingLeft: 15 }}>
+            <View
+              style={{ flexDirection: "row", paddingTop: 15, paddingLeft: 15 }}
+            >
               <Image
                 style={tw`w-4 h-4 `}
                 source={require("../../assets/Icons/pin.png")}
@@ -70,8 +69,9 @@ const Gym: React.FC<{
               <Text style={tw`text-black pl-2`}>{params.adress}</Text>
             </View>
 
-
-            <View style={{ flexDirection: "row", paddingTop: 15, paddingLeft: 20 }}>
+            <View
+              style={{ flexDirection: "row", paddingTop: 15, paddingLeft: 20 }}
+            >
               <Text style={tw`text-black text-lg font-bold`}>
                 {params.price}{" "}
               </Text>
@@ -83,12 +83,14 @@ const Gym: React.FC<{
                   alignItems: "center",
                   height: 40,
                   width: "90%",
-                  backgroundColor: "#36e08b",
+                  backgroundColor: "#E7FF19",
                   opacity: 0.8,
                   paddingTop: 6,
                 }}
               >
-                <Text style={tw`text-black font-bold text-lg `}>SUBSCRIBE </Text>
+                <Text style={tw`text-black font-bold text-lg `}>
+                  SUBSCRIBE{" "}
+                </Text>
               </TouchableOpacity>
             </View>
             <View>
@@ -102,17 +104,19 @@ const Gym: React.FC<{
               </Text>
             </View>
             <View style={{ width: "100%", height: 200, paddingTop: 15 }}>
-            <Map longi = {params.longitude} latit = {params.latitude} name = {params.gymName}/>
+              <Map
+                longi={params.longitude}
+                latit={params.latitude}
+                name={params.gymName}
+              />
             </View>
           </View>
         </View>
-
       </ScrollView>
-      <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
+      <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
         <Footer />
       </View>
     </View>
-
   );
 };
 

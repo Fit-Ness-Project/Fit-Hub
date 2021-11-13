@@ -26,7 +26,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
 
-const screenWidth = Dimensions.get('screen').width;
+const screenWidth = Dimensions.get("screen").width;
 
 
 
@@ -149,6 +149,23 @@ export default function Restaurant() {
   )
 }
 
+//   return (
+//     <View style={styles.container}>
+//       <StatusBar />
+//       <FlatList
+//         data={foodData}
+//         renderItem={renderItems}
+//         keyExtractor={(item, i) => i.toString()}
+//         showsHorizontalScrollIndicator={false}
+//       />
+//       <View style={styles.dotview}>
+//         {foodData.map(({}, index: number) => (
+//           <TouchableOpacity key={index.toString()}></TouchableOpacity>
+//         ))}
+//       </View>
+//     </View>
+//   );
+// }
 
 const styles = StyleSheet.create({
 

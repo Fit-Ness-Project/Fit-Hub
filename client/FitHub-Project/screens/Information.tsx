@@ -1,5 +1,5 @@
 import  React , {useState} from 'react';
-import { View, Image, TextInput, StyleSheet, Picker, TouchableOpacity } from 'react-native';
+import { View,TextInput, StyleSheet, Picker, TouchableOpacity } from 'react-native';
 import { Text } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { useNavigation } from '@react-navigation/native';
