@@ -60,7 +60,7 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
   const navigation = useNavigation();
   return (
     <View style={tw` items-center bg-gray-100`}>
-      < ScrollView >
+      < ScrollView style={{ marginBottom: 60 }}>
 
         <View style={{ marginBottom: 10, height: 400, marginTop: 10 }}>
           <View style={tw` h-72 flex flex-col mr-4 ml-4 rounded`} >
@@ -98,7 +98,7 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
         </View>
       </ScrollView>
-      <View style={{ position: 'absolute', bottom: -48, width: "100%" }}>
+      <View style={{ top: 685, width: "100%",position: "absolute"}}>
         <Footer />
       </View>
     </View>

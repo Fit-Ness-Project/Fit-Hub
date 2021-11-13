@@ -84,7 +84,7 @@ export default function AllCoachs() {
   return (
 
     <View>
-      < ScrollView style={{ marginBottom: 60}}>
+      < ScrollView style={{ marginBottom: 60 }}>
         <View style={tw`bg-gray-100  m-1 `}>
           <TextInput
             style={styles.input}
@@ -153,7 +153,8 @@ export default function AllCoachs() {
           ))}
         </View>
       </ScrollView>
-      <View style={{ top: 661, width: "100%",position: "absolute"}}>
+      <View style={{ top: 685, width: "100%", position: "absolute" }}>
+
         <Footer />
       </View>
     </View>
