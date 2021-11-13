@@ -144,23 +144,23 @@ export default function Restaurant() {
   )
 }
 
-  return (
-    <View style={styles.container}>
-      <StatusBar />
-      <FlatList
-        data={foodData}
-        renderItem={renderItems}
-        keyExtractor={(item, i) => i.toString()}
-        showsHorizontalScrollIndicator={false}
-      />
-      <View style={styles.dotview}>
-        {foodData.map(({}, index: number) => (
-          <TouchableOpacity key={index.toString()}></TouchableOpacity>
-        ))}
-      </View>
-    </View>
-  );
-}
+//   return (
+//     <View style={styles.container}>
+//       <StatusBar />
+//       <FlatList
+//         data={foodData}
+//         renderItem={renderItems}
+//         keyExtractor={(item, i) => i.toString()}
+//         showsHorizontalScrollIndicator={false}
+//       />
+//       <View style={styles.dotview}>
+//         {foodData.map(({}, index: number) => (
+//           <TouchableOpacity key={index.toString()}></TouchableOpacity>
+//         ))}
+//       </View>
+//     </View>
+//   );
+// }
 
 const styles = StyleSheet.create({
 

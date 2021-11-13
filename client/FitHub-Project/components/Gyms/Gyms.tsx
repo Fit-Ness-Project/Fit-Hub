@@ -31,52 +31,53 @@ export default function Gyms() {
   }, []);
   return (
     <View>
-      <ScrollView style={{ backgroundColor: "white" }}>
-        <View style={{ alignItems: "center", marginTop: 10, marginBottom: 50 }}>
+      <ScrollView>
+        <View style={{ alignItems: "center",  marginBottom: 50}}>
           {GymData.map((e, k) => (
-            <View key={k} style={tw`h-52 w-full p-2 bg-transparent  `}>
+            <View key={k} style={tw` w-full h-80  bg-gray-200 `}>
+
               <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate("Gym", {
-                    gymName: e.gymName,
-                    imgUrl: e.imgUrl,
-                    rating: e.rating,
-                    description: e.description,
-                    fields: e.fields,
-                    price: e.price,
-                    latitude: e.latitude,
-                    longitude: e.longitude,
-                    phoneNumber: e.phoneNumber,
-                    adress: e.adress,
-                  })
-                }
+              
+                style={{width:"100%",marginTop:10,alignItems: "center"}}
               >
-                <ImageBackground
+                <View style={{backgroundColor:"white",height:300,width: "90%"}}>
+                <View style={{width:"93%",height:"60%",marginTop:10,alignItems: "center"}}> 
+                <View style={{width:"100%",height:"100%",marginLeft:21}}>
+                <Image
                   style={{ width: "100%", height: "100%" }}
                   source={{ uri: e.imgUrl }}
-                >
-                  <View
-                    style={tw`bg-transparent h-16 absolute inset-x-0 bottom-16  w-full`}
-                  >
-                    <View style={styles.view}>
-                      <View style={styles.inview}>
-                        <Image
-                          style={tw` w-10 h-10  `}
-                          source={require("../../assets/Icons/gym1.png")}
-                        />
-                        <View
-                          style={tw`h-10 items-center bg-transparent pt-1 `}
-                        >
-                          <Text style={tw`text-black text-3xl pl-2 font-bold`}>
-                            {e.gymName}
-                          </Text>
-                        </View>
-                      </View>
-                    </View>
-                  </View>
-                </ImageBackground>
+                />
+                </View>
+                       </View> 
+                       <View style={{paddingLeft:10,paddingTop:4}}>
+                         <Text style={tw`font-bold text-lg`}>{e.gymName}</Text>
+                       </View>
+                       <View style={{flexDirection:"row",paddingLeft:10,paddingTop:10}}>
+                         <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/pin.png")}/>
+                       <Text style={tw`text-black  w-full pl-2`} >Ras El Nahj</Text>               
+                       </View>
+                       <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}
+               onPress={() =>
+                navigation.navigate("Gym", {
+                  gymName: e.gymName,
+                  imgUrl: e.imgUrl,
+                  rating: e.rating,
+                  description: e.description,
+                  fields: e.fields,
+                  price: e.price,
+                  latitude: e.latitude,
+                  longitude: e.longitude,
+                  phoneNumber: e.phoneNumber,
+                  adress: e.adress,
+                })
+              }>
+              <Text style={tw` mt-1.5 font-bold text-lg `}>See More</Text>
+            </TouchableOpacity>
+                </View>
               </TouchableOpacity>
-            </View>
+              </View>
+
+     
           ))}
         </View>
       </ScrollView>

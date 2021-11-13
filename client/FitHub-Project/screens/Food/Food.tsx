@@ -5,7 +5,7 @@ import axios from "axios";
 import {
   StyleSheet,
   Dimensions,
-  ImageBackground, ScrollView,TouchableOpacity 
+  ImageBackground, ScrollView, TouchableOpacity
 } from "react-native";
 import {
   Text,
@@ -37,7 +37,7 @@ export default function Food() {
   return (
    <View>
     < ScrollView >
-      <View style={{ alignItems: "center", marginTop: 10, marginBottom: 60 }}>
+      <View style={{ alignItems: "center", marginTop: 10, marginBottom: 88 }}>
 {FoodData.map((e,k)=>{
 return(
 <TouchableOpacity key= {k} onPress={() => navigation.navigate("Recipe",{ recipeTitle: e.recipeTitle,
@@ -65,7 +65,8 @@ return(
                   <View style={styles.inview}>
                     {/* <View style={tw`h-4 items-center bg-transparent pt-1 `}> */}
                     <View style={{ flex: 1, padding: 1, backgroundColor: "transparent" }}>
-                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>Barbecued broccoli, cauliflower & halloumi</Text>
+
+                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>{e.recipeTitle}</Text>
                     </View>
                   </View>
                 </View>
@@ -106,6 +107,9 @@ return(
               </View>
             </View>
           </View>
+          </TouchableOpacity>
+)})}
+ 
         </View>
       </ScrollView>
     

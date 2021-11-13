@@ -83,7 +83,7 @@ const Gym: React.FC<{
                   alignItems: "center",
                   height: 40,
                   width: "90%",
-                  backgroundColor: "#36e08b",
+                  backgroundColor: "#E7FF19",
                   opacity: 0.8,
                   paddingTop: 6,
                 }}
