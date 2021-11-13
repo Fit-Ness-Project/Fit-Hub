@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { View, ActivityIndicator, Image, Text, TextInput, Button, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
 import * as _ from "lodash";
 import * as Google from 'expo-google-app-auth';
 import { LogBox } from 'react-native';
@@ -34,26 +33,26 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
 
   // useKeepAwake();
-  const validationSchema = Yup.object().shape({
-      name: Yup.string().required('Name is required').label('Name'),
-      email: Yup.string()
-          .email('Please enter valid email')
-          .required('Email is required')
-          .label('Email'),
-      password: Yup.string()
-          .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
-          .min(8, ({ min }) => `Password must be at least ${min} characters`)
-          .required('Password is required')
-          .label('Password'),
-  });
+  // const validationSchema = Yup.object().shape({
+  //     name: Yup.string().required('Name is required').label('Name'),
+  //     email: Yup.string()
+  //         .email('Please enter valid email')
+  //         .required('Email is required')
+  //         .label('Email'),
+  //     password: Yup.string()
+  //         .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
+  //         .min(8, ({ min }) => `Password must be at least ${min} characters`)
+  //         .required('Password is required')
+  //         .label('Password'),
+  // });
 
 
   
   const handleGoogleSignIn = () => {
     setGoogleSubmitting(true);
     const config = {
-      iosClientId: `196418584285-c63js4737tou3b1l8m0gtulpduial66a.apps.googleusercontent.com`,
-      androidClientId: `196418584285-13csvmvh90m2bbl7aiqmqg654vhbtf0o.apps.googleusercontent.com`,
+        iosClientId: `139390994367-ovh7mn3b3gjgqlustn50p2n12pdflb4r.apps.googleusercontent.com`,
+        androidClientId: `139390994367-do2jpfprao629c268pg3u95m2c7k2vrn.apps.googleusercontent.com`,
       scopes: ["profile", "email"],
     };
 
@@ -65,10 +64,10 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         if (type === "success") {
           const { user: { email, name, photoUrl } } = result;
           handleMessage("Google sign in successful", "SUCCESS");
-          setTimeout(
-            () => navigation.navigate("Home"),
-            10
-          );
+      console.log(result.user)
+            navigation.navigate("Home")
+        
+       
         } else {
           handleMessage("Google signin was cancelled");
         }

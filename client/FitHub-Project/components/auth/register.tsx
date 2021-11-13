@@ -51,7 +51,7 @@ export default function Register() {
   function handelSubmit() {
     axios
     //putt back the deploied link after changing the server funvtion to the server side 
-      .post("http://192.168.11.67:5000/users", {
+      .post("https://fithub-tn-app.herokuapp.com/users", {
         first_name: first_name,
         last_name: last_name,
         phone_number: phone_number,

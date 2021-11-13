@@ -1,6 +1,3 @@
-
-
-
 import React,{useState,useEffect} from 'react'
 import { View, Text , TextInput , Button } from 'react-native'
 import axios from 'axios';
@@ -12,17 +9,16 @@ const EditProfile = () => {
       let [phone_number, setmobilePhone] = useState('0')
       let [email, setemail] = useState('')
       let [Password,setPassword] = useState('')
-      let [weight,setweight]=useState('')
-      let [height,setheight]=useState('')
+      // let [weight,setweight]=useState('')
      let[userId,setUserId] = useState(null)
 
      useEffect(()=>{
       
       AsyncStorage.getItem('key').then(res=>{
         const token = res
-       let id = jwtDecode(token)
+      //  let id = jwtDecode(token)
      
-       setUserId(id.user_id)
+      //  setUserId(id.user_id)
 
       })
 
@@ -30,7 +26,7 @@ const EditProfile = () => {
      console.log(userId,"hhaha")
      function handelSubmit () {
        // putt back the deploid link 
-      axios.patch(`http://192.168.11.67:5000/users${userId}`,{
+      axios.patch(`https://fithub-tn-app.herokuapp.com/users${userId}`,{
         phone_number:phone_number,
         email: email,
         password:Password,
@@ -41,6 +37,8 @@ const EditProfile = () => {
       .catch((err)=>console.log(err))
       }
 
+      let [weight,setweight]=useState('0')
+      let [height,setheight]=useState('0')
     return (
         <View style={tw` mt-10 w-4/5 ml-8 flex `}>
         <Text>weight</Text>
@@ -51,7 +49,6 @@ const EditProfile = () => {
           onChangeText={setweight}
         />
           <Text>height</Text>
-
         <TextInput
           style={tw`mt-4 rounded h-10 bg-white p-2 `}
           placeholder="height"
@@ -83,6 +80,4 @@ const EditProfile = () => {
       </View>
     )
 }
-
 export default EditProfile
-
