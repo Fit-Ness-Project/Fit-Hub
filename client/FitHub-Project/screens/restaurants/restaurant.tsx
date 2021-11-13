@@ -17,6 +17,8 @@ import {
 
 
 
+
+
 import { useNavigation } from '@react-navigation/core';
 import tw from "tailwind-react-native-classnames";
 import Footer from "../Footer/Footer";
@@ -101,7 +103,7 @@ export default function Restaurant() {
     //         </View>
     //      </View>
 
-    
+
     <View>
       < ScrollView >
         <View style={{ alignItems: "center", marginTop: 10, marginBottom: 60 }}>

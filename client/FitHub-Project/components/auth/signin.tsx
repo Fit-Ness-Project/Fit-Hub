@@ -95,49 +95,24 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
     axios.post('http://192.168.11.104:5000/customer/login', credentials)
       .then((res) => {
         console.log("token", res.data.Token)
-        AsyncStorage.setItem('Token', res.data.Token)
         const result = res.data
         const { message, status, data } = result
         if (status === "SUCCESS") {
-
+          AsyncStorage.setItem('Token', res.data.Token)
           navigation.navigate('Home', data[0])
-
         } else {
           handleMessage(message, status)
-          console.log("errrrrrrrrrrr")
+          console.log("Something went wrong !")
         }
 
 
-      
+      }).catch(
+        err =>{ console.log(err),
+        handleMessage("Try Again")
+      })
+    }
 
-      }).catch(err => console.log(err))
 
-
-
-    //   .then((response) => {
-    //     AsyncStorage.setItem('Token', response.data.Token)
-    //       .then(() => {
-    //         const result = response.data
-    //        
-
-    //         const { message, status, data } = result
-
-    //         if (status === "SUCCESS") {
-
-    //           navigation.navigate('Home', data[0])
-
-    //         } else {
-    //           handleMessage(message, status)
-
-    //         }
-    //       })
-    //   })
-    //   .catch((err: any) => {
-    //     console.log(err);
-
-    //     handleMessage("Try Again")
-    //   })
-  }
 
 
   return (
