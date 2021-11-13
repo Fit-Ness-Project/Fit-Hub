@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Image,
@@ -17,10 +17,12 @@ import { useKeepAwake } from "expo-keep-awake";
 import { RootTabScreenProps } from "../../types";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
+import jwt_decode from "jwt-decode";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function Register({}: RootTabScreenProps<"bmi">) {
-  const navigation = useNavigation();
-  // useKeepAwake();
+export default function Register() {
+ 
+  useKeepAwake();
   // const validationSchema = Yup.object().shape({
   //   last: Yup.string().required("Last Name is required").label("Name"),
   //   first: Yup.string().required("First Name is required").label("Name"),
@@ -47,22 +49,29 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
   // });
 
   function handelSubmit() {
-    console.log(firstName, lastName, email, mobilePhone, Password);
     axios
-      .post("http://localhost:5000/users", {
-        first_name: firstName,
-        last_name: lastName,
-        mobile_phone: mobilePhone,
+    //putt back the deploied link after changing the server funvtion to the server side 
+      .post("https://fithub-tn-app.herokuapp.com/users", {
+        first_name: first_name,
+        last_name: last_name,
+        phone_number: phone_number,
+        password:password,
         email: email,
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        console.log(jwt_decode(res.data.Token))
+        AsyncStorage.setItem('key',res.data.Token)
+      navigation.navigate('bmi')      }
+      
+      
+      )
       .catch((err) => console.log(err));
   }
-
-  let [firstName, setfirstName] = useState("");
-  let [lastName, setlastName] = useState("");
-  let [mobilePhone, setmobilePhone] = useState("0");
-  let [Password, setPassword] = useState("");
+  const navigation = useNavigation();
+  let [first_name, setfirstName] = useState("");
+  let [last_name, setlastName] = useState("");
+  let [phone_number, setmobilePhone] = useState("0");
+  let [password, setpassword] = useState("");
   let [email, setemail] = useState("");
 
   return (
@@ -90,7 +99,7 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
             <TextInput
               style={tw`mt-4 rounded h-10 bg-white p-2 `}
               placeholder="First name"
-              value={firstName}
+              value={first_name}
               onChangeText={setfirstName}
             />
             {/* {errors.first && touched.first && (
@@ -100,7 +109,7 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
               style={tw` mt-4 rounded h-10 bg-white p-2 `}
               placeholder="Last name"
               onChangeText={setlastName}
-              value={lastName}
+              value={last_name}
             />
             {/* {errors.last && touched.last && (
                                     <Text style={{ color: 'red' }}>{errors.last}</Text>
@@ -120,7 +129,7 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
               placeholder="Phone number"
               keyboardType="numeric"
               onChangeText={setmobilePhone}
-              value={mobilePhone}
+              value={phone_number}
             />
             {/* {errors.number && touched.number && (
                                     <Text style={{ color: 'red' }}>{errors.number}</Text>
@@ -129,8 +138,8 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
               style={tw`mt-4 rounded h-10 bg-white p-2  `}
               secureTextEntry={true}
               placeholder="Password"
-              onChangeText={setPassword}
-              value={Password}
+              onChangeText={setpassword}
+              value={password}
             />
             {/* {errors.password && touched.password && (
                                     <Text style={{ color: 'red' }}>{errors.password}</Text>
@@ -139,9 +148,8 @@ export default function Register({}: RootTabScreenProps<"bmi">) {
 
           <View style={tw` text-black pt-6 w-4/5 ml-8`}>
             <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("bmi");
-              }}
+              onPress={handelSubmit}
+
               style={Styles.button}
             >
               <Text style={Styles.text}>REGISTER</Text>

@@ -17,7 +17,7 @@ const ProfileInfo = () => {
   const userId = 3;
   console.log(setProfileData)
   useEffect(() => {
-    axios.get(`http://localhost:5000/users/${userId}`, {
+    axios.get(`https://fithub-tn-app.herokuapp.com/users/${userId}`, {
     }).then((res) =>
       setProfileData(res.data)
     )
@@ -153,19 +153,18 @@ const ProfileInfo = () => {
 
           <View
             style={{
+              backgroundColor: "transparent",
+              flexDirection: "column",
               width: "100%",
-              alignItems: "center",
-              height: 310,
-              backgroundColor: "black",
             }}
           >
             <TouchableOpacity>
               {/* <Avatar.Image
                 size={150}
                 style={{
-                  marginTop: 60,
-                  borderColor: "#36E08B",
-                  borderWidth: 1,
+                  backgroundColor: "transparent",
+                  flexDirection: "column",
+                  width: "100%",
                 }}
                 source={ProfileData[0]}
               ></Avatar.Image> */}
@@ -183,74 +182,52 @@ const ProfileInfo = () => {
               />
             </View>
           </View>
+          {verif  && (seemoreinfo[0])}
+          {verif && (seemoreinfo[1])}
+          {verif  && (seemoreinfo[2])}
+          {verif  && (seemoreinfo[3])}
+    
+          <View style={tw`bg-transparent mt-6`}>
+            <TouchableOpacity>
+              <Text  onPress={()=>{if(verif=== false){setVerif(true);setSee("Show Less")} else{setVerif(false);setSee("See More")}}}  style= {tw`text-black underline`}>{see}</Text>
+            </TouchableOpacity>
+          </View>
           <View
             style={{
-              backgroundColor: "transparent",
               alignItems: "center",
-              width: "100%",
+              backgroundColor: "transparent",
+              flexDirection: "row",
             }}
           >
-            <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
+            <TouchableOpacity style={styles.button} onPress = {()=>navigation.navigate("EditProfile")}>
               <View
                 style={{
                   alignItems: "center",
-                  marginTop: 20,
-                  backgroundColor: "white",
-                  width: "80%",
-                  height: "auto",
+                  backgroundColor: "transparent",
                   flexDirection: "row",
                 }}
               >
                 <Image
-                  style={{ height: 25, width: 25 }}
-                  source={require("../../assets/Icons/phone.png")}
-                ></Image>
-                <View
-                  style={{
-                    backgroundColor: "transparent",
-                    flexDirection: "column",
-                    width: "100%",
-                  }}
-                >
-                  <Text style={tw` ml-6  text-black`}></Text>
-                  <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-                    Mobile
-                  </Text>
-                </View>
-              </View>
-              <View style={styles.container}>
-                <View style={styles.separatorOffset} />
-                <View style={styles.separator} />
+                  style={tw` mt-3 h-4 w-4`}
+                  source={require("../../assets/Icons/edit.png")}
+                />
+                
+                <Text style={tw`pt-3 pl-2  font-bold`} >Edit Profile</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
+            <TouchableOpacity style={[styles.button, { marginLeft: 20 }]} onPress={()=>navigation.navigate("createEvent")}>
               <View
                 style={{
                   alignItems: "center",
-                  marginTop: 20,
-                  backgroundColor: "white",
-                  width: "80%",
-                  height: "auto",
+                  backgroundColor: "transparent",
                   flexDirection: "row",
                 }}
               >
                 <Image
-                  style={{ height: 25, width: 25 }}
-                  source={require("../../assets/Icons/email.png")}
-                ></Image>
-                <View
-                  style={{
-                    backgroundColor: "transparent",
-                    flexDirection: "column",
-                    width: "100%",
-                  }}
-                >
-                  <Text style={tw`ml-6  text-black`}>
-                  </Text>
-                  <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-                    Personal email
-                  </Text>
-                </View>
+                  style={tw` mt-3 h-4 w-4`}
+                  source={require("../../assets/Icons/plus.png")}
+                />
+                <Text style={tw`pt-3 pl-2 font-bold`}>Create Event</Text>
               </View>
             </TouchableOpacity>
             {verif && (seemoreinfo[0])}
