@@ -2,27 +2,33 @@ import * as React from "react";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Events } from "./interface";
-import {
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Button,
-} from "react-native";
+import { FlatList, StyleSheet, TouchableOpacity, Image, ImageBackground } from "react-native";
 import { View, Text } from "../../components/Themed";
+import { RootTabScreenProps } from "../../types";
+import { useNavigation } from "@react-navigation/core";
+import { ScrollView } from "react-native-gesture-handler";
+import tw from "tailwind-react-native-classnames";
+import Footer from "../Footer/Footer";
+import { AirbnbRating } from "react-native-ratings";
+import { FontAwesome } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
-const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 };
 
-export default function Event() {
+
+export default function Event({ }: RootTabScreenProps<'createEvent'>) {
+
   let flatListRef = useRef<FlatList<Event> | null>();
 
   const [eventhData, setEventData] = useState<Events[]>([]);
-
+  console.log(eventhData)
   useEffect(() => {
     axios
-      .get("http://192.168.11.134:5000/events")
+      .get('https://fithub-tn-app.herokuapp.com/events')
 
       .then((response) => {
+
         setEventData(response.data);
       })
       .catch((Error) => {
@@ -30,80 +36,111 @@ export default function Event() {
       });
   }, []);
 
-  const scrollToIndex = (index: number) => {
-    flatListRef.current?.scrollToIndex({ animated: true, index: index });
-  };
-  const renderItems: React.FC<{ item: Events }> = ({ item }) => {
-    return (
-      <TouchableOpacity style={{ alignItems: "center" }}>
-        <Image source={{ uri: item.url }} style={styles.image} />
-        <Text> {item.eventName} </Text>
-        <Text> {item.description} </Text>
-        <Text> {item.adress} </Text>
-        <Text> {item.date} </Text>
-        <TouchableOpacity>
-          <Text> Join </Text>
-        </TouchableOpacity>
-      </TouchableOpacity>
-    );
-  };
+  // const scrollToIndex = (index: number) => {
+  //   flatListRef.current?.scrollToIndex({ animated: true, index: index });
+  // };
+  // const renderItems: React.FC<{ item: Events }> = ({ item }) => {
+  //   return (
+  //     <View style={{ alignItems: "center" }}>
+  //       <Image source={{ uri: item.imageurl }} />
+  //       <Text > {item.eventName} </Text>
+  //       <Text> {item.description} </Text>
+  //       <Text > {item.adress} </Text>
+  //       <Text style={{ color: 'grey' }}> Date : {item.date} </Text>
+
+  //       <TouchableOpacity
+  //         onPress={() => { }}
+  //       >
+  //         <Text style={{ backgroundColor: "#e7ff19" }}>Join This Event</Text>
+  //       </TouchableOpacity>
+
+  //     </View>
+  //   );
+  // };
+  const navigation = useNavigation();
   return (
-    <View>
-      <FlatList
-        data={eventhData}
-        renderItem={renderItems}
-        keyExtractor={(item, i) => i.toString()}
-        showsHorizontalScrollIndicator={false}
-        //  ref={(ref)=>{flatListRef.current = ref}}
-        viewabilityConfig={viewConfigRef}
-      />
+    <View style={tw` items-center bg-gray-100`}>
+      < ScrollView >
+
+        <View style={{ marginBottom: 10, height: 400, marginTop: 10 }}>
+          <View style={tw` h-72 flex flex-col mr-4 ml-4 rounded`} >
+            <View style={tw`w-80 mt-4 h-5/6 items-center`} >
+              <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/eventbg.png")}>
+              </ImageBackground>
+            </View>
+            <View style={tw` mt-2 ml-2`}>
+              <Text style={tw` text-lg font-bold `}>
+                YOGA SESSION
+              </Text>
+              <View style={tw` flex flex-row`}>
+                <Entypo name="location-pin" size={24} color="black" />
+                <Text style={tw` `}>
+                  Hammamet du sud
+                </Text>
+              </View>
+            </View>
+
+
+            <View style={tw` flex flex-row ml-3`}>
+              <MaterialIcons name="date-range" size={20} color="black" />
+              <Text style={tw`text-black ml-3  `}>
+                99/99/9999
+              </Text>
+            </View>
+
+
+            <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#e7ff19",height: 46, width: 120, marginLeft: 200 }}
+              onPress={() => navigation.navigate("Event")}>
+              <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
+            </TouchableOpacity>
+
+          </View>
+
+        </View>
+      </ScrollView>
+      <View style={{ position: 'absolute', bottom: -48, width: "100%" }}>
+        <Footer />
+      </View>
     </View>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    width: 350,
-    height: 230,
-    resizeMode: "cover",
-    marginVertical: 10,
-  },
-  footer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    height: 50,
-    paddingHorizontal: 50,
-    alignItems: "center",
-    backgroundColor: "#000",
-  },
-  footerText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  carousel: {
-    maxHeight: 700,
-  },
-  dotview: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginVertical: 20,
-  },
-  circle: {
-    width: 10,
-    height: 10,
-    backgroundColor: "grey",
-    borderRadius: 50,
-  },
-  title: {
-    color: "white",
 
-    fontSize: 25,
+
+const styles = StyleSheet.create({
+  button: {
+    borderWidth: 1,
+    width: 50,
+    borderRadius: 5,
+    height: 60,
+    opacity: .9,
     fontWeight: "bold",
-    backgroundColor: "black",
+    backgroundColor: "#e7ff19",
+    borderColor: "gray",
+
   },
-});
+  text: {
+    fontSize: 28,
+  },
+  view: {
+    backgroundColor: "black",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    padding: 10,
+    opacity: .6
+  },
+  inview: {
+    backgroundColor: "transparent",
+    flexDirection: "row",
+    height: "100%",
+    alignItems: "center",
+  },
+  holder: {
+    marginTop: -5,
+    height: "36%",
+    backgroundColor: "transparent",
+    borderRadius: 5,
+    alignItems: "center"
+  }
+
+})

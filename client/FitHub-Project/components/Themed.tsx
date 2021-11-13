@@ -56,7 +56,7 @@ export function TouchableOpacity (props: TouchableProps) {
 
 export function TextInput (props :TextInputProps ) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
   return <TextInputView style={[{ backgroundColor }, style]} {...otherProps} />;
 }

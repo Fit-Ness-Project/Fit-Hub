@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import { StyleSheet, Picker } from 'react-native';
-import { Text, View,  TouchableOpacity , TextInput } from '../components/Themed';
+import  React , {useState,useEffect} from 'react';
+import { View, Image, TextInput, StyleSheet, Picker, TouchableOpacity } from 'react-native';
+import { Text } from '../components/Themed';
+import { RootTabScreenProps } from '../types';
+import { useNavigation } from '@react-navigation/native';
 
 
-export default function TabOneScreen() {
+
+
+export default function Information({}: RootTabScreenProps<'Home'>) {
+
+    
+
    const [selectedValue, setSelectedValue] = useState("male");
-
+   const navigation = useNavigation();
   return (
     <View style = {styles.container}> 
     <Text style={styles.title}>Add You Information for us to help You</Text>
@@ -13,8 +20,7 @@ export default function TabOneScreen() {
     <TextInput style= {styles.input} 
     underlineColorAndroid = "transparent"
     placeholder = "Age (year)"
-    autoCapitalize = "none"
-  
+    autoCapitalize = "none" 
     />
 
     <Text  style = {styles.label}>Height</Text>
@@ -30,23 +36,27 @@ export default function TabOneScreen() {
        autoCapitalize = "none"
      />
      <Text  style = {styles.label}>Select Your Gender</Text>
-        <Picker
+     <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 150 ,marginLeft:20 }}
+        style={{ height: 50, width: 150 , backgroundColor:'#e7ff19' }}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
-        <Picker.Item label="Male" value="Male" />
-        <Picker.Item label="Female " value="Female" />
+        <Picker.Item 
+         label="male" value="male"  />
+        <Picker.Item 
+         label="Female" value="Female" />
       </Picker>
+       
+    
     <TouchableOpacity
-       style = {styles.submitButton}  
+     onPress={() => navigation.navigate("Home")}
+       style = {styles.submitButton}
        >
        <Text style = {styles.submitButtonText}> Next </Text>
     </TouchableOpacity>
     <Text style = {styles.resultText}></Text>
     < Text style = {styles.resultText}></Text>
     < Text style = {styles.resultText}></Text>
-
     </View>
 )
   }
@@ -60,6 +70,7 @@ const styles = StyleSheet.create({
      height: 40,
      borderWidth: 1,
      padding: 10,
+     backgroundColor:'white'
   },
   submitButton: {
      backgroundColor: '#e7ff19',
@@ -69,9 +80,10 @@ const styles = StyleSheet.create({
   },
   submitButtonText:{
      textAlign: "center",
-     color: 'white',
-   //  fontWeight:"bold",
+     color: 'black',
+    // fontWeight:"bold",
      fontSize: 18,
+
   },
   output:{
      textAlign: "center",

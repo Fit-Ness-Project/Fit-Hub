@@ -1,85 +1,120 @@
-import * as React from 'react';
-import { ScrollView ,StyleSheet ,  FlatList } from 'react-native';
-  import tw from "tailwind-react-native-classnames"
-import Map from "./Map"
-import { Avatar, Button, Card, Title, Paragraph,Colors } from 'react-native-paper';
-import EditScreenInfo from '../EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-import { RootTabScreenProps } from '../../types';
-import {Gym} from "./Gyminterface"
-import axios from 'axios';
-import  { useEffect, useState , useRef } from 'react'
-import { useNavigation } from '@react-navigation/core';
+import * as React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+import tw from "tailwind-react-native-classnames";
+import { Gym } from "./Gyminterface";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/core";
+import Footer from "../../screens/Footer/Footer";
 
-
-const viewConfigRef = {viewAreaCoveragePercentTreshold:95}
 export default function Gyms() {
+  const [GymData, setGymData] = useState<Gym[]>([]);
+  const navigation = useNavigation();
+  useEffect(() => {
+    axios
+      .get("https://fithub-tn-app.herokuapp.com/gyms")
 
-let flatListRef = useRef<FlatList<Gym> | null >();
-
-// const [currentIndex, setCurrentIndex] = useState(0);
-
-const [GymData, setGymData] = useState<Gym[]>([]);
-
-const navigation = useNavigation()
-
-useEffect(() => {
-  axios 
-  .get('http://192.168.11.161:5000/gyms')
-   
-  .then((response)=> {
-    //  console.log(response.data)
-      setGymData(response.data)
-  })
-  .catch(( Error) => {
-    console.log(Error);
-  });
-
-}, [])
-
+      .then((response) => {
+        setGymData(response.data);
+      })
+      .catch((Error) => {
+        console.log(Error);
+      });
+  }, []);
   return (
-    <ScrollView style = {tw  `bg-white`}>
-      {GymData.map((e,k)=>(
+    <View>
+      <ScrollView>
+        <View style={{ alignItems: "center",  marginBottom: 50}}>
+          {GymData.map((e, k) => (
+            <View key={k} style={tw` w-full h-80  bg-gray-200 `}>
 
-      <Card style = {tw`bg-gray-500 w-96 ml-4 rounded mt-1`}  key = {k} >
-    <Card.Cover  source={{ uri: e.imgUrl }} />
-    <Card.Content>
-      <Title style = {tw`text-white`}>  {e.gymName}</Title>
-      <Paragraph style = {tw`text-white`}>{e.description}</Paragraph>
-    </Card.Content>
-    <Card.Actions>
-      <Button  onPress={() => navigation.navigate('Gymdescription' , {
-         GymId: e.id,
-         gymName: e.gymName,
-         imgUrl: e.imgUrl,
-         rating: e.rating,
-         description: e.description,
-         fields: e.fields,
-         price: e.price 
-      })} color = "#e7ff19">See More</Button>
-      <Button onPress = {()=>console.log(e)} color = "#e7ff19">Show in Maps</Button>
-    </Card.Actions>
-  </Card>
-      ))}
-    </ScrollView>
+              <TouchableOpacity
+              
+                style={{width:"100%",marginTop:10,alignItems: "center"}}
+              >
+                <View style={{backgroundColor:"white",height:300,width: "90%"}}>
+                <View style={{width:"93%",height:"60%",marginTop:10,alignItems: "center"}}> 
+                <View style={{width:"100%",height:"100%",marginLeft:21}}>
+                <Image
+                  style={{ width: "100%", height: "100%" }}
+                  source={{ uri: e.imgUrl }}
+                />
+                </View>
+                       </View> 
+                       <View style={{paddingLeft:10,paddingTop:4}}>
+                         <Text style={tw`font-bold text-lg`}>{e.gymName}</Text>
+                       </View>
+                       <View style={{flexDirection:"row",paddingLeft:10,paddingTop:10}}>
+                         <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/pin.png")}/>
+                       <Text style={tw`text-black  w-full pl-2`} >Ras El Nahj</Text>               
+                       </View>
+                       <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}
+               onPress={() =>
+                navigation.navigate("Gym", {
+                  gymName: e.gymName,
+                  imgUrl: e.imgUrl,
+                  rating: e.rating,
+                  description: e.description,
+                  fields: e.fields,
+                  price: e.price,
+                  latitude: e.latitude,
+                  longitude: e.longitude,
+                  phoneNumber: e.phoneNumber,
+                  adress: e.adress,
+                })
+              }>
+              <Text style={tw` mt-1.5 font-bold text-lg `}>See More</Text>
+            </TouchableOpacity>
+                </View>
+              </TouchableOpacity>
+              </View>
+
+     
+          ))}
+        </View>
+      </ScrollView>
+      <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+        <Footer />
+      </View>
+    </View>
   );
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
+  },
+  view: {
+    backgroundColor: "#36e08b",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    padding: 10,
+    opacity: 0.7,
+  },
+  inview: {
+    backgroundColor: "transparent",
+    flexDirection: "row",
+    height: "100%",
+    alignItems: "center",
   },
 });

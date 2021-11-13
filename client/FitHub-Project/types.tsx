@@ -16,44 +16,133 @@ declare global {
   }
 } 
 
+
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
-  Food: undefined;
+  Recipe:{
+    recipeTitle: string ;
+    content: string ;
+    likes: number;
+    imageUrl : string;
+    kcal : number  ;
+    fat : number ;
+    carb : number ;
+    saturates : number ;
+    sugar : number ;
+    fibre : number ;
+    protein : number; 
+    salt :number;
+    ingredients : string ;
+    methodes : string  ;
+  };
   Blogs: undefined;
-  Gym: undefined;
-  coach: undefined;
-  changeViewProps: undefined;
+  blog:{
+     id: number;
+      blogTitle: string; 
+      imageUrl: string; 
+      content: string;
+      date: Date;
+      like: number;
+  }
+  // Gym: undefined;
+  Coachs: undefined;
+  coach: {
+    coachId : number ,
+    coachName : string,
+    rating: number, 
+    price: number,
+    description: string,
+    adress: string,   
+    phoneNumber : number, 
+    email : string,
+    imageUrl : string
+  };
+  Home: undefined;
   Events: undefined;
+  Event:undefined;
   bmi : undefined;
-  myProfile:undefined;
-  Gymdescription:{GymId:Number,
-     gymName: string;
-    imgUrl: string;
-    rating: Number;
-    description: string;
-    fields: string;
-    price: Number;   };
+  Gym:{ 
+ 
+    gymName: string,
+    imgUrl: string,
+    rating: number,
+    description: string,
+    fields: string,
+    price: number ,
+
+   latitude :  string;
+   longitude :  string;
+   adress: string;
+   phoneNumber: number;
+     };
+     login:undefined;
+     signUp:undefined;
+     FirstVueProps:undefined;
+     createEvent:undefined;
+     register:undefined;
+     Food:undefined;
+
+     Restaurant : undefined;
+     Healthy:{
+     id: number;
+    rest_name: string ;
+    food_name : string;
+    rating : number;
+    price : number ;
+    ingredients: string ;
+    supp: string ;
+    img_Url :string ; 
+     };
+     EditProfile:undefined
+     BottomTabNavigator:undefined;
+     ProfileInfo:undefined
+     Gyms:undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, Screen>;
 
 export type RootTabParamList = {
+  Gyms:undefined;
   TabOne: undefined;
   TabTwo: undefined;
   UserInfo: undefined;
   Community: undefined;
   Food: undefined;
-  Blogs: undefined;
+  Blogs:undefined;
   Gym: undefined;
-  coach: undefined;
-  changeViewProps: undefined;
+  Coachs: undefined;
+  Home: undefined;
   Events: undefined;
+  Event: undefined;
   bmi : undefined;
-  Gymdescription:{GymId:number};
+  login:undefined;
+   signUp:undefined;
+  coach : undefined;
+  // Gymdescription:undefined;
   myProfile:undefined;
+  FirstVueProps:undefined;
+  createEvent:undefined;
+  blog:undefined;
+  register:undefined;
+  Recipe:undefined;
+  Restaurant:undefined;
+  ProfileInfo:undefined
+  Healthy:{
+    id: number;
+    rest_name: string ;
+    food_name : string;
+    rating : number;
+    price : number ;
+    ingredients: string ;
+    supp: string ;
+    img_Url :string ; 
+     };
+     EditProfile:undefined
+  BottomTabNavigator:undefined;
+
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
