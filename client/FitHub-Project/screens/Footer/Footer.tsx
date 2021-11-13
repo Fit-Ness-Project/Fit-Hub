@@ -50,4 +50,4 @@ const ChangeView = ({ }) => {
   )
 }
 
-export default ChangeView
+export default ChangeView;

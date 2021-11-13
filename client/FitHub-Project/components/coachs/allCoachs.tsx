@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react'
-import { Rating } from 'react-native-elements';
 import { Text, View } from '../Themed';
 import * as React from 'react';
 import { Coach } from "./interface";

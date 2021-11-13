@@ -7,7 +7,6 @@ import {
   SafeAreaView
 } from "react-native";
 import axios from "axios";
-import { Avatar } from "react-native-paper";
 import tw from "tailwind-react-native-classnames";
 import { Text, View } from "../../components/Themed";
 import { Profile } from "./interface";
@@ -25,7 +24,9 @@ const ProfileInfo = () => {
       .catch((err) => console.log(err)
       )
 
-  }, [])
+},[])
+
+
   const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
     <View
       style={{
@@ -166,15 +167,15 @@ const ProfileInfo = () => {
                   borderColor: "#36E08B",
                   borderWidth: 1,
                 }}
-                source={ProfileData[0].image}
+                source={ProfileData[0]}
               ></Avatar.Image> */}
             </TouchableOpacity>
-            {/* <View style={tw`mt-4 bg-transparent  flex-row`}>
+            <View style={tw`mt-4 bg-transparent  flex-row`}>
               <Text style={tw`text-white text-base font-bold `}>
                 {" "}
-               DESCRIPTION{" "}
+              USERNAME{" "}
               </Text>
-            </View> */}
+            </View>
             <View style={tw`mt-4 bg-transparent flex-row`}>
               <Image
                 style={tw`w-4 h-4`}
@@ -258,7 +259,20 @@ const ProfileInfo = () => {
             {verif && (seemoreinfo[3])}
             <View style={tw`bg-transparent mt-6`}>
               <TouchableOpacity>
-                <Text onPress={() => { if (verif === false) { setVerif(true); setSee("Show Less") } else { setVerif(false); setSee("See More") } }} style={tw`text-black underline`}>{see}</Text>
+                <Text
+                  onPress={() => {
+                    if (verif === false) {
+                      setVerif(true);
+                      setSee("Show Less");
+                    } else {
+                      setVerif(false);
+                      setSee("See More");
+                    }
+                  }}
+                  style={tw`text-black underline`}
+                >
+                  {see}
+                </Text>
               </TouchableOpacity>
             </View>
             <View
@@ -268,7 +282,10 @@ const ProfileInfo = () => {
                 flexDirection: "row",
               }}
             >
-              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("EditProfile")}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate("EditProfile")}
+              >
                 <View
                   style={{
                     alignItems: "center",
@@ -276,14 +293,17 @@ const ProfileInfo = () => {
                     flexDirection: "row",
                   }}
                 >
-                  {/* <Image
+                  <Image
                     style={tw` mt-3 h-4 w-4`}
                     source={require("../../assets/Icons/edit.png")}
-                  /> */}
+                  />
                   <Text style={tw`pt-3 pl-2  font-bold`} >Edit Profile</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.button, { marginLeft: 20 }]} onPress={() => navigation.navigate("createEvent")}>
+              <TouchableOpacity
+                style={[styles.button, { marginLeft: 20 }]}
+                onPress={() => navigation.navigate("createEvent")}
+              >
                 <View
                   style={{
                     alignItems: "center",
@@ -291,18 +311,22 @@ const ProfileInfo = () => {
                     flexDirection: "row",
                   }}
                 >
-                  {/* <Image
+                  <Image
                     style={tw` mt-3 h-4 w-4`}
                     source={require("../../assets/Icons/plus.png")}
-                  /> */}
+                  />
                   <Text style={tw`pt-3 pl-2 font-bold`}>Create Event</Text>
                 </View>
               </TouchableOpacity>
             </View>
             <View style={{ width: "100%", backgroundColor: "white" }}>
+              <View  style={[styles.button, { marginLeft: 90 }]}>
+            <Text>LOG OUT</Text>
+            </View>
             </View>
           </View>
         </View>
+        
       </ScrollView>
     </SafeAreaView>
   );

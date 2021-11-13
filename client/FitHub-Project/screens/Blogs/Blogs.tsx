@@ -1,5 +1,5 @@
 import * as React from 'react';
-import EditScreenInfo from '../../components/EditScreenInfo';
+// import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View, TouchableOpacity, TextInput } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
 import { useEffect, useState, useRef } from 'react'
