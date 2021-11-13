@@ -6,7 +6,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { Gym } from "./Gyminterface";
@@ -20,7 +20,7 @@ export default function Gyms() {
   const navigation = useNavigation();
   useEffect(() => {
     axios
-      .get("http://192.168.11.161:5000/gyms")
+      .get("https://fithub-tn-app.herokuapp.com/gyms")
 
       .then((response) => {
         setGymData(response.data);
@@ -30,45 +30,60 @@ export default function Gyms() {
       });
   }, []);
   return (
-<View>
-    <ScrollView style={{ backgroundColor: "white" }}>
-      <View style={{ alignItems: "center", marginTop: 10, marginBottom: 50 }}>
-      {GymData.map((e, k) => (
-        <View key={k} style={tw`h-52 w-full p-2 bg-transparent  `} >
-          <TouchableOpacity onPress={() =>
-            navigation.navigate("Gym", {
-              gymName: e.gymName,
-              imgUrl: e.imgUrl,
-              rating: e.rating,
-              description: e.description,
-              fields: e.fields,
-              price: e.price,
-              latitude: e.latitude,
-              longitude: e.longitude,
-              phoneNumber: e.phoneNumber,
-              adress: e.adress,
-            })
-          } >
-            <ImageBackground style={{ width: "100%", height: "100%" }} source={{ uri: e.imgUrl }}>
-              <View style={tw`bg-transparent h-16 absolute inset-x-0 bottom-16  w-full`}>
-                <View style={styles.view}>
-                  <View style={styles.inview}>
-                    <Image style={tw` w-10 h-10  `} source={require("../../assets/Icons/gym1.png")} />
-                    <View style={tw`h-10 items-center bg-transparent pt-1 `}>
-                      <Text style={tw`text-black text-3xl pl-2 font-bold`}>{e.gymName}</Text>
-                    </View>
-                  </View>
+    <View>
+      <ScrollView>
+        <View style={{ alignItems: "center",  marginBottom: 50}}>
+          {GymData.map((e, k) => (
+            <View key={k} style={tw` w-full h-80  bg-gray-200 `}>
+
+              <TouchableOpacity
+              
+                style={{width:"100%",marginTop:10,alignItems: "center"}}
+              >
+                <View style={{backgroundColor:"white",height:300,width: "90%"}}>
+                <View style={{width:"93%",height:"60%",marginTop:10,alignItems: "center"}}> 
+                <View style={{width:"100%",height:"100%",marginLeft:21}}>
+                <Image
+                  style={{ width: "100%", height: "100%" }}
+                  source={{ uri: e.imgUrl }}
+                />
                 </View>
+                       </View> 
+                       <View style={{paddingLeft:10,paddingTop:4}}>
+                         <Text style={tw`font-bold text-lg`}>{e.gymName}</Text>
+                       </View>
+                       <View style={{flexDirection:"row",paddingLeft:10,paddingTop:10}}>
+                         <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/pin.png")}/>
+                       <Text style={tw`text-black  w-full pl-2`} >Ras El Nahj</Text>               
+                       </View>
+                       <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}
+               onPress={() =>
+                navigation.navigate("Gym", {
+                  gymName: e.gymName,
+                  imgUrl: e.imgUrl,
+                  rating: e.rating,
+                  description: e.description,
+                  fields: e.fields,
+                  price: e.price,
+                  latitude: e.latitude,
+                  longitude: e.longitude,
+                  phoneNumber: e.phoneNumber,
+                  adress: e.adress,
+                })
+              }>
+              <Text style={tw` mt-1.5 font-bold text-lg `}>See More</Text>
+            </TouchableOpacity>
+                </View>
+              </TouchableOpacity>
               </View>
-            </ImageBackground>
-          </TouchableOpacity>
+
+     
+          ))}
         </View>
-      ))}
+      </ScrollView>
+      <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+        <Footer />
       </View>
-    </ScrollView>
-    <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
-                <Footer/>
-            </View>
     </View>
   );
 }
@@ -94,12 +109,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     padding: 10,
-    opacity: .7
+    opacity: 0.7,
   },
   inview: {
     backgroundColor: "transparent",
     flexDirection: "row",
     height: "100%",
     alignItems: "center",
-  }
+  },
 });

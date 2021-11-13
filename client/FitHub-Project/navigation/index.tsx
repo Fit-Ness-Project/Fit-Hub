@@ -5,7 +5,7 @@ import * as React from "react";
 import { ColorSchemeName } from "react-native";
 import Gym from "../components/Gyms/Gym"
 import NotFoundScreen from "../screens/NotFoundScreen";
-import { RootStackParamList,} from "../types";
+import { RootStackParamList} from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import ChangeView from "../screens/HomePage/getData/HomeVue/HomeVue";
 import Coachs from "../components/coachs/allCoachs";
@@ -27,14 +27,12 @@ import EditProfile from "../components/myprofile/EditProfile";
 import ProfileInfo from "../components/myprofile/ProfileInfo";
 import Gyms from "../components/Gyms/Gyms"
 
+
 export default function Navigation({
   colorScheme,
 }: {
   colorScheme: ColorSchemeName;
 }) {
-
-
-
 
   return (
     <NavigationContainer
@@ -47,6 +45,7 @@ export default function Navigation({
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
 
 function RootNavigator({ }) {
 
@@ -84,6 +83,7 @@ function RootNavigator({ }) {
     </Stack.Navigator>
   );
 }
+
 
 
 

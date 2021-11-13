@@ -1,11 +1,7 @@
-
-
-
 import React,{useState} from 'react'
 import { View, Text , TextInput , Button } from 'react-native'
 import axios from 'axios';
 import tw from 'tailwind-react-native-classnames';
-
 const EditProfile = () => {
     const userId = 0;
     function handelSubmit () {
@@ -24,7 +20,6 @@ const EditProfile = () => {
       let [Password,setPassword] = useState('')
       let [weight,setweight]=useState('0')
       let [height,setheight]=useState('0')
-
     return (
         <View style={tw` mt-10 w-4/5 ml-8 flex `}>
         <Text>weight</Text>
@@ -35,7 +30,6 @@ const EditProfile = () => {
           onChangeText={setweight}
         />
           <Text>height</Text>
-
         <TextInput
           style={tw`mt-4 rounded h-10 bg-white p-2 `}
           placeholder="height"
@@ -67,6 +61,4 @@ const EditProfile = () => {
       </View>
     )
 }
-
 export default EditProfile
-

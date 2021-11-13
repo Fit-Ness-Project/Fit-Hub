@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react'
-import { Rating } from 'react-native-elements';
 import { Text, View } from '../Themed';
 import * as React from 'react';
 import { Coach } from "./interface";
@@ -16,9 +15,11 @@ import tw from 'tailwind-react-native-classnames';
 import { AirbnbRating } from "react-native-ratings";
 
 
+
+
 export default function AllCoachs() {
 
-  const navigation = useNavigation()
+const navigation = useNavigation()
 
 
   const [coachData, setCoachData] = useState<Coach[]>([]);
@@ -27,7 +28,7 @@ export default function AllCoachs() {
 
   useEffect(() => { 
     axios
-      .get('http://192.168.11.65:5000/coachs')
+      .get('https://fithub-tn-app.herokuapp.com/coachs')
 
       .then((response) => {
 

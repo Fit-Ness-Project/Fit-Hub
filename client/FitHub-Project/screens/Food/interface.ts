@@ -1,11 +1,17 @@
-export  interface FoodR { 
-        id: number;
-        recipeTitle: string ;
-        created_at: Date;
-        content: string ;
-        user_id: number ;
-        likes: number;
-        comments: string ;
-        imageUrl :string ; 
-    
+export interface FoodR {
+  recipeTitle:string;
+  created_at: string;
+  content: string ;
+  likes: number;
+  imageUrl: string;
+Kcal: number;
+  fat: number;
+  carb: number;
+  saturates: number;
+  sugar: number;
+  fibre: number;
+  protein: number;
+  salt: number;
+  ingredients:string;
+  methodes: string;
 }

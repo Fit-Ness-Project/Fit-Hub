@@ -5,7 +5,7 @@ import axios from "axios";
 import {
   StyleSheet,
   Dimensions,
-  ImageBackground, ScrollView,TouchableOpacity 
+  ImageBackground, ScrollView, TouchableOpacity
 } from "react-native";
 import {
   Text,
@@ -17,28 +17,59 @@ import { AirbnbRating } from "react-native-ratings";
 import Footer from "../Footer/Footer";
 
 
-const screenWidth = Dimensions.get('screen').width;
 
+
+const screenWidth = Dimensions.get('screen').width;
 export default function Food() {
-  const navigation = useNavigation();
+  const navigation = useNavigation()
+  const [FoodData, setFoodData] = useState<FoodR[]>([]);
+  useEffect(() => {
+    axios
+      .get("https://fithub-tn-app.herokuapp.com/recipes")
+      .then((response) => {
+        setFoodData(response.data);
+      })
+      .catch((Error) => {
+        console.log(Error);
+      });
+  }, []);
 
   return (
-   <View>
+   <View style={tw`bg-gray-100`}>
     < ScrollView >
-      <View style={{ alignItems: "center", marginTop: 10, marginBottom: 60 }}>
-
-       <View style={tw` h-36 mt-2 flex flex-row bg-white`} >
+      <View style={{ alignItems: "center", marginTop: 10, marginBottom: 88 }}>
+{FoodData.map((e,k)=>{
+return(
+<TouchableOpacity key= {k} onPress={() => navigation.navigate("Recipe",{ recipeTitle: e.recipeTitle,
+    content: e.content, 
+    likes: e.likes,
+    imageUrl : e.imageUrl,
+    kcal : e.Kcal,  
+    fat : e.fat, 
+    carb : e.carb, 
+    saturates : e.saturates, 
+    sugar : e.sugar,  
+    fibre : e.fibre,  
+    protein : e.protein, 
+    salt :e.salt,
+    ingredients : e.ingredients, 
+    methodes : e.methodes  })}>
+       <View key = {k} style={tw` h-36 mt-2 flex flex-row bg-white`} >
             <View style={tw`w-3/6 h-full  items-center`} >
-              <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/dish1.jpg")}>
+              <ImageBackground style={{ width: "100%", height: "100%" }} source={{uri:e.imageUrl}}>
               </ImageBackground>
+              <TouchableOpacity style={{ alignItems: "center",position: "absolute",backgroundColor: "#e7ff19", height: 45, width: 175,marginTop:100,opacity:0.7}}
+              onPress={() => navigation.navigate("Event")}>
+              <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
+            </TouchableOpacity>
             </View>
             <View style={tw`bg-white flex w-3/6 items-center`} >
               <View style={tw`bg-transparent h-12 absolute inset-x-0 top-0 w-full`}>
                 <View style={styles.view}>
                   <View style={styles.inview}>
-                    {/* <View style={tw`h-4 items-center bg-transparent pt-1 `}> */}
                     <View style={{ flex: 1, padding: 1, backgroundColor: "transparent" }}>
-                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>Barbecued broccoli, cauliflower & halloumi</Text>
+
+                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>{e.recipeTitle}</Text>
                     </View>
                   </View>
                 </View>
@@ -56,41 +87,42 @@ export default function Food() {
 
               <View style={{ position: 'absolute', bottom: 2, width: "95%", height: "35%" }}>
 
-                <View style={{ height: "100%", width: "30%", bottom: 0, borderWidth: 1, borderColor: "#gray" }}>
-                  <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                <View style={{ height: "100%", width: "28%", bottom: 0, borderWidth: 1, borderColor: "#gray",marginTop:2 }}>
+                  <View style={{ backgroundColor: "#36e08b", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray" }}>
                     <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>Kcal</Text>
                   </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>492</Text>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>{e.Kcal}</Text>
                 </View>
 
-                <View style={{ height: "100%", width: "30%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>
-                  <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                <View style={{ height: "100%", width: "28%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>
+                  <View style={{ backgroundColor: "#36e08b", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray" }}>
                     <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>fat</Text>
                   </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>31g</Text>
+                  <Text style={{ textAlign: "center", fontSize: 14 }}>{e.fat}g</Text>
                 </View>
 
-                <View style={{ height: "100%", width: "30%", left: 124, bottom: 100, borderWidth: 1, borderColor: "#gray" }}>
-                  <View style={{ backgroundColor: "#e7ff19", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray", opacity: 0.7 }}>
+                <View style={{ height: "100%", width: "28%", left: 124, bottom: 100, borderWidth: 1, borderColor: "#gray" }}>
+                  <View style={{ backgroundColor: "#36e08b", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray" }}>
                     <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>carbs</Text>
                   </View>
-                  <Text style={{ textAlign: "center", fontSize: 14 }}>14g</Text>
+                  <Text style={{ textAlign: "center", fontSize: 14 }}>{e.carb}g</Text>
                 </View>
               </View>
-            </View>
+            </View>      
           </View>
+          </TouchableOpacity>
+)})}
+ 
         </View>
       </ScrollView>
-{/*     
-      <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
+      <View style={{ position: 'absolute', bottom:-50, width: "100%" }}>
         <Footer />
-      </View> */}
+      </View>
     </View>
     
 
   )
 }
-
 
 const styles = StyleSheet.create({
 
