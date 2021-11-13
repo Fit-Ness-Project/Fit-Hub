@@ -15,6 +15,8 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
+
+
 export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
   let flatListRef = useRef<FlatList<Event> | null>();

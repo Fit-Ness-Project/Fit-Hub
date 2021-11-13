@@ -35,7 +35,7 @@ export default function AllCoachs() {
       .then((response) => {
 
         setCoachData(response.data)
-        //  console.log(response.data)
+         console.log("coachs:",coachData)
       })
       .catch((Error) => {
         console.log(Error);

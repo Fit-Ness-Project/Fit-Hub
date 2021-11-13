@@ -44,7 +44,7 @@ return(
     content: e.content, 
     likes: e.likes,
     imageUrl : e.imageUrl,
-    kcal : e.Kcal,  
+    kcal : e.kcal,  
     fat : e.fat, 
     carb : e.carb, 
     saturates : e.saturates, 
@@ -91,7 +91,7 @@ return(
                   <View style={{ backgroundColor: "#36e08b", height: "50%", padding: 2, borderWidth: 1, borderColor: "#gray" }}>
                     <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>Kcal</Text>
                   </View>
-                  <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>{e.Kcal}</Text>
+                  <Text style={{ textAlign: "center", fontSize: 14, color: "black" }}>{e.kcal}</Text>
                 </View>
 
                 <View style={{ height: "100%", width: "28%", left: 61, bottom: 50, borderWidth: 1, borderColor: "#gray" }}>

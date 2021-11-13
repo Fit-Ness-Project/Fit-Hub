@@ -17,6 +17,8 @@ import {
 
 
 
+
+
 import { useNavigation } from '@react-navigation/core';
 import tw from "tailwind-react-native-classnames";
 import Footer from "../Footer/Footer";
