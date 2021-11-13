@@ -15,12 +15,14 @@ import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
 import Footer from "../../screens/Footer/Footer";
 
+
+
 export default function Gyms() {
   const [GymData, setGymData] = useState<Gym[]>([]);
   const navigation = useNavigation();
   useEffect(() => {
     axios
-      .get("https://fithub-tn-app.herokuapp.com/gyms")
+      .get("https://localhost:5000/gyms")
 
       .then((response) => {
         setGymData(response.data);

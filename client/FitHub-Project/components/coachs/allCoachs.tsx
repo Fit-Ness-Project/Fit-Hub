@@ -30,12 +30,12 @@ export default function AllCoachs() {
 
   useEffect(() => {
     axios
-      .get('https://fithub-tn-app.herokuapp.com/coachs')
+      .get('http://coachs')
 
       .then((response) => {
 
         setCoachData(response.data)
-         console.log("coachs:",coachData)
+        //  console.log("coachs:",coachData)
       })
       .catch((Error) => {
         console.log(Error);
