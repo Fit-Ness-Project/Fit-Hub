@@ -22,7 +22,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Register() {
  
-  useKeepAwake();
+  // useKeepAwake();
   // const validationSchema = Yup.object().shape({
   //   last: Yup.string().required("Last Name is required").label("Name"),
   //   first: Yup.string().required("First Name is required").label("Name"),
@@ -59,18 +59,18 @@ export default function Register() {
         email: email,
       })
       .then((res) => {
-        console.log(jwt_decode(res.data.Token))
+        //  console.log(jwt_decode(res.data.Token))
         AsyncStorage.setItem('key',res.data.Token)
-      navigation.navigate('bmi')      }
+      navigation.navigate('bmi')   
+       }    
       
-      
-      )
+ )
       .catch((err) => console.log(err));
   }
   const navigation = useNavigation();
   let [first_name, setfirstName] = useState("");
   let [last_name, setlastName] = useState("");
-  let [phone_number, setmobilePhone] = useState("0");
+  let [phone_number, setmobilePhone] = useState("");
   let [password, setpassword] = useState("");
   let [email, setemail] = useState("");
 
