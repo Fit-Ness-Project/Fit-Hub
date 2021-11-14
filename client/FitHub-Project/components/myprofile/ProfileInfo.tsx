@@ -168,7 +168,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   borderColor: "#36E08B",
                   borderWidth: 1,
                 }}
-                source={ProfileData[0]}
+                source={require("../../assets/Icons/profile.jpg")}
               ></Avatar.Image>
             </TouchableOpacity>
             <View style={tw`mt-4 bg-transparent  flex-row`}>
@@ -301,11 +301,13 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                 </View>
               </TouchableOpacity>
             </View>
+            <TouchableOpacity onPress = {()=>navigation.navigate("login")}>
             <View style={{ width: "100%", backgroundColor: "white" }}>
               <View  style={[styles.button, { marginLeft: 90 }]}>
             <Text>LOG OUT</Text>
             </View>
             </View>
+            </TouchableOpacity>
           </View>
         </View>
         

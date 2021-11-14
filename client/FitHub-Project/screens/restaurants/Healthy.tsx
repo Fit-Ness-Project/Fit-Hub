@@ -54,14 +54,14 @@ const Healthy: React.FC<{
         //   </View>
 
         <View>
-            < ScrollView style={tw`bg-red-300`}>
+            < ScrollView >
                 <View style={{ alignItems: "center", marginTop: 10, marginBottom: 50 }}>
                     <View style={{ width: "90%", height: "100%", backgroundColor: "white", alignItems: "center", borderBottomLeftRadius: 20, borderBottomRightRadius: 20 }}>
                         <ImageBackground style={{ width: "100%", height: 400 }} source={require("../../assets/images/diets3.png")}>
                         </ImageBackground>
                         <View style={tw`mt-4`}>
-                            <Text style={tw`text-xl font-bold text-green-00`}>
-                                Kosksi bnede9
+                            <Text style={tw`text-xl font-bold `}>
+                            {params.food_name}
                             </Text>
                         </View>
                         <View style={tw`items-center`}>
@@ -75,7 +75,7 @@ const Healthy: React.FC<{
                         </View>
                         <View style={tw`mt-2`}>
                             <Text style={tw`text-lg text-black font-semibold`}>
-                                Preparation Time
+                                Chez {params.rest_name}
                             </Text>
                         </View>
                         <View style={tw`flex flex-row mt-6`}>
@@ -213,3 +213,4 @@ const styles = StyleSheet.create({
     body: { flex: 10, justifyContent: 'center', alignItems: 'center', backgroundColor: 'yellow' },
     footer: { flex: 1, backgroundColor: 'cyan' }
 })
+
