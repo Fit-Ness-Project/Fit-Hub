@@ -84,6 +84,7 @@ const FirstVue = ({
         const index = Math.floor(Math.random() * pages.length);
         setPage(pages[index]);
     }, []);
+    
     useEffect(() => {
         const intervalID = setInterval(shuffle, 1000);
         return () => clearInterval(intervalID);
