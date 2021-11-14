@@ -158,7 +158,7 @@ const Healthy: React.FC<{
                 </View> */}
 
 
-                        {/* <View style={tw`ml-6 mr-6 mt-3`}>
+                       <View style={tw`ml-6 mr-6 mt-3`}>
                     <Text style={tw`font-bold`}>
                         Methods:
                     </Text>
@@ -170,7 +170,7 @@ const Healthy: React.FC<{
                         2- Mix the breadcrumbs with the lemon zest and parsley, then season well. Top the cod evenly with the breadcrumb mixture, then drizzle .0with the remaining oil.
                         Put in a roasting tin with the cherry tomatoes, then bake in the oven for the final 10 mins of the chips’ cooking time.
                     </Text>
-                </View> */}
+                </View> 
 
                     </View>
                 </View>

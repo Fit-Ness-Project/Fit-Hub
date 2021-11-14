@@ -60,7 +60,7 @@ export default function AllCoachs() {
   const searchFilter = (text: string) => {
     if (text) {
       const newData = coachData.filter((item) => {
-      const itemData = item.coachName ? item.coachName.toUpperCase() : ''.toUpperCase()
+        const itemData = item.coachName ? item.coachName.toUpperCase() : ''.toUpperCase()
         const textData = text.toUpperCase()
         return itemData.indexOf(textData) > -1
       })
@@ -187,8 +187,8 @@ const styles = StyleSheet.create({
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
     borderBottomColor: 'black',
-    marginLeft: 16,
-    marginRight: 16,
+    marginLeft: 14,
+    marginRight: 14,
   },
 
 })

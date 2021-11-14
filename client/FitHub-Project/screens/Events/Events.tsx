@@ -89,7 +89,7 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
             </View>
 
             <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#e7ff19",height: 46, width: 120, marginLeft: 200 }}
-              onPress={() => navigation.navigate("Event")}>
+            >
               <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
             </TouchableOpacity>
           </View>
