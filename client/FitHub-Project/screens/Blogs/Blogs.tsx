@@ -44,64 +44,68 @@ export default function Blogs() {
   }, []);
 
   return (
-    <ScrollView>
-      <View style={tw` items-center bg-gray-100`}>
-        {blogData.map((item, k) => (
-          <View
-            style={{ marginBottom: 10, height: 400, marginTop: 10 }}
-            key={k}
+    <View style={tw` items-center bg-gray-100`}>
+      < ScrollView style={{ marginBottom: 60 }}>
+        <View style={tw` items-center bg-gray-100`}>
+          {blogData.map((item, k) => (
+            <View
+              style={{ marginBottom: 10, height: 400, marginTop: 10 }}
+              key={k}
             >
-            <View style={tw` h-72 flex flex-col mr-4 ml-4 rounded`}>
-              <View style={tw`w-80 mt-4 h-5/6 items-center`}>
-                <ImageBackground
-                  style={{ width: "100%", height: "100%" }}
-                  source={{ uri: item.imageUrl }}
-                ></ImageBackground>
-              </View>
-              <View style={tw` mt-2 ml-2`}>
-                <Text style={tw` text-lg font-bold `}>{item.blogTitle}</Text>
-                {/* <View style={tw` flex flex-row`}>
+              <View style={tw` h-72 flex flex-col mr-4 ml-4 rounded`}>
+                <View style={tw`w-80 mt-4 h-5/6 items-center`}>
+                  <ImageBackground
+                    style={{ width: "100%", height: "100%" }}
+                    source={{ uri: item.imageUrl }}
+                  ></ImageBackground>
+                </View>
+                <View style={tw` mt-2 ml-2`}>
+                  <Text style={tw` text-lg font-bold `}>{item.blogTitle}</Text>
+                  {/* <View style={tw` flex flex-row`}>
                     <Text style={tw`ml-1 `}>By Author</Text>
                   </View> */}
-              </View>
+                </View>
 
-              <View style={tw` flex flex-row ml-2`}>
-                <MaterialIcons name="date-range" size={20} color="black" />
-                <Text style={tw`text-black ml-1  `}>
-                  created at: {item.date}
-                </Text>
-              </View>
+                <View style={tw` flex flex-row ml-2`}>
+                  <MaterialIcons name="date-range" size={20} color="black" />
+                  <Text style={tw`text-black ml-1  `}>
+                    created at: {item.date}
+                  </Text>
+                </View>
 
-              <TouchableOpacity
-                style={{
-                  alignItems: "center",
-                  backgroundColor: "#e7ff19",
-                  height: 46,
-                  width: 120,
-                  marginLeft: 200,
-                }}
-                onPress={() =>
-                  navigation.navigate("blog", {
-                    id: item.id,
-                    blogTitle: item.blogTitle,
-                    imageUrl: item.imageUrl,
-                    content: item.content,
-                    date: item.date,
-                    like: item.like,
-                  })
-                }
-              >
-                <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    alignItems: "center",
+                    backgroundColor: "#e7ff19",
+                    height: 46,
+                    width: 120,
+                    marginLeft: 200,
+                  }}
+                  onPress={() =>
+                    navigation.navigate("blog", {
+                      id: item.id,
+                      blogTitle: item.blogTitle,
+                      imageUrl: item.imageUrl,
+                      content: item.content,
+                      date: item.date,
+                      like: item.like,
+                    })
+                  }
+                >
+                  <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
 
-          // {/* <View style={{ position: "absolute", bottom: -48, width: "100%" }}>
-          //   <Footer />
-          // </View> */}
-        ))}
+
+          ))}
+
+        </View>
+        </ScrollView>
+      <View style={{ top: 685, width: "100%",position: "absolute"}}>
+        <Footer />
       </View>
-    </ScrollView>
+    </View>
   );
 }
 

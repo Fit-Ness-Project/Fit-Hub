@@ -102,8 +102,8 @@ export default function Restaurant() {
     //             ))}
     //         </View>
     //      </View>
-    <View style={tw`bg-gray-100`}>
-      < ScrollView >
+    <View style={tw` items-center bg-gray-100`}>
+      < ScrollView style={{ marginBottom: 60 }}>
         <View style={{ alignItems: "center", marginTop: 10, marginBottom:10, marginLeft: 15, marginRight: 15 }}>
           <View style={tw` h-36  flex flex-row bg-white m-2`} >
             <View style={tw`w-3/6 h-full  items-center`} >
@@ -134,9 +134,8 @@ export default function Restaurant() {
             </View>
           </View>
         </View>
-      </ScrollView>
-
-      <View style={{ position: 'absolute', bottom: -50, width: "100%" }}>
+        </ScrollView>
+      <View style={{ top: 685, width: "100%",position: "absolute"}}>
         <Footer />
       </View>
     </View>
