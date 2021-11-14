@@ -39,12 +39,12 @@ export type RootStackParamList = {
   };
   Blogs: undefined;
   blog:{
-     id: number;
-      blogTitle: string; 
-      imageUrl: string; 
-      content: string;
-      date: Date;
-      like: number;
+    blogTitle: string;
+    imageUrl: string;
+    content: string;
+    like: number;
+    author: string;
+    date:any;
   }
   // Gym: undefined;
   Coachs: undefined;
@@ -86,19 +86,23 @@ export type RootStackParamList = {
 
      Restaurant : undefined;
      Healthy:{
-     id: number;
-    rest_name: string ;
-    food_name : string;
-    rating : number;
-    price : number ;
-    ingredients: string ;
-    supp: string ;
-    img_Url :string ; 
+      rest_name: string;
+      food_name: string;
+      rating: number;  
+      ingredients: string;
+      price: number;
+      img_Url: string;
+      supp: string;
+      longitude: string;
+      latitude: string;
      };
      EditProfile:undefined
      BottomTabNavigator:undefined;
      ProfileInfo:undefined
      Gyms:undefined;
+     oneRecipe : undefined;
+     event : undefined;
+
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -142,6 +146,8 @@ export type RootTabParamList = {
      };
      EditProfile:undefined
   BottomTabNavigator:undefined;
+  oneRecipe : undefined;
+  event : undefined;
 
 };
 

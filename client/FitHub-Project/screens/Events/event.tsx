@@ -23,8 +23,8 @@ export default function blog({ }) {
  
     return (
         <View>
-            <ScrollView>
-                <View style={{ padding: 10, backgroundColor: "" }}>
+        <ScrollView>
+          <View style={{ alignItems: "center"}}>
                     <View style={{ backgroundColor: "white", height: "100%" }}>
                         <View style={{ backgroundColor: "red", height: 280 }}>
                             <Image style={{ width: "100%", height: "100%" }} source={require("../../assets/images/blog4.png")} />
@@ -46,7 +46,7 @@ export default function blog({ }) {
                     </View>
                 </View>
             </ScrollView>
-            <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
+            <View style={{ top: 685, width: "100%", position: "absolute" }}>
                 <Footer />
             </View>
         </View>

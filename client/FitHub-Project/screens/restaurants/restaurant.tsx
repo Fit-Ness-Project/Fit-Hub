@@ -8,7 +8,7 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
-  ScrollView, ImageBackground
+  ScrollView, ImageBackground,
 } from "react-native";
 import {
   Text,
@@ -32,21 +32,19 @@ const screenWidth = Dimensions.get("screen").width;
 
 export default function Restaurant() {
   let flatListRef = useRef<FlatList<RestaurantR> | null>();
-
-  const [foodData, setFoodData] = useState<RestaurantR[]>([]);
-  const [searchData, setSearchData] = useState<RestaurantR[]>([]);
+  const [restData, setRestData] = useState<RestaurantR[]>([]);
   const navigation = useNavigation()
 
 
 
   useEffect(() => {
     axios
-      .get('http://192.168.11.64:5000/restaurants')
+      .get('https://fithub-tn-app.herokuapp.com/restaurants')
 
       .then((response) => {
-        console.log(response.data)
-        setFoodData(response.data)
-        setSearchData(response.data)
+
+        setRestData(response.data)
+    
 
       })
       .catch((error) => {
@@ -55,85 +53,57 @@ export default function Restaurant() {
 
   }, [])
 
-  // const renderItems: React.FC<{ item: RestaurantR }> = ({ item }) => {
-  //   return <TouchableOpacity onPress={() => navigation.navigate('Healthy', {
-  //     id: item.id,
-  //     food_name: item.food_name,
-  //     rest_name: item.rest_name,
-  //     img_Url: item.img_Url,
-  //     price: item.price,
-  //     ingredients: item.ingredients,
-  //     rating: item.rating,
-  //     supp: item.supp,
-  //   })}
-  //     activeOpacity={1} >
-  //     <View style={styles.container}>
-  //       <View style={{ display: 'flex', flexDirection: 'row', flex: 8, padding: 10, justifyContent: 'center', borderRadius: 20, backgroundColor: '#EEEDE7' }}>
-  //         <Image source={{ uri: item.img_Url }} style={{ width: 100, flexDirection: 'row', height: 85, borderRadius: 20, backgroundColor: '#EEEDE7' }} />
-
-  //         <View style={{
-  //           display: 'flex', flex: 10, padding: 10, justifyContent: 'space-around', alignItems: 'center', backgroundColor: '#EEEDE7'
-  //         }} >
-  //           <Text style={styles.titleT}  >{item.food_name} </Text>
-  //           {/* <Text >Chez {item.rest_name}  </Text> */}
-  //           {/* <Text >{item.rating} /10 </Text> */}
-  //           <Image style={tw` w-6 h-6 `} source={require("../../assets/Icons/like.png")} />
-  //           <Text style={styles.titleM} >{item.price} DT </Text>
-  //         </View>
-  //       </View>
-  //     </View>
-  //   </TouchableOpacity>
-  // }
-
-
+ 
   return (
-    //   <View  style={styles.container}>
-    //      <StatusBar   />
-    //       <FlatList data={foodData}
-    //        renderItem={renderItems} 
-    //        keyExtractor={(item,i)=> i.toString()}
-    //        showsHorizontalScrollIndicator={false}
 
-    // />
-    //         <View style= {styles.dotview}>
-    //             {foodData.map(({},index:number)=> (
-    //                 <TouchableOpacity key={index.toString()}  >
-    //                 </TouchableOpacity>
-    //             ))}
-    //         </View>
-    //      </View>
     <View style={tw` items-center bg-gray-100`}>
       < ScrollView style={{ marginBottom: 60 }}>
-        <View style={{ alignItems: "center", marginTop: 10, marginBottom:10, marginLeft: 15, marginRight: 15 }}>
+        {restData.map((e,k)=>{
+          return (
+            
+        <View key={k} style={{ alignItems: "center", marginTop: 10, marginBottom:10, marginLeft: 15, marginRight: 15 }}>
           <View style={tw` h-36  flex flex-row bg-white m-2`} >
             <View style={tw`w-3/6 h-full  items-center`} >
-              <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/dish1.jpg")}>
+              <ImageBackground style={{ width: "100%", height: "100%" }} source={{ uri:e.img_Url}}>
               </ImageBackground>
             </View>
             <View style={tw`bg-white flex flex-row w-3/6 items-center`} >
-              <View style={tw`bg-transparent h-12 absolute inset-x-0 top-0 w-full items-center`}>
+              <View style={tw`bg-transparent h-16 absolute inset-x-0 top-0 w-full items-center`}>
                 <View style={styles.view}>
                   <View style={styles.inview}>
                     <View style={{ flex: 1, padding: 1, backgroundColor: "transparent" }}>
-                      <Text style={{ fontSize: 11, color: "white", textAlign: "center", }}>Barbecued broccoli, cauliflower & halloumi</Text>
+                      <Text style={{ fontSize: 14, color: "black", textAlign: "center", fontWeight:'bold'}}>{e.food_name}</Text>
                     </View>
                   </View>
                 </View>
               </View>
 
-              <View style={{ height: 50, width: "20%", flexDirection: "row", backgroundColor: "transparent", marginTop: 36, marginLeft: 28 }}>
-                <MaterialIcons name="attach-money" size={20} color="black" />
-                <Text style={{ fontSize: 16, width: 150 }}>12.5 TND</Text>
+              <View style={{ height: 50, width: "50%",alignItems:"center", flexDirection: "row", backgroundColor: "transparent", marginTop: 16, marginLeft: 28 }}>
+                <Image style={tw`w-4 h-4 ml-3`} source={require("../../assets/Icons/coins.png")}/>
+                <Text style={tw`pl-2`}>{e.price}TND</Text>
               </View>
-              <View style={{ alignItems: "center", marginBottom: -112, marginLeft: -28 }}>
-                <TouchableOpacity style={{ height: 32, width: 120, backgroundColor: "#36E08B", alignItems: "center", opacity: .7 }}>
-                  <Text style={tw`mt-1 font-bold `}>See more</Text>
+              <View style={{ alignItems: "center", marginBottom: -112, marginLeft: -84,justifyContent:"center" }}>
+                <TouchableOpacity style={{ height: 32, width: 120, backgroundColor: "#36E08B", alignItems: "center", opacity: .7 }}
+                onPress={() => navigation.navigate("Healthy",{
+                  rest_name: e.rest_name,
+                  food_name: e.food_name,                
+                  rating: e.rating,
+                  ingredients: e.ingredients,              
+                  price: e.price,
+                  img_Url: e.img_Url,
+                  supp: e.supp,
+                  longitude: e.longitude,
+                  latitude: e.latitude
+                })}>
+                  <Text  style={tw`mt-1  font-bold `}>See more</Text>
 
                 </TouchableOpacity>
               </View>
             </View>
           </View>
         </View>
+          )
+        })}
         </ScrollView>
       <View style={{ top: 685, width: "100%",position: "absolute"}}>
         <Footer />
@@ -144,28 +114,11 @@ export default function Restaurant() {
   )
 }
 
-//   return (
-//     <View style={styles.container}>
-//       <StatusBar />
-//       <FlatList
-//         data={foodData}
-//         renderItem={renderItems}
-//         keyExtractor={(item, i) => i.toString()}
-//         showsHorizontalScrollIndicator={false}
-//       />
-//       <View style={styles.dotview}>
-//         {foodData.map(({}, index: number) => (
-//           <TouchableOpacity key={index.toString()}></TouchableOpacity>
-//         ))}
-//       </View>
-//     </View>
-//   );
-// }
 
 const styles = StyleSheet.create({
 
   view: {
-    backgroundColor: "black",
+    backgroundColor: "transparent",
     alignItems: "center",
     width: "100%",
     height: "100%",

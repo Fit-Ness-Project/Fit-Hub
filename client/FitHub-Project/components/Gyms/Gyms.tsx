@@ -34,13 +34,13 @@ export default function Gyms() {
       <ScrollView>
         <View style={{ alignItems: "center",  marginBottom: 50}}>
           {GymData.map((e, k) => (
-            <View key={k} style={tw` w-full h-80  bg-gray-200 `}>
+            <View key={k} style={tw` w-full h-82  bg-gray-200 `}>
 
-              <TouchableOpacity
+              <View
               
                 style={{width:"100%",marginTop:10,alignItems: "center"}}
               >
-                <View style={{backgroundColor:"white",height:300,width: "90%"}}>
+                <View style={{backgroundColor:"white",height:400,width: "90%"}}>
                 <View style={{width:"93%",height:"60%",marginTop:10,alignItems: "center"}}> 
                 <View style={{width:"100%",height:"100%",marginLeft:21}}>
                 <Image
@@ -53,10 +53,10 @@ export default function Gyms() {
                          <Text style={tw`font-bold text-lg`}>{e.gymName}</Text>
                        </View>
                        <View style={{flexDirection:"row",paddingLeft:10,paddingTop:10}}>
-                         <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/pin.png")}/>
-                       <Text style={tw`text-black  w-full pl-2`} >Ras El Nahj</Text>               
+                         <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/location-pin.png")}/>
+                       <Text style={tw`text-black text-xs  w-full pl-2`} >{e.adress}</Text>               
                        </View>
-                       <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}
+                       <TouchableOpacity style={{ alignItems: "center", marginTop:35, backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}
                onPress={() =>
                 navigation.navigate("Gym", {
                   gymName: e.gymName,
@@ -74,7 +74,7 @@ export default function Gyms() {
               <Text style={tw` mt-1.5 font-bold text-lg `}>See More</Text>
             </TouchableOpacity>
                 </View>
-              </TouchableOpacity>
+              </View>
               </View>
 
      
