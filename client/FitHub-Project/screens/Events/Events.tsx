@@ -60,8 +60,7 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
   const navigation = useNavigation();
   return (
     <View style={tw` items-center bg-gray-100`}>
-      < ScrollView >
-
+      < ScrollView style={{ marginBottom: 60 }}>
         <View style={{ marginBottom: 10, height: 400, marginTop: 10 }}>
           <View style={tw` h-72 flex flex-col mr-4 ml-4 rounded`} >
             <View style={tw`w-80 mt-4 h-5/6 items-center`} >
@@ -79,26 +78,20 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
                 </Text>
               </View>
             </View>
-
-
             <View style={tw` flex flex-row ml-3`}>
               <MaterialIcons name="date-range" size={20} color="black" />
               <Text style={tw`text-black ml-3  `}>
                 99/99/9999
               </Text>
             </View>
-
-
             <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#e7ff19",height: 46, width: 120, marginLeft: 200 }}
               onPress={() => navigation.navigate("Event")}>
               <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
             </TouchableOpacity>
-
           </View>
-
         </View>
       </ScrollView>
-      <View style={{ position: 'absolute', bottom: -48, width: "100%" }}>
+      <View style={{ top: 685, width: "100%",position: "absolute"}}>
         <Footer />
       </View>
     </View>

@@ -3,6 +3,7 @@ import { Text, View } from '../Themed';
 import * as React from 'react';
 import { Coach } from "./interface";
 import axios from "axios";
+
 import {
   ScrollView,
   StyleSheet,
@@ -10,14 +11,20 @@ import {
   TouchableOpacity,
   TextInput
 } from "react-native";
+
 import { useNavigation } from '@react-navigation/native';
 import tw from 'tailwind-react-native-classnames';
 import { AirbnbRating } from "react-native-ratings";
 import Footer from "../../screens/Footer/Footer";
 import { Feather } from '@expo/vector-icons';
+import { BottomNavigation } from 'react-native-paper';
 
 
+const MusicRoute = () => <Text>Music</Text>;
 
+const AlbumsRoute = () => <Text>Albums</Text>;
+
+const RecentsRoute = () => <Text>Recents</Text>;
 
 export default function AllCoachs() {
 
@@ -35,7 +42,7 @@ export default function AllCoachs() {
       .then((response) => {
 
         setCoachData(response.data)
-         console.log("coachs:",coachData)
+        //  console.log("coachs:",coachData)
       })
       .catch((Error) => {
         console.log(Error);
@@ -53,7 +60,7 @@ export default function AllCoachs() {
   const searchFilter = (text: string) => {
     if (text) {
       const newData = coachData.filter((item) => {
-        const itemData = item.coachName ? item.coachName.toUpperCase() : ''.toUpperCase()
+      const itemData = item.coachName ? item.coachName.toUpperCase() : ''.toUpperCase()
         const textData = text.toUpperCase()
         return itemData.indexOf(textData) > -1
       })
@@ -64,10 +71,25 @@ export default function AllCoachs() {
 
 
 
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'music', title: 'Music', icon: 'queue-music' },
+    { key: 'albums', title: 'Albums', icon: 'album' },
+    { key: 'recents', title: 'Recents', icon: 'history' },
+  ]);
+
+  const renderScene = BottomNavigation.SceneMap({
+    music: MusicRoute,
+    albums: AlbumsRoute,
+    recents: RecentsRoute,
+  });
+
+
+
   return (
 
     <View>
-      < ScrollView style={{ marginBottom: 50 }}>
+      < ScrollView style={{ marginBottom: 60 }}>
         <View style={tw`bg-gray-100  m-1 `}>
           <TextInput
             style={styles.input}
@@ -76,7 +98,7 @@ export default function AllCoachs() {
             underlineColorAndroid="transparent"
             onChangeText={(text) => searchFilter(text)}
           />
-          <View style={{backgroundColor:'transparent',marginTop:8,position:'absolute',marginLeft:345}}>
+          <View style={{ backgroundColor: 'transparent', marginTop: 8, position: 'absolute', marginLeft: 345 }}>
             <Feather name="search" size={22} color="black" />
           </View>
           {coachData.map((item, k) => (
@@ -127,23 +149,17 @@ export default function AllCoachs() {
                         <Text style={tw` items-center font-bold text-base `}>see more</Text>
                         {/* <Image style={tw` h-6 w-6 items-center `} source={require("../../assets/Icons/seeMore.png")}
                       /> */}
-
                       </View>
                     </View>
                   </TouchableOpacity>
                 </View>
-
               </View>
-
             </View>
-
-
           ))}
-
         </View>
-
       </ScrollView>
-      <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
+      <View style={{ top: 685, width: "100%", position: "absolute" }}>
+
         <Footer />
       </View>
     </View>
@@ -171,7 +187,6 @@ const styles = StyleSheet.create({
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
     borderBottomColor: 'black',
-
     marginLeft: 16,
     marginRight: 16,
   },
