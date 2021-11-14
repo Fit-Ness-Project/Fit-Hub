@@ -13,7 +13,7 @@ import Coach from "../components/coachs/coach"
 import Blogs from "../screens/Blogs/Blogs";
 import blog from "../screens/Blogs/blog";
 import Events from "../screens/Events/Events";
-import Event from "../screens/Events/event";
+import Event from "../screens/Events/Event";
 import Food from "../screens/Food/Food";
 import Login from "../components/auth/signin";
 import FirstVue from '../screens/FirstVue/FirstVue'
