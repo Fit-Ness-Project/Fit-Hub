@@ -21,8 +21,8 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
   let flatListRef = useRef<FlatList<Event> | null>();
 
-  const [eventhData, setEventData] = useState<Events[]>([]);
-  console.log(eventhData)
+  const [eventData, setEventData] = useState<Events[]>([]);
+ 
   useEffect(() => {
     axios
       .get('https://fithub-tn-app.herokuapp.com/events')
@@ -61,35 +61,40 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
   return (
     <View style={tw` items-center bg-gray-100`}>
       < ScrollView style={{ marginBottom: 60 }}>
-        <View style={{ marginBottom: 10, height: 400, marginTop: 10 }}>
+        {eventData.map((item,k)=>(
+
+       
+        <View style={{ marginBottom: 10, height: 400, marginTop: 10 }} key={k}>
           <View style={tw` h-72 flex flex-col mr-4 ml-4 rounded`} >
             <View style={tw`w-80 mt-4 h-5/6 items-center`} >
-              <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/eventbg.png")}>
+              <ImageBackground style={{ width: "100%", height: "100%" }} source={{ uri: item.imageUrl }}>
               </ImageBackground>
             </View>
             <View style={tw` mt-2 ml-2`}>
               <Text style={tw` text-lg font-bold `}>
-                YOGA SESSION
+              {item.eventName}
               </Text>
               <View style={tw` flex flex-row`}>
                 <Entypo name="location-pin" size={24} color="black" />
                 <Text style={tw` `}>
-                  Hammamet du sud
+                {item.adress}
                 </Text>
               </View>
             </View>
             <View style={tw` flex flex-row ml-3`}>
               <MaterialIcons name="date-range" size={20} color="black" />
               <Text style={tw`text-black ml-3  `}>
-                99/99/9999
+              {item.date}
               </Text>
             </View>
+
             <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#e7ff19",height: 46, width: 120, marginLeft: 200 }}
               onPress={() => navigation.navigate("Event")}>
               <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
             </TouchableOpacity>
           </View>
         </View>
+         ))}
       </ScrollView>
       <View style={{ top: 685, width: "100%",position: "absolute"}}>
         <Footer />
