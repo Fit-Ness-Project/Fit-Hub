@@ -15,6 +15,8 @@ import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
 import Footer from "../../screens/Footer/Footer";
 
+
+
 export default function Gyms() {
   const [GymData, setGymData] = useState<Gym[]>([]);
   const navigation = useNavigation();
