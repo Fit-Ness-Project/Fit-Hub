@@ -4,7 +4,7 @@ import {
   Text,
   View,
   TouchableOpacity,
-  TextInput,
+  TextInput
 } from "../../components/Themed";
 import { RootTabScreenProps } from "../../types";
 import { useEffect, useState, useRef } from "react";
@@ -12,17 +12,15 @@ import { Rating } from "react-native-elements";
 import axios from "axios";
 import {
   StyleSheet,
-  FlatList,
   ScrollView,
   ImageBackground,
+  Image
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Blog } from "./interface";
 import tw from "tailwind-react-native-classnames";
 import Footer from "../../screens/Footer/Footer";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
+import moment from 'moment';
 
 const viewConfigRef = { viewAreaCoveragePercentTreshold: 95 };
 
@@ -44,65 +42,54 @@ export default function Blogs() {
   }, []);
 
   return (
-    <View style={tw` items-center bg-gray-100`}>
-      < ScrollView style={{ marginBottom: 60 }}>
-        <View style={tw` items-center bg-gray-100`}>
-          {blogData.map((item, k) => (
-            <View
-              style={{ marginBottom: 10, height: 400, marginTop: 10 }}
-              key={k}
-            >
-              <View style={tw` h-72 flex flex-col mr-4 ml-4 rounded`}>
-                <View style={tw`w-80 mt-4 h-5/6 items-center`}>
-                  <ImageBackground
-                    style={{ width: "100%", height: "100%" }}
-                    source={{ uri: item.imageUrl }}
-                  ></ImageBackground>
-                </View>
-                <View style={tw` mt-2 ml-2`}>
-                  <Text style={tw` text-lg font-bold `}>{item.blogTitle}</Text>
-                  {/* <View style={tw` flex flex-row`}>
-                    <Text style={tw`ml-1 `}>By Author</Text>
-                  </View> */}
-                </View>
+    <View>
+      <ScrollView>
+        <View style={{ alignItems: "center",  marginBottom: 50}}>
+          {blogData.map((e, k) => (
+            <View key={k} style={tw` w-full h-80  bg-gray-200 `}>
 
-                <View style={tw` flex flex-row ml-2`}>
-                  <MaterialIcons name="date-range" size={20} color="black" />
-                  <Text style={tw`text-black ml-1  `}>
-                    created at: {item.date}
-                  </Text>
+              <View
+              
+                style={{margin:10,alignItems: "center"}}
+              >
+                <View style={{backgroundColor:"white",height:300,width: "90%"}}>
+                <View style={{width:"93%",height:"60%",marginTop:10,alignItems: "center"}}> 
+                <View style={{width:"100%",height:"100%",marginLeft:21}}>
+                <Image
+                  style={{ width: "100%", height: "100%" }}
+                  source={{ uri: e.imageUrl }}
+                />
                 </View>
-
-                <TouchableOpacity
-                  style={{
-                    alignItems: "center",
-                    backgroundColor: "#e7ff19",
-                    height: 46,
-                    width: 120,
-                    marginLeft: 200,
-                  }}
-                  onPress={() =>
-                    navigation.navigate("blog", {
-                      id: item.id,
-                      blogTitle: item.blogTitle,
-                      imageUrl: item.imageUrl,
-                      content: item.content,
-                      date: item.date,
-                      like: item.like,
-                    })
-                  }
-                >
-                  <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
-                </TouchableOpacity>
+                       </View> 
+                       <View style={{paddingLeft:10,paddingTop:4}}>
+                         <Text style={tw`font-bold text-lg`}>{e.blogTitle}</Text>
+                       </View>
+                       <View style={{flexDirection:"row",paddingLeft:10,paddingTop:10}}>
+                         {/* <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/calender.")}/> */}
+                       <Text style={tw`text-black  w-full pl-2`} >{ moment(e.date, "YYYYMMDD").fromNow()}</Text>               
+                       </View>
+                       <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}
+               onPress={() =>
+                navigation.navigate("blog",{ 
+                  blogTitle: e.blogTitle,
+                  imageUrl: e.imageUrl,
+                  content: e.content,
+                  like: e.like,
+                  author: e.author,
+                  date:e.date
+                })
+              }>
+              <Text style={tw` mt-1.5 font-bold text-lg `}>See More</Text>
+            </TouchableOpacity>
+                </View>
               </View>
-            </View>
+              </View>
 
-
+     
           ))}
-
         </View>
-        </ScrollView>
-      <View style={{ top: 685, width: "100%",position: "absolute"}}>
+      </ScrollView>
+      <View style={{ top: 685, width: "100%", position: "absolute" }}>
         <Footer />
       </View>
     </View>

@@ -7,10 +7,11 @@ import { Formik } from 'formik';
 import * as _ from "lodash";
 import * as Google from 'expo-google-app-auth';
 import { LogBox } from 'react-native';
-// import { useKeepAwake } from 'expo-keep-awake';
+import { useKeepAwake } from 'expo-keep-awake';
 import { RootTabScreenProps } from "../../types";
 import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
+// import * as Yup from "yup";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
@@ -44,6 +45,8 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
   //         .min(8, ({ min }) => `Password must be at least ${min} characters`)
   //         .required('Password is required')
   //         .label('Password'),
+          
+          
   // });
 
 
