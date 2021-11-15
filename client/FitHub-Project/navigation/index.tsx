@@ -68,7 +68,7 @@ function RootNavigator({ }) {
       <Stack.Screen name="Coachs" component={Coachs} />
       <Stack.Screen name="Blogs" component={Blogs} />
       <Stack.Screen name="Events" component={Events} />
-      <Stack.Screen name="Event" component={Event} />
+      {/* <Stack.Screen name="Event" component={Event} /> */}
       <Stack.Screen name="coach" component={Coach} />
       <Stack.Screen name="Gym" component={Gym} />
       <Stack.Screen name="bmi" component={Information} />
