@@ -50,7 +50,7 @@ export default function Blogs() {
 
               <View
               
-                style={{width:"100%",marginTop:10,alignItems: "center"}}
+                style={{margin:10,alignItems: "center"}}
               >
                 <View style={{backgroundColor:"white",height:300,width: "90%"}}>
                 <View style={{width:"93%",height:"60%",marginTop:10,alignItems: "center"}}> 
@@ -65,7 +65,7 @@ export default function Blogs() {
                          <Text style={tw`font-bold text-lg`}>{e.blogTitle}</Text>
                        </View>
                        <View style={{flexDirection:"row",paddingLeft:10,paddingTop:10}}>
-                         {/* <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/pin.png")}/> */}
+                         {/* <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/calender.")}/> */}
                        <Text style={tw`text-black  w-full pl-2`} >{ moment(e.date, "YYYYMMDD").fromNow()}</Text>               
                        </View>
                        <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}

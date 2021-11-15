@@ -15,9 +15,11 @@ const blog: React.FC<{
       {
         params: {
             blogTitle: string;
-            imageUrl: string;
-            content: string;
-            like: number;
+  imageUrl: string;
+  content: string;
+  like: number;
+  author: string;
+  date : any;
         };
       },
       "params"
@@ -41,7 +43,7 @@ const blog: React.FC<{
                 <View style={{ padding: 10, backgroundColor: "" }}>
                     <View style={{ backgroundColor: "white", height: "100%" }}>
                         <View style={{ backgroundColor: "red", height: 280 }}>
-                            <Image style={{ width: "100%", height: "100%" }} source={require("../../assets/images/blog4.png")} />
+                            <Image style={{ width: "100%", height: "100%" }} source={{uri:params.imageUrl}} />
                         </View>
                         <View>
                             <Text style={{ padding: 15, fontSize: 20, textAlign: "center", fontWeight: "bold" }}>
@@ -52,7 +54,7 @@ const blog: React.FC<{
                                 {like && (likebut[0])}
                             </View>
                             <Text style={{ paddingLeft: 20, fontSize: 17 }}>
-                               {params.blogTitle}
+                               {params.author}
                             </Text>
                             <Text style={{ fontSize: 10, color: "gray", marginLeft: 20 }}> {Date()}</Text>
                             <Text style={{ padding: 20 }}>

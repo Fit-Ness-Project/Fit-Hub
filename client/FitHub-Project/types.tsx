@@ -101,7 +101,15 @@ export type RootStackParamList = {
      ProfileInfo:undefined
      Gyms:undefined;
      oneRecipe : undefined;
-     event : undefined;
+     event :{
+      eventName: string; 
+      adress: string;
+      description: string;
+      date: Date;  
+      created_at : Date; 
+      max_number: number;
+      imageUrl : string
+     }
 
 };
 
@@ -147,7 +155,15 @@ export type RootTabParamList = {
      EditProfile:undefined
   BottomTabNavigator:undefined;
   oneRecipe : undefined;
-  event : undefined;
+  event :{
+    eventName: string; 
+    adress: string;
+    description: string;
+    date: Date;  
+    created_at : Date; 
+    max_number: number;
+    imageUrl : string
+   }
 
 };
 

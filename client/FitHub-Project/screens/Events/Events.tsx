@@ -38,35 +38,43 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
   const navigation = useNavigation();
   return (
-    <View>
-      <ScrollView>
+    <View  style={tw` h-full bg-gray-600 `}> 
+      <ScrollView style={tw`  bg-transparent `}>
         <View style={{ alignItems: "center",  marginBottom: 50}}>
           {eventData.map((e, k) => (
-            <View key={k} style={tw` w-full h-80  bg-gray-200 `}>
+            <View key={k} style={tw` w-full h-80 bg-gray-200 `}>
 
               <View
               
-                style={{width:"100%",marginTop:10,alignItems: "center"}}
+                style={{margin:10,alignItems: "center"}}
               >
                 <View style={{backgroundColor:"white",height:300,width: "90%"}}>
-                <View style={{width:"93%",height:"60%",marginTop:10,alignItems: "center"}}> 
+                <View style={{width:"95%",height:"60%",marginTop:10,alignItems: "center"}}> 
                 <View style={{width:"100%",height:"100%",marginLeft:21}}>
-                {/* <Image
+                <Image
                   style={{ width: "100%", height: "100%" }}
-                  source={{ uri: e.imgUrl }}
-                /> */}
+                  source={{ uri: e.imageUrl }}
+                />
                 </View>
                        </View> 
                        <View style={{paddingLeft:10,paddingTop:4}}>
                          <Text style={tw`font-bold text-lg`}>{e.eventName}</Text>
                        </View>
                        <View style={{flexDirection:"row",paddingLeft:10,paddingTop:10}}>
-                         <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/pin.png")}/>
+                         <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/location-pin.png")}/>
                        <Text style={tw`text-black  w-full pl-2`} >{e.adress}</Text>               
                        </View>
-                       <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}
+                       <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 180 }}
                onPress={() =>
-                navigation.navigate("event")
+                navigation.navigate("event",{
+                  eventName: e.eventName,
+                  adress: e.adress,
+                  description: e.description,
+                  date: e.date,
+                  created_at : e.created_at, 
+                  max_number: e.max_number,
+                  imageUrl : e.imageUrl
+                })
               }>
               <Text style={tw` mt-1.5 font-bold text-lg `}>See More</Text>
             </TouchableOpacity>

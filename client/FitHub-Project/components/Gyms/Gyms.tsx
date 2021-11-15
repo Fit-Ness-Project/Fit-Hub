@@ -36,7 +36,7 @@ export default function Gyms() {
       <ScrollView>
         <View style={{ alignItems: "center",  marginBottom: 50}}>
           {GymData.map((e, k) => (
-            <View key={k} style={tw` w-full h-82  bg-gray-200 `}>
+            <View key={k} style={tw` w-full   bg-gray-200 `}>
 
               <View
               
