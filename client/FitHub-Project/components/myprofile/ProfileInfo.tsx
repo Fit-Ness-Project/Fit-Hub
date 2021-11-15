@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Avatar } from "react-native-paper";
 import {
- 
+ View,
   StyleSheet,
   ScrollView,
   Image,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,Text
 } from "react-native";
 import axios from "axios";
 import tw from "tailwind-react-native-classnames";
-import { Text, View } from "../../components/Themed";
 import { Profile } from "./interface";
 import { useNavigation } from '@react-navigation/native';
 const ProfileInfo = () => {
@@ -219,10 +218,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   </Text>
                 </View>
               </View>
-              <View style={styles.container}>
-                <View style={styles.separatorOffset} />
-                <View style={styles.separator} />
-              </View>
+            
             </TouchableOpacity>
             <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
               <View
@@ -258,6 +254,10 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
             {verif && (seemoreinfo[1])}
             {verif  && (seemoreinfo[2])}
             {verif  && (seemoreinfo[3])}
+            <View style={styles.container}>
+                <View style={styles.separatorOffset} />
+                <View style={styles.separator} />
+              </View>
             <View style={tw`bg-transparent mt-6`}>
               <TouchableOpacity>
                 <Text  onPress={()=>{if(verif=== false){setVerif(true);setSee("Show Less")} else{setVerif(false);setSee("See More")}}}  style= {tw`text-black underline`}>{see}</Text>
@@ -282,7 +282,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                     style={tw` mt-3 h-4 w-4`}
                     source={require("../../assets/Icons/edit.png")}
                   />
-                  <Text style={tw`pt-3 pl-2  font-bold`} >Edit Profile</Text>
+                  <Text style={tw`pt-3 pl-2 text-white font-bold`} >Edit Profile</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity style={[styles.button, { marginLeft: 20 }]} onPress={()=>navigation.navigate("createEvent")}>
@@ -297,14 +297,18 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                     style={tw` mt-3 h-4 w-4`}
                     source={require("../../assets/Icons/plus.png")}
                   />
-                  <Text style={tw`pt-3 pl-2 font-bold`}>Create Event</Text>
+                  <Text style={tw`items-center pt-3 pl-1 text-white font-bold`}>Create Event</Text>
                 </View>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress = {()=>navigation.navigate("login")}>
-            <View style={{ width: "100%", backgroundColor: "white" }}>
-              <View  style={[styles.button, { marginLeft: 90 }]}>
-            <Text>LOG OUT</Text>
+            <TouchableOpacity onPress={()=>navigation.navigate("Root")} style={{marginRight:140} } >
+            <View style={{ width: "100%", backgroundColor: "white",marginLeft:50}}>
+              <View  style={[styles.button, { marginLeft: 90,flexDirection: "row" ,alignItems: "center",justifyContent: "center"}]}>
+              <Image
+                    style={tw`  h-4 w-4`}
+                    source={require("../../assets/Icons/logout.png")}
+                  />
+            <Text style={tw` pl-2 text-white font-bold `}>LOG OUT</Text>
             </View>
             </View>
             </TouchableOpacity>
@@ -325,12 +329,13 @@ const styles = StyleSheet.create({
     marginRight: 10,
     opacity: 0.8,
     marginTop: 25,
+    
   },
   container: {
     flexDirection: "row",
     alignItems: "center",
     width: 250,
-    marginRight: 50,
+    marginRight: 10,
     marginTop: 20,
   },
   separatorOffset: {
