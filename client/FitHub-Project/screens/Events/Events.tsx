@@ -22,7 +22,7 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
   let flatListRef = useRef<FlatList<Event> | null>();
 
   const [eventData, setEventData] = useState<Events[]>([]);
-  console.log(eventData)
+ 
   useEffect(() => {
     axios
       .get('https://fithub-tn-app.herokuapp.com/events')
@@ -36,27 +36,6 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
       });
   }, []);
 
-  // const scrollToIndex = (index: number) => {
-  //   flatListRef.current?.scrollToIndex({ animated: true, index: index });
-  // };
-  // const renderItems: React.FC<{ item: Events }> = ({ item }) => {
-  //   return (
-  //     <View style={{ alignItems: "center" }}>
-  //       <Image source={{ uri: item.imageurl }} />
-  //       <Text > {item.eventName} </Text>
-  //       <Text> {item.description} </Text>
-  //       <Text > {item.adress} </Text>
-  //       <Text style={{ color: 'grey' }}> Date : {item.date} </Text>
-
-  //       <TouchableOpacity
-  //         onPress={() => { }}
-  //       >
-  //         <Text style={{ backgroundColor: "#e7ff19" }}>Join This Event</Text>
-  //       </TouchableOpacity>
-
-  //     </View>
-  //   );
-  // };
   const navigation = useNavigation();
   return (
     <View>

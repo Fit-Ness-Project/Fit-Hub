@@ -195,6 +195,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
               }
             </View>
             <Text style={tw`text-white mt-8 mb-8`}>Or</Text>
+            
             <Text onPress={handleGoogleSignIn}
               style={{ color: "black", fontWeight: "500", backgroundColor: "white", width: "80%", height: "8%", paddingLeft: 130, paddingTop: 5 }}
             >

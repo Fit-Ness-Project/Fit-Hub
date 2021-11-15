@@ -3,6 +3,7 @@ import { Text, View } from '../Themed';
 import * as React from 'react';
 import { Coach } from "./interface";
 import axios from "axios";
+
 import {
   ScrollView,
   StyleSheet,
@@ -10,6 +11,7 @@ import {
   TouchableOpacity,
   TextInput
 } from "react-native";
+
 import { useNavigation } from '@react-navigation/native';
 import tw from 'tailwind-react-native-classnames';
 import { AirbnbRating } from "react-native-ratings";
@@ -40,7 +42,7 @@ export default function AllCoachs() {
       .then((response) => {
 
         setCoachData(response.data)
-        console.log("coachs:", coachData)
+        //  console.log("coachs:",coachData)
       })
       .catch((Error) => {
         console.log(Error);
@@ -58,7 +60,7 @@ export default function AllCoachs() {
   const searchFilter = (text: string) => {
     if (text) {
       const newData = coachData.filter((item) => {
-        const itemData = item.coachName ? item.coachName.toUpperCase() : ''.toUpperCase()
+      const itemData = item.coachName ? item.coachName.toUpperCase() : ''.toUpperCase()
         const textData = text.toUpperCase()
         return itemData.indexOf(textData) > -1
       })
@@ -66,6 +68,9 @@ export default function AllCoachs() {
       setSearch(text)
     }
   }
+
+
+
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'music', title: 'Music', icon: 'queue-music' },

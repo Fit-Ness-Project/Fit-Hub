@@ -167,7 +167,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   borderColor: "#36E08B",
                   borderWidth: 1,
                 }}
-                source={ProfileData[0]}
+                source={require("../../assets/Icons/profile.jpg")}
               ></Avatar.Image>
             </TouchableOpacity>
             <View style={tw`mt-4 bg-transparent  flex-row`}>
