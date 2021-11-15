@@ -14,12 +14,12 @@ const blog: React.FC<{
     route: RouteProp<
       {
         params: {
-            id: number;
             blogTitle: string;
-            imageUrl: string;
-            content: string;
-            date: Date;
-            like: Number;
+  imageUrl: string;
+  content: string;
+  like: number;
+  author: string;
+  date : any;
         };
       },
       "params"
@@ -43,26 +43,22 @@ const blog: React.FC<{
                 <View style={{ padding: 10, backgroundColor: "" }}>
                     <View style={{ backgroundColor: "white", height: "100%" }}>
                         <View style={{ backgroundColor: "red", height: 280 }}>
-                            <Image style={{ width: "100%", height: "100%" }} source={require("../../assets/images/blog4.png")} />
+                            <Image style={{ width: "100%", height: "100%" }} source={{uri:params.imageUrl}} />
                         </View>
                         <View>
                             <Text style={{ padding: 15, fontSize: 20, textAlign: "center", fontWeight: "bold" }}>
-                                TITLE OF THE BLOG IS HERE
+                                {params.blogTitle}
                             </Text>
                             <View>
                                 {!like && (likebut[1])}
                                 {like && (likebut[0])}
                             </View>
                             <Text style={{ paddingLeft: 20, fontSize: 17 }}>
-                                Author Name
+                               {params.author}
                             </Text>
-                            <Text style={{ fontSize: 10, color: "gray", marginLeft: 20 }}> created at 99/99/9999</Text>
+                            <Text style={{ fontSize: 10, color: "gray", marginLeft: 20 }}> {Date()}</Text>
                             <Text style={{ padding: 20 }}>
-                                Living a healthier life might seem like a tall order — the nutrition, the exercise, the inner happiness! But having some friendly advice at your disposal, whenever and wherever you need it, makes it easier and more fun. With just a click, these awesome blogs filled with tips, tricks, and personal stories will inspire you on your journey to wellness.
-                                Living a healthier life might seem like a tall order — the nutrition, the exercise, the inner happiness! But having some friendly advice at your disposal, whenever and wherever you need it, makes it easier and more fun. With just a click, these awesome blogs filled with tips, tricks, and personal stories will inspire you on your journey to wellness.
-                                Living a healthier life might seem like a tall order — the nutrition, the exercise, the inner happiness! But having some friendly advice at your disposal, whenever and wherever you need it, makes it easier and more fun. With just a click, these awesome blogs filled with tips, tricks, and personal stories will inspire you on your journey to wellness.
-
-
+                              {params.content}
                             </Text>
 
 
@@ -70,7 +66,7 @@ const blog: React.FC<{
                     </View>
                 </View>
             </ScrollView>
-            <View style={{ position: 'absolute', bottom: 0, width: "100%" }}>
+            <View style={{ position: 'absolute', bottom: 685, width: "100%" }}>
                 <Footer />
             </View>
         </View>

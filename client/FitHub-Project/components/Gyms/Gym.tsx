@@ -88,7 +88,7 @@ const Gym: React.FC<{
                   opacity: 0.8,
                   paddingTop: 6,
                 }}
-                onPress={()=> {Linking.openURL('https://api.konnect.network/mJ7wOAjEM')}}
+                onPress={() => { Linking.openURL('https://api.konnect.network/mJ7wOAjEM') }}
               >
                 <Text style={tw`text-black font-bold text-lg `}>
                   SUBSCRIBE{" "}
@@ -105,7 +105,7 @@ const Gym: React.FC<{
                 {params.description}
               </Text>
             </View>
-            <View style={{ width: "100%", height: 200, paddingTop: 15 }}>
+            <View style={{ width: "100%", height: 400, paddingTop: 15 }}>
               <Map
                 longi={params.longitude}
                 latit={params.latitude}
