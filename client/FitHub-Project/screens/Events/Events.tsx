@@ -83,8 +83,16 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
               </View>
               </View>
 
+     
+          ))}
+        </View>
+      </ScrollView>
+      <View style={{ top: 685, width: "100%", position: "absolute" }}>
+        <Footer />
+      </View>
     </View>
   );
+}
 
 
 const styles = StyleSheet.create({
