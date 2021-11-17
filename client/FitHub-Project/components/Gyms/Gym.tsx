@@ -6,6 +6,7 @@ import {
   Image,
   View,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { AirbnbRating } from "react-native-ratings";
@@ -73,7 +74,7 @@ const Gym: React.FC<{
               style={{ flexDirection: "row", paddingTop: 15, paddingLeft: 20 }}
             >
               <Text style={tw`text-black text-lg font-bold`}>
-                {params.price}{" "}
+                150{" "}
               </Text>
               <Text style={tw`text-black font-bold`}>TND</Text>
             </View>
@@ -87,6 +88,7 @@ const Gym: React.FC<{
                   opacity: 0.8,
                   paddingTop: 6,
                 }}
+                onPress={() => { Linking.openURL('https://api.konnect.network/mJ7wOAjEM') }}
               >
                 <Text style={tw`text-black font-bold text-lg `}>
                   SUBSCRIBE{" "}
@@ -103,7 +105,7 @@ const Gym: React.FC<{
                 {params.description}
               </Text>
             </View>
-            <View style={{ width: "100%", height: 200, paddingTop: 15 }}>
+            <View style={{ width: "100%", height: 400, paddingTop: 15 }}>
               <Map
                 longi={params.longitude}
                 latit={params.latitude}

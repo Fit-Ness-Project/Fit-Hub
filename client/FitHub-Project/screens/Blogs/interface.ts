@@ -1,10 +1,8 @@
 export interface Blog {
-  id: number;
   blogTitle: string;
   imageUrl: string;
   content: string;
-  date: Date;
-  comment: string;
-  comment_count: Number;
-  like: Number;
+  like: number;
+  author: string;
+  date : any;
 }

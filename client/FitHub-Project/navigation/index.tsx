@@ -12,6 +12,7 @@ import Coachs from "../components/coachs/allCoachs";
 import Coach from "../components/coachs/coach"
 import Blogs from "../screens/Blogs/Blogs";
 import blog from "../screens/Blogs/blog";
+import Events from "../screens/Events/Events";
 import Event from "../screens/Events/Events";
 import Food from "../screens/Food/Food";
 import Login from "../components/auth/signin";
@@ -26,6 +27,7 @@ import Register from "../components/auth/register";
 import EditProfile from "../components/myprofile/EditProfile";
 import ProfileInfo from "../components/myprofile/ProfileInfo";
 import Gyms from "../components/Gyms/Gyms"
+import event from "../screens/Events/event";
 
 
 export default function Navigation({
@@ -65,7 +67,8 @@ function RootNavigator({ }) {
       <Stack.Screen name="Food" component={Food} />
       <Stack.Screen name="Coachs" component={Coachs} />
       <Stack.Screen name="Blogs" component={Blogs} />
-      <Stack.Screen name="Events" component={Event} />
+      <Stack.Screen name="Events" component={Events} />
+      {/* <Stack.Screen name="Event" component={Event} /> */}
       <Stack.Screen name="coach" component={Coach} />
       <Stack.Screen name="Gym" component={Gym} />
       <Stack.Screen name="bmi" component={Information} />
@@ -80,6 +83,7 @@ function RootNavigator({ }) {
       <Stack.Screen name="ProfileInfo" component={ProfileInfo} />
       <Stack.Screen name="EditProfile" component={EditProfile} />
       <Stack.Screen name="Gyms" component={Gyms} />
+      <Stack.Screen name="event" component={event} />
     </Stack.Navigator>
   );
 }
