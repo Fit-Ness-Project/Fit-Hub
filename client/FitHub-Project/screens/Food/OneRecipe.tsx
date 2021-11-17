@@ -13,20 +13,20 @@ const Food: React.FC<{
     {
       params: {
         recipeTitle:string;
-  created_at: string;
-  content: string ;
-  likes: number;
-  imageUrl: string;
-  kcal: number;
-  fat: number;
-  carb: number;
-  saturates: number;
-  sugar: number;
-  fibre: number;
-  protein: number;
-  salt: number;
-  ingredients:string;
-  methodes: string;
+        created_at: string;
+        content: string ;
+        likes: number;
+        imageUrl: string;
+        kcal: number;
+        fat: number;
+        carb: number;
+        saturates: number;
+        sugar: number;
+        fibre: number;
+        protein: number;
+        salt: number;
+        ingredients:string;
+        methodes: string;
       };
     },
     "params"
@@ -34,7 +34,7 @@ const Food: React.FC<{
 }> = ({ route: { params } }): any => {
   return (
     <View>
-      <ScrollView style={tw`bg-gray-100`}>
+      <ScrollView style={tw`bg-gray-100 `}>
         <View style={{ alignItems: "center", marginTop: 10, marginBottom: 50 }}>
           <View
             style={{
@@ -48,10 +48,10 @@ const Food: React.FC<{
           >
             <ImageBackground
               style={{ width: "100%", height: 400 }}
-              source={require("../../assets/images/diets3.png")}
+              source={{uri:params.imageUrl}}
             ></ImageBackground>
             <View style={tw`mt-4`}>
-              <Text style={tw`text-xl font-bold text-green-00`}>
+              <Text style={tw`text-xl font-bold `}>
                 {params.recipeTitle}
               </Text>
             </View>

@@ -9,12 +9,7 @@ import signUp from "../../../../components/auth/register";
 import { createStackNavigator } from "@react-navigation/stack";
 import Restaurant from "../../../restaurants/restaurant";
 import { NavigationContainer } from "@react-navigation/native";
-<<<<<<< HEAD
-
-
-=======
 import Gyms from "../../../../components/Gyms/Gyms";
->>>>>>> 405d73f2cc764f9d7605cd9600d3d41c8fe111eb
 export enum AppScreens {
   ChangeView = "ChangeView",
   BlogScreen = "BlogScreen",

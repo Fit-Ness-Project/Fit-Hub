@@ -7,10 +7,11 @@ import { Formik } from 'formik';
 import * as _ from "lodash";
 import * as Google from 'expo-google-app-auth';
 import { LogBox } from 'react-native';
-// import { useKeepAwake } from 'expo-keep-awake';
+import { useKeepAwake } from 'expo-keep-awake';
 import { RootTabScreenProps } from "../../types";
 import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
+// import * as Yup from "yup";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
@@ -44,6 +45,8 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
   //         .min(8, ({ min }) => `Password must be at least ${min} characters`)
   //         .required('Password is required')
   //         .label('Password'),
+          
+          
   // });
 
 
@@ -108,7 +111,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
       }).catch(
         err => {
           console.log(err),
-          handleMessage("Try Again")
+            handleMessage("Try Again")
         })
   }
 
@@ -130,7 +133,7 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
         } else {
           handleLogin(values)
-          setSubmitting(true)    
+          setSubmitting(true)
           navigation.navigate('Home')
         }
       }}
@@ -139,19 +142,13 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
       {({ handleChange, handleBlur, handleSubmit, isSubmitting, values, errors, touched }) => (
         <ImageBackground style={tw`w-full h-full`} source={require("../../assets/images/back.jpg")}>
-
-
           <View style={tw` bg-black bg-opacity-60 h-4/5 pt-20 items-center`}>
             <View style={tw` h-16  w-4/5 `} >
               <Image style={tw` w-full h-full `} source={require("../../assets/images/logo.png")} />
             </View>
-
             <View style={tw` items-center `}>
-
               <Text style={tw` pt-16 text-white font-bold text-2xl`} >Log In to FitHub </Text>
             </View>
-
-
             <View style={tw` mt-10 w-4/5  flex `}>
               <TextInput
                 onChangeText={handleChange('email')}
@@ -177,18 +174,13 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                 <Text style={{ color: 'red' }}>{errors.password}</Text>
               )}
             </View>
-
-
-
             <View style={tw`  pt-4 w-4/5`}>
               {!isSubmitting &&
-
                 <TouchableOpacity
                   onPress={() => handleSubmit()}
                   // onPress={() => navigation.navigate("Home")}
                   style={Styles.button}
                 >
-
                   <Text style={Styles.text}>Login</Text>
 
                 </TouchableOpacity>
@@ -202,25 +194,19 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                 </TouchableOpacity>
               }
             </View>
-
-            <Text style={tw`text-white mt-8`}>Or</Text>
-
-
+            <Text style={tw`text-white mt-8 mb-8`}>Or</Text>
+            
             <Text onPress={handleGoogleSignIn}
               style={{ color: "black", fontWeight: "500", backgroundColor: "white", width: "80%", height: "8%", paddingLeft: 130, paddingTop: 5 }}
-
             >
               <Image
                 style={{ height: 20, width: 60 }}
                 source={require("../../assets/images/ggl.png")}
-
               />
             </Text>
-
-
             <View style={tw`h-10 mt-6 items-center`}>
               <Text style={tw`text-white  pl-6 pt-4`}>
-                Don't have an account ? <Text onPress={() => navigation.navigate("register")} style={tw`text-blue-400 underline`}>Register</Text>
+                Don't have an account ? <Text onPress={() => navigation.navigate("register")} style={{ color: '#36e08b', textDecorationLine: 'underline', }}>Register</Text>
               </Text>
             </View>
           </View>
