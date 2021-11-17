@@ -51,15 +51,16 @@ export default function Register() {
   function handelSubmit() {
     axios
     //putt back the deploied link after changing the server funvtion to the server side 
-      .post("https://fithub-tn-app.herokuapp.com/users", {
-        first_name: first_name,
-        last_name: last_name,
-        phone_number: phone_number,
-        password:password,
-        email: email,
-      })
-      .then((res) => {
-        AsyncStorage.setItem('key',res.data.Token)
+    .post("https://fithub-tn-app.herokuapp.com/users", {
+      first_name: first_name,
+      last_name: last_name,
+      phone_number: phone_number,
+      password:password,
+      email: email,
+    })
+    .then((res) => {
+      AsyncStorage.setItem('key',res.data.Token)
+      console.log(res.data.Token)
       navigation.navigate('bmi')}
       
       

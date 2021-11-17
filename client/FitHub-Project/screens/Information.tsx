@@ -3,16 +3,37 @@ import { View, Image, TextInput, StyleSheet, Picker, TouchableOpacity } from 're
 import { Text } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { useNavigation } from '@react-navigation/native';
-
-
-
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import jwtDecode from 'jwt-decode';
 
 export default function Information({}: RootTabScreenProps<'Home'>) {
-
-    
-
    const [selectedValue, setSelectedValue] = useState("male");
    const navigation = useNavigation();
+   let[userId,setUserId] = useState(null)
+
+   useEffect(()=>{
+      AsyncStorage.getItem('key').then(res =>{
+         const token = res
+         let id = jwtDecode(token)
+         setUserId(id.uder_id)
+      })
+   },[])
+
+   function handelSubmit () {
+      axios.patch(`https://fithub-tn-app.herokuapp.com/users${userId}`,{
+        age:age,
+        weight:weight,
+        height:height
+      }).then((res)=>{
+         AsyncStorage.setItem('key',res.data.Token)
+         navigation.navigate('Home')
+      })
+      .catch((err)=>console.log(err))
+   }
+   let [weight, setweight] = useState("0");
+   let [height, setheight] = useState("0");
+   let [age, setage] = useState("0");
   return (
     <View style = {styles.container}> 
     <Text style={styles.title}>Add You Information for us to help You</Text>
@@ -21,6 +42,8 @@ export default function Information({}: RootTabScreenProps<'Home'>) {
     underlineColorAndroid = "transparent"
     placeholder = "Age (year)"
     autoCapitalize = "none" 
+    value={age}
+    onChangeText={setage}
     />
 
     <Text  style = {styles.label}>Height</Text>
@@ -28,12 +51,16 @@ export default function Information({}: RootTabScreenProps<'Home'>) {
        underlineColorAndroid = "transparent"
        placeholder = "Height (Cm)"
        autoCapitalize = "none"
+       value={height}
+       onChangeText={setheight}
        />
 <Text  style = {styles.label}>Weight</Text>
     <TextInput style = {styles.input}
        underlineColorAndroid = "transparent"
        placeholder = "Weight (Kg)"
        autoCapitalize = "none"
+       value={weight}
+       onChangeText={setweight}
      />
      <Text  style = {styles.label}>Select Your Gender</Text>
      <Picker

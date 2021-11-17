@@ -20,7 +20,6 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
   let flatListRef = useRef<FlatList<Event> | null>();
 
   const [eventhData, setEventData] = useState<Events[]>([]);
-  console.log(eventhData)
   useEffect(() => {
     axios
       .get('https://fithub-tn-app.herokuapp.com/events')
