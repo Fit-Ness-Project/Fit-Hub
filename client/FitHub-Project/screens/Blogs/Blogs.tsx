@@ -13,6 +13,7 @@ import axios from "axios";
 import {
   StyleSheet,
   FlatList,
+  Image,
   ScrollView,
   ImageBackground,
 } from "react-native";
@@ -44,64 +45,50 @@ export default function Blogs() {
   }, []);
 
   return (
+    <View>
     <ScrollView>
-      <View style={tw` items-center bg-gray-100`}>
-        {blogData.map((item, k) => (
-          <View
-            style={{ marginBottom: 10, height: 400, marginTop: 10 }}
-            key={k}
+      <View style={{ alignItems: "center",  marginBottom: 50}}>
+        {blogData.map((e, k) => (
+          <View key={k} style={tw` w-full h-80 items-center bg-gray-200 `}>
+
+            <View
+            
+              style={{width:"95%",marginTop:10,alignItems: "center"}}
             >
-            <View style={tw` h-72 flex flex-col mr-4 ml-4 rounded`}>
-              <View style={tw`w-80 mt-4 h-5/6 items-center`}>
-                <ImageBackground
-                  style={{ width: "100%", height: "100%" }}
-                  source={{ uri: item.imageUrl }}
-                ></ImageBackground>
+              <View style={{backgroundColor:"white",height:300,width: "90%"}}>
+              <View style={{width:"93%",height:"60%",marginTop:10,alignItems: "center"}}> 
+              <View style={{width:"100%",height:"100%",marginLeft:21}}>
+              <Image
+                style={{ width: "100%", height: "100%" }}
+                source={{ uri: e.imageUrl }}
+              />
               </View>
-              <View style={tw` mt-2 ml-2`}>
-                <Text style={tw` text-lg font-bold `}>{item.blogTitle}</Text>
-                {/* <View style={tw` flex flex-row`}>
-                    <Text style={tw`ml-1 `}>By Author</Text>
-                  </View> */}
+                     </View> 
+                     <View style={{paddingLeft:10,paddingTop:4}}>
+                       <Text style={tw`font-bold text-lg`}>{e.blogTitle}</Text>
+                     </View>
+                     <View style={{flexDirection:"row",paddingLeft:10,paddingTop:10}}>
+                       <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/pin.png")}/>
+                     <Text style={tw`text-black  w-full pl-2`} >{e.}</Text>               
+                     </View>
+                     <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}
+             onPress={() =>
+              navigation.navigate("event")
+            }>
+            <Text style={tw` mt-1.5 font-bold text-lg `}>See More</Text>
+          </TouchableOpacity>
               </View>
-
-              <View style={tw` flex flex-row ml-2`}>
-                <MaterialIcons name="date-range" size={20} color="black" />
-                <Text style={tw`text-black ml-1  `}>
-                  created at: {item.date}
-                </Text>
-              </View>
-
-              <TouchableOpacity
-                style={{
-                  alignItems: "center",
-                  backgroundColor: "#e7ff19",
-                  height: 46,
-                  width: 120,
-                  marginLeft: 200,
-                }}
-                onPress={() =>
-                  navigation.navigate("blog", {
-                    id: item.id,
-                    blogTitle: item.blogTitle,
-                    imageUrl: item.imageUrl,
-                    content: item.content,
-                    date: item.date,
-                    like: item.like,
-                  })
-                }
-              >
-                <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
-              </TouchableOpacity>
             </View>
-          </View>
+            </View>
 
-          // {/* <View style={{ position: "absolute", bottom: -48, width: "100%" }}>
-          //   <Footer />
-          // </View> */}
+   
         ))}
       </View>
     </ScrollView>
+    <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+      <Footer />
+    </View>
+  </View>
   );
 }
 

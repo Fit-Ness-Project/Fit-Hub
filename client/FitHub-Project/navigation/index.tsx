@@ -26,6 +26,8 @@ import Register from "../components/auth/register";
 import EditProfile from "../components/myprofile/EditProfile";
 import ProfileInfo from "../components/myprofile/ProfileInfo";
 import Gyms from "../components/Gyms/Gyms"
+import event from "../screens/Events/event";
+
 
 
 export default function Navigation({
@@ -80,6 +82,7 @@ function RootNavigator({ }) {
       <Stack.Screen name="ProfileInfo" component={ProfileInfo} />
       <Stack.Screen name="EditProfile" component={EditProfile} />
       <Stack.Screen name="Gyms" component={Gyms} />
+      <Stack.Screen name="event" component={event} />
     </Stack.Navigator>
   );
 }

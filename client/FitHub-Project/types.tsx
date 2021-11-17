@@ -99,6 +99,7 @@ export type RootStackParamList = {
      BottomTabNavigator:undefined;
      ProfileInfo:undefined
      Gyms:undefined;
+     event : undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -142,6 +143,7 @@ export type RootTabParamList = {
      };
      EditProfile:undefined
   BottomTabNavigator:undefined;
+  event : undefined;
 
 };
 

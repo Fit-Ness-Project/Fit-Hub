@@ -21,8 +21,7 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
 
   let flatListRef = useRef<FlatList<Event> | null>();
 
-  const [eventhData, setEventData] = useState<Events[]>([]);
-  console.log(eventhData)
+  const [eventData, setEventData] = useState<Events[]>([]);
   useEffect(() => {
     axios
       .get('https://fithub-tn-app.herokuapp.com/events')
@@ -36,72 +35,52 @@ export default function Event({ }: RootTabScreenProps<'createEvent'>) {
       });
   }, []);
 
-  // const scrollToIndex = (index: number) => {
-  //   flatListRef.current?.scrollToIndex({ animated: true, index: index });
-  // };
-  // const renderItems: React.FC<{ item: Events }> = ({ item }) => {
-  //   return (
-  //     <View style={{ alignItems: "center" }}>
-  //       <Image source={{ uri: item.imageurl }} />
-  //       <Text > {item.eventName} </Text>
-  //       <Text> {item.description} </Text>
-  //       <Text > {item.adress} </Text>
-  //       <Text style={{ color: 'grey' }}> Date : {item.date} </Text>
-
-  //       <TouchableOpacity
-  //         onPress={() => { }}
-  //       >
-  //         <Text style={{ backgroundColor: "#e7ff19" }}>Join This Event</Text>
-  //       </TouchableOpacity>
-
-  //     </View>
-  //   );
-  // };
   const navigation = useNavigation();
   return (
-    <View style={tw` items-center bg-gray-100`}>
-      < ScrollView >
+    <View>
+    <ScrollView>
+      <View style={{ alignItems: "center",  marginBottom: 50}}>
+        {eventData.map((e, k) => (
+          <View key={k} style={tw` w-full h-80 items-center bg-gray-200 `}>
 
-        <View style={{ marginBottom: 10, height: 400, marginTop: 10 }}>
-          <View style={tw` h-72 flex flex-col mr-4 ml-4 rounded`} >
-            <View style={tw`w-80 mt-4 h-5/6 items-center`} >
-              <ImageBackground style={{ width: "100%", height: "100%" }} source={require("../../assets/images/eventbg.png")}>
-              </ImageBackground>
-            </View>
-            <View style={tw` mt-2 ml-2`}>
-              <Text style={tw` text-lg font-bold `}>
-                YOGA SESSION
-              </Text>
-              <View style={tw` flex flex-row`}>
-                <Entypo name="location-pin" size={24} color="black" />
-                <Text style={tw` `}>
-                  Hammamet du sud
-                </Text>
+            <View
+            
+              style={{width:"95%",marginTop:10,alignItems: "center"}}
+            >
+              <View style={{backgroundColor:"white",height:300,width: "90%"}}>
+              <View style={{width:"93%",height:"60%",marginTop:10,alignItems: "center"}}> 
+              <View style={{width:"100%",height:"100%",marginLeft:21}}>
+              <Image
+                style={{ width: "100%", height: "100%" }}
+                source={{ uri: e.imageUrl }}
+              />
+              </View>
+                     </View> 
+                     <View style={{paddingLeft:10,paddingTop:4}}>
+                       <Text style={tw`font-bold text-lg`}>{e.eventName}</Text>
+                     </View>
+                     <View style={{flexDirection:"row",paddingLeft:10,paddingTop:10}}>
+                       <Image style = {tw`w-4 h-4 `} source = {require("../../assets/Icons/pin.png")}/>
+                     <Text style={tw`text-black  w-full pl-2`} >{e.adress}</Text>               
+                     </View>
+                     <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#E7FF19", height:40,width:110, marginLeft: 200 }}
+             onPress={() =>
+              navigation.navigate("event")
+            }>
+            <Text style={tw` mt-1.5 font-bold text-lg `}>See More</Text>
+          </TouchableOpacity>
               </View>
             </View>
-
-
-            <View style={tw` flex flex-row ml-3`}>
-              <MaterialIcons name="date-range" size={20} color="black" />
-              <Text style={tw`text-black ml-3  `}>
-                99/99/9999
-              </Text>
             </View>
 
-
-            <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#e7ff19",height: 46, width: 120, marginLeft: 200 }}
-              onPress={() => navigation.navigate("Event")}>
-              <Text style={tw` mt-2 font-bold text-lg `}>See More</Text>
-            </TouchableOpacity>
-
-          </View>
-
-        </View>
-      </ScrollView>
-      <View style={{ position: 'absolute', bottom: -48, width: "100%" }}>
-        <Footer />
+   
+        ))}
       </View>
+    </ScrollView>
+    <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+      <Footer />
     </View>
+  </View>
   );
 }
 
