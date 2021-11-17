@@ -159,6 +159,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
               backgroundColor: "black",
             }}
           >
+            
             <TouchableOpacity>
               <Avatar.Image
                 size={150}

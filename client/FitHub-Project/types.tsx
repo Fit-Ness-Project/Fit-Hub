@@ -109,7 +109,8 @@ export type RootStackParamList = {
       created_at : Date; 
       max_number: number;
       imageUrl : string
-     }
+     },
+     Community:undefined;
 
 };
 

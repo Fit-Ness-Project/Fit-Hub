@@ -28,6 +28,7 @@ import EditProfile from "../components/myprofile/EditProfile";
 import ProfileInfo from "../components/myprofile/ProfileInfo";
 import Gyms from "../components/Gyms/Gyms"
 import event from "../screens/Events/event";
+import Community from "../screens/HomePage/getData/community/communuty";
 
 
 export default function Navigation({
@@ -55,7 +56,7 @@ function RootNavigator({ }) {
     <Stack.Navigator>
       <Stack.Screen
         name="Root"
-        component={FirstVue}
+        component={Community}
         options={{ headerShown: false }}
       />
       <Stack.Screen

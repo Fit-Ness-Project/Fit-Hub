@@ -45,7 +45,7 @@ const event: React.FC<{
                 onPress: () => console.log("Cancel Pressed"),
                 style: "cancel",
             },
-            { text: "OK", onPress: () => console.log("Ok") },
+            { text: "OK", onPress: () => Alert.alert("Join request accepted") },
         ]);
 
     return (
