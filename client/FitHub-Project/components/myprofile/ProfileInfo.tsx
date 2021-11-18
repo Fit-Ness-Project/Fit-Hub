@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Avatar } from "react-native-paper";
-import {
- View,
-  StyleSheet,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  SafeAreaView,Text
-} from "react-native";
+import { View, StyleSheet, ScrollView, Image, TouchableOpacity, SafeAreaView,Text} from "react-native";
 import axios from "axios";
 import tw from "tailwind-react-native-classnames";
-import { Profile } from "./interface";
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import jwtDecode from 'jwt-decode';
+
 const ProfileInfo = () => {
-  const [ProfileData, setProfileData] = useState<Profile[]>([]);
+  const [ProfileData, setProfileData] = useState<any>([]);
+ 
   const navigation = useNavigation()
-  const userId = 3;
-  console.log(setProfileData)
   useEffect(() => {
-    axios.get(`https://fithub-tn-app.herokuapp.com/users/${userId}`, {
-    }).then((res) =>
-      setProfileData(res.data)
-    )
-      .catch((err) => console.log(err)
+    AsyncStorage.getItem('key').then((res:any)=>{ 
+      let id = jwtDecode(res)
+      axios.get(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
+      }).then((res) =>
+      setProfileData(res.data) 
       )
+        .catch((err) => console.log(err)
+        )
+    })
+ 
 
 },[])
 
@@ -50,7 +48,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
       }}
     >
 
-      <Text style={tw` ml-6  text-black`}></Text>
+      <Text style={tw` ml-6  text-black`}>{ProfileData.bmi}</Text>
       <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
         BMI
       </Text>
@@ -79,7 +77,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}></Text>
+                  <Text style={tw` ml-6  text-black`}>{ProfileData.weight}</Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Weight
                   </Text>
@@ -108,7 +106,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   width: "100%",
                 }}
               >
-                <Text style={tw` ml-6  text-black`}>  </Text>
+                <Text style={tw` ml-6  text-black`}>{ProfileData.height}</Text>
                 <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                   Height
                 </Text>
@@ -137,9 +135,9 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                 width: "100%",
               }}
             >
-              <Text style={tw` ml-6  text-black`}></Text>
+              <Text style={tw` ml-6  text-black`}>{ProfileData.age}</Text>
               <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-               Age{ProfileData[0]}
+               Age
               </Text>
             </View>
           </View>
@@ -172,8 +170,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
             </TouchableOpacity>
             <View style={tw`mt-4 bg-transparent  flex-row`}>
               <Text style={tw`text-white text-base font-bold `}>
-                {" "}
-              USERNAME{" "}
+                {ProfileData.first_name}
               </Text>
             </View>
             <View style={tw`mt-4 bg-transparent flex-row`}>
@@ -212,7 +209,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}></Text>
+                  <Text style={tw` ml-6  text-black`}>{ProfileData.phone_number}</Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Mobile
                   </Text>
@@ -243,6 +240,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   }}
                 >
                   <Text style={tw`ml-6  text-black`}>
+                    {ProfileData.email}
                   </Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Personal email
