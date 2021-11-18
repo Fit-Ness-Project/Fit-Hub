@@ -62,10 +62,7 @@ export default function Register() {
       })
 
       .then((res) => {
-        //  console.log(jwt_decode(res.data.Token))
-      
         AsyncStorage.setItem('key', res.data.Token)
-         navigation.navigate('bmi')
       }
 
       )
@@ -159,7 +156,7 @@ export default function Register() {
 
           <View style={tw` text-black pt-6 w-4/5 ml-8`}>
             <TouchableOpacity
-              onPress={handelSubmit}
+              onPress={() =>{handelSubmit() ,navigation.navigate('bmi')}}
 
               style={Styles.button}
             >

@@ -1,26 +1,35 @@
+
 import React, { useState, useEffect } from "react";
 import { Avatar } from "react-native-paper";
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  SafeAreaView, Text, Platform
-} from "react-native";
+import { View, StyleSheet, ScrollView, Image, TouchableOpacity, SafeAreaView,Text, Platform} from "react-native";
 import axios from "axios";
 import tw from "tailwind-react-native-classnames";
-import { Profile } from "./interface";
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import jwtDecode from 'jwt-decode';
 import * as ImagePicker from 'expo-image-picker';
-
-
-
 
 const ProfileInfo = () => {
 
+  const [ProfileData, setProfileData] = useState<any>([]);
+ 
+  const navigation = useNavigation()
+  useEffect(() => {
+    AsyncStorage.getItem('key').then((res:any)=>{ 
+      let id:any = jwtDecode(res)
+      axios.get(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
+      }).then((res) =>
+      setProfileData(res.data) 
+      )
+        .catch((err) => console.log(err)
+        )
+    })
+ 
 
-  const [image, setImage] = useState(null);
+},[])
+
+
+const [image, setImage] = useState(null);
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -49,157 +58,132 @@ const ProfileInfo = () => {
   };
 
 
-
-
-
-
-
-
-
-
-
-
-  const [ProfileData, setProfileData] = useState<Profile[]>([]);
-  const navigation = useNavigation()
-  const userId = 3;
-  console.log(setProfileData)
-  useEffect(() => {
-    axios.get(`https://fithub-tn-app.herokuapp.com/users/${userId}`, {
-    }).then((res) =>
-      setProfileData(res.data)
-    )
-      .catch((err) => console.log(err)
-      )
-
-  }, [])
-
-  const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
+  
+const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
+  <View
+    style={{
+      alignItems: "center",
+      marginTop: 20,
+      backgroundColor: "white",
+      width: "80%",
+      height: "auto",
+      flexDirection: "row",
+    }}
+  >
+    <Image
+      style={{ height: 25, width: 25 }}
+      source={require("../../assets/Icons/bmi.png")}
+    ></Image>
     <View
       style={{
-        alignItems: "center",
-        marginTop: 20,
-        backgroundColor: "white",
-        width: "80%",
-        height: "auto",
-        flexDirection: "row",
+        backgroundColor: "transparent",
+        flexDirection: "column",
+        width: "100%",
       }}
     >
-      <Image
-        style={{ height: 25, width: 25 }}
-        source={require("../../assets/Icons/bmi.png")}
-      ></Image>
-      <View
-        style={{
-          backgroundColor: "transparent",
-          flexDirection: "column",
-          width: "100%",
-        }}
-      >
 
-        <Text style={tw` ml-6  text-black`}></Text>
-        <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-          BMI
-        </Text>
-      </View>
+      <Text style={tw` ml-6  text-black`}>{ProfileData.bmi}</Text>
+      <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
+        BMI
+      </Text>
     </View>
-  </TouchableOpacity>,
-  <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
-    <View
-      style={{
-        alignItems: "center",
-        marginTop: 20,
-        backgroundColor: "white",
-        width: "80%",
-        height: "auto",
-        flexDirection: "row",
-      }}
-    >
-      <Image
-        style={{ height: 25, width: 25 }}
-        source={require("../../assets/Icons/kg.png")}
-      ></Image>
-      <View
-        style={{
-          backgroundColor: "transparent",
-          flexDirection: "column",
-          width: "100%",
-        }}
-      >
-        <Text style={tw` ml-6  text-black`}></Text>
-        <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-          Weight
-        </Text>
-      </View>
-    </View>
-  </TouchableOpacity>,
-  <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
-    <View
-      style={{
-        alignItems: "center",
-        marginTop: 20,
-        backgroundColor: "white",
-        width: "80%",
-        height: "auto",
-        flexDirection: "row",
-      }}
-    >
-      <Image
-        style={{ height: 25, width: 25 }}
-        source={require("../../assets/Icons/height.png")}
-      ></Image>
-      <View
-        style={{
-          backgroundColor: "transparent",
-          flexDirection: "column",
-          width: "100%",
-        }}
-      >
-        <Text style={tw` ml-6  text-black`}>  </Text>
-        <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-          Height
-        </Text>
-      </View>
-    </View>
-  </TouchableOpacity>,
-  <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
-    <View
-      style={{
-        alignItems: "center",
-        marginTop: 20,
-        backgroundColor: "white",
-        width: "80%",
-        height: "auto",
-        flexDirection: "row",
-      }}
-    >
-      <Image
-        style={{ height: 25, width: 25 }}
-        source={require("../../assets/Icons/age.png")}
-      ></Image>
-      <View
-        style={{
-          backgroundColor: "transparent",
-          flexDirection: "column",
-          width: "100%",
-        }}
-      >
-        <Text style={tw` ml-6  text-black`}></Text>
-        <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-          Age{ProfileData[0]}
-        </Text>
-      </View>
-    </View>
-  </TouchableOpacity>]
-  const [verif, setVerif]: any = useState(false)
-  const [see, setSee]: any = useState("See More")
-
-  return (
-    <SafeAreaView>
+  </View>
+</TouchableOpacity>,      
+<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
+              <View
+                style={{
+                  alignItems: "center",
+                  marginTop: 20,
+                  backgroundColor: "white",
+                  width: "80%",
+                  height: "auto",
+                  flexDirection: "row",
+                }}
+              >
+                <Image
+                  style={{ height: 25, width: 25 }}
+                  source={require("../../assets/Icons/kg.png")}
+                ></Image>
+                <View
+                  style={{
+                    backgroundColor: "transparent",
+                    flexDirection: "column",
+                    width: "100%",
+                  }}
+                >
+                  <Text style={tw` ml-6  text-black`}>{ProfileData.weight}</Text>
+                  <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
+                    Weight
+                  </Text>
+                </View>
+              </View>
+            </TouchableOpacity>,
+            <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
+            <View
+              style={{
+                alignItems: "center",
+                marginTop: 20,
+                backgroundColor: "white",
+                width: "80%",
+                height: "auto",
+                flexDirection: "row",
+              }}
+            >
+              <Image
+                style={{ height: 25, width: 25 }}
+                source={require("../../assets/Icons/height.png")}
+              ></Image>
+              <View
+                style={{
+                  backgroundColor: "transparent",
+                  flexDirection: "column",
+                  width: "100%",
+                }}
+              >
+                <Text style={tw` ml-6  text-black`}>{ProfileData.height}</Text>
+                <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
+                  Height
+                </Text>
+              </View>
+            </View>
+          </TouchableOpacity>,
+          <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
+          <View
+            style={{
+              alignItems: "center",
+              marginTop: 20,
+              backgroundColor: "white",
+              width: "80%",
+              height: "auto",
+              flexDirection: "row",
+            }}
+          >
+            <Image
+              style={{ height: 25, width: 25 }}
+              source={require("../../assets/Icons/age.png")}
+            ></Image>
+            <View
+              style={{
+                backgroundColor: "transparent",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
+              <Text style={tw` ml-6  text-black`}>{ProfileData.age}</Text>
+              <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
+               Age
+              </Text>
+            </View>
+          </View>
+        </TouchableOpacity>]
+            const [verif,setVerif] :any= useState(false)
+            const [see , setSee] : any = useState("See More")
+    return (
+      <SafeAreaView>
       <ScrollView>
         <View style={tw` h-full w-full bg-white  items-center`}>
 
-
-          <View
+        <View
             style={{
               height: 700,
               backgroundColor: "transparent",
@@ -221,23 +205,17 @@ const ProfileInfo = () => {
                   style={tw`w-8 h-8`}
                   source={require("../../assets/Icons/photo-camera.png")}
                 />
-
-
               </TouchableOpacity>
 
               <View style={tw`mt-4 bg-transparent  flex-row`}>
-                {/* <Text style={tw`text-white text-base font-bold `}> */}
+                
                 {image === null && <Image source={require("../../assets/images/profile.png")} style={{ width: 180, height: 180, borderRadius: 90 }} ></Image>}
                 {image && <Image source={{ uri: image }} style={{ width: 180, height: 180, borderRadius: 90 }} ></Image>}
-
-                {/* </Text> */}
+              
               </View>
-              <View style={tw`mt-4 bg-transparent flex-row`}>
-                <Image
-                  style={tw`w-4 h-4`}
-                  source={require("../../assets/Icons/pin.png")}
-                />
-              </View>
+               <Text style={tw`text-white text-base font-bold mt-4 `}>
+               {ProfileData.first_name} {ProfileData.last_name} </Text>
+             
             </View>
             <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
               <View
@@ -250,6 +228,7 @@ const ProfileInfo = () => {
                   flexDirection: "row",
                 }}
               >
+                
                 <Image
                   style={{ height: 25, width: 25 }}
                   source={require("../../assets/Icons/phone.png")}
@@ -262,7 +241,7 @@ const ProfileInfo = () => {
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}></Text>
+                  <Text style={tw` ml-6  text-black`}>{ProfileData.phone_number}</Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Mobile
                   </Text>
@@ -293,6 +272,7 @@ const ProfileInfo = () => {
                   }}
                 >
                   <Text style={tw`ml-6  text-black`}>
+                    {ProfileData.email}
                   </Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Personal email
@@ -367,9 +347,9 @@ const ProfileInfo = () => {
 
       </ScrollView>
     </SafeAreaView>
-  );
-};
-export default ProfileInfo
+      );
+    };
+    export default ProfileInfo
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
@@ -379,7 +359,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     opacity: 0.8,
     marginTop: 25,
-
+    
   },
   container: {
     flexDirection: "row",
