@@ -1,32 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Avatar } from "react-native-paper";
-import {
- View,
-  StyleSheet,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  SafeAreaView,Text
-} from "react-native";
+import { View, StyleSheet, ScrollView, Image, TouchableOpacity, SafeAreaView,Text} from "react-native";
 import axios from "axios";
 import tw from "tailwind-react-native-classnames";
-import { Profile } from "./interface";
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwtDecode from 'jwt-decode';
 
 const ProfileInfo = () => {
-  const [ProfileData, setProfileData] = useState<Profile[]>([]);
+  const [ProfileData, setProfileData] = useState<any>([]);
  
   const navigation = useNavigation()
   useEffect(() => {
-    AsyncStorage.getItem('key').then(res =>{
-    
+    AsyncStorage.getItem('key').then((res:any)=>{ 
       let id = jwtDecode(res)
-      axios.get(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
+      axios.get(`https://fithub-tn-app.herokuapp.com/users/${res.user_id}`, {
       }).then((res) =>
-   {   setProfileData(res.data)
-    console.log(res.data)}
+      setProfileData(res.data) 
       )
         .catch((err) => console.log(err)
         )
