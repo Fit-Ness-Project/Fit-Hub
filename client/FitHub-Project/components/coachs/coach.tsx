@@ -50,7 +50,7 @@ const Coach: React.FC<{
       </View>
       <View style={tw`flex-row p-2`}> 
       <Image style={tw`w-4 h-4`} source = {require("../../assets/Icons/profit.png")}/>
-      <Text style={tw`pl-2 text-base`}>{params.price} <Text style = {{fontSize:9,fontWeight:"500",}}>TND</Text></Text>
+      <Text style={tw`pl-2 text-base`}>50 <Text style = {{fontSize:9,fontWeight:"500",}}>TND</Text></Text>
       </View>
       <View style={tw`flex-row p-2`}> 
       <Image style={tw`w-4 h-4`} source = {require("../../assets/Icons/map-pin.png")}/>

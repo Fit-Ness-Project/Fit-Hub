@@ -11,13 +11,11 @@ export default function Information({}: RootTabScreenProps<'Home'>) {
    const [selectedValue, setSelectedValue] = useState("male");
    const navigation = useNavigation();
   
-//console the age the heaigth the weight and evry other thing so I can see if there value is being taking and then change the nake of the value.
-//to some thing else deferent so that the name and the valur are not the same.
    function handelSubmit () {
         AsyncStorage.getItem('key').then((res:any) =>{
          let id = jwtDecode(res)
       })  .then(res =>{
-         axios.patch(`https://fithub-tn-app.herokuapp.com/users${id.user_id}`,{
+         axios.patch(`https://fithub-tn-app.herokuapp.com/users${res.user_id}`,{
             age : ages,
             weight:weights,
             height:heights

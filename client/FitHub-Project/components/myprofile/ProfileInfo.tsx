@@ -14,7 +14,7 @@ const ProfileInfo = () => {
   useEffect(() => {
     AsyncStorage.getItem('key').then((res:any)=>{ 
       let id = jwtDecode(res)
-      axios.get(`https://fithub-tn-app.herokuapp.com/users/${res.user_id}`, {
+      axios.get(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
       }).then((res) =>
       setProfileData(res.data) 
       )
