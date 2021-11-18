@@ -45,8 +45,8 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
   //         .min(8, ({ min }) => `Password must be at least ${min} characters`)
   //         .required('Password is required')
   //         .label('Password'),
-          
-          
+
+
   // });
 
 
@@ -67,7 +67,8 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
         if (type === "success") {
           const { user: { email, name, photoUrl } } = result;
           handleMessage("Google sign in successful", "SUCCESS");
-          console.log(result.user)
+          console.log("user", result.user)
+
           navigation.navigate("Home")
 
 
@@ -90,54 +91,42 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
     setMessageType(type);
   }
 
-
-  const handleLogin = (credentials: { email: string; password: string; }) => {
+  const handleLogin = (credentials: { email: string; password: string; }, setSubmitting: (isSubmitting: boolean) => void) => {
     console.log("credentials", credentials)
-
-    axios.post('http://192.168.11.104:5000/customer/login', credentials)
-      .then((res) => {
-        console.log("token", res.data.Token)
-        const result = res.data
+    axios.post('http://localhost:5000/customer/login', credentials)
+      .then((response) => {
+        console.log("anything")
+        console.log("token", response.data.Token)
+        const result = response.data
         const { message, status, data } = result
-        if (status === "SUCCESS") {
-          AsyncStorage.setItem('Token', res.data.Token)
-          navigation.navigate('Home', { ...data[0] })
-        } else {
-          handleMessage(message, status)
-          console.log("Something went wrong !")
-        }
+
 
 
       }).catch(
         err => {
+
           console.log(err),
             handleMessage("Try Again")
         })
   }
 
-
-
-
   return (
     <Formik
       initialValues={{ email: '', password: "" }}
       // validationSchema={validationSchema}
-
       onSubmit={(values, { setSubmitting }) => {
         console.log("values:", values);
-
         if (values.email == '' || values.password == '') {
 
           handleMessage("Please fill all the fields")
           setSubmitting(false)
 
         } else {
-          handleLogin(values)
-          setSubmitting(true)
+          handleLogin(values, setSubmitting)
+
           navigation.navigate('Home')
         }
       }}
-
     >
 
       {({ handleChange, handleBlur, handleSubmit, isSubmitting, values, errors, touched }) => (
@@ -155,10 +144,11 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                 onBlur={handleBlur('email')}
                 value={values.email}
                 style={tw` h-10 bg-white p-2`}
-                placeholder="E-mail@mail.com"
+                placeholder="e-mail@mail.com"
                 autoCompleteType="email"
                 keyboardType="email-address"
               />
+
               {errors.email && touched.email && (
                 <Text style={{ color: 'red' }}>{errors.email}</Text>
               )}
@@ -170,6 +160,8 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                 onBlur={handleBlur('password')}
                 value={values.password}
               />
+
+
               {errors.password && touched.password && (
                 <Text style={{ color: 'red' }}>{errors.password}</Text>
               )}
@@ -190,25 +182,32 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
                   disabled={true}
                   style={Styles.button}
                 >
+
                   <ActivityIndicator size="large" color="white" />
                 </TouchableOpacity>
               }
+
             </View>
+
             <Text style={tw`text-white mt-8 mb-8`}>Or</Text>
-            
+
             <Text onPress={handleGoogleSignIn}
-              style={{ color: "black", fontWeight: "500", backgroundColor: "white", width: "80%", height: "8%", paddingLeft: 130, paddingTop: 5 }}
+              style={{ color: "black", fontWeight: "500", backgroundColor: "white", width: "78%", height: "8%", paddingLeft: 100, paddingTop: 5 }}
             >
+           
               <Image
-                style={{ height: 20, width: 60 }}
+                style={{ height: 20, width: 60, alignItems: "center" }}
                 source={require("../../assets/images/ggl.png")}
               />
+
             </Text>
+
             <View style={tw`h-10 mt-6 items-center`}>
               <Text style={tw`text-white  pl-6 pt-4`}>
                 Don't have an account ? <Text onPress={() => navigation.navigate("register")} style={{ color: '#36e08b', textDecorationLine: 'underline', }}>Register</Text>
               </Text>
             </View>
+
           </View>
         </ImageBackground>
       )}
@@ -218,23 +217,26 @@ export default function Login({ }: RootTabScreenProps<'Home'>) {
 
 
 
-const Styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#e7ff19",
-    alignItems: "center",
-    opacity: .8,
-    height: 45
 
-  },
-  text: {
-    color: "black",
-    fontWeight: "bold",
-    fontSize: 20,
-    marginTop: "2%"
+const Styles = StyleSheet.create(
+  {
+    button: {
+      backgroundColor: "#e7ff19",
+      alignItems: "center",
+      opacity: .8,
+      height: 45
+
+    },
+
+    text: {
+      color: "black",
+      fontWeight: "bold",
+      fontSize: 20,
+      marginTop: "2%"
+
+    }
 
   }
-})
-
-
+)
 
 

@@ -1,19 +1,22 @@
+
 import React, { useState, useEffect } from "react";
 import { Avatar } from "react-native-paper";
-import { View, StyleSheet, ScrollView, Image, TouchableOpacity, SafeAreaView,Text} from "react-native";
+import { View, StyleSheet, ScrollView, Image, TouchableOpacity, SafeAreaView,Text, Platform} from "react-native";
 import axios from "axios";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwtDecode from 'jwt-decode';
+import * as ImagePicker from 'expo-image-picker';
 
 const ProfileInfo = () => {
+
   const [ProfileData, setProfileData] = useState<any>([]);
  
   const navigation = useNavigation()
   useEffect(() => {
     AsyncStorage.getItem('key').then((res:any)=>{ 
-      let id = jwtDecode(res)
+      let id:any = jwtDecode(res)
       axios.get(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
       }).then((res) =>
       setProfileData(res.data) 
@@ -25,6 +28,37 @@ const ProfileInfo = () => {
 
 },[])
 
+
+const [image, setImage] = useState(null);
+  useEffect(() => {
+    (async () => {
+      if (Platform.OS !== 'web') {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+          alert('Sorry, we need camera roll permissions to make this work!');
+        }
+      }
+    })();
+  }, []);
+
+
+  const pickImage = async () => {
+    let result: any = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+
+
+  
 const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
   <View
     style={{
@@ -149,44 +183,40 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
       <ScrollView>
         <View style={tw` h-full w-full bg-white  items-center`}>
 
-          <View
+        <View
             style={{
-              width: "100%",
-              alignItems: "center",
-              height: 310,
-              backgroundColor: "black",
-            }}
-          >
-            <TouchableOpacity>
-              <Avatar.Image
-                size={150}
-                style={{
-                  marginTop: 60,
-                  borderColor: "#36E08B",
-                  borderWidth: 1,
-                }}
-                source={require("../../assets/Icons/profile.jpg")}
-              ></Avatar.Image>
-            </TouchableOpacity>
-            <View style={tw`mt-4 bg-transparent  flex-row`}>
-              <Text style={tw`text-white text-base font-bold `}>
-                {ProfileData.first_name}
-              </Text>
-            </View>
-            <View style={tw`mt-4 bg-transparent flex-row`}>
-               <Image
-                style={tw`w-4 h-4`}
-                source={require("../../assets/Icons/pin.png")}
-              />
-            </View>
-          </View>
-          <View
-            style={{
+              height: 700,
               backgroundColor: "transparent",
               alignItems: "center",
               width: "100%",
             }}
           >
+            <View
+              style={{
+                width: "100%",
+                alignItems: "center",
+                height: 250,
+                backgroundColor: "black",
+              }}
+            >
+              <View style={tw` h-16 w-44 absolute z-20 mt-36 bg-black opacity-50 `}></View>
+              <TouchableOpacity style={{ position: "absolute", zIndex: 50, paddingTop: 155 }} onPress={() => pickImage()} >
+                <Image
+                  style={tw`w-8 h-8`}
+                  source={require("../../assets/Icons/photo-camera.png")}
+                />
+              </TouchableOpacity>
+
+              <View style={tw`mt-4 bg-transparent  flex-row`}>
+                
+                {image === null && <Image source={require("../../assets/images/profile.png")} style={{ width: 180, height: 180, borderRadius: 90 }} ></Image>}
+                {image && <Image source={{ uri: image }} style={{ width: 180, height: 180, borderRadius: 90 }} ></Image>}
+              
+              </View>
+               <Text style={tw`text-white text-base font-bold mt-4 `}>
+               {ProfileData.first_name} {ProfileData.last_name} </Text>
+             
+            </View>
             <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
               <View
                 style={{
@@ -198,9 +228,11 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   flexDirection: "row",
                 }}
               >
+                
                 <Image
                   style={{ height: 25, width: 25 }}
                   source={require("../../assets/Icons/phone.png")}
+
                 ></Image>
                 <View
                   style={{
@@ -215,7 +247,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   </Text>
                 </View>
               </View>
-            
+
             </TouchableOpacity>
             <TouchableOpacity style={{ marginLeft: 30, alignItems: "center" }}>
               <View
@@ -248,17 +280,17 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                 </View>
               </View>
             </TouchableOpacity>
-            {verif  && (seemoreinfo[0])}
+            {verif && (seemoreinfo[0])}
             {verif && (seemoreinfo[1])}
-            {verif  && (seemoreinfo[2])}
-            {verif  && (seemoreinfo[3])}
+            {verif && (seemoreinfo[2])}
+            {verif && (seemoreinfo[3])}
             <View style={styles.container}>
-                <View style={styles.separatorOffset} />
-                <View style={styles.separator} />
-              </View>
+              <View style={styles.separatorOffset} />
+              <View style={styles.separator} />
+            </View>
             <View style={tw`bg-transparent mt-6`}>
               <TouchableOpacity>
-                <Text  onPress={()=>{if(verif=== false){setVerif(true);setSee("Show Less")} else{setVerif(false);setSee("See More")}}}  style= {tw`text-black underline`}>{see}</Text>
+                <Text onPress={() => { if (verif === false) { setVerif(true); setSee("Show Less") } else { setVerif(false); setSee("See More") } }} style={tw`text-black underline`}>{see}</Text>
               </TouchableOpacity>
             </View>
             <View
@@ -268,7 +300,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                 flexDirection: "row",
               }}
             >
-              <TouchableOpacity style={styles.button} onPress = {()=>navigation.navigate("EditProfile")}>
+              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("EditProfile")}>
                 <View
                   style={{
                     alignItems: "center",
@@ -283,7 +315,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   <Text style={tw`pt-3 pl-2 text-white font-bold`} >Edit Profile</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.button, { marginLeft: 20 }]} onPress={()=>navigation.navigate("createEvent")}>
+              <TouchableOpacity style={[styles.button, { marginLeft: 20 }]} onPress={() => navigation.navigate("createEvent")}>
                 <View
                   style={{
                     alignItems: "center",
@@ -299,20 +331,20 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                 </View>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={()=>navigation.navigate("Root")} style={{marginRight:140} } >
-            <View style={{ width: "100%", backgroundColor: "white",marginLeft:50}}>
-              <View  style={[styles.button, { marginLeft: 90,flexDirection: "row" ,alignItems: "center",justifyContent: "center"}]}>
-              <Image
+            <TouchableOpacity onPress={() => navigation.navigate("Root")} style={{ marginRight: 140 }} >
+              <View style={{ width: "100%", backgroundColor: "white", marginLeft: 50 }}>
+                <View style={[styles.button, { marginLeft: 90, flexDirection: "row", alignItems: "center", justifyContent: "center" }]}>
+                  <Image
                     style={tw`  h-4 w-4`}
                     source={require("../../assets/Icons/logout.png")}
                   />
-            <Text style={tw` pl-2 text-white font-bold `}>LOG OUT</Text>
-            </View>
-            </View>
+                  <Text style={tw` pl-2 text-white font-bold `}>LOG OUT</Text>
+                </View>
+              </View>
             </TouchableOpacity>
           </View>
         </View>
-        
+
       </ScrollView>
     </SafeAreaView>
       );

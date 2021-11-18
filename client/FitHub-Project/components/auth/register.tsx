@@ -20,6 +20,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+
 export default function Register() {
 
   // useKeepAwake();
@@ -48,6 +49,7 @@ export default function Register() {
   //     .label("Password"),
   // });
 
+
   function handelSubmit() {
     axios
       //putt back the deploied link after changing the server funvtion to the server side 
@@ -58,6 +60,7 @@ export default function Register() {
         password: password,
         email: email,
       })
+
       .then((res) => {
         AsyncStorage.setItem('key', res.data.Token)
       }
@@ -65,6 +68,8 @@ export default function Register() {
       )
       .catch((err) => console.log(err));
   }
+
+
   const navigation = useNavigation();
   let [first_name, setfirstName] = useState("");
   let [last_name, setlastName] = useState("");
@@ -72,12 +77,14 @@ export default function Register() {
   let [password, setpassword] = useState("");
   let [email, setemail] = useState("");
 
+
   return (
     <View style={tw`w-full h-full `}>
       <ImageBackground
         style={tw`w-full h-full`}
         source={require("../../assets/images/back.jpg")}
       >
+
         {/* <ImageBackground source={require('../assets/back.jpg')} /> */}
         <View style={tw`bg-black bg-opacity-60 h-4/5 pt-20`}>
           <View style={tw` h-16  w-4/5 ml-8`}>
@@ -87,11 +94,13 @@ export default function Register() {
             />
           </View>
 
+
           <View style={tw` items-center `}>
             <Text style={tw`pt-8  text-white font-bold text-2xl`}>
               Create an account{" "}
             </Text>
           </View>
+
 
           <View style={tw` mt-8 w-4/5 ml-8   `}>
             <TextInput
@@ -112,6 +121,7 @@ export default function Register() {
             {/* {errors.last && touched.last && (
                                     <Text style={{ color: 'red' }}>{errors.last}</Text>
                                 )} */}
+
 
             <TextInput
               style={tw`mt-4  h-10 bg-white p-2 `}
@@ -158,6 +168,7 @@ export default function Register() {
     </View>
   );
 }
+
 
 const Styles = StyleSheet.create({
   button: {
