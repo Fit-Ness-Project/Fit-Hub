@@ -16,13 +16,11 @@ import tw from "tailwind-react-native-classnames";
 import { AirbnbRating } from "react-native-ratings";
 import Footer from "../Footer/Footer";
 
-
-
-
 const screenWidth = Dimensions.get('screen').width;
 export default function Food() {
   const navigation = useNavigation()
   const [FoodData, setFoodData] = useState<FoodR[]>([]);
+
   useEffect(() => {
     axios
       .get("https://fithub-tn-app.herokuapp.com/recipes")
@@ -33,6 +31,7 @@ export default function Food() {
         console.log(Error);
       });
   }, []);
+
 
   return (
   
@@ -57,8 +56,14 @@ export default function Food() {
                   </View>
                 </View>
               </View>
-
               <View style={{ height: 50, width: "50%",alignItems:"center", flexDirection: "row", backgroundColor: "transparent", marginTop: 16, marginLeft: 28 }}>
+              <AirbnbRating
+                count={5}
+                reviews={["1", "2", "3", "4", "5"]}
+                defaultRating={100 / 2}
+                size={12}
+                showRating={false}
+              />
                 {/* <Image style={tw`w-4 h-4 ml-3`} source={require("../../assets/Icons/coins.png")}/> */}
                 {/* <Text style={tw`pl-2`}>{e.price}TND</Text> */}
               </View>

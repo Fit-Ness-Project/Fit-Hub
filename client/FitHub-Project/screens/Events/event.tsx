@@ -12,6 +12,7 @@ import axios from 'axios'
 import Footer from "../../screens/Footer/Footer";
 import tw from "tailwind-react-native-classnames"
 
+
 const event: React.FC<{
     route: RouteProp<
         {
@@ -48,6 +49,7 @@ const event: React.FC<{
             { text: "OK", onPress: () => Alert.alert("Join request accepted") },
         ]);
 
+
     return (
         <View style={[{ height: "100%" }, tw`bg-gray-100`]}>
             <ScrollView>
@@ -75,6 +77,8 @@ const event: React.FC<{
                                 {params.description}
                             </Text>
                         </View>
+                        
+     
                         <TouchableOpacity onPress={createTwoButtonAlert} style={{ alignItems: "center", backgroundColor: "#E7FF19", height: 40, width: 110, marginLeft: 200, margin: 6 }}>
                             <Text style={tw` mt-1.5 font-bold text-lg `}>JOIN</Text>
                         </TouchableOpacity>
