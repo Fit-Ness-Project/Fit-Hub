@@ -10,30 +10,32 @@ import jwtDecode from 'jwt-decode';
 export default function Information({}: RootTabScreenProps<'Home'>) {
    const [selectedValue, setSelectedValue] = useState("male");
    const navigation = useNavigation();
-   let[userId,setUserId] = useState(null)
+  
 
-   useEffect(()=>{
-      AsyncStorage.getItem('key').then(res =>{
-         const token = res
-         let id = jwtDecode(token)
-         setUserId(id.uder_id)
-      })
-   },[])
+   // function handelSubmit () {
+   //    let id = jwtDecode(res)
 
-   function handelSubmit () {
-      axios.patch(`https://fithub-tn-app.herokuapp.com/users${userId}`,{
-        age:age,
-        weight:weight,
-        height:height
-      }).then((res)=>{
-         AsyncStorage.setItem('key',res.data.Token)
-         navigation.navigate('Home')
-      })
-      .catch((err)=>console.log(err))
-   }
+   //    axios.patch(`https://fithub-tn-app.herokuapp.com/users${id.user_id}`,{
+   //      age:age,
+   //      weight:weight,
+   //      height:height,
+   //      bmi:bmis
+
+   //    }).then((res)=>{
+   //       AsyncStorage.setItem('key',res.data.Token)
+   //       navigation.navigate('Home')
+   //    })
+   //    .catch((err)=>console.log(err))
+   // }
    let [weight, setweight] = useState("0");
    let [height, setheight] = useState("0");
    let [age, setage] = useState("0");
+   // let [bmis, setbmi] = useState(0);
+
+ 
+  
+   
+   
   return (
     <View style = {styles.container}> 
     <Text style={styles.title}>Add You Information for us to help You</Text>
@@ -76,7 +78,7 @@ export default function Information({}: RootTabScreenProps<'Home'>) {
        
     
     <TouchableOpacity
-     onPress={() => navigation.navigate("Home")}
+     onPress={() =>{navigation.navigate("Home")}}
        style = {styles.submitButton}
        >
        <Text style = {styles.submitButtonText}> Next </Text>

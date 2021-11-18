@@ -17,21 +17,21 @@ import jwtDecode from 'jwt-decode';
 
 const ProfileInfo = () => {
   const [ProfileData, setProfileData] = useState<Profile[]>([]);
-  let[userId,setUserId] = useState(null);
+ 
   const navigation = useNavigation()
-  console.log(setProfileData)
   useEffect(() => {
     AsyncStorage.getItem('key').then(res =>{
-      const token = res
-      let id = jwtDecode(token)
-      setUserId(id.user_id)
-    })
-    axios.get(`https://fithub-tn-app.herokuapp.com/users/${userId}`, {
-    }).then((res) =>
-      setProfileData(res.data)
-    )
-      .catch((err) => console.log(err)
+    
+      let id = jwtDecode(res)
+      axios.get(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
+      }).then((res) =>
+   {   setProfileData(res.data)
+    console.log(res.data)}
       )
+        .catch((err) => console.log(err)
+        )
+    })
+ 
 
 },[])
 
@@ -58,7 +58,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
       }}
     >
 
-      <Text style={tw` ml-6  text-black`}></Text>
+      <Text style={tw` ml-6  text-black`}>{ProfileData.bmi}</Text>
       <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
         BMI
       </Text>
@@ -87,7 +87,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}></Text>
+                  <Text style={tw` ml-6  text-black`}>{ProfileData.weight}</Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Weight
                   </Text>
@@ -116,7 +116,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   width: "100%",
                 }}
               >
-                <Text style={tw` ml-6  text-black`}>  </Text>
+                <Text style={tw` ml-6  text-black`}>{ProfileData.height}</Text>
                 <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                   Height
                 </Text>
@@ -145,9 +145,9 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                 width: "100%",
               }}
             >
-              <Text style={tw` ml-6  text-black`}></Text>
+              <Text style={tw` ml-6  text-black`}>{ProfileData.age}</Text>
               <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
-               Age{ProfileData[0]}
+               Age
               </Text>
             </View>
           </View>
@@ -180,8 +180,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
             </TouchableOpacity>
             <View style={tw`mt-4 bg-transparent  flex-row`}>
               <Text style={tw`text-white text-base font-bold `}>
-                {" "}
-              USERNAME{" "}
+                {ProfileData.first_name}
               </Text>
             </View>
             <View style={tw`mt-4 bg-transparent flex-row`}>
@@ -220,7 +219,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                     width: "100%",
                   }}
                 >
-                  <Text style={tw` ml-6  text-black`}></Text>
+                  <Text style={tw` ml-6  text-black`}>{ProfileData.phone_number}</Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Mobile
                   </Text>
@@ -251,6 +250,7 @@ const seemoreinfo = [<TouchableOpacity style={{ marginLeft: 30, alignItems: "cen
                   }}
                 >
                   <Text style={tw`ml-6  text-black`}>
+                    {ProfileData.email}
                   </Text>
                   <Text style={tw` ml-7 mt-1 text-xs  text-gray-500`}>
                     Personal email
