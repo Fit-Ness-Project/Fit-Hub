@@ -5,40 +5,29 @@ import tw from 'tailwind-react-native-classnames';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwtDecode from 'jwt-decode';
 const EditProfile = () => {
-    
-      let [phone_number, setmobilePhone] = useState('')
-      let [email, setemail] = useState('')
-      let [Password,setPassword] = useState('')
-      // let [weight,setweight]=useState('')
-     let[userId,setUserId] = useState(null)
-
-     useEffect(()=>{
+  
+     function handelSubmit() {
+      let id:{user_id : number}
       
-      AsyncStorage.getItem('key').then((res:any)=>{
-        const token = res
-       let id = jwtDecode(token)
-     
-       setUserId(res.user_id)
-
+      AsyncStorage.getItem('key').then((res: any) => {
+          id = jwtDecode(res)
+      }).then(res => {
+         axios.patch(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
+            weight: weight,
+            height: height,
+            password:Password,
+            phone_number:phone_number
+         })
+            .catch((err) => console.log({err}))
       })
+   }
 
-     },[])
+      let [weight,setweight]=useState('0')
+      let [height,setheight]=useState('0')
+      let [Password,setPassword]=useState('')
+      let [phone_number,setphone_number]=useState('0')
+      let [first_name,setfirst_name] = useState('')
 
-     function handelSubmit () {
-       // putt back the deploid link 
-      axios.patch(`https://fithub-tn-app.herokuapp.com/users${userId}`,{
-        phone_number:phone_number,
-        email: email,
-        password:Password,
-        weight:weight,
-        height:height
-      }).then((res)=>
-      console.log(res.data))
-      .catch((err)=>console.log(err))
-      }
-
-      let [weight,setweight]=useState('')
-      let [height,setheight]=useState('')
     return (
       <View style={tw`bg-gray-100 p-5 h-full`}>
         <View style={tw`bg-white h-5/6  w-80`} >
@@ -70,11 +59,11 @@ const EditProfile = () => {
         />
          </View>
          <View style={tw`m-2 w-72`}>
-        <Text style={tw`font-bold text-black`}>Email</Text>
+        <Text style={tw`font-bold text-black`}>first name</Text>
         <TextInput
           style={styles.input}
-          value={email}
-          onChangeText={setemail}
+          value={first_name}
+          onChangeText={setfirst_name}
         />
           </View>
           <View style={tw`m-2 w-72`}>
@@ -82,7 +71,7 @@ const EditProfile = () => {
         <TextInput
           style={styles.input}
           value={phone_number}
-          onChangeText={setmobilePhone}
+          onChangeText={setphone_number}
         />
         </View>
         <View style={tw`m-6`}>
