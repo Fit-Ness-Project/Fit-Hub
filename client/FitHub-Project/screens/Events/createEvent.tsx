@@ -36,10 +36,10 @@ export const createEvent = () => {
   let [imageurl,setimageurl]=useState('')
   return (
     <View style={tw`bg-gray-100 p-5 h-full`}>
-    <View style={tw`bg-white h-5/6  w-80`} >
+    <View style={tw`bg-white h-full w-full `} >
     <View style={tw` mt-10  items-center`}>
  
-      <View style={tw`m-2 w-72 `}>
+      <View style={tw`m-4 w-72 `}>
       <Text style={tw`font-bold text-black`}>Event Name</Text>
     <TextInput
       style={styles.input}
@@ -47,7 +47,7 @@ export const createEvent = () => {
       onChangeText={setEventName}
     />
      </View>
-     <View style={tw`m-2 w-72`}>
+     <View style={tw`m-4 w-72`}>
     <Text style={tw`font-bold text-black`}>Description</Text>
     <TextInput
       style={styles.input}
@@ -55,7 +55,7 @@ export const createEvent = () => {
       onChangeText={setDescription}
     />
      </View>
-     <View style={tw`m-2 w-72`}>
+     <View style={tw`m-4 w-72`}>
     <Text style={tw`font-bold text-black`}>Date</Text>
     <TextInput
       style={styles.input}
@@ -63,7 +63,7 @@ export const createEvent = () => {
       onChangeText={setDate}
     />
       </View>
-      <View style={tw`m-2 w-72`}>
+      <View style={tw`m-4 w-72`}>
      <Text style={tw`font-bold text-black`}>Username</Text>
     <TextInput
       style={styles.input}
