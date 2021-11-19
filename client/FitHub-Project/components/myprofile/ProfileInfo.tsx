@@ -30,8 +30,9 @@ const ProfileInfo = () => {
 
 
 const [image, setImage] = useState(null);
-  useEffect(() => {
-    (async () => {
+useEffect(() => {
+  (async () => {
+      console.log(image)
       if (Platform.OS !== 'web') {
         const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
         if (status !== 'granted') {
