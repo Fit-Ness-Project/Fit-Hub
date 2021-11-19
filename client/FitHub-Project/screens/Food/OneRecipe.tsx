@@ -12,9 +12,9 @@ const Food: React.FC<{
   route: RouteProp<
     {
       params: {
-        recipeTitle:string;
+        recipeTitle: string;
         created_at: string;
-        content: string ;
+        content: string;
         likes: number;
         imageUrl: string;
         kcal: number;
@@ -25,7 +25,7 @@ const Food: React.FC<{
         fibre: number;
         protein: number;
         salt: number;
-        ingredients:string;
+        ingredients: string;
         methodes: string;
       };
     },
@@ -42,13 +42,14 @@ const Food: React.FC<{
               height: "100%",
               backgroundColor: "white",
               alignItems: "center",
+              marginBottom: 60,
               borderBottomLeftRadius: 20,
               borderBottomRightRadius: 20,
             }}
           >
             <ImageBackground
               style={{ width: "100%", height: 400 }}
-              source={{uri:params.imageUrl}}
+              source={{ uri: params.imageUrl }}
             ></ImageBackground>
             <View style={tw`mt-4`}>
               <Text style={tw`text-xl font-bold `}>
@@ -311,12 +312,13 @@ const Food: React.FC<{
             </View>
             <View style={tw`ml-6 mr-6 mt-3`}>
               <Text style={tw`font-bold`}>Ingredients:</Text>
-          { params.ingredients.split("*").map((e,k)=>{
-            return(
-              <Text key = {k} style={tw`text-base mt-1`}>
-             {e}
-            </Text>
-          )})}
+              {params.ingredients.split("*").map((e, k) => {
+                return (
+                  <Text key={k} style={tw`text-base mt-1`}>
+                    {e}
+                  </Text>
+                )
+              })}
             </View>
             <View style={tw`ml-6 mr-6 mt-3`}>
               <Text style={tw`font-bold`}>Methods:</Text>
