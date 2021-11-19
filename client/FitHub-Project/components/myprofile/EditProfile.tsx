@@ -78,7 +78,7 @@ const EditProfile = () => {
         />
           </View>
           <View style={tw`m-2 w-72`}>
-         <Text style={tw`font-bold text-black`}>MobilePhone</Text>
+         <Text style={tw`font-bold text-black`}>Phone Number</Text>
         <TextInput
           style={styles.input}
           value={phone_number}

@@ -46,9 +46,11 @@ const Healthy: React.FC<{
                 source={{uri:params.img_Url}}
               ></ImageBackground>
               <View style={tw`mt-4`}>
+              <Text style={tw`text-2xl font-bold `}>Chez {params.rest_name}</Text>
                 <Text style={tw`text-xl font-bold `}>
-                  {params.food_name}
+                  -{params.food_name}
                 </Text>
+               
               </View>
       
      

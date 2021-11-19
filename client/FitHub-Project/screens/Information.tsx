@@ -31,6 +31,7 @@ export default function Information({ }: RootTabScreenProps<'Home'>) {
    let [ages, setage] = useState("");
    // let [bmis, setbmi] = useState(0);
 
+   
 
    return (
       <View style={styles.container}>
