@@ -4,7 +4,9 @@ import axios from 'axios';
 import tw from 'tailwind-react-native-classnames';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwtDecode from 'jwt-decode';
-const EditProfile = () => {
+import { useNavigation } from '@react-navigation/core';
+const EditProfile = () => { 
+    var navigation = useNavigation()
   
      function handelSubmit() {
       let id:{user_id : number}
@@ -17,6 +19,8 @@ const EditProfile = () => {
             height: height,
             password:Password,
             phone_number:phone_number
+         }).then(_ =>{
+          navigation.navigate('Home');
          })
             .catch((err) => console.log({err}))
       })
