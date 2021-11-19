@@ -1,11 +1,11 @@
 
-import { NavigationContainer, DefaultTheme, DarkTheme} from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme, DarkTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName } from "react-native";
 import Gym from "../components/Gyms/Gym"
 import NotFoundScreen from "../screens/NotFoundScreen";
-import { RootStackParamList} from "../types";
+import { RootStackParamList } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import ChangeView from "../screens/HomePage/getData/HomeVue/HomeVue";
 import Coachs from "../components/coachs/allCoachs";
@@ -28,6 +28,7 @@ import EditProfile from "../components/myprofile/EditProfile";
 import ProfileInfo from "../components/myprofile/ProfileInfo";
 import Gyms from "../components/Gyms/Gyms"
 import event from "../screens/Events/event";
+import Community from "../screens/HomePage/getData/community/communuty";
 
 
 export default function Navigation({
@@ -72,8 +73,8 @@ function RootNavigator({ }) {
       <Stack.Screen name="coach" component={Coach} />
       <Stack.Screen name="Gym" component={Gym} />
       <Stack.Screen name="bmi" component={Information} />
-      <Stack.Screen name="login" component={Login} />
-      <Stack.Screen name="signUp" component={signUp} />
+      <Stack.Screen options={{ headerShown: false }} name="login" component={Login} />
+      <Stack.Screen options={{ headerShown: false }} name="signUp" component={signUp} />
       <Stack.Screen name="createEvent" component={createEvent} />
       <Stack.Screen name="blog" component={blog} />
       <Stack.Screen name="register" component={Register} />

@@ -1,18 +1,41 @@
 import * as React from "react";
 
 import tw from "tailwind-react-native-classnames";
-import { View,TextInput} from "react-native";
+import { View, TextInput, Text } from "react-native";
 
 export default function Community() {
+  const [addPost, setAddPost] = React.useState('')
+  const [post, setPost] = React.useState([])
+ 
+
   return (
-    <View style={tw`bg-gray-400`}>
-      <View style={tw`h-24 bg-white`}>
-        <TextInput
-          style={tw`border-2 border-gray-400 rounded-2xl w-2/3 ml-20 mt-5 h-10`}
-        />
+    <View style={tw`bg-gray-500 `}>
+      <View style={tw`bg-gray-500 mt-14 `}  >
+        <View style={{
+          alignItems: "center",
+          backgroundColor: "red",
+          flexDirection: "row",
+        }}>
+          <TextInput
+            style={tw`border border-gray-900 bg-white  w-2/3 ml-16 mt-5 h-10`}
+            placeholder=" Write your post here ..."
+            value={addPost}
+            onChangeText={setAddPost}
+          />
+          <Text
+            onPress={() => console.log(addPost)}
+            style={tw`pt-3 pl-2 text-white font-bold`}>Post</Text>
+        </View>
+
       </View>
-      <View style={tw`h-80 mt-1 bg-white`}></View>
-      <View style={tw`h-80 mt-1 bg-white`}></View>
+      <View style={tw`bg-gray-200 h-3/5`}>
+    <Text> {addPost}  </Text>
+      </View>
     </View>
   );
 }
+
+
+
+
+
