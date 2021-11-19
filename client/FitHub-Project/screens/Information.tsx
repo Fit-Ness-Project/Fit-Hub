@@ -28,9 +28,14 @@ export default function Information({ }: RootTabScreenProps<'Home'>) {
             .catch((err) => console.log({err}))
       })
    }
+   
    let [weights, setweight] = useState("");
    let [heights, setheight] = useState("");
    let [ages, setage] = useState("");
+   
+   
+
+
    // let [bmis, setbmi] = useState(0);
 
 

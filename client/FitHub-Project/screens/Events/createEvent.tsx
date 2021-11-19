@@ -5,35 +5,25 @@ import { TouchableOpacity, TextInput, Text, View, Button,StyleSheet} from "react
 import tw from "tailwind-react-native-classnames";
 import axios from "axios";
 
-
 export const createEvent = () => {
   function handelSubmit ()  {
     axios.post('https://fithub-tn-app.herokuapp.com/events',{
-        eventName:EventName,
-        adress:Adress,
-        description:Description,
-        date:date,
-        created_by:user,
-        id:id,
-        user_id:user_id,
-        created_at:created_at,
-        created_by_id:created_by_id,
-        imageurl:imageurl
+    eventName: EventName,
+    adress : Adress,
+    description:Description,
+    date : date,
+    max_number:max_number
+        
       }
       ).then((res)=>
       console.log(res.data))
       .catch((err)=>console.log(err))
     }
-  let [id, setid] = useState(0)
   let [EventName, setEventName] = useState('')
-  let [user_id, setuser_id] = useState(0)
+  let [max_number, setmax_number] = useState('0')
   let [Adress, setAdress] = useState('')
   let [Description, setDescription] = useState('')
   let [date, setDate] = useState('')
-  let [user, setuser] = useState('')
-  let [created_at,setcreated_at] = useState('')
-  let [created_by_id,setcreated_by_id]= useState(0)
-  let [imageurl,setimageurl]=useState('')
   return (
     <View style={tw`bg-gray-100 p-5 h-full`}>
     <View style={tw`bg-white h-5/6  w-80`} >
@@ -67,8 +57,8 @@ export const createEvent = () => {
      <Text style={tw`font-bold text-black`}>Username</Text>
     <TextInput
       style={styles.input}
-      value={user}
-      onChangeText={setuser}
+      value={max_number}
+      onChangeText={setmax_number}
     />
     </View>
     <View style={tw`m-6`}>
