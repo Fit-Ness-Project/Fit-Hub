@@ -4,23 +4,29 @@ import axios from 'axios';
 import tw from 'tailwind-react-native-classnames';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwtDecode from 'jwt-decode';
-const EditProfile = () => {
-
-  function handelSubmit() {
-    let id: { user_id: number }
-
-    AsyncStorage.getItem('key').then((res: any) => {
-      id = jwtDecode(res)
-    }).then(res => {
-      axios.patch(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
-        weight: weight,
-        height: height,
-        password: Password,
-        phone_number: phone_number
+import { useNavigation } from '@react-navigation/core';
+const EditProfile = () => { 
+    var navigation = useNavigation()
+  
+     function handelSubmit() {
+      let id:{user_id : number}
+      
+      AsyncStorage.getItem('key').then((res: any) => {
+          id = jwtDecode(res)
+      }).then(res => {
+         axios.patch(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
+            weight: weight,
+            height: height,
+            password:Password,
+            phone_number:phone_number
+         }).then(_ =>{
+          navigation.navigate('Home');
+         })
+            .catch((err) => console.log({err}))
       })
         .catch((err) => console.log({ err }))
-    })
-  }
+    }
+  
 
   let [weight, setweight] = useState('0')
   let [height, setheight] = useState('0')

@@ -51,8 +51,6 @@ const ProfileInfo = () => {
       quality: 1,
     });
 
-    console.log(result);
-
     if (!result.cancelled) {
       setImage(result.uri);
     }
