@@ -12,10 +12,12 @@ export default function Information({ }: RootTabScreenProps<'Home'>) {
    const navigation = useNavigation();
 
    function handelSubmit() {
+      let id:{user_id : number}
+      
       AsyncStorage.getItem('key').then((res: any) => {
-         let id = jwtDecode(res)
+          id = jwtDecode(res)
       }).then(res => {
-         axios.patch(`https://fithub-tn-app.herokuapp.com/users${res.user_id}`, {
+         axios.patch(`https://fithub-tn-app.herokuapp.com/users/${id.user_id}`, {
             age: ages,
             weight: weights,
             height: heights
@@ -23,7 +25,7 @@ export default function Information({ }: RootTabScreenProps<'Home'>) {
          }).then((res) => {
             navigation.navigate('Home')
          })
-            .catch((err) => console.log(err))
+            .catch((err) => console.log({err}))
       })
    }
    let [weights, setweight] = useState("");
@@ -74,7 +76,7 @@ export default function Information({ }: RootTabScreenProps<'Home'>) {
 
 
          <TouchableOpacity
-            onPress={() => { handelSubmit(), navigation.navigate("Home") }}
+            onPress={() => {handelSubmit(), navigation.navigate("Home") }}
             style={styles.submitButton}
          >
             <Text style={styles.submitButtonText}> Next </Text>
